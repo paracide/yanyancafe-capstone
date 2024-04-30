@@ -132,6 +132,9 @@ nav:hover .second-menu {
   opacity: 1;
   display: block;
 }
+nav .current {
+  color: deepskyblue;
+}
 
 main {
   display: grid;
