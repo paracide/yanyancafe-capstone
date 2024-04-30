@@ -32,24 +32,13 @@
         <img alt="yanyan cafe" height="" id="logo" src="images/logo.png">
       </header>
       <nav class="transition shadow">
-        <div class="transition">
-          <div class="menu-shape" id="menu-top"></div>
-        </div>
-        <a class="home-menu <?= $cssFileName == 'index' ? 'current' : '' ?>"
-           href="index.php"
-           title="Yanyan Cafe - Home">Home</a>
-        <a class="second-menu <?= $cssFileName == 'cats' ? 'current' : '' ?>""
-        href="cats.php"
-        title="Yanyan Cafe - Cats">Cats</a>
-        <a class="second-menu <?= $cssFileName == 'menu' ? 'current' : '' ?>""
-        href="menu.php"
-        title="Yanyan Cafe - Menu">Menu</a>
-        <a class="second-menu <?= $cssFileName == 'about' ? 'current' : '' ?>""
-        href="about.php"
-        title="Yanyan Cafe - About">About</a>
-        <a class="second-menu <?= $cssFileName == 'club' ? 'current' : '' ?>""
-        href="club.php"
-        title="Yanyan Cafe - Club">Club</a>
+        <div class="menu-shape" id="menu-top"></div>
+          <?php $links = ['index' => 'Home', 'cats' => 'Cats', 'menu' => 'Menu', 'about' => 'About', 'club' => 'Club']; ?>
+          <?php foreach ($links as $file => $text): ?>
+            <a class="<?= $file == 'index' ? 'home-menu' : 'second-menu' ?> <?= $cssFileName == $file ? 'current' : '' ?>"
+               href="<?= $file ?>.php"
+               title="Yanyan Cafe - <?= $text ?>"><?= $text ?></a>
+          <?php endforeach; ?>
       </nav>
       <main>
         <div class="intro">
