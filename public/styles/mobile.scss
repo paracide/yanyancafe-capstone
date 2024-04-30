@@ -1,0 +1,42 @@
+@media screen and (max-width: 767px) {
+
+  .wrapper {
+    background-image: url("../images/m-bg.jpg");
+  }
+
+  nav {
+    width: 100px;
+    grid-template-columns: 1fr;
+
+
+    .home-menu {
+      opacity: 0;
+      display: none;
+    }
+
+    &:hover {
+      height: 40vh;
+      width: 90vw;
+      border-radius: 10px;
+
+      .second-menu, .home-menu {
+        opacity: 1;
+        display: block;
+      }
+    }
+
+  }
+
+  footer {
+    text-align: center;
+    grid-template-columns: 1fr;
+
+    .contact-us {
+      text-align: center;
+    }
+
+    .copyright {
+      grid-row: 3/4;
+    }
+  }
+}

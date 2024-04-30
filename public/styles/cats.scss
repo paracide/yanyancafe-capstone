@@ -1,0 +1,195 @@
+h1 {
+  font-size: 10rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+.page-wrapper {
+  display: grid;
+  padding: 5vh 5vw;
+  height: 90vh;
+  width: 90vw;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  border-radius: 10px;
+  color: white;
+
+  * {
+    transition: all 0.3s ease-in-out;
+  }
+
+}
+
+.main-img {
+  grid-row: 1/3;
+  grid-column: 2/5;
+  transition: all 0.5s ease-in-out;
+  background-position: center;
+  border-radius: 10px;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.small-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#xiuxiu-page {
+  .page-wrapper {
+    background: linear-gradient(45deg, #9b724a, #c29f7b);
+  }
+
+  #xiuxiu1 {
+    background-image: url("../images/cats/xiuxiu1.jpg");
+  }
+}
+
+#xiuxiu2 {
+  &:hover ~ #xiuxiu1 {
+    background-image: url("../images/cats/xiuxiu2.jpg");
+  }
+}
+
+#xiuxiu3 {
+  &:hover ~ #xiuxiu1 {
+    background-image: url("../images/cats/xiuxiu3.jpg");
+  }
+}
+
+#xiuxiu4 {
+  &:hover ~ #xiuxiu1 {
+    background-image: url("../images/cats/xiuxiu4.jpg");
+  }
+}
+
+
+#huabi-page {
+  .page-wrapper {
+    color: black;
+    background: linear-gradient(45deg, #5d5d5c, #747072);
+  }
+
+  #huabi1 {
+    background-image: url("../images/cats/huabi1.jpg");
+
+  }
+}
+
+#huabi2 {
+  &:hover {
+    ~ #huabi1 {
+      background-image: url("../images/cats/huabi2.jpg");
+    }
+  }
+}
+
+#huabi3 {
+  &:hover ~ #huabi1 {
+    background-image: url("../images/cats/huabi3.jpg");
+  }
+}
+
+#huabi4 {
+  &:hover ~ #huabi1 {
+    background-image: url("../images/cats/huabi4.jpg");
+  }
+}
+
+#ml-page {
+  .page-wrapper {
+    color: white;
+    background: linear-gradient(45deg, #7d7870, #534235, #413b38);
+  }
+
+  #ml1 {
+    background-image: url("../images/cats/ml1.jpg");
+  }
+}
+
+#ml2 {
+  &:hover ~ #ml1 {
+    background-image: url("../images/cats/ml2.jpg");
+  }
+}
+
+#ml3 {
+  &:hover ~ #ml1 {
+    background-image: url("../images/cats/ml3.jpg");
+  }
+}
+
+#ml4 {
+  &:hover ~ #ml1 {
+    background-image: url("../images/cats/ml4.jpg");
+  }
+}
+
+#pipi-page {
+  .page-wrapper {
+    color: white;
+    background: linear-gradient(45deg, #000000, #535451, #000000);
+  }
+
+  #pipi1 {
+    background-image: url("../images/cats/pipi1.jpg");
+  }
+}
+
+#pipi2 {
+  &:hover ~ #pipi1 {
+    background-image: url("../images/cats/pipi2.jpg");
+  }
+}
+
+#pipi3 {
+  &:hover ~ #pipi1 {
+    background-image: url("../images/cats/pipi3.jpg");
+  }
+}
+
+#pipi4 {
+  &:hover ~ #pipi1 {
+    background-image: url("../images/cats/pipi4.jpg");
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /*smaller font size for title*/
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    grid-row: 1/2;
+    grid-column: 1/4;
+  }
+
+  .page-txt {
+    display: none;
+  }
+
+  .page-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 5fr 1fr 1fr;
+  }
+
+
+  .main-img {
+    grid-row: 2/3;
+    grid-column: 1/4;
+  }
+
+  p {
+    grid-row: 3/4;
+    grid-column: 1/4;
+  }
+
+}
