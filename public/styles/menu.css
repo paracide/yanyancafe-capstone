@@ -1,0 +1,115 @@
+h1 {
+  font-size: 10rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  text-shadow: none;
+}
+
+hr {
+  border: 1px solid black;
+}
+
+.menu-wrapper1 {
+  width: 90vw;
+  height: 90vh;
+  display: grid;
+  place-items: center;
+  padding: 3px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.menu-wrapper2 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 5fr;
+  place-items: center;
+  padding: 1rem;
+  grid-gap: 1rem;
+}
+.menu-wrapper2 a {
+  width: 100%;
+  text-decoration: none;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #fff;
+  vertical-align: center;
+}
+.menu-wrapper2 ul {
+  padding: 0;
+  margin: 0;
+}
+.menu-wrapper2 ul li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.button {
+  width: 150px;
+  height: 10vh;
+  border: none;
+}
+
+#coffee {
+  background-image: url("../images/menu/coffee.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#snack {
+  background-image: url("../images/menu/snack.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#beverage {
+  background-image: url("../images/menu/beverage.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.current-button {
+  border-color: white;
+  background-image: linear-gradient(to right, #DECBA4, #3E5151);
+}
+
+.current-button:hover {
+  background-position: right center;
+}
+
+@media screen and (max-width: 767px) {
+  /*smaller font size for title*/
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .menu-wrapper2 {
+    grid-template-rows: 2fr 5fr 5fr 5fr;
+    place-items: center;
+    text-align: center;
+  }
+  .menu-group {
+    grid-column: 1/4;
+  }
+  .button {
+    width: 23vw;
+    height: 8vh;
+    border: none;
+  }
+  .button a {
+    font-size: 1rem;
+  }
+}
+
+/*# sourceMappingURL=menu.css.map */

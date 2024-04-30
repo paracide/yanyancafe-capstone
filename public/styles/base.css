@@ -1,0 +1,230 @@
+.gradient-anime {
+  text-transform: uppercase;
+  background-image: linear-gradient(-225deg, #c6ffdd 0%, #fbd786 29%, #fffbd5 67%, #f7797d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  background-clip: text;
+  color: #fff;
+  animation: text-clip 4s linear infinite;
+}
+
+@keyframes text-clip {
+  to {
+    background-position: 200% center;
+  }
+}
+/*remove the interruption of margin*/
+* {
+  box-sizing: border-box;
+}
+
+/*when click the archer, scroll to the center*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Oswald, Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-family: Caveat, Oswald, Arial, Helvetica, sans-serif;
+}
+
+/*remove the interruption of default margin in heading*/
+h2, h3, h4, h5, p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.2s ease-in-out;
+  /*change the color*/
+}
+a:hover {
+  text-decoration: underline;
+  color: orangered;
+}
+
+header {
+  display: grid;
+  padding: 1rem 0 0 0;
+  place-items: center;
+  width: 100vw;
+  height: 40vh;
+}
+header #logo {
+  height: 10rem;
+}
+
+.intro {
+  width: 100vw;
+  height: 60vh;
+  padding: 5vh 5vw;
+  place-items: unset;
+  text-align: center;
+  color: white;
+}
+
+.wrapper {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/bg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+}
+
+/*navigation*/
+nav {
+  height: 45px;
+  width: 100px;
+  border-radius: 10px;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  padding: 10px;
+  place-items: center;
+  /*fixed in the bottom on the all the elements*/
+  position: fixed;
+  bottom: 1.8rem;
+  z-index: 100;
+  overflow: hidden; /*make the second menu hidden*/
+  /*the second-menu dont show initially*/
+  /*the cycle*/
+  /*when hover the nav, show all the menu*/
+}
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: #757575;
+  text-align: center;
+}
+nav .second-menu {
+  opacity: 0;
+  display: none;
+}
+nav #menu-top {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #757575;
+  border-radius: 50%;
+}
+nav:hover {
+  width: 300px;
+}
+nav:hover .second-menu {
+  opacity: 1;
+  display: block;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+footer {
+  color: #ffffff;
+  background-image: linear-gradient(to bottom, #2c3e50, #3E5151);
+  height: 30vh;
+  width: 100vw;
+  display: grid;
+  padding: 50px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+footer .contact-us {
+  display: grid;
+  text-align: right;
+}
+footer .follow-us {
+  display: grid;
+}
+footer .social-media img {
+  width: 2rem;
+}
+footer .copyright {
+  text-align: center;
+}
+
+.border {
+  border: 0.5px double white;
+  border-radius: 10px;
+}
+
+.shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.transition {
+  transition: all 0.3s ease-in-out;
+}
+
+.button {
+  height: 2.25rem;
+  width: 5rem;
+  color: white;
+  border: 1.5px solid white;
+  text-decoration: none;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.flash {
+  overflow: hidden;
+}
+.flash:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: -2;
+}
+.flash:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  z-index: -1;
+}
+.flash:hover:before {
+  width: 100%;
+}
+
+.page {
+  padding: 5vh 5vw;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/*# sourceMappingURL=base.css.map */
