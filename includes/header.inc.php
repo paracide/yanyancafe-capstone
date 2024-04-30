@@ -22,7 +22,8 @@
     <link href="styles/base.css" media="screen" rel="stylesheet">
     <link href="styles/mobile.css" media="screen" rel="stylesheet">
     <link href="styles/print.css" media="print" rel="stylesheet">
-    <link href="styles/<?= esc($cssFileName) ?>.css" media="screen" rel="stylesheet">
+    <link href="styles/<?= esc($cssFileName) ?>.css" media="screen"
+          rel="stylesheet">
 
   </head>
   <body>
@@ -45,3 +46,8 @@
         <a class="second-menu" href="club.php"
            title="Yanyan Cafe - Club">Club</a>
       </nav>
+      <main>
+        <div class="intro">
+          <h1 class="gradient-anime"><?= esc($title) ?></h1>
+          <p></p><?= esc($desc) ?></p>
+        </div>

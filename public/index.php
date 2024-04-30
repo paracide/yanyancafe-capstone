@@ -3,18 +3,12 @@
 require __DIR__.'/../includes/functions.php';
 $cssFileName = 'index';
 $title       = 'Yanyan Cafe';
+$desc        = 'Where sunbeams meet purrs, and the world shrinks to soft paw prints,
+      a haven awaits, woven from stories and
+      sleep.';
 // view starts
 require __DIR__.'/../includes/header.inc.php';
 ?>
-<main>
-  <div class="intro">
-    <h1 class="gradient-anime"><?= esc($title) ?></h1>
-    <p>
-      Where sunbeams meet purrs, and the world shrinks to soft paw prints,
-      a haven awaits, woven from stories and
-      sleep.
-    </p>
-  </div>
 
   <div class="home-cats-container page">
     <h2>CATS</h2>
@@ -101,7 +95,6 @@ require __DIR__.'/../includes/header.inc.php';
       </div>
     </div>
   </div>
-</main>
 <?php
 require __DIR__.'/../includes/footer.inc.php'; ?>
 

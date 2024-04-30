@@ -1,3 +1,5 @@
+</main>
+
 <footer>
     <div class="follow-us">
         <div>Follow us for daily doses of feline charm!</div>
