@@ -8,7 +8,7 @@ require __DIR__.'/../includes/header.inc.php';
 ?>
 <main>
   <div class="intro">
-    <h1 class="gradient-anime">Yanyan Cafe</h1>
+    <h1 class="gradient-anime"><?= esc($title) ?></h1>
     <p>
       Where sunbeams meet purrs, and the world shrinks to soft paw prints,
       a haven awaits, woven from stories and

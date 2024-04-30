@@ -1,140 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Beneath whispers of ivy, a sanctuary for dreamers and ink-stained fingers. Unfurl your tales, share your
-            whispers, let words like butterflies flutter in this haven of ink and purrs" name="description">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Oswald:wght@400;700&display=swap"
-          rel="stylesheet">
-    <title>Yanyan Cafe - About</title>
-    <!--favicon-->
-    <link href="favicon.png" rel="icon" type="image/x-icon">
-    <link href="favicon-192.png" rel="apple-touch-icon" sizes="192x192">
-    <link href="favicon-180.png" rel="apple-touch-icon" sizes="180x180">
-    <link href="favicon-167.png" rel="apple-touch-icon" sizes="167x167">
-    <link href="favicon-152.png" rel="apple-touch-icon" sizes="152x152">
-    <link href="favicon-128.png" rel="apple-touch-icon" sizes="128x128">
-    <link href="favicon.png" rel="apple-touch-icon" sizes="32x32">
+<?php
 
-    <link href="styles/base.css" rel="stylesheet">
-    <link href="styles/about.css" rel="stylesheet">
-    <link href="styles/mobile.css" rel="stylesheet">
-    <link href="styles/print.css" media="print" rel="stylesheet">
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <img alt="yanyan cafe" id="logo" src="images/logo.png">
-      </header>
-      <nav class="transition shadow">
-        <div class="transition">
-          <div class="menu-shape" id="menu-top"></div>
-        </div>
-        <a class="home-menu" href="index.php" title="Yanyan Cafe - Home">Home</a>
-        <a class="second-menu" href="cats.php" title="Yanyan Cafe - Cats">Cats</a>
-        <a class="second-menu" href="menu.php" title="Yanyan Cafe - Menu">Menu</a>
-        <a class="second-menu" href="about.php" title="Yanyan Cafe - About">About</a>
-        <a class="second-menu" href="club.php" title="Yanyan Cafe - Club">Club</a>
-      </nav>
+require __DIR__.'/../includes/functions.php';
+$cssFileName = 'about';
+$title       = 'Odyssey';
+// view starts
+require __DIR__.'/../includes/header.inc.php';
+?>
 
-      <main>
-        <div class="intro">
-          <h1 class="gradient-anime">Odyssey</h1>
-          <p>BeneaUnfurl your tales, share your whispers, let words like butterflies flutter in this haven of ink and
-            purrs.</p>
-        </div>
-        <!--us page-->
-        <div class="page us-page">
-          <div id="about-us"><h2>About Us</h2></div>
-          <div class="us-intro">
-            <b>Welcome to Yanyan Cafe</b>
-            <p>
-              At Yanyan Cafe, we're all about cats, coffee, and creating a cozy space for you to unwind. Our cafe is
-              home to a delightful crew of feline friends, each with its own unique charm.
-            </p>
-            <div class="button flash"><a href="#find-us" title="Yanyan Cafe - Find Us ">Find Us</a></div>
-          </div>
-          <div class="us-img">
-            <img id="us-img" class="border" src="images/aboutus/us.jpg" width="500" height="375" alt="us">
-          </div>
-        </div>
-
-        <!--find us page-->
-        <div class="page" id="find-us">
-          <div class="find-us-wrapper">
-            <div class="loc-card">
-              <div class="loc-card-content loc-dt">
-              </div>
-              <div>
-                <div>Downtown</div>
-              </div>
-            </div>
-            <div id="find-us-title">
-              <h2>Find Us</h2>
-            </div>
-            <div class="loc-card ">
-              <div class="loc-card-content loc-polo ">
-              </div>
-              <div>
-                <div>Polo Park</div>
-              </div>
-            </div>
-            <table>
-              <thead>
-                <tr>
-                  <th style="text-align: center">Time</th>
-                  <th style="text-align: center">Dining</th>
-                  <th style="text-align: center">Cat Lounge</th>
-                  <th style="text-align: center">Fan Club</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Mon-Fri</td>
-                  <td>9:00 AM - 8:00 PM</td>
-                  <td>11:00 AM - 7:00 PM</td>
-                  <td>8:00 PM - 10:00 PM</td>
-                </tr>
-
-                <tr>
-                  <td>Sat</td>
-                  <td>11:00 AM - 8:00 PM</td>
-                  <td>11:00 AM - 7:00 PM</td>
-                  <td>8:00 PM - 10:00 PM</td>
-                </tr>
-                <tr>
-                  <td>Sun</td>
-                  <td>11:00 AM - 6:00 PM</td>
-                  <td>12:00 AM - 5:00 PM</td>
-                  <td>6:00 PM - 8:00 PM</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </main>
-      <footer>
-        <div class="follow-us">
-          <div>Follow us for daily doses of feline charm! 🐾</div>
-          <div class="social-media">
-            <a href="#" title="Yanyan Cafe - Facebook">
-              <img alt="facebook" src="images/social-media/facebook.svg">
-            </a>
-            <a href="#" title="Yanyan Cafe - Twitter">
-              <img alt="twitter" src="images/social-media/twitter.svg">
-            </a>
-            <a href="#" title="Yanyan Cafe - Youtube">
-              <img alt="youtube" src="images/social-media/youtube.svg">
-            </a>
-          </div>
-        </div>
-        <div class="copyright">Copyright &copy;2023 - Night Fae Studio</div>
-        <div class="contact-us">
-          <div>paracidex@gmail.com</div>
-        </div>
-
-      </footer>
+  <main>
+    <div class="intro">
+      <h1 class="gradient-anime"><?= esc($title) ?></h1>
+      <p>BeneaUnfurl your tales, share your whispers, let words like butterflies
+        flutter in this haven of ink and
+        purrs.</p>
     </div>
-  </body>
-</html>
+    <!--us page-->
+    <div class="page us-page">
+      <div id="about-us"><h2>About Us</h2></div>
+      <div class="us-intro">
+        <b>Welcome to Yanyan Cafe</b>
+        <p>
+          At Yanyan Cafe, we're all about cats, coffee, and creating a cozy
+          space for you to unwind. Our cafe is
+          home to a delightful crew of feline friends, each with its own unique
+          charm.
+        </p>
+        <div class="button flash"><a href="#find-us"
+                                     title="Yanyan Cafe - Find Us ">Find Us</a>
+        </div>
+      </div>
+      <div class="us-img">
+        <img id="us-img" class="border" src="images/aboutus/us.jpg" width="500"
+             height="375" alt="us">
+      </div>
+    </div>
+
+    <!--find us page-->
+    <div class="page" id="find-us">
+      <div class="find-us-wrapper">
+        <div class="loc-card">
+          <div class="loc-card-content loc-dt">
+          </div>
+          <div>
+            <div>Downtown</div>
+          </div>
+        </div>
+        <div id="find-us-title">
+          <h2>Find Us</h2>
+        </div>
+        <div class="loc-card ">
+          <div class="loc-card-content loc-polo ">
+          </div>
+          <div>
+            <div>Polo Park</div>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align: center">Time</th>
+              <th style="text-align: center">Dining</th>
+              <th style="text-align: center">Cat Lounge</th>
+              <th style="text-align: center">Fan Club</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mon-Fri</td>
+              <td>9:00 AM - 8:00 PM</td>
+              <td>11:00 AM - 7:00 PM</td>
+              <td>8:00 PM - 10:00 PM</td>
+            </tr>
+
+            <tr>
+              <td>Sat</td>
+              <td>11:00 AM - 8:00 PM</td>
+              <td>11:00 AM - 7:00 PM</td>
+              <td>8:00 PM - 10:00 PM</td>
+            </tr>
+            <tr>
+              <td>Sun</td>
+              <td>11:00 AM - 6:00 PM</td>
+              <td>12:00 AM - 5:00 PM</td>
+              <td>6:00 PM - 8:00 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+<?php
+require __DIR__.'/../includes/footer.inc.php'; ?>
