@@ -8,7 +8,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Oswald:wght@400;700&display=swap"
       rel="stylesheet">
-    <title><?= esc($title) ?></title>
+    <title>Yanyan Cafe - <?= esc($title) ?></title>
 
     <!--favicon-->
     <link href="favicon.png" rel="icon" type="image/x-icon">
