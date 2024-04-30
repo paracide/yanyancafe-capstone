@@ -37,11 +37,11 @@
         <div class="transition">
           <div class="menu-shape" id="menu-top"></div>
         </div>
-        <a class="home-menu" href="index.html" title="Yanyan Cafe - Home">Home</a>
+        <a class="home-menu" href="index.php" title="Yanyan Cafe - Home">Home</a>
         <a class="second-menu" href="cats.html" title="Yanyan Cafe - Cats">Cats</a>
-        <a class="second-menu" href="menu.html" title="Yanyan Cafe - Menu">Menu</a>
-        <a class="second-menu" href="about.html" title="Yanyan Cafe - About">About</a>
-        <a class="second-menu" href="club.html" title="Yanyan Cafe - Club">Club</a>
+        <a class="second-menu" href="menu.php" title="Yanyan Cafe - Menu">Menu</a>
+        <a class="second-menu" href="about.php" title="Yanyan Cafe - About">About</a>
+        <a class="second-menu" href="club.php" title="Yanyan Cafe - Club">Club</a>
       </nav>
 
       <main>

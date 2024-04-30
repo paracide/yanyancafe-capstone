@@ -259,10 +259,10 @@
           <div class="menu-shape" id="menu-top"></div>
         </div>
         <a class="home-menu" href="index.html" title="Yanyan Cafe - Home">Home</a>
-        <a class="second-menu" href="cats.html" title="Yanyan Cafe - Cats">Cats</a>
-        <a class="second-menu" href="menu.html" title="Yanyan Cafe - Menu">Menu</a>
-        <a class="second-menu" href="about.html" title="Yanyan Cafe - About">About</a>
-        <a class="second-menu" href="club.html" title="Yanyan Cafe - Club">Club</a>
+        <a class="second-menu" href="cats.php" title="Yanyan Cafe - Cats">Cats</a>
+        <a class="second-menu" href="menu.php" title="Yanyan Cafe - Menu">Menu</a>
+        <a class="second-menu" href="about.php" title="Yanyan Cafe - About">About</a>
+        <a class="second-menu" href="club.php" title="Yanyan Cafe - Club">Club</a>
       </nav>
       <main>
         <div class="intro">
@@ -284,7 +284,7 @@
 
                 </div>
                 <div class="card-line"></div>
-                <a class="button flash" href="cats.html#xiuxiu-page" title="Cats xiuxiu">Xiuxiu</a>
+                <a class="button flash" href="cats.php#xiuxiu-page" title="Cats xiuxiu">Xiuxiu</a>
               </div>
             </div>
             <div class="home-cat-card border shadow" id="huabi">
@@ -292,7 +292,7 @@
               <div class="home-card-text">
                 <div class="home-cat-title border">Evil</div>
                 <div class="card-line"></div>
-                <a class="button  flash" href="cats.html#huabi-page" title="Cats huabi">Huabi</a>
+                <a class="button  flash" href="cats.php#huabi-page" title="Cats huabi">Huabi</a>
               </div>
             </div>
             <div class="home-cat-card border shadow" id="zhangmeili">
@@ -300,7 +300,7 @@
               <div class="home-card-text">
                 <div class="home-cat-title border">Angel</div>
                 <div class="card-line"></div>
-                <a class="button  flash" href="cats.html#ml-page" title="Cats zhangmeili">Zhangmeili</a>
+                <a class="button  flash" href="cats.php#ml-page" title="Cats zhangmeili">Zhangmeili</a>
               </div>
             </div>
             <div class="home-cat-card border shadow" id="pipi">
@@ -308,7 +308,7 @@
               <div class="home-card-text">
                 <div class="home-cat-title border">Silly</div>
                 <div class="card-line"></div>
-                <a class="button  flash" href="cats.html#pipi-page" title="Cats pipi">Pipi</a>
+                <a class="button  flash" href="cats.php#pipi-page" title="Cats pipi">Pipi</a>
               </div>
             </div>
           </div>
@@ -323,16 +323,16 @@
           </p>
           <div class="border menu-img-container transition" id="coffee">
             <h3>COFFEE</h3>
-            <a class="button flash" href="menu.html#coffee" title="Yanyan Cafe - Menu Coffee">Explore</a>
+            <a class="button flash" href="menu.php#coffee" title="Yanyan Cafe - Menu Coffee">Explore</a>
           </div>
           <div class="border menu-img-container transition" id="donut">
             <h3>SNACK</h3>
-            <a class="button flash" href="menu.html#snack" title="Yanyan Cafe - Menu Snack">Explore</a>
+            <a class="button flash" href="menu.php#snack" title="Yanyan Cafe - Menu Snack">Explore</a>
           </div>
 
           <div class="border menu-img-container transition" id="beverage">
             <h3>BEVERAGES</h3>
-            <a class="button flash" href="menu.html#beverage" title="Yanyan Cafe - Menu Beverages">Explore</a>
+            <a class="button flash" href="menu.php#beverage" title="Yanyan Cafe - Menu Beverages">Explore</a>
           </div>
         </div>
 
