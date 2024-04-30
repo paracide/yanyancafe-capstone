@@ -1,7 +1,8 @@
 <?php
 
 require __DIR__.'/../includes/functions.php';
-$title = 'Yanyan Cafe';
+$cssFileName = 'index';
+$title       = 'Yanyan Cafe';
 // view starts
 require __DIR__.'/../includes/header.inc.php';
 ?>

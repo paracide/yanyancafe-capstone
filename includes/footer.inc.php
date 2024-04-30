@@ -16,11 +16,6 @@
     <div class="copyright">Copyright &copy;2023 - Night Fae Studio</div>
     <div class="contact-us">
         <div>paracidex@gmail.com</div>
-        <div id="last_modified">
-            <script>
-              document.scripts[document.scripts.length - 1].parentNode.innerHTML = 'Last Modified: ' + document.lastModified;
-            </script>
-        </div>
     </div>
 </footer>
 </div>

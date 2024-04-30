@@ -8,7 +8,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Oswald:wght@400;700&display=swap"
       rel="stylesheet">
-    <title>Yanyan Cafe - Home</title>
+    <title><?= esc($title) ?></title>
 
     <!--favicon-->
     <link href="favicon.png" rel="icon" type="image/x-icon">
@@ -22,8 +22,7 @@
     <link href="styles/base.css" media="screen" rel="stylesheet">
     <link href="styles/mobile.css" media="screen" rel="stylesheet">
     <link href="styles/print.css" media="print" rel="stylesheet">
-      <?php
-      echo ($title == 'Yanyan Cafe') ? '<link href="styles/index.css" media="screen" rel="stylesheet">' : ''; ?>
+    <link href="styles/<?= esc($cssFileName) ?>.css" media="screen" rel="stylesheet">
 
   </head>
   <body>
