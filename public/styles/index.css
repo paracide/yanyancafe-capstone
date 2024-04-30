@@ -21,7 +21,7 @@ p {
 
 /*cats*/
 .home-cats-container {
-  background-color: #ffffff;
+  background-color: #fff;
   grid-template-rows: 1fr 1fr 6fr;
   place-items: center;
 }
@@ -37,7 +37,7 @@ p {
   height: 60vh;
   background-size: cover;
   overflow: hidden;
-  color: #ffffff;
+  color: #fff;
   position: relative;
   display: inline-block;
   /*make the text on the image*/
@@ -79,14 +79,14 @@ p {
 .home-cats-container .card-line {
   height: 1px;
   width: 50%;
-  background: #ffffff;
+  background: #fff;
 }
 
 /*menu*/
 .home-menu-container {
   grid-template-columns: 3fr 2fr 2fr;
   grid-gap: 1rem;
-  background: #cccccc;
+  background: #ccc;
   place-items: center;
 }
 
@@ -95,7 +95,7 @@ p {
   display: grid;
   width: 100%;
   height: 100%;
-  color: #ffffff;
+  color: #fff;
   grid-template-rows: 5fr 2fr;
   place-items: center;
   filter: sepia(0.2);

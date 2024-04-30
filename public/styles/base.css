@@ -94,7 +94,7 @@ nav {
   height: 45px;
   width: 100px;
   border-radius: 10px;
-  background: #ffffff;
+  background: #fff;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
@@ -142,8 +142,8 @@ main {
 }
 
 footer {
-  color: #ffffff;
-  background-image: linear-gradient(to bottom, #2c3e50, #3E5151);
+  color: #fff;
+  background-image: linear-gradient(to bottom, #2c3e50, #3e5151);
   height: 30vh;
   width: 100vw;
   display: grid;

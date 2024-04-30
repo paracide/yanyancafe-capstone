@@ -100,7 +100,7 @@ h2 {
 
 #pipi-page .page-wrapper {
   color: white;
-  background: linear-gradient(45deg, #000000, #535451, #000000);
+  background: linear-gradient(45deg, #000, #535451, #000);
 }
 #pipi-page #pipi1 {
   background-image: url("../images/cats/pipi1.jpg");
