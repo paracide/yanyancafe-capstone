@@ -23,10 +23,6 @@
     <link href="styles/menu.css" rel="stylesheet">
     <link href="styles/mobile.css" rel="stylesheet">
     <link href="styles/print.css" media="print" rel="stylesheet">
-
-    <style>
-
-    </style>
   </head>
   <body>
     <div class="wrapper">
