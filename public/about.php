@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../includes/functions.php';
+require __DIR__.'/../includes/config.php';
 $cssFileName = 'about';
 $title       = 'Odyssey';
 $desc        = 'BeneaUnfurl your tales, share your whispers, let words like butterflies

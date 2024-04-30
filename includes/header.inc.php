@@ -8,7 +8,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Oswald:wght@400;700&display=swap"
       rel="stylesheet">
-    <title>Yanyan Cafe - <?= esc($title) ?></title>
+    <title><?= esc(SITE_NAME).' - '.esc($title) ?></title>
 
     <!--favicon-->
     <link href="favicon.png" rel="icon" type="image/x-icon">
@@ -33,12 +33,22 @@
       </header>
       <nav class="transition shadow">
         <div class="menu-shape" id="menu-top"></div>
-          <?php $links = ['index' => 'Home', 'cats' => 'Cats', 'menu' => 'Menu', 'about' => 'About', 'club' => 'Club']; ?>
-          <?php foreach ($links as $file => $text): ?>
-            <a class="<?= $file == 'index' ? 'home-menu' : 'second-menu' ?> <?= $cssFileName == $file ? 'current' : '' ?>"
-               href="<?= $file ?>.php"
-               title="Yanyan Cafe - <?= $text ?>"><?= $text ?></a>
-          <?php endforeach; ?>
+          <?php
+          $links = [
+            'index' => 'Home',
+            'cats'  => 'Cats',
+            'menu'  => 'Menu',
+            'about' => 'About',
+            'club'  => 'Club',
+          ]; ?>
+          <?php
+          foreach ($links as $file => $text): ?>
+            <a
+              class="<?= $file == 'index' ? 'home-menu' : 'second-menu' ?> <?= $cssFileName == $file ? 'current' : '' ?>"
+              href="<?= $file ?>.php"
+              title="Yanyan Cafe - <?= $text ?>"><?= $text ?></a>
+          <?php
+          endforeach; ?>
       </nav>
       <main>
         <div class="intro">

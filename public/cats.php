@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../includes/functions.php';
+require __DIR__.'/../includes/config.php';
 $cssFileName = 'cats';
 $title       = 'Superstars';
 $desc        = 'Eyes of amber, coats of moonlit silk, each whisker holds a tale, an

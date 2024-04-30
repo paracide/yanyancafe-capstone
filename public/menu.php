@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../includes/functions.php';
+require __DIR__.'/../includes/config.php';
 $cssFileName = 'menu';
 $title       = 'Happy Hour';
 $desc        = 'Where whispers of cinnamon dance with whispers of tea, concoctions for

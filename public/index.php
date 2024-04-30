@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../includes/functions.php';
+require __DIR__.'/../includes/config.php';
 $cssFileName = 'index';
 $title       = 'Yanyan Cafe';
 $desc        = 'Where sunbeams meet purrs, and the world shrinks to soft paw prints,
