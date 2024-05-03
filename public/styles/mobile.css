@@ -3,21 +3,10 @@
     background-image: url("../images/m-bg.webp");
   }
   nav {
-    width: 100px;
-    grid-template-columns: 1fr;
+    grid-template-columns: 5fr 1fr;
   }
-  nav .home-menu {
-    opacity: 0;
+  nav .web {
     display: none;
-  }
-  nav:hover {
-    height: 40vh;
-    width: 90vw;
-    border-radius: 10px;
-  }
-  nav:hover .second-menu, nav:hover .home-menu {
-    opacity: 1;
-    display: block;
   }
   footer {
     text-align: center;

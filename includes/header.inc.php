@@ -39,23 +39,31 @@
         <img alt="yanyan cafe" height="" id="logo" src="images/logo.webp">
       </header>
       <nav class="transition shadow">
-        <div class="menu-shape" id="menu-top"></div>
-          <?php
-          $links = [
-            'index' => 'Home',
-            'cats'  => 'Cats',
-            'menu'  => 'Menu',
-            'about' => 'About',
-            'club'  => 'Club',
-          ]; ?>
-          <?php
-          foreach ($links as $file => $text): ?>
-            <a
-              class="<?= $file == 'index' ? 'home-menu' : 'second-menu' ?> <?= $cssFileName == $file ? 'current' : '' ?>"
-              href="<?= $file ?>.php"
-              title="Yanyan Cafe - <?= $text ?>"><?= $text ?></a>
-          <?php
-          endforeach; ?>
+        <div class="web ">
+          <span class="gradient-anime">Yanyan Cafe</span>
+        </div>
+        <div class="content">
+            <?php
+            $links = [
+              'index'    => 'Home',
+              'cats'     => 'Cats',
+              'menu'     => 'Menu',
+              'about'    => 'About',
+              'register' => 'Club',
+            ]; ?>
+            <?php
+            foreach ($links as $file => $text): ?>
+              <a
+                class="<?= $file == 'index' ? 'home-menu' : 'second-menu' ?> <?= $cssFileName == $file ? 'current' : '' ?>"
+                href="<?= $file ?>.php"
+                title="Yanyan Cafe - <?= $text ?>"><?= $text ?></a>
+            <?php
+            endforeach; ?>
+        </div>
+
+        <div class="user">
+          <a href="#">Sign In</a>
+        </div>
       </nav>
       <main>
         <div class="intro">

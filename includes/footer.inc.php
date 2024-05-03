@@ -15,7 +15,7 @@
       </a>
     </div>
   </div>
-  <div class="copyright">Copyright &copy;2023 - Night Fae Studio</div>
+  <div class="copyright">Copyright &copy;2024 - nightfae.com</div>
   <div class="contact-us">
     <div>paracidex@gmail.com</div>
   </div>

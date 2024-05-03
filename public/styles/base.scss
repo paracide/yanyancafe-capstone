@@ -105,54 +105,48 @@ header {
 /*navigation*/
 nav {
   height: 45px;
-  width: 100px;
-  border-radius: 10px;
-  background: $text-icon-color;
+  width: 100vw;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  background: $primary-color;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 10px;
-  place-items: center;
   /*fixed in the bottom on the all the elements*/
   position: fixed;
-  bottom: 1.8rem;
+  top: 0;
   z-index: 100;
   overflow: hidden; /*make the second menu hidden*/
+
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .current {
+      color: deepskyblue;
+    }
+  }
 
   a {
     display: inline-block;
     text-decoration: none;
-    color: $second-text;
+    color: $text-icon-color;
     text-align: center;
-  }
 
-  /*the second-menu dont show initially*/
-  .second-menu {
-    opacity: 0;
-    display: none;
-  }
+    &:hover {
+      text-decoration: underline;
+      color: yellowgreen;
 
-  /*the cycle*/
-  #menu-top {
-    width: 20px;
-    height: 20px;
-    border: 2px solid $second-text;
-    border-radius: 50%;
-  }
-
-  /*when hover the nav, show all the menu*/
-  &:hover {
-    width: 300px;
-
-    .second-menu {
-      opacity: 1;
-      display: block;
     }
   }
 
-  .current {
-    color: deepskyblue;
+  .user {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
   }
+
 }
 
 main {

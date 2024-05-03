@@ -92,48 +92,40 @@ header #logo {
 /*navigation*/
 nav {
   height: 45px;
-  width: 100px;
-  border-radius: 10px;
-  background: #ffffff;
+  width: 100vw;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  background: orangered;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 10px;
-  place-items: center;
   /*fixed in the bottom on the all the elements*/
   position: fixed;
-  bottom: 1.8rem;
+  top: 0;
   z-index: 100;
   overflow: hidden; /*make the second menu hidden*/
-  /*the second-menu dont show initially*/
-  /*the cycle*/
-  /*when hover the nav, show all the menu*/
+}
+nav .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .content .current {
+  color: deepskyblue;
 }
 nav a {
   display: inline-block;
   text-decoration: none;
-  color: #757575;
+  color: #ffffff;
   text-align: center;
 }
-nav .second-menu {
-  opacity: 0;
-  display: none;
+nav a:hover {
+  text-decoration: underline;
+  color: yellowgreen;
 }
-nav #menu-top {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #757575;
-  border-radius: 50%;
-}
-nav:hover {
-  width: 300px;
-}
-nav:hover .second-menu {
-  opacity: 1;
-  display: block;
-}
-nav .current {
-  color: deepskyblue;
+nav .user {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
 }
 
 main {
