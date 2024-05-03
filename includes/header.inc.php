@@ -11,13 +11,20 @@
     <title><?= esc(SITE_NAME).' - '.esc($title) ?></title>
 
     <!--favicon-->
-    <link href="favicon.png" rel="icon" type="image/x-icon">
-    <link href="favicon-192.png" rel="apple-touch-icon" sizes="192x192">
-    <link href="favicon-180.png" rel="apple-touch-icon" sizes="180x180">
-    <link href="favicon-167.png" rel="apple-touch-icon" sizes="167x167">
-    <link href="favicon-152.png" rel="apple-touch-icon" sizes="152x152">
-    <link href="favicon-128.png" rel="apple-touch-icon" sizes="128x128">
-    <link href="favicon.png" rel="apple-touch-icon" sizes="32x32">
+    <link href="favicon.png" rel="icon"
+          type="image/x-icon">
+    <link href="../public/images/favicon/favicon-192.png" rel="apple-touch-icon"
+          sizes="192x192">
+    <link href="../public/images/favicon/favicon-180.png" rel="apple-touch-icon"
+          sizes="180x180">
+    <link href="../public/images/favicon/favicon-167.png" rel="apple-touch-icon"
+          sizes="167x167">
+    <link href="../public/images/favicon/favicon-152.png" rel="apple-touch-icon"
+          sizes="152x152">
+    <link href="../public/images/favicon/favicon-128.png" rel="apple-touch-icon"
+          sizes="128x128">
+    <link href="favicon.png" rel="apple-touch-icon"
+          sizes="32x32">
 
     <link href="styles/base.css" media="screen" rel="stylesheet">
     <link href="styles/mobile.css" media="screen" rel="stylesheet">
