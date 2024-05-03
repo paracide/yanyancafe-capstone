@@ -71,11 +71,11 @@ h2 {
   color: #fff;
 }
 .find-us-wrapper .loc-dt {
-  background: url("../images/aboutus/dt.jpg") no-repeat center;
+  background: url("../images/aboutus/dt.webp") no-repeat center;
   background-size: cover;
 }
 .find-us-wrapper .loc-polo {
-  background: url(../images/aboutus/polopark.jpg) center no-repeat;
+  background: url(../images/aboutus/polopark.webp) center no-repeat;
   background-size: cover;
 }
 .find-us-wrapper table {
@@ -96,7 +96,7 @@ h2 {
   color: black;
 }
 .find-us-wrapper table th {
-  background-color: #9e9e9e;
+  background-color: #9E9E9E;
   text-align: left;
 }
 .find-us-wrapper table tr:hover {

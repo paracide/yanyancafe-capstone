@@ -16,7 +16,7 @@ require __DIR__.'/../includes/header.inc.php';
     enchanting companionship.</p>
   <div class="home-cat-card-group">
     <div class="home-cat-card border shadow" id="xiuxiu">
-      <img alt="xiuxiu" src="images/home/xiuxiu.jpg">
+      <img alt="xiuxiu" src="images/home/xiuxiu.webp">
       <div class="home-card-text">
         <div class="home-cat-title border">Baby
 
@@ -27,7 +27,7 @@ require __DIR__.'/../includes/header.inc.php';
       </div>
     </div>
     <div class="home-cat-card border shadow" id="huabi">
-      <img alt="huabi" src="images/home/huabi.jpg">
+      <img alt="huabi" src="images/home/huabi.webp">
       <div class="home-card-text">
         <div class="home-cat-title border">Evil</div>
         <div class="card-line"></div>
@@ -36,7 +36,7 @@ require __DIR__.'/../includes/header.inc.php';
       </div>
     </div>
     <div class="home-cat-card border shadow" id="zhangmeili">
-      <img alt="zhangmeili" src="images/home/zhangmeili.jpg">
+      <img alt="zhangmeili" src="images/home/zhangmeili.webp">
       <div class="home-card-text">
         <div class="home-cat-title border">Angel</div>
         <div class="card-line"></div>
@@ -45,7 +45,7 @@ require __DIR__.'/../includes/header.inc.php';
       </div>
     </div>
     <div class="home-cat-card border shadow" id="pipi">
-      <img alt="pipi" src="images/home/pipi.jpg">
+      <img alt="pipi" src="images/home/pipi.webp">
       <div class="home-card-text">
         <div class="home-cat-title border">Silly</div>
         <div class="card-line"></div>
@@ -91,7 +91,7 @@ require __DIR__.'/../includes/header.inc.php';
       moments with our charming cats.
     </p>
     <div id="us-img">
-      <img alt="us" class="border" src="images/home/us.jpg">
+      <img alt="us" class="border" src="images/home/us.webp">
     </div>
   </div>
 </div>

@@ -80,7 +80,7 @@ header #logo {
   place-items: center;
   width: 100vw;
   height: 100vh;
-  background-image: url("../images/bg.jpg");
+  background-image: url("../images/bg.webp");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -94,7 +94,7 @@ nav {
   height: 45px;
   width: 100px;
   border-radius: 10px;
-  background: #fff;
+  background: #ffffff;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
@@ -142,8 +142,8 @@ main {
 }
 
 footer {
-  color: #fff;
-  background-image: linear-gradient(to bottom, #2c3e50, #3e5151);
+  color: #ffffff;
+  background-image: linear-gradient(to bottom, #2c3e50, #3E5151);
   height: 30vh;
   width: 100vw;
   display: grid;

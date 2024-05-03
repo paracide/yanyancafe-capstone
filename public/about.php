@@ -26,7 +26,7 @@ require __DIR__.'/../includes/header.inc.php';
     </div>
   </div>
   <div class="us-img">
-    <img id="us-img" class="border" src="images/aboutus/us.jpg" width="500"
+    <img id="us-img" class="border" src="images/aboutus/us.webp" width="500"
          height="375" alt="us">
   </div>
 </div>

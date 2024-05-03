@@ -36,7 +36,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <img alt="yanyan cafe" height="" id="logo" src="images/logo.png">
+        <img alt="yanyan cafe" height="" id="logo" src="images/logo.webp">
       </header>
       <nav class="transition shadow">
         <div class="menu-shape" id="menu-top"></div>

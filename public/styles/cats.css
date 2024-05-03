@@ -43,19 +43,19 @@ h2 {
   background: linear-gradient(45deg, #9b724a, #c29f7b);
 }
 #xiuxiu-page #xiuxiu1 {
-  background-image: url("../images/cats/xiuxiu1.jpg");
+  background-image: url("../images/cats/xiuxiu1.webp");
 }
 
 #xiuxiu2:hover ~ #xiuxiu1 {
-  background-image: url("../images/cats/xiuxiu2.jpg");
+  background-image: url("../images/cats/xiuxiu2.webp");
 }
 
 #xiuxiu3:hover ~ #xiuxiu1 {
-  background-image: url("../images/cats/xiuxiu3.jpg");
+  background-image: url("../images/cats/xiuxiu3.webp");
 }
 
 #xiuxiu4:hover ~ #xiuxiu1 {
-  background-image: url("../images/cats/xiuxiu4.jpg");
+  background-image: url("../images/cats/xiuxiu4.webp");
 }
 
 #huabi-page .page-wrapper {
@@ -63,19 +63,19 @@ h2 {
   background: linear-gradient(45deg, #5d5d5c, #747072);
 }
 #huabi-page #huabi1 {
-  background-image: url("../images/cats/huabi1.jpg");
+  background-image: url("../images/cats/huabi1.webp");
 }
 
 #huabi2:hover ~ #huabi1 {
-  background-image: url("../images/cats/huabi2.jpg");
+  background-image: url("../images/cats/huabi2.webp");
 }
 
 #huabi3:hover ~ #huabi1 {
-  background-image: url("../images/cats/huabi3.jpg");
+  background-image: url("../images/cats/huabi3.webp");
 }
 
 #huabi4:hover ~ #huabi1 {
-  background-image: url("../images/cats/huabi4.jpg");
+  background-image: url("../images/cats/huabi4.webp");
 }
 
 #ml-page .page-wrapper {
@@ -83,39 +83,39 @@ h2 {
   background: linear-gradient(45deg, #7d7870, #534235, #413b38);
 }
 #ml-page #ml1 {
-  background-image: url("../images/cats/ml1.jpg");
+  background-image: url("../images/cats/ml1.webp");
 }
 
 #ml2:hover ~ #ml1 {
-  background-image: url("../images/cats/ml2.jpg");
+  background-image: url("../images/cats/ml2.webp");
 }
 
 #ml3:hover ~ #ml1 {
-  background-image: url("../images/cats/ml3.jpg");
+  background-image: url("../images/cats/ml3.webp");
 }
 
 #ml4:hover ~ #ml1 {
-  background-image: url("../images/cats/ml4.jpg");
+  background-image: url("../images/cats/ml4.webp");
 }
 
 #pipi-page .page-wrapper {
   color: white;
-  background: linear-gradient(45deg, #000, #535451, #000);
+  background: linear-gradient(45deg, #000000, #535451, #000000);
 }
 #pipi-page #pipi1 {
-  background-image: url("../images/cats/pipi1.jpg");
+  background-image: url("../images/cats/pipi1.webp");
 }
 
 #pipi2:hover ~ #pipi1 {
-  background-image: url("../images/cats/pipi2.jpg");
+  background-image: url("../images/cats/pipi2.webp");
 }
 
 #pipi3:hover ~ #pipi1 {
-  background-image: url("../images/cats/pipi3.jpg");
+  background-image: url("../images/cats/pipi3.webp");
 }
 
 #pipi4:hover ~ #pipi1 {
-  background-image: url("../images/cats/pipi4.jpg");
+  background-image: url("../images/cats/pipi4.webp");
 }
 
 @media screen and (max-width: 767px) {
