@@ -44,7 +44,7 @@ h2 {
 .card form .input-group .error-msg {
   grid-column-start: 1;
   grid-column-end: 3;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: red;
 }
 .card .input-label {

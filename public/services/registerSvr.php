@@ -16,7 +16,6 @@ $required = [
   "last_name",
   "birthday",
   "phone",
-  "gender",
   "subscribe_to_newsletter",
   "street",
   "province",
@@ -25,11 +24,18 @@ $required = [
   "postal_code",
 ];
 
-// Loop through $_POST to check for required values
+// validate the required
 foreach ($required as $key) {
     if (empty($_POST[$key])) {
-        $errors[$key] = $errors[$key]."$key is a required field";
+        $errors[$key] = ucfirst($key)." is a required field";
     }
+}
+
+if (empty($errors['email']) && ! filter_var(
+    $_POST['email'],
+    FILTER_VALIDATE_EMAIL
+  )) {
+    $errors['email'] = "Enter a valid address in the format example@example.com";
 }
 
 if (count($errors)) {

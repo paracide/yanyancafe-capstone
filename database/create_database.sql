@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.3.0, for macos14.2 (arm64)
 --
--- Host: 127.0.0.1    Database: capstone
+-- Host: localhost    Database: capstone
 -- ------------------------------------------------------
 -- Server version	8.3.0
 
@@ -63,7 +63,6 @@ CREATE TABLE `user` (
   `last_name` varchar(255) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `gender` enum('male','female','non-binary','unspecified') DEFAULT NULL,
   `avatar_file_id` bigint DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -97,4 +96,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-02 21:40:05
+-- Dump completed on 2024-05-05 17:17:43
