@@ -23,20 +23,28 @@ h2 {
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
 }
-.card form div {
+.card form .input-section {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  place-items: baseline;
+  grid-template-columns: 1fr;
 }
-.card form div .button {
-  grid-column-start: 1;
-  grid-column-end: 3;
+.card form .button {
   width: 100%;
   height: 50px;
   font-size: 1.3rem;
   background-color: orangered;
   color: #fff;
   border: 0;
+}
+.card form .input-group {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  place-items: baseline;
+}
+.card form .input-group .error-msg {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 0.8rem;
+  color: red;
 }
 .card .input-label {
   color: #212121;
