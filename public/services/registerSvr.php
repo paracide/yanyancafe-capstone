@@ -31,11 +31,19 @@ foreach ($required as $key) {
     }
 }
 
-if (empty($errors['email']) && ! filter_var(
-    $_POST['email'],
-    FILTER_VALIDATE_EMAIL
-  )) {
-    $errors['email'] = "Enter a valid address in the format example@example.com";
+//validate email
+if (empty($errors['email']) && ! isEmail($_POST['email'])) {
+    $errors['email'] = "Address should be in the format: example@example.com";
+}
+
+//validate phone
+if (empty($errors['phone']) && ! isPhone($_POST['phone'])) {
+    $errors['phone'] = "Phone should be in the format: XXX-XXX-XXXX";
+}
+
+//validate phone
+if (empty($errors['postal_code']) && ! isCaPostalCode($_POST['postal_code'])) {
+    $errors['postal_code'] = "Postal code should be in the format: A1A 1A1";
 }
 
 if (count($errors)) {
