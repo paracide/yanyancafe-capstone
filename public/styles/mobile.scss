@@ -6,6 +6,11 @@
 
   nav {
     grid-template-columns: 5fr 1fr;
+
+    a{
+      font-size: 1rem;
+    }
+
     .web{
       display: none;
     }

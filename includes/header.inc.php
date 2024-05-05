@@ -62,7 +62,8 @@
         </div>
 
         <div class="user">
-          <a href="#">Sign In</a>
+          <a href="register.php">Register</a>
+          <a href="#">Login</a>
         </div>
       </nav>
       <main>

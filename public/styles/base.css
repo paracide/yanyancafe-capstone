@@ -222,4 +222,16 @@ footer .copyright {
   place-items: center;
 }
 
+.place-items-center {
+  place-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
 /*# sourceMappingURL=base.css.map */
