@@ -49,7 +49,7 @@
               'cats'     => 'Cats',
               'menu'     => 'Menu',
               'about'    => 'About',
-              'register' => 'Club',
+              'club' => 'Club',
             ]; ?>
             <?php
             foreach ($links as $file => $text): ?>
