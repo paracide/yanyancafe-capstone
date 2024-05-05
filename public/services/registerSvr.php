@@ -25,7 +25,7 @@ $required = [
   "postal_code",
 ];
 
-// Loop through $_POST to check for required values
+// validate the required
 foreach ($required as $key) {
     if (empty($_POST[$key])) {
         $errors[$key] = $errors[$key]."$key is a required field";

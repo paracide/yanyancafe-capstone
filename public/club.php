@@ -45,7 +45,9 @@ require __DIR__.'/../includes/header.inc.php';
         <button class="button flash">Log In</button>
       </div>
       <div class="action">
-        <button class="button flash" style="background: deepskyblue">Create a free account</button>
+        <button class="button flash" style="background: deepskyblue">Create a
+          free account
+        </button>
       </div>
     </form>
   </div>

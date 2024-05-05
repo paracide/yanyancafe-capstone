@@ -45,11 +45,11 @@
         <div class="content">
             <?php
             $links = [
-              'index'    => 'Home',
-              'cats'     => 'Cats',
-              'menu'     => 'Menu',
-              'about'    => 'About',
-              'club' => 'Club',
+              'index' => 'Home',
+              'cats'  => 'Cats',
+              'menu'  => 'Menu',
+              'about' => 'About',
+              'club'  => 'Club',
             ]; ?>
             <?php
             foreach ($links as $file => $text): ?>
