@@ -11,6 +11,7 @@ $errors = [];
 $required = [
   "email",
   "password",
+  "confirm_password",
   "first_name",
   "last_name",
   "birthday",

@@ -26,6 +26,7 @@ h2 {
 .card form .input-section {
   display: grid;
   grid-template-columns: 1fr;
+  grid-gap: 1rem;
 }
 .card form .button {
   width: 100%;

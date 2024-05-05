@@ -26,6 +26,12 @@ require __DIR__.'/../includes/header.inc.php';
         </div>
 
         <div class="input-group">
+          <label class="input-label" for="confirm_password">Confirm Password:</label>
+          <input class="input-field" id="confirm_password" name="confirm_password" type="password">
+          <span class="error-msg"><?= $errors['confirm_password'] ?? '' ?></span>
+        </div>
+
+        <div class="input-group">
           <label class="input-label" for="first_name">First Name:</label>
           <input class="input-field" id="first_name" name="first_name" type="text" value="<?= $post['first_name'] ?? '' ?>">
           <span class="error-msg"><?= $errors['first_name'] ?? '' ?></span>
@@ -60,10 +66,7 @@ require __DIR__.'/../includes/header.inc.php';
           <span class="error-msg"><?= $errors['gender'] ?? '' ?></span>
         </div>
 
-        <div class="input-group">
-          <label class="input-label" for="subscribe_to_newsletter">Subscribe to Newsletter:</label>
-          <input class="input-field" id="subscribe_to_newsletter" name="subscribe_to_newsletter" type="checkbox" <?= isset($post['subscribe_to_newsletter']) && $post['subscribe_to_newsletter'] ? 'checked' : '' ?>>
-        </div>
+
       </div>
 
       <div class="input-section">
@@ -95,6 +98,11 @@ require __DIR__.'/../includes/header.inc.php';
           <label class="input-label" for="postal_code">Postal Code:</label>
           <input class="input-field" id="postal_code" name="postal_code" type="text" value="<?= $post['postal_code'] ?? '' ?>">
           <span class="error-msg"><?= $errors['postal_code'] ?? '' ?></span>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="subscribe_to_newsletter">Subscribe to Newsletter:</label>
+          <input class="input-field" id="subscribe_to_newsletter" name="subscribe_to_newsletter" type="checkbox" <?= isset($post['subscribe_to_newsletter']) && $post['subscribe_to_newsletter'] ? 'checked' : '' ?>>
         </div>
 
         <button class="button flash">Join Us</button>
