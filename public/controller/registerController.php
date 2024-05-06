@@ -61,8 +61,8 @@ if (count($errors)) {
 }
 
 try {
-    $userId = addUserProfile($conn, $_POST);
-    header('Location: ../register.php#reg');
+    $_SESSION['user_id'] = addUserProfile($conn, $_POST);
+    header('Location: ../profile.php');
 } catch (Exception $e) {
     error_log($e->getMessage());
     header('Location: ../error.php');

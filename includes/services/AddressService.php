@@ -2,13 +2,12 @@
 
 require_once __DIR__.'/../config.php';
 
-function addAddress($conn, $address, $userId): int
+function addAddress($conn, $address,int $userId): int
 {
     checkEmpty($userId);
     $query = 'INSERT INTO address
 (user_id, street, province, country, city, postal_code)
-VALUES (:user_id, :street, :province, :country, :city, :postal_code);
-';
+VALUES (:user_id, :street, :province, :country, :city, :postal_code);';
 
     $stmt  = $conn->prepare($query);
     $param = [

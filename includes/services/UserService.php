@@ -34,8 +34,7 @@ function addUser($conn, $user): int
 
     $query = 'INSERT INTO user
 (email, password, first_name, last_name, birthday, phone, subscribe_to_newsletter)
-VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscribe_to_newsletter);
-';
+VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscribe_to_newsletter);';
 
     $stmt  = $conn->prepare($query);
     $param = [
@@ -50,4 +49,33 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
     $stmt->execute($param);
 
     return $conn->lastInsertId();
+}
+
+function getUserProfileById($conn,int $id)
+{
+    $query = 'SELECT u.id,
+       u.email,
+       u.first_name,
+       u.last_name,
+       u.birthday,
+       u.phone,
+       a.street,
+       a.province,
+       a.country,
+       a.city,
+       a.postal_code
+FROM user u
+         LEFT JOIN address a ON u.id = a.user_id
+WHERE u.id = :user_id
+  and u.is_del = 0
+  and a.is_del = 0;
+';
+
+    $stmt  = $conn->prepare($query);
+    $param = [
+      ':user_id' => $id,
+    ];
+    $stmt->execute($param);
+
+    return $stmt->fetch();
 }
