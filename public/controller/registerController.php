@@ -31,6 +31,13 @@ foreach ($require_onced as $key) {
     }
 }
 
+//password should be same
+if ($_POST['password'] !== $_POST['confirm_password']) {
+    $error_msg                  = 'Password are not same';
+    $errors['password']         = $error_msg;
+    $errors['confirm_password'] = $error_msg;
+}
+
 //validate email
 if (empty($errors['email']) && ! isEmail($_POST['email'])) {
     $errors['email'] = "Address should be in the format: example@example.com";

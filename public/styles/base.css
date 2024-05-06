@@ -115,7 +115,7 @@ nav .content .current {
 nav a {
   display: inline-block;
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
   text-align: center;
 }
 nav a:hover {
@@ -134,8 +134,8 @@ main {
 }
 
 footer {
-  color: #ffffff;
-  background-image: linear-gradient(to bottom, #2c3e50, #3E5151);
+  color: #fff;
+  background-image: linear-gradient(to bottom, #2c3e50, #3e5151);
   height: 30vh;
   width: 100vw;
   display: grid;
