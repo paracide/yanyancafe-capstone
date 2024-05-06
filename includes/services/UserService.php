@@ -27,7 +27,7 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
       ':last_name'               => $user['last_name'],
       ':birthday'                => $user['birthday'],
       ':phone'                   => $user['phone'],
-      ':subscribe_to_newsletter' => $user['subscribe_to_newsletter'],
+      ':subscribe_to_newsletter' => empty($user['subscribe_to_newsletter']) ? 0 : 1,
     ];
     $stmt->execute($param);
 
