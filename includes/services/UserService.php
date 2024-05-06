@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 require_once __DIR__.'/../config.php';
 require_once __DIR__.'/AddressService.php';
 
@@ -10,7 +11,7 @@ require_once __DIR__.'/AddressService.php';
  * @return int
  */
 
-function addUserProfile($conn, array $user): int
+function addUserProfile(\PDO $conn, array $user): int
 {
     try {
         $conn->beginTransaction();
@@ -28,7 +29,7 @@ function addUserProfile($conn, array $user): int
     return -1;
 }
 
-function addUser($conn, array $user): int
+function addUser(\PDO $conn, array $user): int
 {
     $email    = checkEmpty($user['email']);
     $password = checkEmpty($user['password']);
@@ -52,7 +53,7 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
     return $conn->lastInsertId();
 }
 
-function getUserProfileById($conn, int $id): array
+function getUserProfileById(\PDO $conn, int $id): array
 {
     $query = 'SELECT u.id,
        u.email,
