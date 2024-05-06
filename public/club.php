@@ -1,12 +1,12 @@
 <?php
 
-require __DIR__.'/../includes/config.php';
+require_once __DIR__.'/../includes/config.php';
 $cssFileName = 'club';
 $title       = 'Memories';
 $desc        = 'Moonlit paws gather, a tapestry of fur and friendship. Join the clan of cat-kissed souls, weave stories by
             flickering candlelight, and celebrate the magic of nine lives lived in harmony.';
 // view starts
-require __DIR__.'/../includes/header.inc.php';
+require_once __DIR__.'/../includes/header.inc.php';
 ?>
 
 <div class="page club">
@@ -29,10 +29,10 @@ require __DIR__.'/../includes/header.inc.php';
           class="card-form" method="post">
       <h2 class="action">Account login:</h2>
       <label class="input-label" for="email">Email:</label>
-      <input class="input-field" id="email" name="email" required
+      <input class="input-field" id="email" name="email" require_onced
              type="email">
       <label class="input-label" for="password">Password:</label>
-      <input class="input-field" id="password" name="password" required
+      <input class="input-field" id="password" name="password" require_onced
              type="password">
 
       <label class="input-label action">
@@ -55,4 +55,4 @@ require __DIR__.'/../includes/header.inc.php';
 
 
 <?php
-require __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__.'/../includes/footer.inc.php'; ?>

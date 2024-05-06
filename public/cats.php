@@ -1,12 +1,12 @@
 <?php
 
-require __DIR__.'/../includes/config.php';
+require_once __DIR__.'/../includes/config.php';
 $cssFileName = 'cats';
 $title       = 'Superstars';
 $desc        = 'Eyes of amber, coats of moonlit silk, each whisker holds a tale, an
       odyssey in every lick.';
 // view starts
-require __DIR__.'/../includes/header.inc.php';
+require_once __DIR__.'/../includes/header.inc.php';
 ?>
 
 <div class="page" id="xiuxiu-page">
@@ -105,4 +105,4 @@ require __DIR__.'/../includes/header.inc.php';
 
 
 <?php
-require __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__.'/../includes/footer.inc.php'; ?>

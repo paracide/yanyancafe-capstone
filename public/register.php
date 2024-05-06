@@ -1,18 +1,18 @@
 <?php
 
-require __DIR__.'/../includes/config.php';
-$cssFileName   = 'register';
-$title         = 'Join Us';
-$desc          = '';
+require_once __DIR__.'/../includes/config.php';
+$cssFileName = 'register';
+$title       = 'Join Us';
+$desc        = '';
 
 // view starts
-require __DIR__.'/../includes/header.inc.php';
+require_once __DIR__.'/../includes/header.inc.php';
 ?>
 <div class="page" id="reg">
   <div class="card">
     <h2 class="action">Get Your Membership</h2>
 
-    <form action="services/registerSvr.php" method="post" novalidate>
+    <form action="controller/registerController.php" method="post" novalidate>
       <div class="input-section">
         <div class="input-group">
           <label class="input-label" for="email">Email:</label>
@@ -107,8 +107,8 @@ require __DIR__.'/../includes/header.inc.php';
             Newsletter:</label>
           <input class="input-field" id="subscribe_to_newsletter"
                  name="subscribe_to_newsletter"
-                 type="checkbox"
-            <?= isset($post['subscribe_to_newsletter']) && $post['subscribe_to_newsletter'] ? 'checked' : '' ?>>
+                 type="radio"
+                 value="1" <?= isset($post['subscribe_to_newsletter']) && $post['subscribe_to_newsletter'] ? 'checked' : '' ?>>
         </div>
 
         <button class="button flash">Join Us</button>
@@ -119,4 +119,4 @@ require __DIR__.'/../includes/header.inc.php';
 
 
 <?php
-require __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__.'/../includes/footer.inc.php'; ?>

@@ -84,3 +84,15 @@ function isCaPostalCode(string $code): bool
 
     return (bool)preg_match($codePattern, $code);
 }
+
+/**
+ * @throws \Exception
+ */
+function checkEmpty($value)
+{
+    if (empty($value)) {
+        throw new Exception('Value is empty');
+    }
+
+    return $value;
+}
