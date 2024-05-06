@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__.'/../config.php';
+require_once __DIR__.'/AddressService.php';
 
 /**
  * @param $user
@@ -9,6 +10,23 @@ require_once __DIR__.'/../config.php';
  * @throws \Exception when email or password is empty
  *
  */
+
+function addUserProfile($conn, $user): int
+{
+    try {
+        $conn->beginTransaction();
+        $userId = addUser($conn, $user);
+        addAddress($conn, $user, $userId);
+        $conn->commit();
+
+        return $userId;
+    } catch (Exception $e) {
+        $conn->rollBack();
+        error_log($e->getMessage());
+        header('Location: ../error.php');
+    }
+}
+
 function addUser($conn, $user): int
 {
     $email    = checkEmpty($user['email']);

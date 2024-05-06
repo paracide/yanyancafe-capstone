@@ -61,7 +61,7 @@ if (count($errors)) {
 }
 
 try {
-    $userId = addUser($conn, $_POST);
+    $userId = addUserProfile($conn, $_POST);
     header('Location: ../register.php#reg');
 } catch (Exception $e) {
     error_log($e->getMessage());

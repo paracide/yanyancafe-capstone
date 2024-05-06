@@ -1,0 +1,26 @@
+<?php
+
+require_once __DIR__.'/../config.php';
+
+function addAddress($conn, $address, $userId): int
+{
+    checkEmpty($userId);
+    $query = 'INSERT INTO address
+(user_id, street, province, country, city, postal_code)
+VALUES (:user_id, :street, :province, :country, :city, :postal_code);
+';
+
+    $stmt  = $conn->prepare($query);
+    $param = [
+      ':user_id'     => $userId,
+      ':street'      => $address['street'],
+      ':province'    => $address['province'],
+      ':country'     => $address['country'],
+      ':city'        => $address['city'],
+      ':postal_code' => $address['postal_code'],
+    ];
+    $stmt->execute($param);
+
+    return $conn->lastInsertId();
+}
+
