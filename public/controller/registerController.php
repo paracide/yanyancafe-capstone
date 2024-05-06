@@ -9,7 +9,7 @@ if ('POST' !== $_SERVER['REQUEST_METHOD']) {
 
 $errors = [];
 
-$require_onced = [
+$require = [
   "email",
   "password",
   "confirm_password",
@@ -25,7 +25,7 @@ $require_onced = [
 ];
 
 // validate the require_onced
-foreach ($require_onced as $key) {
+foreach ($require as $key) {
     if (empty($_POST[$key])) {
         $errors[$key] = ucfirst($key)." is a require_onced field";
     }
