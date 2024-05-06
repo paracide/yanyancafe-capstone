@@ -4,14 +4,13 @@ require_once __DIR__.'/../config.php';
 require_once __DIR__.'/AddressService.php';
 
 /**
- * @param $user
+ * @param $conn
+ * @param  array  $user
  *
  * @return int
- * @throws \Exception when email or password is empty
- *
  */
 
-function addUserProfile($conn, $user): int
+function addUserProfile($conn, array $user): int
 {
     try {
         $conn->beginTransaction();
@@ -25,9 +24,11 @@ function addUserProfile($conn, $user): int
         error_log($e->getMessage());
         header('Location: ../error.php');
     }
+
+    return -1;
 }
 
-function addUser($conn, $user): int
+function addUser($conn, array $user): int
 {
     $email    = checkEmpty($user['email']);
     $password = checkEmpty($user['password']);
@@ -51,7 +52,7 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
     return $conn->lastInsertId();
 }
 
-function getUserProfileById($conn,int $id)
+function getUserProfileById($conn, int $id): array
 {
     $query = 'SELECT u.id,
        u.email,
@@ -77,5 +78,5 @@ WHERE u.id = :user_id
     ];
     $stmt->execute($param);
 
-    return $stmt->fetch();
+    return $stmt->fetch() ?? [];
 }

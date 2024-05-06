@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/../config.php';
 
-function addAddress($conn, $address,int $userId): int
+function addAddress($conn, $address, int $userId): int
 {
     checkEmpty($userId);
     $query = 'INSERT INTO address

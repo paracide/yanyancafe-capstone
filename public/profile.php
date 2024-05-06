@@ -9,6 +9,7 @@ $desc        = '';
 $userId = $_SESSION['user_id'];
 if (empty($userId)) {
     header('Location: error.php');
+    die;
 }
 $user = getUserProfileById($conn, $userId);
 
