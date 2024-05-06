@@ -50,7 +50,7 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
     ];
     $stmt->execute($param);
 
-    return $conn->lastInsertId();
+    return intval($conn->lastInsertId());
 }
 
 function getUserProfileById(\PDO $conn, int $id): array

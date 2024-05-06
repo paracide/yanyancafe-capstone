@@ -20,6 +20,6 @@ VALUES (:user_id, :street, :province, :country, :city, :postal_code);';
     ];
     $stmt->execute($param);
 
-    return $conn->lastInsertId();
+    return intval($conn->lastInsertId());
 }
 
