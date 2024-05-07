@@ -1,12 +1,13 @@
 <?php
 
-require __DIR__.'/../includes/config.php';
+require_once __DIR__ . '/../includes/config.php';
 $cssFileName = 'cats';
 $title       = 'Superstars';
+$isHomePage  = true;
 $desc        = 'Eyes of amber, coats of moonlit silk, each whisker holds a tale, an
       odyssey in every lick.';
 // view starts
-require __DIR__.'/../includes/header.inc.php';
+require_once __DIR__ . '/../includes/header.inc.php';
 ?>
 
 <div class="page" id="xiuxiu-page">
@@ -24,11 +25,11 @@ require __DIR__.'/../includes/header.inc.php';
       fan of cuddles and
       will happily curl up in your lap for a nap.</p>
     <img alt="xiuxiu1" class="small-img border shadow" id="xiuxiu2"
-         src="images/cats/xiuxiu2.jpg">
+         src="images/cats/xiuxiu2.webp">
     <img alt="xiuxiu2" class="small-img border shadow" id="xiuxiu3"
-         src="images/cats/xiuxiu3.jpg">
+         src="images/cats/xiuxiu3.webp">
     <img alt="xiuxiu3" class="small-img border shadow" id="xiuxiu4"
-         src="images/cats/xiuxiu4.jpg">
+         src="images/cats/xiuxiu4.webp">
     <div class="main-img border shadow" id="xiuxiu1"></div>
   </div>
 </div>
@@ -46,11 +47,11 @@ require __DIR__.'/../includes/header.inc.php';
       occasionally gracing
       you with a flick of her tail or a soft purr.</p>
     <img alt="huabi2" class="small-img border shadow" id="huabi2"
-         src="images/cats/huabi2.jpg">
+         src="images/cats/huabi2.webp">
     <img alt="huabi3" class="small-img border shadow" id="huabi3"
-         src="images/cats/huabi3.jpg">
+         src="images/cats/huabi3.webp">
     <img alt="huabi4" class="small-img border shadow" id="huabi4"
-         src="images/cats/huabi4.jpg">
+         src="images/cats/huabi4.webp">
     <div class="main-img border shadow" id="huabi1"></div>
   </div>
 </div>
@@ -69,11 +70,11 @@ require __DIR__.'/../includes/header.inc.php';
       settle into a cozy spot
       to watch the world go by.</p>
     <img alt="ml1" class="small-img border shadow" id="ml2"
-         src="images/cats/ml2.jpg">
+         src="images/cats/ml2.webp">
     <img alt="ml2" class="small-img border shadow" id="ml3"
-         src="images/cats/ml3.jpg">
+         src="images/cats/ml3.webp">
     <img alt="ml3" class="small-img border shadow" id="ml4"
-         src="images/cats/ml4.jpg">
+         src="images/cats/ml4.webp">
     <div class="main-img border shadow" id="ml1"></div>
   </div>
 </div>
@@ -94,15 +95,15 @@ require __DIR__.'/../includes/header.inc.php';
       his little black bobtail held high, always up for a game or a
       cuddle</p>
     <img alt="pipi1" class="small-img border shadow" id="pipi2"
-         src="images/cats/pipi2.jpg">
+         src="images/cats/pipi2.webp">
     <img alt="pipi2" class="small-img border shadow" id="pipi3"
-         src="images/cats/pipi3.jpg">
+         src="images/cats/pipi3.webp">
     <img alt="pipi3" class="small-img border shadow" id="pipi4"
-         src="images/cats/pipi4.jpg">
+         src="images/cats/pipi4.webp">
     <div class="main-img border shadow" id="pipi1"></div>
   </div>
 </div>
 
 
 <?php
-require __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../includes/footer.inc.php'; ?>
