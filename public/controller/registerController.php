@@ -10,6 +10,8 @@ if ('POST' !== $_SERVER['REQUEST_METHOD']) {
 $errors = [];
 $errors = checkRequirement($errors);
 $errors = checkPassword($errors);
+$errors = checkName($errors, 'first_name');
+$errors = checkName($errors, 'last_name');
 $errors = checkEmail($errors, $conn);
 $errors = checkPhone($errors);
 $errors = checkPostalCode($errors);
@@ -76,10 +78,26 @@ function checkRequirement(array $errors): array
 function checkPassword(array $errors): array
 {
     //password should be same
-    if ($_POST['password'] !== $_POST['confirm_password']) {
+    $password        = $_POST['password'];
+    $confirmPassword = $_POST['confirm_password'];
+    if ($password !== $confirmPassword) {
         $error_msg                    = 'Password are not same.';
         $errors['password'] []        = $error_msg;
         $errors['confirm_password'][] = $error_msg;
+    } else {
+        if ( ! isPassword($password)) {
+            $errors['password'] [] = 'Length should be between 8 to 20';
+        }
+    }
+
+    return $errors;
+}
+
+function checkName(array $errors, $key): array
+{
+    //password should be same
+    if ( ! isName($_POST[$key])) {
+        $errors[$key][] = "Should be letters and between 1 to 255 character";
     }
 
     return $errors;
@@ -89,7 +107,7 @@ function checkEmail(array $errors, PDO $conn): array
 {
     $email = $_POST['email'];
     if ( ! isEmail($email)) {
-        $errors['email'][] = "Address should be in the format: example@example.com.";
+        $errors['email'][] = "Should be in the format: example@example.com.";
     } else {
         $user = getUserByEmail($conn, $email);
         if (count($user) > 0) {
@@ -102,8 +120,9 @@ function checkEmail(array $errors, PDO $conn): array
 
 function checkPhone(array $errors): array
 {
-    if ( ! isPhone($_POST['phone'])) {
-        $errors['phone'][] = "Phone should be in the format: XXX-XXX-XXXX.";
+    $phone = $_POST['phone'];
+    if ( ! isPhone($phone)) {
+        $errors['phone'][] = "Should be in the format: XXX-XXX-XXXX.";
     }
 
     return $errors;
@@ -114,7 +133,7 @@ function checkPostalCode(array $errors): array
     if ( ! isCaPostalCode(
       $_POST['postal_code']
     )) {
-        $errors['postal_code'][] = "Postal code should be in the format: A1A 1A1.";
+        $errors['postal_code'][] = "Should be in the format: A1A 1A1.";
     }
 
     return $errors;

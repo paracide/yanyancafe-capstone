@@ -85,9 +85,20 @@ function isCaPostalCode(string $code): bool
     return (bool)preg_match($codePattern, $code);
 }
 
-/**
- * @throws \Exception
- */
+function isName(string $name): bool
+{
+    $namePattern = '/^[A-Z][a-zA-Z]{1,255}$/';
+
+    return (bool)preg_match($namePattern, $name);
+}
+
+function isPassword(string $password): bool
+{
+    $namePattern = '/^.{8,20}$/';
+
+    return (bool)preg_match($namePattern, $password);
+}
+
 function checkEmpty($value)
 {
     if (empty($value)) {
