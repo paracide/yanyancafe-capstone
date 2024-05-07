@@ -18,9 +18,10 @@ require_once __DIR__.'/../includes/header.inc.php';
 
 <div class="page">
   <div class="profile">
+
     <div class="profile-img">
+      <h1 class="gradient-anime" >Profile</h1>
       <img src="images/avatar.webp" alt="avatar">
-      <h2><?= esc($user['first_name'].' '.$user['last_name']) ?></h2>
     </div>
     <div class="info card">
       <div class="card-content">
