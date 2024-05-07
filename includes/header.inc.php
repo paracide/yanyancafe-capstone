@@ -8,7 +8,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Oswald:wght@400;700&display=swap"
       rel="stylesheet">
-    <title><?= esc(SITE_NAME).' - '.esc($title) ?></title>
+    <title><?= esc(SITE_NAME) . ' - ' . esc($title) ?></title>
 
     <!--favicon-->
     <link href="favicon.png" rel="icon"
@@ -58,9 +58,15 @@
             <?php
             foreach ($links as $file => $text): ?>
               <a
-                class="<?= $file == 'index' ? 'home-menu' : 'second-menu' ?> <?= $cssFileName == $file ? 'current' : '' ?>"
-                href="<?= $file ?>.php"
-                title="Yanyan Cafe - <?= $text ?>"><?= $text ?></a>
+                class="<?= esc(
+                  $file == 'index' ? 'home-menu'
+                    : 'second-menu'
+                ) ?> <?= esc(
+                  $cssFileName == $file ? 'current'
+                    : ''
+                ) ?>"
+                href="<?= esc($file) ?>.php"
+                title="Yanyan Cafe - <?= esc($text) ?>"><?= esc($text) ?></a>
             <?php
             endforeach; ?>
         </div>

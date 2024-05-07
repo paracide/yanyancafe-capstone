@@ -1,17 +1,17 @@
 <?php
 
 declare(strict_types=1);
-require_once __DIR__.'/../config.php';
-require_once __DIR__.'/AddressService.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/AddressService.php';
 
 /**
- * @param $conn
- * @param  array  $user
+ * @param          $conn
+ * @param   array  $user
  *
  * @return int
  */
 
-function addUserProfile(\PDO $conn, array $user): int
+function addUserProfile(PDO $conn, array $user): int
 {
     try {
         $conn->beginTransaction();
@@ -29,7 +29,7 @@ function addUserProfile(\PDO $conn, array $user): int
     return -1;
 }
 
-function addUser(\PDO $conn, array $user): int
+function addUser(PDO $conn, array $user): int
 {
     $email    = checkEmpty($user['email']);
     $password = checkEmpty($user['password']);
@@ -46,14 +46,15 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
       ':last_name'               => $user['last_name'],
       ':birthday'                => $user['birthday'],
       ':phone'                   => $user['phone'],
-      ':subscribe_to_newsletter' => empty($user['subscribe_to_newsletter']) ? 0 : 1,
+      ':subscribe_to_newsletter' => empty($user['subscribe_to_newsletter']) ? 0
+        : 1,
     ];
     $stmt->execute($param);
 
     return intval($conn->lastInsertId());
 }
 
-function getUserProfileById(\PDO $conn, int $id): array
+function getUserProfileById(PDO $conn, int $id): array
 {
     $query = 'SELECT u.id,
        u.email,
@@ -83,7 +84,7 @@ WHERE u.id = :user_id
     return $result ? $result : [];
 }
 
-function getUserByEmail(\PDO $conn, string $email): array
+function getUserByEmail(PDO $conn, string $email): array
 {
     $query = 'SELECT u.id,
        u.email,

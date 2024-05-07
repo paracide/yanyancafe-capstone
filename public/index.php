@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../includes/config.php';
+require_once __DIR__ . '/../includes/config.php';
 $cssFileName = 'index';
 $title       = 'Yanyan Cafe';
 $isHomePage  = true;
@@ -8,7 +8,7 @@ $desc        = 'Where sunbeams meet purrs, and the world shrinks to soft paw pri
       a haven awaits, woven from stories and
       sleep.';
 // view starts
-require_once __DIR__.'/../includes/header.inc.php';
+require_once __DIR__ . '/../includes/header.inc.php';
 ?>
 
 <div class="home-cats-container page">
@@ -97,5 +97,5 @@ require_once __DIR__.'/../includes/header.inc.php';
   </div>
 </div>
 <?php
-require_once __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../includes/footer.inc.php'; ?>
 

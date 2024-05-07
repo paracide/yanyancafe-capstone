@@ -1,12 +1,13 @@
 <?php
 
-require_once __DIR__.'/../../includes/config.php';
-require_once __DIR__.'/../../includes/services/UserService.php';
+require_once __DIR__ . '/../../includes/config.php';
+require_once __DIR__ . '/../../includes/services/UserService.php';
 
 if ('POST' !== $_SERVER['REQUEST_METHOD']) {
     die('Please submit form');
 }
 
+//validate the form
 $errors = [];
 $errors = checkRequirement($errors);
 $errors = checkPassword($errors);
@@ -19,12 +20,12 @@ $errors = checkPostalCode($errors);
 //error go back to register
 if (count($errors)) {
     $resultError = [];
-    foreach ($errors as $field => $messages) {
+    foreach ($errors as $key => $messages) {
         $errorMessages = '';
-        foreach ($messages as $message) {
-            $errorMessages .= ' '.$message.' ';
+        foreach ($messages as $msg) {
+            $errorMessages .= ' ' . $msg . ' ';
         };
-        $resultError[$field] = $errorMessages;
+        $resultError[$key] = $errorMessages;
     }
     $_SESSION['errors'] = $resultError;
     $_SESSION['post']   = $_POST;
@@ -65,7 +66,7 @@ function checkRequirement(array $errors): array
     // validate the require_onced
     foreach ($require as $key) {
         if (empty($_POST[$key])) {
-            $errors[$key][] = ucfirst($key)." is a required field.";
+            $errors[$key][] = ucfirst($key) . " is a required field.";
         }
     }
 
@@ -84,15 +85,16 @@ function checkPassword(array $errors): array
         $error_msg                    = 'Password are not same.';
         $errors['password'] []        = $error_msg;
         $errors['confirm_password'][] = $error_msg;
-    } else {
-        if ( ! isPassword($password)) {
-            $errors['password'] [] = 'Length should be between 8 to 20';
-        }
+    } elseif ( ! isPassword($password)) {
+        $errors['password'] [] = 'Length should be between 8 to 20';
     }
 
     return $errors;
 }
 
+/**
+ * check Name
+ */
 function checkName(array $errors, $key): array
 {
     //password should be same
@@ -103,6 +105,9 @@ function checkName(array $errors, $key): array
     return $errors;
 }
 
+/**
+ * check Email
+ */
 function checkEmail(array $errors, PDO $conn): array
 {
     $email = $_POST['email'];
@@ -118,6 +123,9 @@ function checkEmail(array $errors, PDO $conn): array
     return $errors;
 }
 
+/**
+ * check Phone
+ */
 function checkPhone(array $errors): array
 {
     $phone = $_POST['phone'];
@@ -128,11 +136,12 @@ function checkPhone(array $errors): array
     return $errors;
 }
 
+/**
+ * check Postal Code
+ */
 function checkPostalCode(array $errors): array
 {
-    if ( ! isCaPostalCode(
-      $_POST['postal_code']
-    )) {
+    if ( ! isCaPostalCode($_POST['postal_code'])) {
         $errors['postal_code'][] = "Should be in the format: A1A 1A1.";
     }
 

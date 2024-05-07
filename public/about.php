@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../includes/config.php';
+require_once __DIR__ . '/../includes/config.php';
 $cssFileName = 'about';
 $title       = 'Odyssey';
 $isHomePage  = true;
@@ -8,7 +8,7 @@ $desc        = 'BeneaUnfurl your tales, share your whispers, let words like butt
       flutter in this haven of ink and
       purrs.';
 // view starts
-require_once __DIR__.'/../includes/header.inc.php';
+require_once __DIR__ . '/../includes/header.inc.php';
 ?>
 
 <!--us page-->
@@ -86,4 +86,4 @@ require_once __DIR__.'/../includes/header.inc.php';
   </div>
 </div>
 <?php
-require_once __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../includes/footer.inc.php'; ?>

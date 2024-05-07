@@ -1,12 +1,12 @@
 <?php
 
-require_once __DIR__.'/../includes/config.php';
+require_once __DIR__ . '/../includes/config.php';
 $cssFileName = 'register';
 $title       = 'Join Us';
 $desc        = '';
 
 // view starts
-require_once __DIR__.'/../includes/header.inc.php';
+require_once __DIR__ . '/../includes/header.inc.php';
 ?>
 <div class="page" id="reg">
   <div class="card">
@@ -23,23 +23,29 @@ require_once __DIR__.'/../includes/header.inc.php';
 
         <div class="input-group">
           <label class="input-label" for="password">Password:</label>
-          <input class="input-field" id="password" name="password" type="password"
+          <input class="input-field" id="password" name="password"
+                 type="password"
                  value="<?= esc($post['password'] ?? '') ?>"
           >
           <span class="error-msg"><?= esc($errors['password'] ?? '') ?></span>
         </div>
 
         <div class="input-group">
-          <label class="input-label" for="confirm_password">Confirm Password:</label>
-          <input class="input-field" id="confirm_password" name="confirm_password" type="password"
+          <label class="input-label" for="confirm_password">Confirm
+            Password:</label>
+          <input class="input-field" id="confirm_password"
+                 name="confirm_password" type="password"
                  value="<?= esc($post['confirm_password'] ?? '') ?>"
           >
-          <span class="error-msg"><?= esc($errors['confirm_password'] ?? '') ?></span>
+          <span class="error-msg"><?= esc(
+                $errors['confirm_password'] ?? ''
+              ) ?></span>
         </div>
 
         <div class="input-group">
           <label class="input-label" for="first_name">First Name:</label>
-          <input class="input-field" id="first_name" name="first_name" type="text"
+          <input class="input-field" id="first_name" name="first_name"
+                 type="text"
                  value="<?= esc($post['first_name'] ?? '') ?>">
           <span class="error-msg"><?= esc($errors['first_name'] ?? '') ?></span>
         </div>
@@ -97,16 +103,23 @@ require_once __DIR__.'/../includes/header.inc.php';
 
         <div class="input-group">
           <label class="input-label" for="postal_code">Postal Code:</label>
-          <input class="input-field" id="postal_code" name="postal_code" type="text"
+          <input class="input-field" id="postal_code" name="postal_code"
+                 type="text"
                  value="<?= esc($post['postal_code'] ?? '') ?>">
-          <span class="error-msg"><?= esc($errors['postal_code'] ?? '') ?></span>
+          <span class="error-msg"><?= esc(
+                $errors['postal_code'] ?? ''
+              ) ?></span>
         </div>
 
         <div class="input-group">
-          <label class="input-label" for="subscribe_to_newsletter">Subscribe to Newsletter:</label>
-          <input class="input-field" id="subscribe_to_newsletter" name="subscribe_to_newsletter"
+          <label class="input-label" for="subscribe_to_newsletter">Subscribe to
+            Newsletter:</label>
+          <input class="input-field" id="subscribe_to_newsletter"
+                 name="subscribe_to_newsletter"
                  type="radio"
-                 value="1" <?= isset($post['subscribe_to_newsletter']) && $post['subscribe_to_newsletter'] ? 'checked' : '' ?>>
+                 value="1" <?= isset($post['subscribe_to_newsletter'])
+                               && $post['subscribe_to_newsletter'] ? 'checked'
+            : '' ?>>
         </div>
 
         <button class="button flash">Join Us</button>
@@ -117,4 +130,4 @@ require_once __DIR__.'/../includes/header.inc.php';
 
 
 <?php
-require_once __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../includes/footer.inc.php'; ?>

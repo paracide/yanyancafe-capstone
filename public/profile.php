@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__.'/../includes/config.php';
-require_once __DIR__.'/../includes/services/UserService.php';
+require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/services/UserService.php';
 $cssFileName = 'profile';
 $title       = 'Profile';
 
@@ -13,14 +13,14 @@ if (empty($userId)) {
 $user = getUserProfileById($conn, $userId);
 
 // view starts
-require_once __DIR__.'/../includes/header.inc.php';
+require_once __DIR__ . '/../includes/header.inc.php';
 ?>
 
 <div class="page">
   <div class="profile">
 
     <div class="profile-img">
-      <h1 class="gradient-anime" >Profile</h1>
+      <h1 class="gradient-anime">Profile</h1>
       <img src="images/avatar.webp" alt="avatar">
     </div>
     <div class="info card">
@@ -92,4 +92,4 @@ require_once __DIR__.'/../includes/header.inc.php';
 </div>
 
 <?php
-require_once __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../includes/footer.inc.php'; ?>

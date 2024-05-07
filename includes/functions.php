@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * esc all string data for output
  *
- * @param  string  $str
+ * @param   string  $str
  *
  * @return string
  */
@@ -16,7 +16,7 @@ function esc(string $str): string
 /**
  *  esc all string data without quotes for output
  *
- * @param  string  $str
+ * @param   string  $str
  *
  * @return string
  */
@@ -28,8 +28,8 @@ function escHTML(string $str): string
 /**
  * debug single var
  *
- * @param $var
- * @param  false  $die
+ * @param          $var
+ * @param   false  $die
  *
  * @return void
  */
@@ -44,16 +44,8 @@ function dd($var, $die = false): void
 }
 
 /**
- * @param $str
+ * check email format
  *
- * @return string
- */
-function raw($str): string
-{
-    return $str;
-}
-
-/**
  * @param $email
  *
  * @return bool is email return true
@@ -67,9 +59,11 @@ function isEmail(string $email): bool
 }
 
 /**
+ * check phone format
+ *
  * @param $phone
  *
- * @return bool
+ * @return bool is phone return true
  */
 function isPhone(string $phone): bool
 {
@@ -78,6 +72,13 @@ function isPhone(string $phone): bool
     return (bool)preg_match($phonePattern, $phone);
 }
 
+/**
+ * check postal code format
+ *
+ * @param $code
+ *
+ * @return bool is postal code return true
+ */
 function isCaPostalCode(string $code): bool
 {
     $codePattern = '/^[A-Za-z]\d[A-Za-z][-\s]?\d[A-Za-z]\d$/';
@@ -85,6 +86,13 @@ function isCaPostalCode(string $code): bool
     return (bool)preg_match($codePattern, $code);
 }
 
+/**
+ * check name format
+ *
+ * @param $name
+ *
+ * @return bool is name return true
+ */
 function isName(string $name): bool
 {
     $namePattern = '/^[A-Z][a-zA-Z]{1,255}$/';
@@ -92,6 +100,13 @@ function isName(string $name): bool
     return (bool)preg_match($namePattern, $name);
 }
 
+/**
+ * check password format
+ *
+ * @param $password
+ *
+ * @return bool is password return true
+ */
 function isPassword(string $password): bool
 {
     $namePattern = '/^.{8,20}$/';
@@ -99,7 +114,15 @@ function isPassword(string $password): bool
     return (bool)preg_match($namePattern, $password);
 }
 
-function checkEmpty($value)
+/**
+ * check empty value
+ *
+ * @param $value
+ *
+ * @return mixed
+ * @throws Exception
+ */
+function checkEmpty($value): mixed
 {
     if (empty($value)) {
         throw new Exception('Value is empty');

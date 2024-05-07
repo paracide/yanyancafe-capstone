@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__.'/../config.php';
+require_once __DIR__ . '/../config.php';
 
-function addAddress(\PDO $conn, array $address, int $userId): int
+function addAddress(PDO $conn, array $address, int $userId): int
 {
     checkEmpty($userId);
     $query = 'INSERT INTO address
