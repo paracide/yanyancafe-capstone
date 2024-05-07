@@ -1,12 +1,13 @@
 <?php
 
-require __DIR__.'/../includes/config.php';
+require_once __DIR__ . '/../includes/config.php';
 $cssFileName = 'club';
 $title       = 'Memories';
+$isHomePage  = true;
 $desc        = 'Moonlit paws gather, a tapestry of fur and friendship. Join the clan of cat-kissed souls, weave stories by
             flickering candlelight, and celebrate the magic of nine lives lived in harmony.';
 // view starts
-require __DIR__.'/../includes/header.inc.php';
+require_once __DIR__ . '/../includes/header.inc.php';
 ?>
 
 <div class="page club">
@@ -27,37 +28,27 @@ require __DIR__.'/../includes/header.inc.php';
   <div class="card club-reg" id="reg">
     <form action="http://scott-media.com/test/form_display.php"
           class="card-form" method="post">
-      <h2 class="action">Get Your Membership</h2>
-      <label class="input-label" for="name">Name:</label>
-      <input class="input-field" id="name" name="name" required type="text">
-      <label class="input-label" for="birthday">Birthday:</label>
-      <input class="input-field" id="birthday" name="birthday" required
-             type="date">
+      <h2 class="action">Account login:</h2>
       <label class="input-label" for="email">Email:</label>
-      <input class="input-field" id="email" name="email" required
+      <input class="input-field" id="email" name="email" require_onced
              type="email">
-      <label class="input-label" for="phone">Phone Number:</label>
-      <input class="input-field" id="phone" name="phone"
-             placeholder="1234567890"
-             required type="number">
-      <label class="input-label" for="contact_method">Preferred Contact
-        Method:</label>
-      <select class="input-field" id="contact_method" name="contact_method"
-              required>
-        <option value="email">Email</option>
-        <option value="phone">Phone</option>
-      </select>
+      <label class="input-label" for="password">Password:</label>
+      <input class="input-field" id="password" name="password" require_onced
+             type="password">
+
       <label class="input-label action">
-        <input checked class="input-field" name="subscribe" type="checkbox"
+        <input checked class="input-field" name="remember" type="checkbox"
                value="yes">
-        Subscribe to newsletter
+        Remember me on this device
       </label>
+
       <div class="action">
-        <button class="button flash">Join Us</button>
+        <button class="button flash">Log In</button>
       </div>
-      <div class="card-info action flash">
-        By signing up you are agreeing to our <a href="#">Terms and
-          Conditions</a>
+      <div class="action">
+        <button class="button flash" style="background: deepskyblue">Create a
+          free account
+        </button>
       </div>
     </form>
   </div>
@@ -65,4 +56,4 @@ require __DIR__.'/../includes/header.inc.php';
 
 
 <?php
-require __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../includes/footer.inc.php'; ?>

@@ -1,13 +1,14 @@
 <?php
 
-require __DIR__.'/../includes/config.php';
+require_once __DIR__ . '/../includes/config.php';
 $cssFileName = 'menu';
 $title       = 'Happy Hour';
+$isHomePage  = true;
 $desc        = 'Where whispers of cinnamon dance with whispers of tea, concoctions for
       weary souls and hearts seeking
       solace.';
 // view starts
-require __DIR__.'/../includes/header.inc.php';
+require_once __DIR__ . '/../includes/header.inc.php';
 ?>
 
 
@@ -129,4 +130,4 @@ require __DIR__.'/../includes/header.inc.php';
 </div>
 
 <?php
-require __DIR__.'/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../includes/footer.inc.php'; ?>

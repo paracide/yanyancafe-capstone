@@ -121,7 +121,7 @@ p {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: url("../images/home/coffee.jpg");
+  background: url("../images/home/coffee.webp");
   background-size: cover;
 }
 
@@ -130,14 +130,14 @@ p {
   width: 100%;
 
   height: 100%;
-  background: url("../images/home/donut.jpg");
+  background: url("../images/home/donut.webp");
   background-size: cover;
 }
 
 #beverage {
   width: 100%;
   height: 100%;
-  background: url("../images/home/beverage.jpg");
+  background: url("../images/home/beverage.webp");
   background-size: cover;
 }
 

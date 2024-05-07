@@ -71,11 +71,11 @@ h2 {
   color: #fff;
 }
 .find-us-wrapper .loc-dt {
-  background: url("../images/aboutus/dt.jpg") no-repeat center;
+  background: url("../images/aboutus/dt.webp") no-repeat center;
   background-size: cover;
 }
 .find-us-wrapper .loc-polo {
-  background: url(../images/aboutus/polopark.jpg) center no-repeat;
+  background: url(../images/aboutus/polopark.webp) center no-repeat;
   background-size: cover;
 }
 .find-us-wrapper table {

@@ -60,19 +60,19 @@ hr {
 }
 
 #coffee {
-  background-image: url("../images/menu/coffee.jpg");
+  background-image: url("../images/menu/coffee.webp");
   background-position: center;
   background-size: cover;
 }
 
 #snack {
-  background-image: url("../images/menu/snack.jpg");
+  background-image: url("../images/menu/snack.webp");
   background-position: center;
   background-size: cover;
 }
 
 #beverage {
-  background-image: url("../images/menu/beverage.jpg");
+  background-image: url("../images/menu/beverage.webp");
   background-position: center;
   background-size: cover;
 }

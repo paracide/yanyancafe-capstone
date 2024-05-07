@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
 /**
  * esc all string data for output
  *
- * @param  string  $str
+ * @param   string  $str
  *
  * @return string
  */
@@ -15,7 +16,7 @@ function esc(string $str): string
 /**
  *  esc all string data without quotes for output
  *
- * @param  string  $str
+ * @param   string  $str
  *
  * @return string
  */
@@ -27,8 +28,8 @@ function escHTML(string $str): string
 /**
  * debug single var
  *
- * @param $var
- * @param  false  $die
+ * @param          $var
+ * @param   false  $die
  *
  * @return void
  */
@@ -43,12 +44,89 @@ function dd($var, $die = false): void
 }
 
 /**
- * @param $str
+ * check email format
  *
- * @return string
+ * @param $email
+ *
+ * @return bool is email return true
  */
-function raw($str): string
+function isEmail(string $email): bool
 {
-    return $str;
+    return (bool)filter_var(
+      $email,
+      FILTER_VALIDATE_EMAIL
+    );
 }
 
+/**
+ * check phone format
+ *
+ * @param $phone
+ *
+ * @return bool is phone return true
+ */
+function isPhone(string $phone): bool
+{
+    $phonePattern = '/^(\d{3})[-.\s]?(\d{3})[-.\s]?\d{4}$/';
+
+    return (bool)preg_match($phonePattern, $phone);
+}
+
+/**
+ * check postal code format
+ *
+ * @param $code
+ *
+ * @return bool is postal code return true
+ */
+function isCaPostalCode(string $code): bool
+{
+    $codePattern = '/^[A-Za-z]\d[A-Za-z][-\s]?\d[A-Za-z]\d$/';
+
+    return (bool)preg_match($codePattern, $code);
+}
+
+/**
+ * check name format
+ *
+ * @param $name
+ *
+ * @return bool is name return true
+ */
+function isName(string $name): bool
+{
+    $namePattern = '/^[A-Z][a-zA-Z]{1,255}$/';
+
+    return (bool)preg_match($namePattern, $name);
+}
+
+/**
+ * check password format
+ *
+ * @param $password
+ *
+ * @return bool is password return true
+ */
+function isPassword(string $password): bool
+{
+    $namePattern = '/^.{8,20}$/';
+
+    return (bool)preg_match($namePattern, $password);
+}
+
+/**
+ * check empty value
+ *
+ * @param $value
+ *
+ * @return mixed
+ * @throws Exception
+ */
+function checkEmpty($value): mixed
+{
+    if (empty($value)) {
+        throw new Exception('Value is empty');
+    }
+
+    return $value;
+}
