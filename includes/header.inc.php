@@ -35,9 +35,13 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <img alt="yanyan cafe" height="" id="logo" src="images/logo.webp">
-      </header>
+        <?php
+        if (isset($isHomePage) && $isHomePage): ?>
+          <header>
+            <img alt="yanyan cafe" height="" id="logo" src="images/logo.webp">
+          </header>
+        <?php
+        endif; ?>
       <nav class="transition shadow">
         <div class="web ">
           <span class="gradient-anime">Yanyan Cafe</span>
@@ -67,7 +71,11 @@
         </div>
       </nav>
       <main>
-        <div class="intro">
-          <h1 class="gradient-anime"><?= esc($title) ?></h1>
-          <p></p><?= esc($desc) ?></p>
-        </div>
+          <?php
+          if (isset($isHomePage) && $isHomePage): ?>
+            <div class="intro">
+              <h1 class="gradient-anime"><?= esc($title) ?></h1>
+              <p></p><?= esc($desc) ?></p>
+            </div>
+          <?php
+          endif; ?>

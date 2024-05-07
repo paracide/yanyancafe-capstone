@@ -3,6 +3,7 @@
 require_once __DIR__.'/../includes/config.php';
 $cssFileName = 'club';
 $title       = 'Memories';
+$isHomePage  = true;
 $desc        = 'Moonlit paws gather, a tapestry of fur and friendship. Join the clan of cat-kissed souls, weave stories by
             flickering candlelight, and celebrate the magic of nine lives lived in harmony.';
 // view starts

@@ -4,7 +4,6 @@ require_once __DIR__.'/../includes/config.php';
 require_once __DIR__.'/../includes/services/UserService.php';
 $cssFileName = 'profile';
 $title       = 'Profile';
-$desc        = '';
 
 $userId = $_SESSION['user_id'];
 if (empty($userId)) {
