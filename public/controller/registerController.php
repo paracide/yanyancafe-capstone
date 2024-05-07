@@ -16,7 +16,15 @@ $errors = checkPostalCode($errors);
 
 //error go back to register
 if (count($errors)) {
-    $_SESSION['errors'] = $errors;
+    $resultError = [];
+    foreach ($errors as $field => $messages) {
+        $errorMessages = '';
+        foreach ($messages as $message) {
+            $errorMessages .= ' '.$message.' ';
+        };
+        $resultError[$field] = $errorMessages;
+    }
+    $_SESSION['errors'] = $resultError;
     $_SESSION['post']   = $_POST;
     header('Location: ../register.php#reg');
     die();
@@ -55,7 +63,7 @@ function checkRequirement(array $errors): array
     // validate the require_onced
     foreach ($require as $key) {
         if (empty($_POST[$key])) {
-            $errors[$key] = ucfirst($key)." is a required field";
+            $errors[$key][] = ucfirst($key)." is a required field.";
         }
     }
 
@@ -69,9 +77,9 @@ function checkPassword(array $errors): array
 {
     //password should be same
     if ($_POST['password'] !== $_POST['confirm_password']) {
-        $error_msg                  = 'Password are not same';
-        $errors['password']         = $error_msg;
-        $errors['confirm_password'] = $error_msg;
+        $error_msg                    = 'Password are not same.';
+        $errors['password'] []        = $error_msg;
+        $errors['confirm_password'][] = $error_msg;
     }
 
     return $errors;
@@ -80,12 +88,12 @@ function checkPassword(array $errors): array
 function checkEmail(array $errors, PDO $conn): array
 {
     $email = $_POST['email'];
-    if (empty($errors['email']) && ! isEmail($email)) {
-        $errors['email'] = "Address should be in the format: example@example.com";
+    if ( ! isEmail($email)) {
+        $errors['email'][] = "Address should be in the format: example@example.com.";
     } else {
         $user = getUserByEmail($conn, $email);
         if (count($user) > 0) {
-            $errors['email'] = "This email has registered";
+            $errors['email'][] = "This email has registered.";
         }
     }
 
@@ -94,8 +102,8 @@ function checkEmail(array $errors, PDO $conn): array
 
 function checkPhone(array $errors): array
 {
-    if (empty($errors['phone']) && ! isPhone($_POST['phone'])) {
-        $errors['phone'] = "Phone should be in the format: XXX-XXX-XXXX";
+    if ( ! isPhone($_POST['phone'])) {
+        $errors['phone'][] = "Phone should be in the format: XXX-XXX-XXXX.";
     }
 
     return $errors;
@@ -103,10 +111,10 @@ function checkPhone(array $errors): array
 
 function checkPostalCode(array $errors): array
 {
-    if (empty($errors['postal_code']) && ! isCaPostalCode(
-        $_POST['postal_code']
-      )) {
-        $errors['postal_code'] = "Postal code should be in the format: A1A 1A1";
+    if ( ! isCaPostalCode(
+      $_POST['postal_code']
+    )) {
+        $errors['postal_code'][] = "Postal code should be in the format: A1A 1A1.";
     }
 
     return $errors;
