@@ -1,12 +1,8 @@
-h2 {
-  font-size: 2rem;
-}
-
 .card {
   display: grid;
   grid-template-rows: 1fr 5fr;
   padding: 2rem;
-  height: 90%;
+  height: 95%;
   width: 100%;
   background-image: linear-gradient(to right, #b6fbff, #83a4d4);
   border-radius: 10px;
@@ -15,7 +11,7 @@ h2 {
   /*input*/
 }
 .card h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: Oswald, Arial, Helvetica, sans-serif;
 }
 .card form {

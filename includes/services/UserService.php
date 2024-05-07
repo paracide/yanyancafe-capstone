@@ -78,6 +78,31 @@ WHERE u.id = :user_id
       ':user_id' => $id,
     ];
     $stmt->execute($param);
+    $result = $stmt->fetch();
 
-    return $stmt->fetch() ?? [];
+    return $result ? $result : [];
 }
+
+function getUserByEmail(\PDO $conn, string $email): array
+{
+    $query = 'SELECT u.id,
+       u.email,
+       u.first_name,
+       u.last_name,
+       u.birthday,
+       u.phone
+        FROM user u
+        WHERE u.email = :email
+         and u.is_del = 0
+';
+
+    $stmt  = $conn->prepare($query);
+    $param = [
+      ':email' => $email,
+    ];
+    $stmt->execute($param);
+    $result = $stmt->fetch();
+
+    return $result ? $result : [];
+}
+
