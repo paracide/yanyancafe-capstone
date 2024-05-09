@@ -18,7 +18,7 @@ function addUserProfile(PDO $conn, array $user): int
         return $userId;
     } catch (Exception $e) {
         $conn->rollBack();
-        goError($e);
+        go404($e);
     }
 
     return -1;

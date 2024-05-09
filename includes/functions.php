@@ -139,8 +139,11 @@ function view(string $view, array $data): void
     require_once __DIR__ . '/../view/' . $view . '.view.php';
 }
 
-function goError(Exception $e): void
+function go404(?Exception $e): void
 {
-    error_log($e->getMessage());
+    if ( ! empty($e)) {
+        error_log($e->getMessage());
+    }
+    http_response_code(404);
     header('Location:?p=error');
 }

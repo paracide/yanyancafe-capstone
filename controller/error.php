@@ -1,7 +1,7 @@
 <?php
 
 $props = [
-  'title'       => '502 - Error',
+  'title'       => 'Error',
   'desc'        => 'Some Errors happened',
   'cssFileName' => 'error',
   'isHomePage'  => true,
