@@ -1,6 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../model/user.model.php';
 $cssFileName = 'profile';
 $title       = 'Profile';
 

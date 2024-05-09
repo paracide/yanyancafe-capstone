@@ -72,7 +72,7 @@
         </div>
 
         <div class="user">
-          <a href="/?p=register.php">Register</a>
+          <a href="/?p=register">Register</a>
           <a href="#">Login</a>
         </div>
       </nav>

@@ -1,6 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../config.php';
 
 function addAddress(PDO $conn, array $address, int $userId): int
 {

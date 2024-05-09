@@ -3,6 +3,8 @@
 // Front Controller
 
 require __DIR__ . '/../includes/config.php';
+require __DIR__ . '/../model/user.model.php';
+require __DIR__ . '/../model/address.model.php';
 
 // Security, filter user requests
 $allowed = [
@@ -12,6 +14,7 @@ $allowed = [
   'error',
   'menu',
   'register',
+  'register_process',
   'profile',
 ];
 
