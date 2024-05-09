@@ -56,23 +56,23 @@
               'club'  => 'Club',
             ]; ?>
             <?php
-            foreach ($links as $file => $text): ?>
+            foreach ($links as $link => $text): ?>
               <a
                 class="<?= esc(
-                  $file == 'index' ? 'home-menu'
+                  $link == 'index' ? 'home-menu'
                     : 'second-menu'
                 ) ?> <?= esc(
-                  $cssFileName == $file ? 'current'
+                  $cssFileName == $link ? 'current'
                     : ''
                 ) ?>"
-                href="<?= esc($file) ?>.php"
+                href="/?p=<?= esc($link) ?>"
                 title="Yanyan Cafe - <?= esc($text) ?>"><?= esc($text) ?></a>
             <?php
             endforeach; ?>
         </div>
 
         <div class="user">
-          <a href="register.php">Register</a>
+          <a href="/?p=register.php">Register</a>
           <a href="#">Login</a>
         </div>
       </nav>

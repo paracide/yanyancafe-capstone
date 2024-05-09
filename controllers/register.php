@@ -12,7 +12,7 @@ require_once __DIR__ . '/../includes/header.inc.php';
   <div class="card">
     <h1 class="gradient-anime action">Get Your Membership</h1>
 
-    <form action="controller/registerController.php" method="post" novalidate>
+    <form action="registerController.php" method="post" novalidate>
       <div class="input-section">
         <div class="input-group">
           <label class="input-label" for="email">Email:</label>

@@ -21,7 +21,7 @@ require_once __DIR__ . '/../includes/header.inc.php';
 
     <div class="profile-img">
       <h1 class="gradient-anime">Profile</h1>
-      <img src="images/avatar.webp" alt="avatar">
+      <img src="../public/images/avatar.webp" alt="avatar">
     </div>
     <div class="info card">
       <div class="card-content">
