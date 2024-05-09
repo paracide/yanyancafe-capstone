@@ -8,6 +8,7 @@ require __DIR__ . '/../model/address.model.php';
 
 // Security, filter user requests
 $allowed = [
+  'index',
   'about',
   'cats',
   'club',

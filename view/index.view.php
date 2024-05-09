@@ -14,7 +14,7 @@ require_once __DIR__ . '/../includes/header.inc.php';
         <div class="home-cat-title border">Baby
         </div>
         <div class="card-line"></div>
-        <a class="button flash" href="cats.php#xiuxiu-page"
+        <a class="button flash" href="/?p=cats#xiuxiu-page"
            title="Cats xiuxiu">Xiuxiu</a>
       </div>
     </div>
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.inc.php';
       <div class="home-card-text">
         <div class="home-cat-title border">Evil</div>
         <div class="card-line"></div>
-        <a class="button  flash" href="cats.php#huabi-page"
+        <a class="button  flash" href="/?p=cats#huabi-page"
            title="Cats huabi">Huabi</a>
       </div>
     </div>
@@ -32,7 +32,7 @@ require_once __DIR__ . '/../includes/header.inc.php';
       <div class="home-card-text">
         <div class="home-cat-title border">Angel</div>
         <div class="card-line"></div>
-        <a class="button  flash" href="cats.php#ml-page"
+        <a class="button  flash" href="/?p=cats#ml-page"
            title="Cats zhangmeili">Zhangmeili</a>
       </div>
     </div>
@@ -41,7 +41,7 @@ require_once __DIR__ . '/../includes/header.inc.php';
       <div class="home-card-text">
         <div class="home-cat-title border">Silly</div>
         <div class="card-line"></div>
-        <a class="button  flash" href="cats.php#pipi-page"
+        <a class="button  flash" href="/?p=cats#pipi-page"
            title="Cats pipi">Pipi</a>
       </div>
     </div>
@@ -58,18 +58,18 @@ require_once __DIR__ . '/../includes/header.inc.php';
   </p>
   <div class="border menu-img-container transition" id="coffee">
     <h3>COFFEE</h3>
-    <a class="button flash" href="menu.php#coffee"
+    <a class="button flash" href="/p?=menu#coffee"
        title="Yanyan Cafe - Menu Coffee">Explore</a>
   </div>
   <div class="border menu-img-container transition" id="donut">
     <h3>SNACK</h3>
-    <a class="button flash" href="menu.php#snack"
+    <a class="button flash" href="/p?=menu#snack"
        title="Yanyan Cafe - Menu Snack">Explore</a>
   </div>
 
   <div class="border menu-img-container transition" id="beverage">
     <h3>BEVERAGES</h3>
-    <a class="button flash" href="menu.php#beverage"
+    <a class="button flash" href="/p?=menu#beverage"
        title="Yanyan Cafe - Menu Beverages">Explore</a>
   </div>
 </div>
