@@ -1,10 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../includes/config.php';
-$cssFileName = 'register';
-$title       = 'Join Us';
-$desc        = '';
-
 // view starts
 require_once __DIR__ . '/../includes/header.inc.php';
 ?>

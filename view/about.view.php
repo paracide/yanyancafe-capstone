@@ -1,6 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../includes/config.php';
 
 // view starts
 require_once __DIR__ . '/../includes/header.inc.php';

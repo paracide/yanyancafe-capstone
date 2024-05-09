@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/AddressService.php';
+require_once __DIR__ . '/address.model.php';
 
 /**
  * @param          $conn

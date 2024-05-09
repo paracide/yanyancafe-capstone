@@ -1,13 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../includes/config.php';
-$cssFileName = 'index';
-$title       = 'Yanyan Cafe';
-$isHomePage  = true;
-$desc        = 'Where sunbeams meet purrs, and the world shrinks to soft paw prints,
-      a haven awaits, woven from stories and
-      sleep.';
-// view starts
 require_once __DIR__ . '/../includes/header.inc.php';
 ?>
 
