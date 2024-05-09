@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * @param          $conn
  * @param   array  $user
@@ -19,8 +18,7 @@ function addUserProfile(PDO $conn, array $user): int
         return $userId;
     } catch (Exception $e) {
         $conn->rollBack();
-        error_log($e->getMessage());
-        header('Location: ../error.php');
+        goError($e);
     }
 
     return -1;

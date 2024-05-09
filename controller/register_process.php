@@ -35,8 +35,7 @@ try {
     $_SESSION['user_id'] = addUserProfile($conn, $_POST);
     header('Location: /?p=profile');
 } catch (Exception $e) {
-    error_log($e->getMessage());
-    header('Location: ../error.php');
+    goError($e);
 }
 die();
 

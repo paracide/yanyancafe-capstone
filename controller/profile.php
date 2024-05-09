@@ -5,8 +5,7 @@ $title       = 'Profile';
 
 $userId = $_SESSION['user_id'];
 if (empty($userId)) {
-    header('Location: error.php');
-    die;
+    goError();
 }
 $user = getUserProfileById($conn, $userId);
 

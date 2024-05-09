@@ -1,6 +1,5 @@
 <?php
 
-
 function addAddress(PDO $conn, array $address, int $userId): int
 {
     checkEmpty($userId);

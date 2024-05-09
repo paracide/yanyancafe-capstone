@@ -17,19 +17,18 @@ $allowed = [
   'register',
   'register_process',
   'profile',
+  'error',
 ];
 
 if (empty($_GET['p'])) {
     include __DIR__ . '/../controller/index.php';
 } elseif (in_array($_GET['p'], $allowed, true)) {
     include __DIR__ . '/../controller/' . $_GET['p'] . '.php';
-} else {
-    // set 404 error in header
-    http_response_code(404);
-    header('Location: error.php');
-    die();
 }
 
+// set 404 error in header
+http_response_code(404);
+include __DIR__ . '/../controller/error.php';
 
 
 

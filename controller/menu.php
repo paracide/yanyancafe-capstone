@@ -6,7 +6,7 @@ $props = [
   'isHomePage'  => true,
   'desc'        => "Where whispers of cinnamon dance with whispers of tea, concoctions for
                       weary souls and hearts seeking
-                      solace."
+                      solace.",
 ];
 
 view('menu', $props);

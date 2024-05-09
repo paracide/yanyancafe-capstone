@@ -133,6 +133,14 @@ function checkEmpty($value): mixed
 
 function view(string $view, array $data): void
 {
+    global $post;
+    global $errors;
     extract($data);
     require_once __DIR__ . '/../view/' . $view . '.view.php';
+}
+
+function goError(Exception $e): void
+{
+    error_log($e->getMessage());
+    header('Location:?p=error');
 }
