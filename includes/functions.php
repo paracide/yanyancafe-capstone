@@ -130,3 +130,9 @@ function checkEmpty($value): mixed
 
     return $value;
 }
+
+function view(string $view, array $data): void
+{
+    extract($data);
+    require_once __DIR__ . '/../view/' . $view . '.view.php';
+}

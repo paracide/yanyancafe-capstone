@@ -16,9 +16,9 @@ $allowed = [
 ];
 
 if (empty($_GET['p'])) {
-    include __DIR__ . '/../controllers/index.php';
+    include __DIR__ . '/../controller/index.php';
 } elseif (in_array($_GET['p'], $allowed, true)) {
-    include __DIR__ . '/../controllers/' . $_GET['p'] . '.php';
+    include __DIR__ . '/../controller/' . $_GET['p'] . '.php';
 } else {
     // set 404 error in header
     http_response_code(404);

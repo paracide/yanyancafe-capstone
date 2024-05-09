@@ -13,15 +13,15 @@
     <!--favicon-->
     <link href="favicon.png" rel="icon"
           type="image/x-icon">
-    <link href="../public/images/favicon/favicon-192.png" rel="apple-touch-icon"
+    <link href="images/favicon/favicon-192.png" rel="apple-touch-icon"
           sizes="192x192">
-    <link href="../public/images/favicon/favicon-180.png" rel="apple-touch-icon"
+    <link href="images/favicon/favicon-180.png" rel="apple-touch-icon"
           sizes="180x180">
-    <link href="../public/images/favicon/favicon-167.png" rel="apple-touch-icon"
+    <link href="images/favicon/favicon-167.png" rel="apple-touch-icon"
           sizes="167x167">
-    <link href="../public/images/favicon/favicon-152.png" rel="apple-touch-icon"
+    <link href="images/favicon/favicon-152.png" rel="apple-touch-icon"
           sizes="152x152">
-    <link href="../public/images/favicon/favicon-128.png" rel="apple-touch-icon"
+    <link href="images/favicon/favicon-128.png" rel="apple-touch-icon"
           sizes="128x128">
     <link href="favicon.png" rel="apple-touch-icon"
           sizes="32x32">
