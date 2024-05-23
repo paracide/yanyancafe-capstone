@@ -1,12 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../includes/config.php';
-$cssFileName = 'cats';
-$title       = 'Superstars';
-$isHomePage  = true;
-$desc        = 'Eyes of amber, coats of moonlit silk, each whisker holds a tale, an
-      odyssey in every lick.';
-// view starts
 require_once __DIR__ . '/../includes/header.inc.php';
 ?>
 

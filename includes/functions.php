@@ -130,3 +130,20 @@ function checkEmpty($value): mixed
 
     return $value;
 }
+
+function view(string $view, array $data): void
+{
+    global $post;
+    global $errors;
+    extract($data);
+    require_once __DIR__ . '/../view/' . $view . '.view.php';
+}
+
+function go404(?Exception $e): void
+{
+    if ( ! empty($e)) {
+        error_log($e->getMessage());
+    }
+    http_response_code(404);
+    header('Location:?p=error');
+}

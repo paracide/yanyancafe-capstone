@@ -1,8 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../../includes/config.php';
-require_once __DIR__ . '/../../includes/services/UserService.php';
-
 if ('POST' !== $_SERVER['REQUEST_METHOD']) {
     die('Please submit form');
 }
@@ -29,17 +26,16 @@ if (count($errors)) {
     }
     $_SESSION['errors'] = $resultError;
     $_SESSION['post']   = $_POST;
-    header('Location: ../register.php#reg');
+    header('Location: /?p=register');
     die();
 }
 
 //register succeed go to profile
 try {
     $_SESSION['user_id'] = addUserProfile($conn, $_POST);
-    header('Location: ../profile.php');
+    header('Location: /?p=profile');
 } catch (Exception $e) {
-    error_log($e->getMessage());
-    header('Location: ../error.php');
+    go404($e);
 }
 die();
 

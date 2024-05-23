@@ -1,12 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../includes/config.php';
-$cssFileName = 'about';
-$title       = 'Odyssey';
-$isHomePage  = true;
-$desc        = 'BeneaUnfurl your tales, share your whispers, let words like butterflies
-      flutter in this haven of ink and
-      purrs.';
 // view starts
 require_once __DIR__ . '/../includes/header.inc.php';
 ?>

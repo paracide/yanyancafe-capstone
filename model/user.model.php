@@ -1,9 +1,5 @@
 <?php
 
-declare(strict_types=1);
-require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/AddressService.php';
-
 /**
  * @param          $conn
  * @param   array  $user
@@ -22,8 +18,7 @@ function addUserProfile(PDO $conn, array $user): int
         return $userId;
     } catch (Exception $e) {
         $conn->rollBack();
-        error_log($e->getMessage());
-        header('Location: ../error.php');
+        go404($e);
     }
 
     return -1;
