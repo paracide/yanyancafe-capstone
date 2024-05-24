@@ -1,3 +1,8 @@
+h1 {
+  font-size: 4rem !important;
+  font-family: Oswald, Arial, Helvetica, sans-serif;
+}
+
 .card {
   display: grid;
   grid-template-rows: 1fr 5fr;
@@ -9,10 +14,6 @@
   overflow: hidden;
   box-shadow: 0 10px 20px 0 rgba(153, 153, 153, 0.25);
   /*input*/
-}
-.card h1 {
-  font-size: 2rem;
-  font-family: Oswald, Arial, Helvetica, sans-serif;
 }
 .card form {
   display: grid;

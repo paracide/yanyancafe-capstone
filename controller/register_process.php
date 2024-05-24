@@ -33,8 +33,10 @@ if (count($errors)) {
 //register succeed go to profile
 try {
     $_SESSION['user_id'] = addUserProfile($conn, $_POST);
+    FlashTools::success("You're registered successfully");
     header('Location: /?p=profile');
 } catch (Exception $e) {
+    FlashTools::error("Sorry,some errors happened");
     go404($e);
 }
 die();

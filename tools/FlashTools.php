@@ -2,7 +2,8 @@
 
 class FlashTools
 {
-    public static function flash(string $msg): void
+
+    public static function success(string $msg): void
     {
         $_SESSION['flash']['success'] = $msg;
     }
@@ -11,4 +12,5 @@ class FlashTools
     {
         $_SESSION['flash']['error'] = $msg;
     }
+
 }

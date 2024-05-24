@@ -1,11 +1,3 @@
-h1 {
-  font-size: 10rem;
-}
-
-h2 {
-  font-size: 4rem;
-}
-
 .page-wrapper {
   display: grid;
   padding: 5vh 5vw;
@@ -100,7 +92,7 @@ h2 {
 
 #pipi-page .page-wrapper {
   color: white;
-  background: linear-gradient(45deg, #000, #535451, #000);
+  background: linear-gradient(45deg, #000000, #535451, #000000);
 }
 #pipi-page #pipi1 {
   background-image: url("../images/cats/pipi1.webp");

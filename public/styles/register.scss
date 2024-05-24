@@ -1,12 +1,11 @@
 @import "color";
 
+h1 {
+  font-size: 4rem !important;
+  font-family: Oswald, Arial, Helvetica, sans-serif;
+}
 
 .card {
-  h1 {
-    font-size: 2rem;
-    font-family: Oswald, Arial, Helvetica, sans-serif;
-  }
-
   display: grid;
   grid-template-rows: 1fr 5fr;
   padding: 2rem;

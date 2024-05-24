@@ -14,4 +14,6 @@ unset($_SESSION['post']);
 
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/credentials.php';
+require_once __DIR__ . '/../components/Flash.php';
+require_once __DIR__ . '/../tools/FlashTools.php';
 const SITE_NAME = 'Yanyan Cafe';
