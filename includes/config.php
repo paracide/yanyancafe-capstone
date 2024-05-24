@@ -7,6 +7,8 @@ ob_start();
 
 $post   = $_SESSION['post'] ?? [];
 $errors = $_SESSION['errors'] ?? [];
+$flash  = $_SESSION['flash'] ?? [];
+unset($_SESSION['flash']);
 unset($_SESSION['errors']);
 unset($_SESSION['post']);
 
