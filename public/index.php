@@ -3,8 +3,8 @@
 // Front Controller
 
 require __DIR__ . '/../includes/config.php';
-require __DIR__ . '/../model/user.model.php';
-require __DIR__ . '/../model/address.model.php';
+require __DIR__ . '/../model/User.php';
+require __DIR__ . '/../model/Address.php';
 
 // Security, filter user requests
 $allowed = [

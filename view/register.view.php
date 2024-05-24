@@ -1,7 +1,7 @@
 <?php
 
 // view starts
-require_once __DIR__ . '/../includes/header.inc.php';
+require_once __DIR__ . '/../components/Header.php';
 ?>
 <div class="page" id="reg">
   <div class="card">
@@ -125,4 +125,4 @@ require_once __DIR__ . '/../includes/header.inc.php';
 
 
 <?php
-require_once __DIR__ . '/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../components/Footer.php'; ?>
