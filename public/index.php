@@ -6,20 +6,7 @@ require __DIR__ . '/../includes/config.php';
 require __DIR__ . '/../model/User.php';
 require __DIR__ . '/../model/Address.php';
 
-// Security, filter user requests
-$allowed = [
-  'index',
-  'about',
-  'cats',
-  'club',
-  'error',
-  'menu',
-  'register',
-  'register_process',
-  'login_process',
-  'profile',
-  'error',
-];
+$allowed = array_map(fn($router) => $router->name, Router::cases());
 
 if (empty($_GET['p'])) {
     include __DIR__ . '/../controller/index.php';

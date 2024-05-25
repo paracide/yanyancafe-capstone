@@ -5,15 +5,22 @@
  */
 enum Router
 {
-    case profile;
-    case register;
-    case login;
+    case index;
+    case about;
+    case cats;
+    case club;
     case error;
+    case menu;
+    case register;
+    case register_process;
+    case login_process;
+    case profile;
 
     /**
      * redirect to view
-     * @param   string  $view view name
-     * @param   array   $data data to pass to view
+     *
+     * @param   string  $view  view name
+     * @param   array   $data  data to pass to view
      *
      * @return void
      */
@@ -27,7 +34,8 @@ enum Router
 
     /**
      * redirect to page
-     * @param   Router  $router router enum
+     *
+     * @param   Router  $router  router enum
      *
      * @return void
      */
@@ -55,6 +63,7 @@ enum Router
 
     /**
      * redirect to 404 error page
+     *
      * @return void
      */
     public static function go405(): void
@@ -62,7 +71,5 @@ enum Router
         http_response_code(500);
         self::go(self::error);
     }
-
-
 
 }
