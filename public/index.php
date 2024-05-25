@@ -26,7 +26,7 @@ if (empty($_GET['p'])) {
 } elseif (in_array($_GET['p'], $allowed, true)) {
     include __DIR__ . '/../controller/' . $_GET['p'] . '.php';
 } else {
-    go500(null);
+    Router::go500(null);
 }
 
 

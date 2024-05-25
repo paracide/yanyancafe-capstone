@@ -12,7 +12,7 @@ function addUserProfile(array $user): int
         return $userId;
     } catch (Exception $e) {
         $conn->rollBack();
-        go500($e);
+        Router::go500($e);
     }
 
     return -1;

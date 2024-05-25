@@ -5,7 +5,7 @@ $title       = 'Profile';
 
 $userId = $_SESSION['user_id'];
 if (empty($userId)) {
-    go500(null);
+    Router::go500(null);
 }
 $user = getUserProfileById($userId);
 

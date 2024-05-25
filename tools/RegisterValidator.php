@@ -2,12 +2,11 @@
 
 class RegisterValidator
 {
+    private array $error = [];
 
-    private array $errors = [];
-
-    public function getErrors(): array
+    public function getError(): array
     {
-        return $this->errors;
+        return $this->error;
     }
 
     /**
@@ -90,8 +89,8 @@ class RegisterValidator
     ): void {
         foreach ($requiredArr as $item) {
             if (empty($toValidateArr[$item])) {
-                $this->errors[$item][] = StringUtils::label($item)
-                                         . "  is a required field";
+                $this->error[$item][] = StringUtils::label($item)
+                                        . "  is a required field. ";
             }
         }
     }
@@ -105,22 +104,22 @@ class RegisterValidator
     ): void {
         //password should be same
         if ($password !== $confirmPassword) {
-            $errorMsg                     = 'Password are not same.';
-            $errors['password'] []        = $errorMsg;
-            $errors['confirm_password'][] = $errorMsg;
+            $errorMsg                          = 'Password are not same. ';
+            $this->error['password'] []        = $errorMsg;
+            $this->error['confirm_password'][] = $errorMsg;
         } elseif ( ! self::isPassword($password)) {
-            $errors['password'] [] = 'Length should be between 8 to 20';
+            $this->error['password'] [] = 'Length should be between 8 to 20. ';
         }
     }
 
     /**
      * check Name
      */
-    public function checkName(string $value,string $fieldName): void
+    public function checkName(string $value, string $fieldName): void
     {
         if ( ! self::isName($value)) {
-            $errors[$fieldName][]
-              = "Should be letters and between 1 to 255 character";
+            $this->error[$fieldName][]
+              = "Should be letters and between 1 to 255 character. ";
         }
     }
 
@@ -130,12 +129,12 @@ class RegisterValidator
     public function checkEmail(string $email): void
     {
         if ( ! self::isEmail($email)) {
-            $errors['email'][]
+            $this->error['email'][]
               = "Should be in the format: example@example.com.";
         } else {
             $user = getUserByEmail($email);
             if (count($user) > 0) {
-                $errors['email'][] = "This email has registered.";
+                $this->error['email'][] = "This email has registered.";
             }
         }
     }
@@ -146,7 +145,7 @@ class RegisterValidator
     public function checkPhone(string $phone): void
     {
         if ( ! self:: isPhone($phone)) {
-            $errors['phone'][] = "Should be in the format: XXX-XXX-XXXX.";
+            $this->error['phone'][] = "Should be in the format: XXX-XXX-XXXX.";
         }
     }
 
@@ -156,8 +155,7 @@ class RegisterValidator
     public function checkPostalCode(string $postalCode): void
     {
         if ( ! self::isCaPostalCode($postalCode)) {
-            $errors['postal_code'][] = "Should be in the format: A1A 1A1.";
+            $this->error['postal_code'][] = "Should be in the format: A1A 1A1.";
         }
     }
-
 }

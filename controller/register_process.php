@@ -28,30 +28,24 @@ $validator->checkPhone($_POST['phone']);
 $validator->checkPostalCode($_POST['postal_code']);
 
 //error go back to register
-$errors = $validator->getErrors();
+$errors = $validator->getError();
 if (count($errors)) {
-    $resultError = [];
-    foreach ($errors as $key => $messages) {
-        $errorMessages = '';
-        foreach ($messages as $msg) {
-            $errorMessages .= ' ' . $msg . ' ';
-        };
-        $resultError[$key] = $errorMessages;
-    }
+    $resultError = array_map(function ($msg) {
+        return implode(" ", $msg);
+    }, $errors);
+
     $_SESSION['errors'] = $resultError;
-    $_SESSION['post']   = $_POST;
-    header('Location: /?p=register');
-    die();
+    Router::header(Router::register);
 }
 
 //register succeed go to profile
 try {
-    $_SESSION['user_id'] = addUserProfile( $_POST);
-    FlashTools::success("You're registered successfully");
-    header('Location: /?p=profile');
+    $_SESSION['user_id'] = addUserProfile($_POST);
+    FlashUtils::success("You're registered successfully");
+    Router::header(Router::profile);
 } catch (Exception $e) {
-    FlashTools::error("Sorry,some errors happened");
-    go500($e);
+    FlashUtils::error("Sorry,some errors happened");
+    Router::go500($e);
 }
 die();
 

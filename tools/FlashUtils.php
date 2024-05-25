@@ -1,6 +1,6 @@
 <?php
 
-class FlashTools
+class FlashUtils
 {
 
     public static function success(string $msg): void
