@@ -1,8 +1,6 @@
 <?php
 
-if ('POST' !== $_SERVER['REQUEST_METHOD']) {
-    die('Please submit form');
-}
+checkPostRequest();
 
 //validate the form
 $errors = [];
@@ -37,7 +35,7 @@ try {
     header('Location: /?p=profile');
 } catch (Exception $e) {
     FlashTools::error("Sorry,some errors happened");
-    go404($e);
+    go500($e);
 }
 die();
 

@@ -16,6 +16,7 @@ $allowed = [
   'menu',
   'register',
   'register_process',
+  'login_process',
   'profile',
   'error',
 ];
@@ -25,7 +26,7 @@ if (empty($_GET['p'])) {
 } elseif (in_array($_GET['p'], $allowed, true)) {
     include __DIR__ . '/../controller/' . $_GET['p'] . '.php';
 } else {
-    go404(null);
+    go500(null);
 }
 
 

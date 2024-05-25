@@ -5,7 +5,7 @@ $title       = 'Profile';
 
 $userId = $_SESSION['user_id'];
 if (empty($userId)) {
-    go404();
+    go500(null);
 }
 $user = getUserProfileById($conn, $userId);
 

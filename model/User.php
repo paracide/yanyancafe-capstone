@@ -1,12 +1,5 @@
 <?php
 
-/**
- * @param          $conn
- * @param   array  $user
- *
- * @return int
- */
-
 function addUserProfile(PDO $conn, array $user): int
 {
     try {
@@ -18,7 +11,7 @@ function addUserProfile(PDO $conn, array $user): int
         return $userId;
     } catch (Exception $e) {
         $conn->rollBack();
-        go404($e);
+        go500($e);
     }
 
     return -1;
