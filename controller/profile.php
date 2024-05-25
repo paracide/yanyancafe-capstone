@@ -7,7 +7,7 @@ $userId = $_SESSION['user_id'];
 if (empty($userId)) {
     go500(null);
 }
-$user = getUserProfileById($conn, $userId);
+$user = getUserProfileById($userId);
 
 $props = [
   'cssFileName' => 'profile',

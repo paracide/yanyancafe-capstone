@@ -12,8 +12,11 @@ unset($_SESSION['flash']);
 unset($_SESSION['errors']);
 unset($_SESSION['post']);
 
-require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/credentials.php';
-require_once __DIR__ . '/../components/Flash.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/../tools/StringUtils.php';
 require_once __DIR__ . '/../tools/FlashTools.php';
+require_once __DIR__ . '/../tools/RegisterValidator.php';
+require_once __DIR__ . '/../components/Flash.php';
+
 const SITE_NAME = 'Yanyan Cafe';

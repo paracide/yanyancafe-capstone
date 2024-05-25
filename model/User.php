@@ -1,10 +1,11 @@
 <?php
 
-function addUserProfile(PDO $conn, array $user): int
+function addUserProfile(array $user): int
 {
+    global $conn;
     try {
         $conn->beginTransaction();
-        $userId = addUser($conn, $user);
+        $userId = addUser($user);
         addAddress($conn, $user, $userId);
         $conn->commit();
 
@@ -17,8 +18,9 @@ function addUserProfile(PDO $conn, array $user): int
     return -1;
 }
 
-function addUser(PDO $conn, array $user): int
+function addUser(array $user): int
 {
+    global $conn;
     $email    = checkEmpty($user['email']);
     $password = checkEmpty($user['password']);
 
@@ -42,8 +44,9 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
     return intval($conn->lastInsertId());
 }
 
-function getUserProfileById(PDO $conn, int $id): array
+function getUserProfileById(int $id): array
 {
+    global $conn;
     $query = 'SELECT u.id,
        u.email,
        u.first_name,
@@ -72,8 +75,9 @@ WHERE u.id = :user_id
     return $result ? $result : [];
 }
 
-function getUserByEmail(PDO $conn, string $email): array
+function getUserByEmail(string $email): array
 {
+    global $conn;
     $query = 'SELECT u.id,
        u.email,
        u.first_name,
