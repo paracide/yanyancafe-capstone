@@ -1,6 +1,6 @@
 <?php
 
-checkPostRequest();
+Preconditions::checkPostRequest();
 
 //validate the form
 $require = [

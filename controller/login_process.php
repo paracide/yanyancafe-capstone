@@ -1,3 +1,3 @@
 <?php
 
-checkPostRequest();
+Preconditions::checkPostRequest();

@@ -21,8 +21,8 @@ function addUserProfile(array $user): int
 function addUser(array $user): int
 {
     global $conn;
-    $email    = checkEmpty($user['email']);
-    $password = checkEmpty($user['password']);
+    $email    = Preconditions::checkEmpty($user['email']);
+    $password = Preconditions::checkEmpty($user['password']);
 
     $query = 'INSERT INTO user
 (email, password, first_name, last_name, birthday, phone, subscribe_to_newsletter)

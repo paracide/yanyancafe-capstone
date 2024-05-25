@@ -3,7 +3,14 @@
 class StringUtils
 {
 
-    public static function label(string $field)
+    /**
+     * convert snake case to camel case
+     *
+     * @param   string  $field
+     *
+     * @return string
+     */
+    public static function label(string $field): string
     {
         return ucwords(str_replace('_', ' ', $field));
     }

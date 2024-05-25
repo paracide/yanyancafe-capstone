@@ -2,6 +2,7 @@
 
 class RegisterValidator
 {
+
     private array $error = [];
 
     public function getError(): array
@@ -81,7 +82,12 @@ class RegisterValidator
     }
 
     /**
-     * check all required fields
+     * check required fields
+     *
+     * @param   array  $requiredArr    required fields
+     * @param   array  $toValidateArr  fields to validate
+     *
+     * @return void
      */
     public function checkRequired(
       array $requiredArr,
@@ -96,7 +102,13 @@ class RegisterValidator
     }
 
     /**
-     * check Password
+     * check password, password should be same and length should be between 8
+     * and 20
+     *
+     * @param   string  $password         password
+     * @param   string  $confirmPassword  confirm password
+     *
+     * @return void
      */
     public function checkPassword(
       string $password,
@@ -108,23 +120,32 @@ class RegisterValidator
             $this->error['password'] []        = $errorMsg;
             $this->error['confirm_password'][] = $errorMsg;
         } elseif ( ! self::isPassword($password)) {
-            $this->error['password'] [] = 'Length should be between 8 to 20. ';
+            $this->error['password'] [] = 'Length should be between 8 and 20. ';
         }
     }
 
     /**
-     * check Name
+     * check name
+     *
+     * @param   string  $name       name
+     * @param   string  $fieldName  firstName or lastName
+     *
+     * @return void
      */
-    public function checkName(string $value, string $fieldName): void
+    public function checkName(string $name, string $fieldName): void
     {
-        if ( ! self::isName($value)) {
+        if ( ! self::isName($name)) {
             $this->error[$fieldName][]
               = "Should be letters and between 1 to 255 character. ";
         }
     }
 
     /**
-     * check Email
+     * check email, email should in the format and not registered
+     *
+     * @param   string  $email email
+     *
+     * @return void
      */
     public function checkEmail(string $email): void
     {
@@ -140,7 +161,11 @@ class RegisterValidator
     }
 
     /**
-     * check Phone
+     * check phone, phone should be in the format XXX-XXX-XXXX
+     *
+     * @param   string  $phone phone
+     *
+     * @return void
      */
     public function checkPhone(string $phone): void
     {
@@ -150,7 +175,11 @@ class RegisterValidator
     }
 
     /**
-     * check Postal Code
+     * check postal code, postal code should be in the Canadian format A1A 1A1
+     *
+     * @param   string  $postalCode postal code
+     *
+     * @return void
      */
     public function checkPostalCode(string $postalCode): void
     {
@@ -158,4 +187,5 @@ class RegisterValidator
             $this->error['postal_code'][] = "Should be in the format: A1A 1A1.";
         }
     }
+
 }

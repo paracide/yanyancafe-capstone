@@ -2,7 +2,7 @@
 
 function addAddress(PDO $conn, array $address, int $userId): int
 {
-    checkEmpty($userId);
+    Preconditions::checkEmpty($userId);
     $query = 'INSERT INTO address
 (user_id, street, province, country, city, postal_code)
 VALUES (:user_id, :street, :province, :country, :city, :postal_code);';

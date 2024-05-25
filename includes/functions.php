@@ -42,28 +42,3 @@ function dd($var, $die = false): void
         exit();
     }
 }
-
-
-/**
- * check empty value
- *
- * @param $value
- *
- * @return mixed
- * @throws Exception
- */
-function checkEmpty($value): mixed
-{
-    if (empty($value)) {
-        throw new Exception('Value is empty');
-    }
-
-    return $value;
-}
-
-function checkPostRequest()
-{
-    if ('POST' !== $_SERVER['REQUEST_METHOD']) {
-        Router::go405();
-    }
-}
