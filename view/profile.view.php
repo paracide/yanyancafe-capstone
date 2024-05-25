@@ -11,10 +11,10 @@ require_once __DIR__ . '/../components/Header.php';
       <h1 class="gradient-anime">Profile</h1>
       <img src="images/avatar.webp" alt="avatar">
     </div>
-    <div class="info card">
-      <div class="card-content">
+    <div class="card w-96 glass">
+      <div class="card-body gap-4">
         <h2 class="card-title">Personal Info</h2>
-        <div class="card-text">
+        <div class="card-actions justify-start flex-col">
             <?php
             if ( ! empty($user['first_name'])): ?>
               <div><b>First Name:</b> <?= esc($user['first_name']) ?></div>
@@ -43,10 +43,10 @@ require_once __DIR__ . '/../components/Header.php';
         </div>
       </div>
     </div>
-    <div class="info card">
-      <div class="card-content">
+    <div class="card w-96 glass">
+      <div class="card-body gap-4">
         <h2 class="card-title">Addresses</h2>
-        <div class="card-text">
+        <div class="card-actions justify-start flex-col">
             <?php
             if ( ! empty($user['street'])): ?>
               <div><b>Street:</b> <?= esc($user['street']) ?></div>

@@ -8,7 +8,8 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Oswald:wght@400;700&display=swap"
       rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
+          rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <title><?= esc(SITE_NAME) . ' - ' . esc($title) ?></title>
 
@@ -75,8 +76,16 @@
         </div>
 
         <div class="user">
-          <a href="/?p=register">Register</a>
-          <a href="#">Login</a>
+            <?php
+            if (Auth::check()): ?>
+              <a href="/?p=club">Logout</a>
+              <a href="/?p=profile">Profile</a>
+            <?php
+            else: ?>
+              <a href="/?p=register">Register</a>
+              <a href="/?p=club">Login</a>
+            <?php
+            endif; ?>
         </div>
       </nav>
       <main>

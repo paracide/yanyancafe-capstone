@@ -15,6 +15,7 @@ unset($_SESSION['post']);
 require_once __DIR__ . '/credentials.php';
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/../tools/StringUtils.php';
+require_once __DIR__ . '/../tools/Auth.php';
 require_once __DIR__ . '/../tools/FlashUtils.php';
 require_once __DIR__ . '/../tools/Router.php';
 require_once __DIR__ . '/../tools/RegisterValidator.php';
