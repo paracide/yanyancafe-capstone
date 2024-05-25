@@ -32,8 +32,12 @@
     <link href="styles/base.css" media="screen" rel="stylesheet">
     <link href="styles/mobile.css" media="screen" rel="stylesheet">
     <link href="styles/print.css" media="print" rel="stylesheet">
-    <link href="styles/<?= esc($cssFileName) ?>.css" media="screen"
-          rel="stylesheet">
+      <?php
+      if ( ! empty($cssFileName)): ?>
+        <link href="styles/<?= esc($cssFileName) ?>.css" media="screen"
+              rel="stylesheet">
+      <?php
+      endif; ?>
 
 
   </head>

@@ -19,9 +19,9 @@ require_once __DIR__ . '/../components/Header.php';
     </div>
   </div>
   <div class="card club-reg" id="reg">
-    <form action="http://scott-media.com/test/form_display.php"
+    <form action="/p=login_process"
           class="card-form" method="post">
-      <h2 class="action">Account login:</h2>
+      <h2 class="action">Account login</h2>
       <label class="input-label" for="email">Email:</label>
       <input class="input-field" id="email" name="email" require_onced
              type="email">
@@ -36,11 +36,12 @@ require_once __DIR__ . '/../components/Header.php';
       </label>
 
       <div class="action">
-        <button class="button flash">Log In</button>
+        <button class="button flash" type="submit">Log In</button>
       </div>
       <div class="action">
-        <button class="button flash" style="background: deepskyblue">Create a
-          free account
+        <button class="button flash
+        " style="background: deepskyblue">Create a
+        free account
         </button>
       </div>
     </form>

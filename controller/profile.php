@@ -1,7 +1,6 @@
 <?php
 
-$cssFileName = 'profile';
-$title       = 'Profile';
+$title = 'Profile';
 
 $userId = $_SESSION['user_id'];
 if (empty($userId)) {
