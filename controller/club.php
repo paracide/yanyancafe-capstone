@@ -8,4 +8,4 @@ $props = [
                       odyssey in every lick.",
 ];
 
-view('club', $props);
+Router::view('club', $props);

@@ -61,14 +61,6 @@ function checkEmpty($value): mixed
     return $value;
 }
 
-function view(string $view, array $data): void
-{
-    global $post;
-    global $errors;
-    extract($data);
-    require_once __DIR__ . '/../view/' . $view . '.view.php';
-}
-
 function checkPostRequest()
 {
     if ('POST' !== $_SERVER['REQUEST_METHOD']) {

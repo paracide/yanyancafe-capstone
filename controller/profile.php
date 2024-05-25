@@ -14,4 +14,4 @@ $props = [
   'title'       => 'Profile',
   'user'        => $user,
 ];
-view('profile', $props);
+Router::view('profile', $props);

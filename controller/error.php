@@ -6,5 +6,5 @@ $props = [
   'cssFileName' => 'error',
   'isHomePage'  => true,
 ];
-view('error', $props);
+Router::view('error', $props);
 

@@ -9,4 +9,4 @@ $props = [
                       purrs.",
 ];
 
-view('about', $props);
+Router::view('about', $props);

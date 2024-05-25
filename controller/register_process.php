@@ -35,14 +35,14 @@ if (count($errors)) {
     }, $errors);
 
     $_SESSION['errors'] = $resultError;
-    Router::header(Router::register);
+    Router::go(Router::register);
 }
 
 //register succeed go to profile
 try {
     $_SESSION['user_id'] = addUserProfile($_POST);
     FlashUtils::success("You're registered successfully");
-    Router::header(Router::profile);
+    Router::go(Router::profile);
 } catch (Exception $e) {
     FlashUtils::error("Sorry,some errors happened");
     Router::go500($e);

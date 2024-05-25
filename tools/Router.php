@@ -1,16 +1,24 @@
 <?php
 
-enum Router: string
+enum Router
 {
 
-    case profile = 'profile';
-    case register = 'register';
-    case login = 'login';
-    case error = 'error';
+    case profile;
+    case register;
+    case login;
+    case error;
 
-    public static function header(Router $router)
+    public static function view(string $view, array $data): void
     {
-        header("Location:?p=$router->value");
+        global $post;
+        global $errors;
+        extract($data);
+        require_once __DIR__ . '/../view/' . $view . '.view.php';
+    }
+
+    public static function go(Router $router): void
+    {
+        header("Location:?p=$router->name");
         die();
     }
 
@@ -20,13 +28,15 @@ enum Router: string
             error_log($e->getMessage());
         }
         http_response_code(500);
-        header('Location:?p=error');
+        self::go(self::error);
     }
 
     public static function go405(): void
     {
         http_response_code(500);
-        header('Location:?p=error');
+        self::go(self::error);
     }
+
+
 
 }

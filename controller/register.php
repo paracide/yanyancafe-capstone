@@ -5,4 +5,4 @@ $props = [
   'title'       => 'Join Us',
 ];
 
-view('register', $props);
+Router::view('register', $props);
