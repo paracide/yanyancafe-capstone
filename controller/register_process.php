@@ -1,5 +1,6 @@
 <?php
 
+global $userRepository;
 Preconditions::checkPostRequest();
 
 //validate the form

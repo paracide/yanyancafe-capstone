@@ -7,8 +7,14 @@ class UserRepository extends Repository
 
     private static ?UserRepository $instance = null;
 
+    /**
+     * For singleton pattern, the constructor is private to avoid new instance
+     */
     private function __construct() {}
 
+    /**
+     * Singleton pattern for make the repository instance globally
+     */
     public static function getInstance(): UserRepository
     {
         if (self::$instance === null) {

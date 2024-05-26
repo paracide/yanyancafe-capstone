@@ -7,8 +7,14 @@ class AddressRepository extends Repository
 
     private static ?AddressRepository $instance = null;
 
+    /**
+     * For singleton pattern, the constructor is private to avoid new instance
+     */
     private function __construct() {}
 
+    /**
+     * Singleton pattern for make the repository instance globally
+     */
     public static function getInstance(): AddressRepository
     {
         if (self::$instance === null) {

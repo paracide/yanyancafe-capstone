@@ -29,6 +29,11 @@ require_once __DIR__ . '/../components/Flash.php';
 
 const SITE_NAME = 'Yanyan Cafe';
 
+/**
+ * injection repositories dependencies globally
+ * due to the config.php will be loaded on every page
+ * so make the repositories singleton
+ */
 $addressRepository = AddressRepository::getInstance();
 $userRepository    = UserRepository::getInstance();
 
