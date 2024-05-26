@@ -35,6 +35,7 @@ if (count($errors)) {
         return implode(" ", $msg);
     }, $errors);
     $_SESSION['errors'] = $resultError;
+    $_SESSION['post']   = $_POST;
     Router::go(Router::register);
 }
 

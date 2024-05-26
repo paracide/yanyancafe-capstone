@@ -14,6 +14,7 @@ enum Router
     case register;
     case register_process;
     case login_process;
+    case logout_process;
     case profile;
 
     /**

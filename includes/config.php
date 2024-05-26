@@ -21,9 +21,10 @@ require_once __DIR__ . '/../model/UserRepository.php';
 require_once __DIR__ . '/credentials.php';
 
 require_once __DIR__ . '/../tools/StringUtils.php';
+require_once __DIR__ . '/../tools/Preconditions.php';
 require_once __DIR__ . '/../tools/Auth.php';
 require_once __DIR__ . '/../tools/FlashUtils.php';
-require_once __DIR__ . '/../tools/Router.php';
+require_once __DIR__ . '/Router.php';
 require_once __DIR__ . '/../tools/RegisterValidator.php';
 require_once __DIR__ . '/../components/Flash.php';
 

@@ -143,17 +143,18 @@ class RegisterValidator
     /**
      * check email, email should in the format and not registered
      *
-     * @param   string  $email email
+     * @param   string  $email  email
      *
      * @return void
      */
     public function checkEmail(string $email): void
     {
+        global $userRepository;
         if ( ! self::isEmail($email)) {
             $this->error['email'][]
               = "Should be in the format: example@example.com.";
         } else {
-            $user = getUserByEmail($email);
+            $user = $userRepository->getUserByEmail($email);
             if (count($user) > 0) {
                 $this->error['email'][] = "This email has registered.";
             }
@@ -163,7 +164,7 @@ class RegisterValidator
     /**
      * check phone, phone should be in the format XXX-XXX-XXXX
      *
-     * @param   string  $phone phone
+     * @param   string  $phone  phone
      *
      * @return void
      */
@@ -177,7 +178,7 @@ class RegisterValidator
     /**
      * check postal code, postal code should be in the Canadian format A1A 1A1
      *
-     * @param   string  $postalCode postal code
+     * @param   string  $postalCode  postal code
      *
      * @return void
      */
