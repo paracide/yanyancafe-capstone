@@ -42,7 +42,7 @@ enum Router
      */
     public static function go(Router $router): void
     {
-        header("Location:?p=$router->name");
+        header("Location:/?p=$router->name");
         die();
     }
 

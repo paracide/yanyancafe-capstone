@@ -8,7 +8,6 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Oswald:wght@400;700&display=swap"
       rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
           rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,17 +36,9 @@
       if ( ! empty($cssFileName)): ?>
         <link href="styles/<?= esc($cssFileName) ?>.css" media="screen"
               rel="stylesheet">
-      <?php endif; ?>
+      <?php
+      endif; ?>
 
-
-    <script>
-      $(function() {
-        $('#logout').click((event) => {
-          event.preventDefault();
-          $.post('/?p=logout_process');
-        });
-      });
-    </script>
   </head>
   <body>
     <div class="wrapper">
@@ -90,7 +81,9 @@
         <div class="user">
             <?php
             if (Auth::check()): ?>
-              <a href="#" id="logout">Logout</a>
+              <form action="/?p=logout_process" method="post" novalidate>
+                <button type="submit">Logout</button>
+              </form>
               <a href="/?p=profile">Profile</a>
             <?php
             else: ?>

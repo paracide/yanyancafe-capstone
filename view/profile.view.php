@@ -4,7 +4,7 @@
 require_once __DIR__ . '/../components/Header.php';
 ?>
 
-<div class="page flex gap-10 justify-center">
+<div class="page grid-cols-3">
   <div class="card w-96 glass h-4/5">
     <figure><img src="images/avatar.webp" alt="car!"/></figure>
     <div class="card-body">
