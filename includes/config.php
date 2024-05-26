@@ -14,8 +14,12 @@ unset($_SESSION[Constant::SESSION_POST]);
 unset($_SESSION[Constant::SESSION_ERRORS]);
 unset($_SESSION[Constant::SESSION_FLASH]);
 
-require_once __DIR__ . '/credentials.php';
 require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/../model/Repository.php';
+require_once __DIR__ . '/../model/AddressRepository.php';
+require_once __DIR__ . '/../model/UserRepository.php';
+require_once __DIR__ . '/credentials.php';
+
 require_once __DIR__ . '/../tools/StringUtils.php';
 require_once __DIR__ . '/../tools/Auth.php';
 require_once __DIR__ . '/../tools/FlashUtils.php';
@@ -24,3 +28,7 @@ require_once __DIR__ . '/../tools/RegisterValidator.php';
 require_once __DIR__ . '/../components/Flash.php';
 
 const SITE_NAME = 'Yanyan Cafe';
+
+$addressRepository = AddressRepository::getInstance();
+$userRepository    = UserRepository::getInstance();
+

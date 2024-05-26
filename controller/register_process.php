@@ -30,7 +30,7 @@ $validator->checkPostalCode($_POST['postal_code']);
 //error go back to register
 $errors = $validator->getError();
 if (count($errors)) {
-    $resultError = array_map(function ($msg) {
+    $resultError        = array_map(function ($msg) {
         return implode(" ", $msg);
     }, $errors);
     $_SESSION['errors'] = $resultError;
@@ -39,7 +39,8 @@ if (count($errors)) {
 
 //register succeed go to profile
 try {
-    Auth::login(addUserProfile($_POST));
+    $userId         = $userRepository->addUserProfile($_POST);
+    Auth::login($userId);
     FlashUtils::success("You're registered successfully");
     Router::go(Router::profile);
 } catch (Exception $e) {

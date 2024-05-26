@@ -1,12 +1,13 @@
 <?php
 
+global $userRepository;
 $title = 'Profile';
 
 $userId = $_SESSION['user_id'];
 if (empty($userId)) {
     Router::go500(null);
 }
-$user = getUserProfileById($userId);
+$user = $userRepository->getUserProfileById($userId);
 
 $props = [
   'cssFileName' => 'profile',
