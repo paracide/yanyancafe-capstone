@@ -41,7 +41,7 @@
 
 
     <script>
-      $(() => {
+      $(function() {
         $('#logout').click((event) => {
           event.preventDefault();
           $.post('/?p=logout_process');

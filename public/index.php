@@ -5,7 +5,7 @@
 require __DIR__ . '/../includes/config.php';
 
 $allowed = array_map(fn($router) => $router->name, Router::cases());
-$page    = $_GET['p'] ?? '';
+$page    = $_REQUEST['p'] ?? '';
 if (empty($page)) {
     include __DIR__ . '/../controller/index.php';
 } elseif (in_array($page, $allowed, true)) {

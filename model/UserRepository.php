@@ -105,12 +105,7 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
 
     public function getUserByEmail(string $email): array
     {
-        $query = 'SELECT u.id,
-       u.email,
-       u.first_name,
-       u.last_name,
-       u.birthday,
-       u.phone
+        $query = 'SELECT *
         FROM user u
         WHERE u.email = :email
          and u.is_del = 0
