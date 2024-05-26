@@ -33,14 +33,13 @@ if (count($errors)) {
     $resultError = array_map(function ($msg) {
         return implode(" ", $msg);
     }, $errors);
-
     $_SESSION['errors'] = $resultError;
     Router::go(Router::register);
 }
 
 //register succeed go to profile
 try {
-    $_SESSION['user_id'] = addUserProfile($_POST);
+    Auth::login(addUserProfile($_POST));
     FlashUtils::success("You're registered successfully");
     Router::go(Router::profile);
 } catch (Exception $e) {

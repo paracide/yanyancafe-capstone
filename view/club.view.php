@@ -20,13 +20,13 @@ require_once __DIR__ . '/../components/Header.php';
   </div>
   <div class="card club-reg" id="reg">
     <form action="/p=login_process"
-          class="card-form" method="post">
+          class="card-form" method="post" novalidate>
       <h2 class="action">Account login</h2>
       <label class="input-label" for="email">Email:</label>
-      <input class="input-field" id="email" name="email" require_onced
+      <input class="input-field" id="email" name="email"
              type="email">
       <label class="input-label" for="password">Password:</label>
-      <input class="input-field" id="password" name="password" require_onced
+      <input class="input-field" id="password" name="password"
              type="password">
 
       <label class="input-label action">
@@ -41,7 +41,7 @@ require_once __DIR__ . '/../components/Header.php';
       <div class="action">
         <button class="button flash
         " style="background: deepskyblue">Create a
-        free account
+          free account
         </button>
       </div>
     </form>

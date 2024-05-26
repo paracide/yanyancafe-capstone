@@ -15,9 +15,12 @@ function addUserProfile(array $user): int
         Router::go500($e);
     }
 
-    return -1;
+    return 0;
 }
 
+/**
+ * @throws \Exception
+ */
 function addUser(array $user): int
 {
     global $conn;

@@ -2,21 +2,20 @@
 
 class Auth
 {
-
     public static function check(): bool
     {
-        return ! empty($_SESSION['user_id']);
+        return ! empty($_SESSION[Constant::SESSION_USER_ID]);
     }
 
     public static function login(int $userId): void
     {
         session_regenerate_id(true);
-        $_SESSION['user_id'] = $userId;
+        $_SESSION[Constant::SESSION_USER_ID] = $userId;
     }
 
     public static function logout(): void
     {
-        unset($_SESSION['user_id']);
+        unset($_SESSION[Constant::SESSION_USER_ID]);
         session_regenerate_id(true);
     }
 

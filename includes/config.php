@@ -5,12 +5,14 @@ declare(strict_types=1);
 session_start();
 ob_start();
 
-$post   = $_SESSION['post'] ?? [];
-$errors = $_SESSION['errors'] ?? [];
-$flash  = $_SESSION['flash'] ?? [];
-unset($_SESSION['flash']);
-unset($_SESSION['errors']);
-unset($_SESSION['post']);
+require_once __DIR__ . '/Constant.php';
+
+$post   = $_SESSION[Constant::SESSION_POST] ?? [];
+$errors = $_SESSION[Constant::SESSION_ERRORS] ?? [];
+$flash  = $_SESSION[Constant::SESSION_FLASH] ?? [];
+unset($_SESSION[Constant::SESSION_POST]);
+unset($_SESSION[Constant::SESSION_ERRORS]);
+unset($_SESSION[Constant::SESSION_FLASH]);
 
 require_once __DIR__ . '/credentials.php';
 require_once __DIR__ . '/functions.php';
