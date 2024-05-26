@@ -48,7 +48,10 @@ class UserRepository extends Repository
     public function addUser(array $user): int
     {
         $email    = Preconditions::checkEmpty($user['email']);
-        $password = Preconditions::checkEmpty($user['password']);
+        $password = password_hash(
+          Preconditions::checkEmpty($user['password']),
+          PASSWORD_DEFAULT
+        );
 
         $query = 'INSERT INTO user
 (email, password, first_name, last_name, birthday, phone, subscribe_to_newsletter)
