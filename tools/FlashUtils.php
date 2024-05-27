@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Flash utils
+ */
 class FlashUtils
 {
 

@@ -25,14 +25,20 @@ class AddressRepository extends Repository
     }
 
     /**
-     * @throws \Exception
+     * add address
+     *
+     * @param   array  $address address information
+     * @param   int    $userId
+     *
+     * @return int address id
+     * @throws \Exception throw exception if user id is empty
      */
     public function addAddress(array $address, int $userId): int
     {
         Preconditions::checkEmpty($userId);
         $query = 'INSERT INTO address
-    (user_id, street, province, country, city, postal_code)
-VALUES (:user_id, :street, :province, :country, :city, :postal_code)';
+                  (user_id, street, province, country, city, postal_code)
+                   VALUES (:user_id, :street, :province, :country, :city, :postal_code)';
 
         $stmt  = parent::$conn->prepare($query);
         $param = [

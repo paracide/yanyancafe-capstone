@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Preconditions utils
+ */
 class Preconditions
 {
 

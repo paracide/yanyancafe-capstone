@@ -24,9 +24,17 @@ class UserRepository extends Repository
         return self::$instance;
     }
 
+    /**
+     * Add user profile with address
+     *
+     * @param   array  $user
+     *
+     * @return int
+     */
     public function addUserProfile(array $user): int
     {
         global $addressRepository;
+        // Start transaction due to multiple insert
         try {
             parent::$conn->beginTransaction();
             $userId = $this->addUser($user);
@@ -43,7 +51,12 @@ class UserRepository extends Repository
     }
 
     /**
-     * @throws \Exception
+     * Add user
+     *
+     * @param   array  $user
+     *
+     * @return int user id
+     * @throws \Exception throw exception if user id is empty
      */
     public function addUser(array $user): int
     {
@@ -54,8 +67,8 @@ class UserRepository extends Repository
         );
 
         $query = 'INSERT INTO user
-(email, password, first_name, last_name, birthday, phone, subscribe_to_newsletter)
-VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscribe_to_newsletter);';
+                  (email, password, first_name, last_name, birthday, phone, subscribe_to_newsletter)
+                   VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscribe_to_newsletter);';
 
         $stmt  = parent::$conn->prepare($query);
         $param = [
@@ -74,8 +87,17 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
         return intval(parent::$conn->lastInsertId());
     }
 
+    /**
+     * Get user profile by id including address
+     *
+     * @param   int  $id
+     *
+     * @return array
+     * @throws \Exception
+     */
     public function getUserProfileById(int $id): array
     {
+        Preconditions::checkEmpty($id);
         $query = 'SELECT u.id,
        u.email,
        u.first_name,
@@ -103,13 +125,21 @@ VALUES (:email, :password, :first_name, :last_name, :birthday, :phone, :subscrib
         return $result ? $result : [];
     }
 
+    /**
+     * Get user by email including the password
+     *
+     * @param   string  $email
+     *
+     * @return array
+     * @throws \Exception
+     */
     public function getUserByEmail(string $email): array
     {
+        Preconditions::checkEmpty($email);
         $query = 'SELECT *
         FROM user u
         WHERE u.email = :email
-         and u.is_del = 0
-';
+        and u.is_del = 0';
 
         $stmt  = parent::$conn->prepare($query);
         $param = [
