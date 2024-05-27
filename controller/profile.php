@@ -4,7 +4,8 @@ global $userRepository;
 
 $userId = $_SESSION[Constant::SESSION_USER_ID]??'';
 if (empty($userId)) {
-    Router::go500(null);
+    FlashUtils::error("You need to login firstly");
+    Router::go(Router::club);
 }
 $user = $userRepository->getUserProfileById($userId);
 
