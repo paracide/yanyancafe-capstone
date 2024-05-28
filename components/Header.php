@@ -88,7 +88,7 @@
             <?php
             else: ?>
               <a href="/?p=register">Register</a>
-              <a href="/?p=club">Login</a>
+              <a href="/?p=login">Login</a>
             <?php
             endif; ?>
         </div>

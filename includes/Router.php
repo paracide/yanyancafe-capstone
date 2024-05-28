@@ -12,6 +12,7 @@ enum Router
     case error;
     case menu;
     case register;
+    case login;
     case register_process;
     case login_process;
     case logout_process;

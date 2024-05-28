@@ -117,7 +117,7 @@ require_once __DIR__ . '/../components/Header.php';
             : '' ?>>
         </div>
 
-        <button class="button flash">Join Us</button>
+        <button class="button flash">Create Account</button>
       </div>
     </form>
   </div>
