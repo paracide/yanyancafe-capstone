@@ -96,7 +96,7 @@ header #logo {
 
 /*navigation*/
 nav {
-  height: 45px;
+  height: 50px;
   width: 100vw;
   display: grid;
   background: orangered;
