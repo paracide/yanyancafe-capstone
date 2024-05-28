@@ -8,43 +8,32 @@ require_once __DIR__ . '/../components/Header.php';
     <div class="intro-header transition"></div>
     <div class="intro-text">
       <h2>Join Us</h2>
-      <div class="transition">Exclusive perks and a purr-fect community
-        experience:
-      </div>
-      <ul class="transition" style="margin: 0">
-        <li>Early access to cat-themed events</li>
-        <li>Discounts on treats and merchandise</li>
-        <li>Regular updates on our adorable cats</li>
-      </ul>
+      <p>Enjoy a range of exclusive benefits
+        and a welcoming community.</p>
     </div>
   </div>
-  <div class="card club-reg" id="reg">
-    <form action="/?p=login_process"
-          class="card-form" method="post" novalidate>
-      <h2 class="action">Account login</h2>
-      <label class="input-label" for="email">Email:</label>
-      <input class="input-field" id="email" name="email"
-             type="email">
-      <label class="input-label" for="password">Password:</label>
-      <input class="input-field" id="password" name="password"
-             type="password">
+  <div class="card club-intro transition">
+    <div class="intro-text">
+      <h2 class="p-4">Benefits</h2>
+      <ul class="flex flex-col gap-4 p-4">
+        <li><strong>Unlimited visits</strong>: Enjoy unlimited access to the cat
+          cafe during membership hours.
+        </li>
+        <li><strong>Member-only events</strong>: Access exclusive events like
+          cat yoga sessions and special meet-and-greet events with new cats.
+        </li>
+        <li><strong>Discounts on purchases</strong>: Receive discounts on all
+          food, beverages, and merchandise.
+        </li>
+        <li><strong>Priority booking</strong>: Get priority booking for
+          high-demand events and peak times.
+        </li>
+        <li><strong>Guest passes</strong>: Complimentary guest passes to bring
+          friends and family.
+        </li>
 
-      <label class="input-label action">
-        <input checked class="input-field" name="remember" type="checkbox"
-               value="yes">
-        Remember me on this device
-      </label>
-
-      <div class="action">
-        <button class="button flash" type="submit">Log In</button>
-      </div>
-      <div class="action">
-        <button class="button flash
-        " style="background: deepskyblue">Create a
-          free account
-        </button>
-      </div>
-    </form>
+      </ul>
+    </div>
   </div>
 </div>
 

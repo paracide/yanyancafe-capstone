@@ -24,27 +24,6 @@ h2 {
   .intro-text {
     padding: 1rem 1rem;
   }
-
-  ul {
-    opacity: 0;
-    display: none;
-  }
-
-  &:hover {
-    .intro-header {
-      height: 50%;
-      background-position: top;
-      @media screen and (max-width: 767px) {
-        height: 0;
-
-      }
-    }
-
-    ul {
-      opacity: 1;
-      display: block;
-    }
-  }
 }
 
 .club-reg {
@@ -54,36 +33,12 @@ h2 {
 }
 
 .card {
-  height: 100%;
-  width: 80%;
+  height: 80%;
+  width: 70%;
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 10px 20px 0 rgba(#999, 0.25);
-
-  form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0.5rem;
-  }
-
-  /*input*/
-  .input-label {
-    color: #212121;
-    transition: 0.25s ease;
-  }
-
-  .input-field {
-    border: 0;
-    background-color: transparent;
-    border-bottom: 2px solid #eee;
-
-    &:focus,
-    &:valid {
-      outline: 0;
-      border-bottom-color: $primary-color;
-    }
-  }
 
   /*button*/
   .action {
