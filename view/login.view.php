@@ -23,14 +23,6 @@ require_once __DIR__ . '/../components/Header.php';
               ) ?></span>
         </div>
 
-
-        <div class="input-group">
-          <label class="input-label action" for="remember">Remember me</label>
-          <input checked id="remember" class="input-field" name="remember"
-                 type="checkbox"
-                 value="yes">
-
-        </div>
         <div class="action">
           <button class="button flash" type="submit">Log In</button>
         </div>

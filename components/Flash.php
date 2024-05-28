@@ -17,7 +17,7 @@ endif; ?>
 if ( ! empty($error)) : ?>
 
   <div class="toast toast-start">
-    <div class="alert alert-success">
+    <div class="alert alert-error">
       <span><?= esc($error) ?></span>
     </div>
   </div>

@@ -48,7 +48,7 @@ class Auth
         global $userRepository;
         $user = $userRepository->getUserByEmail($email);
 
-        if (empty($user) || password_verify($password, $user['password'])) {
+        if (empty($user) || !password_verify($password, $user['password'])) {
             return [];
         }
 
