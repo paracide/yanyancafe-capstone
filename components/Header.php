@@ -80,7 +80,7 @@
 
         <div class="user">
             <?php
-            if (Auth::check()): ?>
+            if (Auth::isLoggedIn()): ?>
               <form action="/?p=logout_process" method="post" novalidate>
                 <button type="submit">Logout</button>
               </form>

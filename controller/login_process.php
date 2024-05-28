@@ -6,20 +6,30 @@ Preconditions::checkPostRequest();
 $email    = $_POST['email'];
 $password = $_POST['password'];
 
-if (empty($email) || empty($password)) {
-    FlashUtils::error("Email and password are required");
-    Router::go(Router::club);
+$validator = new Validator();
+$validator->checkEmail($email);
+$validator->checkEmpty($password, "password");
+$error = $validator->getError();
+if (count($error)) {
+    loginFail($error, 'Email and password are required');
 }
 
-$user = $userRepository->getUserByEmail($email);
-if (empty($user) || ! password_verify($password, $user['password'])) {
-    FlashUtils::error("Login credentials do not match our records");
-    Router::go(Router::club);
+$user = Auth::login($email, $password);
+if (empty($user)) {
+    $msg              = "Login credentials do not match our records";
+    $error['email'][] = $msg;
+    loginFail($error, $msg);
 }
 
-Auth::login($user['id']);
+Auth::loginSuccess($user['id']);
 FlashUtils::success("You have successfully logged in");
 Router::go(Router::profile);
 
-
+function loginFail(array $error, $msg): void
+{
+    $_SESSION['errors'] = $error;
+    $_SESSION['post']   = $_POST;
+    FlashUtils::error($msg);
+    Router::go(Router::login);
+}
 

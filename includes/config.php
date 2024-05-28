@@ -25,7 +25,8 @@ require_once __DIR__ . '/../tools/Preconditions.php';
 require_once __DIR__ . '/../tools/Auth.php';
 require_once __DIR__ . '/../tools/FlashUtils.php';
 require_once __DIR__ . '/Router.php';
-require_once __DIR__ . '/../tools/RegisterValidator.php';
+require_once __DIR__ . '/../tools/Verifier.php';
+require_once __DIR__ . '/../tools/Validator.php';
 require_once __DIR__ . '/../components/Flash.php';
 
 const SITE_NAME = 'Yanyan Cafe';

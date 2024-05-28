@@ -19,12 +19,12 @@ $require = [
   "postal_code",
 ];
 
-$validator = new RegisterValidator();
+$validator = new Validator();
 $validator->checkRequired($require, $_POST);
 $validator->checkPassword($_POST['password'], $_POST['confirm_password']);
 $validator->checkName($_POST['first_name'], 'First Name');
 $validator->checkName($_POST['last_name'], 'Last Name');
-$validator->checkEmail($_POST['email']);
+$validator->checkUniqueEmail($_POST['email']);
 $validator->checkPhone($_POST['phone']);
 $validator->checkPostalCode($_POST['postal_code']);
 
@@ -42,7 +42,7 @@ if (count($errors)) {
 //register succeed go to profile
 try {
     $userId         = $userRepository->addUserProfile($_POST);
-    Auth::login($userId);
+    Auth::loginSuccess($userId);
     FlashUtils::success("You're registered successfully");
     Router::go(Router::profile);
 } catch (Exception $e) {

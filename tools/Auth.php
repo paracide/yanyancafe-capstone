@@ -11,7 +11,7 @@ class Auth
      *
      * @return bool
      */
-    public static function check(): bool
+    public static function isLoggedIn(): bool
     {
         return ! empty($_SESSION[Constant::SESSION_USER_ID]);
     }
@@ -23,7 +23,7 @@ class Auth
      *
      * @return void
      */
-    public static function login(int $userId): void
+    public static function loginSuccess(int $userId): void
     {
         session_regenerate_id();
         $_SESSION[Constant::SESSION_USER_ID] = $userId;
@@ -38,6 +38,21 @@ class Auth
     {
         unset($_SESSION[Constant::SESSION_USER_ID]);
         session_regenerate_id();
+    }
+
+    /**
+     * @throws
+     */
+    public static function login($email, $password): array
+    {
+        global $userRepository;
+        $user = $userRepository->getUserByEmail($email);
+
+        if (empty($user) || password_verify($password, $user['password'])) {
+            return [];
+        }
+
+        return $user;
     }
 
 }
