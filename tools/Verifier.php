@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Verifier utils
+ */
 class Verifier
 {
 

@@ -17,7 +17,7 @@ class Auth
     }
 
     /**
-     * login user and set user id in session
+     * login user and set user id in session after successful login
      *
      * @param   int  $userId
      *
@@ -41,14 +41,20 @@ class Auth
     }
 
     /**
-     * @throws
+     * login user
+     *
+     * @param   string  $email
+     * @param   string  $password
+     *
+     * @return array
+     * @throws \Exception when user not found
      */
     public static function login($email, $password): array
     {
         global $userRepository;
         $user = $userRepository->getUserByEmail($email);
 
-        if (empty($user) || !password_verify($password, $user['password'])) {
+        if (empty($user) || ! password_verify($password, $user['password'])) {
             return [];
         }
 

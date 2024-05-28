@@ -9,25 +9,51 @@ class Repository
 
     protected string $key = 'id';
 
-
-
+    /**
+     * init connection globally
+     *
+     * @param   \PDO  $conn
+     *
+     * @return void
+     */
     public static function init(PDO $conn): void
     {
         self::$conn = $conn;
     }
 
-    public function getAll(): array
+    /**
+     * get all data according to table name
+     *
+     * @return array
+     */
+    public function getAll(?bool $isDel): array
     {
         $query = "SELECT * FROM {$this->table}";
-        $stmt  = self::$conn->prepare($query);
+        if ($isDel !== null) {
+            $query .= $isDel ? " WHERE is_del = 1" : " WHERE is_del = 0";
+        }
+        $stmt = self::$conn->prepare($query);
         $stmt->execute();
 
         return $stmt->fetchAll();
     }
 
-    public function getById(int $id)
+    /**
+     * get data by id
+     *
+     * @param   int  $id
+     *
+     * @return mixed
+     * @throws \Exception when id is empty
+     */
+    public function getById(int $id, ?bool $isDel)
     {
-        $query  = "SELECT * FROM {$this->table} WHERE {$this->key} = :id";
+        Preconditions::checkEmpty($id);
+        $query
+          = "SELECT * FROM {$this->table} WHERE {$this->key} = :id";
+        if ($isDel !== null) {
+            $query .= $isDel ? " and is_del = 1" : " and is_del = 0";
+        }
         $stmt   = self::$conn->prepare($query);
         $params = [
           ':id' => $id,

@@ -1,10 +1,13 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 /**
  * Router Utils, redirect to view or page using specific enum router
  */
 enum Router
 {
+
     case index;
     case about;
     case cats;
@@ -35,19 +38,6 @@ enum Router
     }
 
     /**
-     * redirect to page
-     *
-     * @param   Router  $router  router enum
-     *
-     * @return void
-     */
-    public static function go(Router $router): void
-    {
-        header("Location:/?p=$router->name");
-        die();
-    }
-
-    /**
      * redirect to 500 error page with optional exception
      *
      * @param   Exception|null  $e
@@ -64,13 +54,26 @@ enum Router
     }
 
     /**
-     * redirect to 404 error page
+     * redirect to page
+     *
+     * @param   Router  $router  router enum
+     *
+     * @return void
+     */
+    #[NoReturn] public static function go(Router $router): void
+    {
+        header("Location:/?p=$router->name");
+        die();
+    }
+
+    /**
+     * error method request
      *
      * @return void
      */
     public static function go405(): void
     {
-        http_response_code(500);
+        http_response_code(405);
         self::go(self::error);
     }
 

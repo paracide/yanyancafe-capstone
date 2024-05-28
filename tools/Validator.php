@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Validator utils, put all error message in error array
+ */
 class Validator
 {
 
@@ -30,7 +33,15 @@ class Validator
         }
     }
 
-    public function checkEmpty($value, string $fieldName)
+    /**
+     * check empty field
+     *
+     * @param   mixed   $value      value
+     * @param   string  $fieldName  field name
+     *
+     * @return void
+     */
+    public function checkEmpty(mixed $value, string $fieldName): void
     {
         if (empty($value)) {
             $this->error[$fieldName][] = StringUtils::label($fieldName)
@@ -142,13 +153,4 @@ class Validator
         }
     }
 
-    public function checkUserByEmail(string $email,$password): void
-    {
-
-
-        if (empty($user) || password_verify($password, $user['password'])) {
-            $this->error['email'][]
-              = "Login credentials do not match our records";
-        }
-    }
 }

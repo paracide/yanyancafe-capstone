@@ -8,7 +8,8 @@ class FlashUtils
 
     /**
      * set flash message
-     * @param   string  $msg message
+     *
+     * @param   string  $msg  message
      *
      * @return void
      */
@@ -19,7 +20,8 @@ class FlashUtils
 
     /**
      * set flash message
-     * @param   string  $msg message
+     *
+     * @param   string  $msg  message
      *
      * @return void
      */

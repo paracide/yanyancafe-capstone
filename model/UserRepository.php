@@ -3,9 +3,9 @@
 class UserRepository extends Repository
 {
 
-    protected string $table = "user";
-
     private static ?UserRepository $instance = null;
+
+    protected string $table = "user";
 
     /**
      * For singleton pattern, the constructor is private to avoid new instance
@@ -146,9 +146,8 @@ class UserRepository extends Repository
           ':email' => $email,
         ];
         $stmt->execute($param);
-        $result = $stmt->fetch();
 
-        return $result ? $result : [];
+        return $stmt->fetch();
     }
 
 }

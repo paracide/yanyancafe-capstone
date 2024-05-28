@@ -51,7 +51,7 @@
         endif; ?>
       <nav class="transition shadow px-8">
         <div class="web flex item-center gap-4">
-          <img src="images/logo.webp" class="w-8 h-8" alt="logo" />
+          <img src="images/logo.webp" class="w-8 h-8" alt="logo"/>
           <span class="gradient-anime">Yanyan Cafe</span>
         </div>
         <div class="content">
@@ -83,12 +83,14 @@
             <?php
             if (Auth::isLoggedIn()): ?>
               <form action="/?p=logout_process" method="post" novalidate>
-                <button class="btn glass text-white	 btn-sm" type="submit">Logout</button>
+                <button class="btn glass text-white	 btn-sm" type="submit">
+                  Logout
+                </button>
               </form>
               <a href="/?p=profile">Profile</a>
               <div class="avatar">
                 <div class="w-8 h-8 rounded-full">
-                  <img src="images/avatar.webp" />
+                  <img src="images/avatar.webp" alt="avatar"/>
                 </div>
               </div>
             <?php

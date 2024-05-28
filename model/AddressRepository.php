@@ -3,9 +3,9 @@
 class AddressRepository extends Repository
 {
 
-    protected string $table = "address";
-
     private static ?AddressRepository $instance = null;
+
+    protected string $table = "address";
 
     /**
      * For singleton pattern, the constructor is private to avoid new instance
@@ -27,7 +27,7 @@ class AddressRepository extends Repository
     /**
      * add address
      *
-     * @param   array  $address address information
+     * @param   array  $address  address information
      * @param   int    $userId
      *
      * @return int address id

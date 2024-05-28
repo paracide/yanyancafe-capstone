@@ -2,7 +2,7 @@
 
 global $userRepository;
 
-$userId = $_SESSION[Constant::SESSION_USER_ID]??'';
+$userId = $_SESSION[Constant::SESSION_USER_ID] ?? '';
 if (empty($userId)) {
     FlashUtils::error("You need to login firstly");
     Router::go(Router::club);

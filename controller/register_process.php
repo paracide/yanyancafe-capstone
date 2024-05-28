@@ -41,7 +41,7 @@ if (count($errors)) {
 
 //register succeed go to profile
 try {
-    $userId         = $userRepository->addUserProfile($_POST);
+    $userId = $userRepository->addUserProfile($_POST);
     Auth::loginSuccess($userId);
     FlashUtils::success("You're registered successfully");
     Router::go(Router::profile);
