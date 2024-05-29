@@ -19,6 +19,11 @@ require_once __DIR__ . '/../model/Repository.php';
 require_once __DIR__ . '/../model/AddressRepository.php';
 require_once __DIR__ . '/../model/UserRepository.php';
 require_once __DIR__ . '/credentials.php';
+//default PDO config
+$conn = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+Repository::init($conn);
 
 require_once __DIR__ . '/../tools/StringUtils.php';
 require_once __DIR__ . '/../tools/Preconditions.php';
