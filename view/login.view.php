@@ -29,8 +29,7 @@ require_once __DIR__ . '/../components/Header.php';
         <div class="action">
           <div class="button flash"
                   onclick="window.location.href='/?p=register'"
-                  style="background: deepskyblue">Create a
-            free account
+                  style="background: deepskyblue">Create an account
           </div>
         </div>
       </div>
