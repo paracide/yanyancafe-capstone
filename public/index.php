@@ -3,29 +3,15 @@
 // Front Controller
 
 require __DIR__ . '/../includes/config.php';
-require __DIR__ . '/../model/user.model.php';
-require __DIR__ . '/../model/address.model.php';
 
-// Security, filter user requests
-$allowed = [
-  'index',
-  'about',
-  'cats',
-  'club',
-  'error',
-  'menu',
-  'register',
-  'register_process',
-  'profile',
-  'error',
-];
-
-if (empty($_GET['p'])) {
+$allowed = array_map(fn($router) => $router->name, Router::cases());
+$page    = $_REQUEST['p'] ?? '';
+if (empty($page)) {
     include __DIR__ . '/../controller/index.php';
-} elseif (in_array($_GET['p'], $allowed, true)) {
-    include __DIR__ . '/../controller/' . $_GET['p'] . '.php';
+} elseif (in_array($page, $allowed, true)) {
+    include __DIR__ . '/../controller/' . $page . '.php';
 } else {
-    go404(null);
+    Router::go500(null);
 }
 
 

@@ -8,4 +8,4 @@ $props = [
                       a haven awaits, woven from stories and
                       sleep.",
 ];
-view('index', $props);
+Router::view('index', $props);

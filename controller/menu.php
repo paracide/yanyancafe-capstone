@@ -9,4 +9,4 @@ $props = [
                       solace.",
 ];
 
-view('menu', $props);
+Router::view('menu', $props);

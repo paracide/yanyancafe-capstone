@@ -1,7 +1,3 @@
-h1 {
-  font-size: 10rem;
-}
-
 h2 {
   font-size: 2rem;
 }
@@ -25,23 +21,6 @@ h2 {
 .club-intro .intro-text {
   padding: 1rem 1rem;
 }
-.club-intro ul {
-  opacity: 0;
-  display: none;
-}
-.club-intro:hover .intro-header {
-  height: 50%;
-  background-position: top;
-}
-@media screen and (max-width: 767px) {
-  .club-intro:hover .intro-header {
-    height: 0;
-  }
-}
-.club-intro:hover ul {
-  opacity: 1;
-  display: block;
-}
 
 .club-reg {
   display: grid;
@@ -50,33 +29,14 @@ h2 {
 }
 
 .card {
-  height: 100%;
-  width: 80%;
+  height: 80%;
+  width: 70%;
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 10px 20px 0 rgba(153, 153, 153, 0.25);
-  /*input*/
   /*button*/
   /*info*/
-}
-.card form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 0.5rem;
-}
-.card .input-label {
-  color: #212121;
-  transition: 0.25s ease;
-}
-.card .input-field {
-  border: 0;
-  background-color: transparent;
-  border-bottom: 2px solid #eee;
-}
-.card .input-field:focus, .card .input-field:valid {
-  outline: 0;
-  border-bottom-color: orangered;
 }
 .card .action {
   grid-column: 1/3;

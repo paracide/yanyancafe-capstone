@@ -43,9 +43,14 @@ body {
 }
 
 h1 {
+  font-size: 10rem !important;
   margin: 0;
   padding: 0;
   font-family: Caveat, Oswald, Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 4rem !important;
 }
 
 /*remove the interruption of default margin in heading*/
@@ -104,7 +109,7 @@ header {
 
 /*navigation*/
 nav {
-  height: 45px;
+  height: 50px;
   width: 100vw;
   display: grid;
   background: $primary-color;
@@ -255,14 +260,3 @@ footer {
   place-items: center;
 }
 
-.place-items-center {
-  place-items: center;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.w-full {
-  width: 100%;
-}

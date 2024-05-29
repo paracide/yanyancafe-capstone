@@ -1,14 +1,15 @@
-h1 {
-  font-size: 10rem;
-}
-
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 2rem !important;
   text-shadow: none;
+}
+
+.menu-group {
+  display: grid;
+  grid-gap: 2rem;
 }
 
 hr {
@@ -79,7 +80,7 @@ hr {
 
 .current-button {
   border-color: white;
-  background-image: linear-gradient(to right, #decba4, #3e5151);
+  background-image: linear-gradient(to right, #DECBA4, #3E5151);
 }
 
 .current-button:hover {

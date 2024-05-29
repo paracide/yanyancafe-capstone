@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../includes/header.inc.php';
+require_once __DIR__ . '/../components/Header.php';
 ?>
 
 <div class="home-cats-container page">
@@ -88,5 +88,5 @@ require_once __DIR__ . '/../includes/header.inc.php';
   </div>
 </div>
 <?php
-require_once __DIR__ . '/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../components/Footer.php'; ?>
 

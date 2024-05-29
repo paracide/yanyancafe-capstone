@@ -1,17 +1,16 @@
 <?php
 
-$cssFileName = 'profile';
-$title       = 'Profile';
+global $userRepository;
 
-$userId = $_SESSION['user_id'];
+$userId = $_SESSION[Constant::SESSION_USER_ID] ?? '';
 if (empty($userId)) {
-    go404();
+    FlashUtils::error("You need to login firstly or register a new account. ");
+    Router::go(Router::club);
 }
-$user = getUserProfileById($conn, $userId);
+$user = $userRepository->getUserProfileById($userId);
 
 $props = [
-  'cssFileName' => 'profile',
-  'title'       => 'Profile',
-  'user'        => $user,
+  'title' => 'Profile',
+  'user'  => $user,
 ];
-view('profile', $props);
+Router::view('profile', $props);

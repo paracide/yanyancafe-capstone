@@ -1,11 +1,11 @@
 <?php
 
 // view starts
-require_once __DIR__ . '/../includes/header.inc.php';
+require_once __DIR__ . '/../components/Header.php';
 ?>
 <div class="page" id="reg">
   <div class="card">
-    <h1 class="gradient-anime action">Get Your Membership</h1>
+    <h1 class="action">Get Your Membership</h1>
 
     <form action="/?p=register_process" method="post" novalidate>
       <div class="input-section">
@@ -117,12 +117,11 @@ require_once __DIR__ . '/../includes/header.inc.php';
             : '' ?>>
         </div>
 
-        <button class="button flash">Join Us</button>
+        <button class="button flash">Create Account</button>
       </div>
     </form>
   </div>
 </div>
 
-
 <?php
-require_once __DIR__ . '/../includes/footer.inc.php'; ?>
+require_once __DIR__ . '/../components/Footer.php'; ?>

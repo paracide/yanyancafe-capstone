@@ -1,11 +1,11 @@
 <?php
 
 $props = [
-  'cssFileName' => 'cats',
+  'cssFileName' => 'club',
   'title'       => 'Superstars',
   'isHomePage'  => true,
   'desc'        => "Eyes of amber, coats of moonlit silk, each whisker holds a tale, an
                       odyssey in every lick.",
 ];
 
-view('club', $props);
+Router::view('club', $props);
