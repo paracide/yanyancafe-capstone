@@ -5,7 +5,7 @@ global $userRepository;
 $userId = $_SESSION[Constant::SESSION_USER_ID] ?? '';
 if (empty($userId)) {
     FlashUtils::error("You need to login firstly or register a new account. ");
-    Router::go(Router::club);
+    Router::go(Router::login);
 }
 $user = $userRepository->getUserProfileById($userId);
 

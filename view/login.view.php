@@ -27,11 +27,10 @@ require_once __DIR__ . '/../components/Header.php';
           <button class="button flash" type="submit">Log In</button>
         </div>
         <div class="action">
-          <button class="button flash"
+          <div class="button flash"
                   onclick="window.location.href='/?p=register'"
-                  style="background: deepskyblue">Create a
-            free account
-          </button>
+                  style="background: deepskyblue">Create an account
+          </div>
         </div>
       </div>
     </form>
