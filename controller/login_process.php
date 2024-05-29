@@ -22,7 +22,8 @@ if (empty($user)) {
 }
 
 Auth::loginSuccess($user['id']);
-FlashUtils::success("Welcome back! $user[name]");
+$name = $user['first_name'] . ' ' . $user['last_name'];
+FlashUtils::success("Welcome back! $name");
 Router::go(Router::profile);
 
 function loginFail(array $error, $msg): void

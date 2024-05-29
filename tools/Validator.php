@@ -99,7 +99,7 @@ class Validator
     public function checkUniqueEmail(string $email): void
     {
         global $userRepository;
-        if ( ! $this->checkEmail($email)) {
+        if ($this->checkEmail($email)) {
             $user = $userRepository->getUserByEmail($email);
             if (count($user) > 0) {
                 $this->error['email'][] = "This email has registered.";
@@ -115,7 +115,6 @@ class Validator
      */
     public function checkEmail(string $email): bool
     {
-        global $userRepository;
         $isEmail = Verifier::isEmail($email);
         if ( ! $isEmail) {
             $this->error['email'][]

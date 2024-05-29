@@ -146,8 +146,9 @@ class UserRepository extends Repository
           ':email' => $email,
         ];
         $stmt->execute($param);
+        $result = $stmt->fetch();
 
-        return $stmt->fetch();
+        return $result ? $result : [];
     }
 
 }
