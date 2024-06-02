@@ -1,8 +1,8 @@
 <?php
 
-namespace tools;
+namespace App\tools;
 
-use Router;
+use Exception;
 
 /**
  * Preconditions utils

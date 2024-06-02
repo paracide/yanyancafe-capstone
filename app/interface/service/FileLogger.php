@@ -1,8 +1,8 @@
 <?php
 
-namespace interface\service;
+namespace App\interface\service;
 
-use interface\ILogger;
+use App\interface\ILogger;
 
 class FileLogger implements ILogger
 {

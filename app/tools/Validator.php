@@ -1,6 +1,6 @@
 <?php
 
-namespace tools;
+namespace App\tools;
 
 /**
  * Validator utils, put all error message in error array

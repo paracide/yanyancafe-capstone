@@ -1,6 +1,6 @@
 <?php
 
-namespace tools;
+namespace App\tools;
 
 class StringUtils
 {

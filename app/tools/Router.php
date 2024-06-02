@@ -1,6 +1,8 @@
 <?php
 
-use JetBrains\PhpStorm\NoReturn;
+namespace App\tools;
+
+use Exception;
 
 /**
  * Router Utils, redirect to view or page using specific enum router
@@ -34,7 +36,7 @@ enum Router
         global $post;
         global $errors;
         extract($data);
-        require_once __DIR__ . '/../view/' . $view . '.view.php';
+        require_once __DIR__ . '/../../view/' . $view . '.view.php';
     }
 
     /**
@@ -60,7 +62,7 @@ enum Router
      *
      * @return void
      */
-    #[NoReturn] public static function go(Router $router): void
+    public static function go(Router $router): void
     {
         header("Location:/?p=$router->name");
         die();

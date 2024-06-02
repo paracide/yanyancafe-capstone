@@ -1,15 +1,12 @@
 <?php
 
-namespace tools;
-
-use Constant;
+namespace App\tools;
 
 /**
  * Auth utils
  */
 class Auth
 {
-
     /**
      * check if user is logged in
      *

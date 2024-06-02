@@ -1,8 +1,8 @@
 <?php
 
-namespace model;
+namespace App\model;
 
-use tools\Preconditions;
+use App\tools\Preconditions;
 
 class AddressRepository extends Repository
 {

@@ -1,5 +1,7 @@
 <?php
 
+use App\tools\Router;
+
 $props = [
   'cssFileName' => 'cats',
   'title'       => 'Superstars',

@@ -1,13 +1,14 @@
 <?php
 
-namespace model;
+namespace App\model;
 
-use tools\Preconditions;
+
+use App\tools\Preconditions;
 
 class Repository
 {
 
-    protected static PDO $conn;
+    protected static \PDO $conn;
 
     protected string $table;
 
@@ -20,7 +21,7 @@ class Repository
      *
      * @return void
      */
-    public static function init(PDO $conn): void
+    public static function init(\PDO $conn): void
     {
         self::$conn = $conn;
     }

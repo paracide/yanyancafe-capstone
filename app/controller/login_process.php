@@ -1,10 +1,11 @@
 <?php
 
 global $userRepository;
-use tools\Auth;
-use tools\FlashUtils;
-use tools\Preconditions;
-use tools\Validator;
+use App\tools\Auth;
+use App\tools\FlashUtils;
+use App\tools\Preconditions;
+use App\tools\Router;
+use App\tools\Validator;
 
 Preconditions::checkPostRequest();
 

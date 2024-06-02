@@ -1,6 +1,6 @@
 <?php
 
-use tools\Auth;
+use App\tools\Auth;
 
 ?>
 <!DOCTYPE html>

@@ -1,8 +1,9 @@
 <?php
 
-use tools\Auth;
-use tools\FlashUtils;
-use tools\Preconditions;
+use App\tools\Auth;
+use App\tools\FlashUtils;
+use App\tools\Preconditions;
+use App\tools\Router;
 
 Preconditions::checkPostRequest();
 Auth::logout();

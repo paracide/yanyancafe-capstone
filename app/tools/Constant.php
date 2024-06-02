@@ -1,5 +1,7 @@
 <?php
 
+namespace App\tools;
+
 class Constant
 {
 

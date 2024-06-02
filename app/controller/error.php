@@ -1,5 +1,7 @@
 <?php
 
+use App\tools\Router;
+
 $props = [
   'title'       => 'Error',
   'desc'        => 'Some Errors happened',

@@ -23,21 +23,3 @@ function escHTML(string $str): string
 {
     return htmlentities($str, ENT_NOQUOTES, 'UTF-8');
 }
-
-/**
- * debug single var
- *
- * @param          $var
- * @param   false  $die
- *
- * @return void
- */
-function dd($var, $die = false): void
-{
-    echo '<pre>';
-    var_dump($var);
-    echo '</pre>';
-    if ($die) {
-        exit();
-    }
-}

@@ -1,6 +1,6 @@
 <?php
 
-namespace interface;
+namespace App\interface;
 
 interface ILogger
 {

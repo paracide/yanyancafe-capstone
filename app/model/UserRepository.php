@@ -1,9 +1,10 @@
 <?php
 
-namespace model;
+namespace App\model;
 
-use Router;
-use tools\Preconditions;
+use App\tools\Preconditions;
+use App\tools\Router;
+use Exception;
 
 class UserRepository extends Repository
 {
