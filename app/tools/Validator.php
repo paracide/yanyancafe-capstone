@@ -1,5 +1,7 @@
 <?php
 
+namespace tools;
+
 /**
  * Validator utils, put all error message in error array
  */

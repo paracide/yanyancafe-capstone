@@ -1,5 +1,7 @@
 <?php
 
+namespace tools;
+
 /**
  * Verifier utils
  */

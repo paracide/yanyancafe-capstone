@@ -14,9 +14,6 @@ private/
 # Compiled Python bytecode
 *.py[cod]
 
-# Log files
-*.log
-
 # Package files
 *.jar
 
@@ -50,3 +47,4 @@ Thumbs.db
 *.wmv
 
 credentials.php
+vendor/

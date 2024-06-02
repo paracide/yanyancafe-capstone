@@ -2,6 +2,8 @@
 
 global $userRepository;
 
+use tools\FlashUtils;
+
 $userId = $_SESSION[Constant::SESSION_USER_ID] ?? '';
 if (empty($userId)) {
     FlashUtils::error("You need to login firstly or register a new account. ");

@@ -1,5 +1,10 @@
 <?php
 
+namespace model;
+
+use Router;
+use tools\Preconditions;
+
 class UserRepository extends Repository
 {
 

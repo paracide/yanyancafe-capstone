@@ -1,6 +1,11 @@
 <?php
 
 global $userRepository;
+use tools\Auth;
+use tools\FlashUtils;
+use tools\Preconditions;
+use tools\Validator;
+
 Preconditions::checkPostRequest();
 
 //validate the form

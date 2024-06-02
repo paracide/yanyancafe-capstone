@@ -1,5 +1,7 @@
 <?php
 
+namespace interface;
+
 interface ILogger
 {
 

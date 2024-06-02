@@ -1,5 +1,7 @@
 <?php
 
+namespace tools;
+
 class StringUtils
 {
 

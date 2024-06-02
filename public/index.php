@@ -2,7 +2,7 @@
 
 // Front Controller
 
-require __DIR__ . '/../includes/config.php';
+require __DIR__ . '/../config/config.php';
 
 $allowed = array_map(fn($router) => $router->name, Router::cases());
 $page    = $_REQUEST['p'] ?? '';

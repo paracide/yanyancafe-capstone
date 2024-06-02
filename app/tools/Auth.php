@@ -1,5 +1,9 @@
 <?php
 
+namespace tools;
+
+use Constant;
+
 /**
  * Auth utils
  */
