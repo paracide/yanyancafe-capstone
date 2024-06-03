@@ -35,9 +35,15 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 //logger config
 Repository::init($conn);
-DatabaseLogger::init($conn);
-$resource = fopen(__DIR__ . '/../logs/event.log', 'w');
-FileLogger::init($resource);
+
+if (LOGGER_TYPE === LoggerType::file) {
+    $resource = fopen(__DIR__ . '/../logs/event.log', 'w');
+    FileLogger::init($resource);
+    $logger = FileLogger::getInstance();
+} elseif (LOGGER_TYPE === LoggerType::database) {
+    DatabaseLogger::init($conn);
+    $logger = DatabaseLogger::getInstance();
+}
 
 /**
  * service initiation
@@ -47,4 +53,3 @@ FileLogger::init($resource);
  */
 $addressRepository = AddressRepository::getInstance();
 $userRepository    = UserRepository::getInstance();
-$logger    = DatabaseLogger::getInstance();

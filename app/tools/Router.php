@@ -35,7 +35,9 @@ enum Router
     {
         global $post;
         global $errors;
+        global $logger;
         extract($data);
+        logEvent($logger, LogUtils::success200());
         require_once __DIR__ . '/../../view/' . $view . '.view.php';
     }
 
@@ -48,10 +50,12 @@ enum Router
      */
     public static function go500(?Exception $e): void
     {
+        global $logger;
         if ( ! empty($e)) {
             error_log($e->getMessage());
         }
         http_response_code(500);
+        logEvent($logger, LogUtils::error500());
         self::go(self::error);
     }
 
@@ -64,6 +68,8 @@ enum Router
      */
     public static function go(Router $router): void
     {
+        global $logger;
+        logEvent($logger, LogUtils::success200());
         header("Location:/?p=$router->name");
         die();
     }
@@ -75,7 +81,9 @@ enum Router
      */
     public static function go405(): void
     {
+        global $logger;
         http_response_code(405);
+        logEvent($logger, LogUtils::error405());
         self::go(self::error);
     }
 
