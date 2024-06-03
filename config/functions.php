@@ -1,5 +1,7 @@
 <?php
 
+use App\interface\ILogger;
+
 /**
  * esc all string data for output
  *
@@ -22,4 +24,11 @@ function esc(string $str): string
 function escHTML(string $str): string
 {
     return htmlentities($str, ENT_NOQUOTES, 'UTF-8');
+}
+
+function logEvent(ILogger $logger, string $event)
+{
+    if ( ! empty(trim($event))) {
+        $logger->write($event);
+    }
 }

@@ -9,7 +9,7 @@ class DatabaseLogger implements ILogger
 
     private static \PDO $conn;
 
-    public static function init(\PDO $conn)
+    public static function init(\PDO $conn): void
     {
         self::$conn = $conn;
     }
