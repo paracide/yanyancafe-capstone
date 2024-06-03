@@ -2,11 +2,12 @@
 
 namespace App\model;
 
+use App\interface\ISingleton;
 use App\tools\Preconditions;
 use App\tools\Router;
 use Exception;
 
-class UserRepository extends Repository
+class UserRepository extends Repository implements ISingleton
 {
 
     private static ?UserRepository $instance = null;

@@ -2,7 +2,7 @@
 
 global $userRepository;
 
-use App\tools\Constant;
+use App\constant\Constant;
 use App\tools\FlashUtils;
 use App\tools\Router;
 

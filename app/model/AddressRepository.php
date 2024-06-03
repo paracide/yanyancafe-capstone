@@ -2,9 +2,10 @@
 
 namespace App\model;
 
+use App\interface\ISingleton;
 use App\tools\Preconditions;
 
-class AddressRepository extends Repository
+class AddressRepository extends Repository implements ISingleton
 {
 
     private static ?AddressRepository $instance = null;

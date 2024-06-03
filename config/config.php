@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
+use App\constant\Constant;
+use App\constant\LoggerType;
 use App\interface\service\DatabaseLogger;
 use App\interface\service\FileLogger;
 use App\model\AddressRepository;
 use App\model\Repository;
 use App\model\UserRepository;
-use App\tools\Constant;
 
 session_start();
 ob_start();
@@ -24,7 +25,8 @@ unset($_SESSION[Constant::SESSION_FLASH]);
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/credentials.php';
 
-const SITE_NAME = 'Yanyan Cafe';
+const SITE_NAME   = 'Yanyan Cafe';
+const LOGGER_TYPE = LoggerType::database;
 
 //database config
 $conn = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -45,5 +47,4 @@ FileLogger::init($resource);
  */
 $addressRepository = AddressRepository::getInstance();
 $userRepository    = UserRepository::getInstance();
-$databaseLogger    = DatabaseLogger::getInstance();
-$fileLogger        = FileLogger::getInstance();
+$logger    = DatabaseLogger::getInstance();

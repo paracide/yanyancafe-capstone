@@ -2,6 +2,8 @@
 
 namespace App\tools;
 
+use App\constant\Constant;
+
 /**
  * Auth utils
  */

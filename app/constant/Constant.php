@@ -1,6 +1,6 @@
 <?php
 
-namespace App\tools;
+namespace App\constant;
 
 class Constant
 {

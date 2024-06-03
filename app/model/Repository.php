@@ -3,6 +3,7 @@
 namespace App\model;
 
 
+use App\interface\ISingleton;
 use App\tools\Preconditions;
 
 class Repository
