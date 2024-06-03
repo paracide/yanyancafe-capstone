@@ -45,4 +45,5 @@ FileLogger::init($resource);
  */
 $addressRepository = AddressRepository::getInstance();
 $userRepository    = UserRepository::getInstance();
-
+$databaseLogger    = DatabaseLogger::getInstance();
+$fileLogger        = FileLogger::getInstance();
