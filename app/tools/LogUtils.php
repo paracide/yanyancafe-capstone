@@ -22,6 +22,8 @@ class LogUtils
 
     public static function generateEvent(string $statusCode): string
     {
+        date_default_timezone_set('America/Winnipeg');
+
         $date          = date('Y-m-d H:i:s');
         $requestMethod = $_SERVER['REQUEST_METHOD'];
         $requestUri    = $_SERVER['REQUEST_URI'];
