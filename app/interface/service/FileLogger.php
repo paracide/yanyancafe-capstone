@@ -14,9 +14,12 @@ class FileLogger implements ILogger
         self::$resource = $resource;
     }
 
-    public function write($event)
+    public function write($event): void
     {
-        // TODO: Implement write() method.
+        $event = trim($event);
+        if ( ! empty($event)) {
+            fwrite(self::$resource, $event);
+        }
     }
 
 }
