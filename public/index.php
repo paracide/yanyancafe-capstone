@@ -15,7 +15,7 @@ if (empty($page)) {
 } elseif (in_array($page, $allowed, true)) {
     include __DIR__ . '/../app/controller/' . $page . '.php';
 } else {
-    Router::go500(null);
+    Router::errorPage(null);
 }
 
 

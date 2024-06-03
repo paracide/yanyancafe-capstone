@@ -35,7 +35,7 @@ class Preconditions
     public static function checkPostRequest(): void
     {
         if ('POST' !== $_SERVER['REQUEST_METHOD']) {
-            Router::go405();
+            Router::error405();
         }
     }
 

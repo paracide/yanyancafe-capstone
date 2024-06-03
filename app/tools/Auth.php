@@ -9,6 +9,7 @@ use App\constant\Constant;
  */
 class Auth
 {
+
     /**
      * check if user is logged in
      *
@@ -52,7 +53,7 @@ class Auth
      * @return array
      * @throws \Exception when user not found
      */
-    public static function login($email, $password): array
+    public static function login(string $email, string $password): array
     {
         global $userRepository;
         $user = $userRepository->getUserByEmail($email);
@@ -62,6 +63,14 @@ class Auth
         }
 
         return $user;
+    }
+
+    public static function loginFail(array $error, string $msg): void
+    {
+        $_SESSION['errors'] = $error;
+        $_SESSION['post']   = $_POST;
+        FlashUtils::error($msg);
+        Router::fail(Router::login);
     }
 
 }

@@ -42,7 +42,7 @@ if (count($errors)) {
     }, $errors);
     $_SESSION['errors'] = $resultError;
     $_SESSION['post']   = $_POST;
-    Router::go(Router::register);
+    Router::fail(Router::register);
 }
 
 //register succeed go to profile
@@ -50,10 +50,10 @@ try {
     $userId = $userRepository->addUserProfile($_POST);
     Auth::loginSuccess($userId);
     FlashUtils::success("You're registered successfully");
-    Router::go(Router::profile);
+    Router::success(Router::profile);
 } catch (Exception $e) {
     FlashUtils::error("Sorry,some errors happened");
-    Router::go500($e);
+    Router::errorPage($e);
 }
 die();
 

@@ -2,6 +2,7 @@
 
 namespace App\tools;
 
+use App\constant\HttpStatus;
 use Exception;
 
 /**
@@ -37,54 +38,51 @@ enum Router
         global $errors;
         global $logger;
         extract($data);
-        logEvent($logger, LogUtils::success200());
+        logEvent($logger, LogUtils::event200());
         require_once __DIR__ . '/../../view/' . $view . '.view.php';
     }
 
-    /**
-     * redirect to 500 error page with optional exception
-     *
-     * @param   Exception|null  $e
-     *
-     * @return void
-     */
-    public static function go500(?Exception $e): void
-    {
-        global $logger;
-        if ( ! empty($e)) {
-            error_log($e->getMessage());
-        }
-        http_response_code(500);
-        logEvent($logger, LogUtils::error500());
-        self::go(self::error);
+    public static function success(
+      Router $router
+    ): void {
+        self::redirect($router);
     }
 
-    /**
-     * redirect to page
-     *
-     * @param   Router  $router  router enum
-     *
-     * @return void
-     */
-    public static function go(Router $router): void
-    {
+    public static function fail(
+      Router $router,
+      ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR
+    ): void {
+        self::redirect($router, $status);
+    }
+
+    private static function redirect(
+      Router $router,
+      ?HttpStatus $status = HttpStatus::SUCCESS
+    ): void {
         global $logger;
-        logEvent($logger, LogUtils::success200());
+        logEvent($logger, LogUtils::getEvent($status));
+        http_response_code($status->value);
         header("Location:/?p=$router->name");
         die();
     }
 
     /**
-     * error method request
+     * redirect to 500 error page with optional exception
+     *
+     * @param   \App\constant\HttpStatus|null  $httpStatus
+     * @param   Exception|null                 $e
      *
      * @return void
      */
-    public static function go405(): void
-    {
+    public static function errorPage(
+      ?Exception $e,
+      ?HttpStatus $httpStatus = HttpStatus::INTERNAL_SERVER_ERROR
+    ): void {
         global $logger;
-        http_response_code(405);
-        logEvent($logger, LogUtils::error405());
-        self::go(self::error);
+        if ( ! empty($e)) {
+            error_log($e->getMessage());
+        }
+        self::success(self::error, $httpStatus);
     }
 
 }

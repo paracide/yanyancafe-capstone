@@ -8,4 +8,4 @@ use App\tools\Router;
 Preconditions::checkPostRequest();
 Auth::logout();
 FlashUtils::success("You have successfully logged out");
-Router::go(Router::index);
+Router::success(Router::index);

@@ -51,7 +51,7 @@ class UserRepository extends Repository implements ISingleton
             return $userId;
         } catch (Exception $e) {
             parent::$conn->rollBack();
-            Router::go500($e);
+            Router::errorPage($e);
         }
 
         return 0;
