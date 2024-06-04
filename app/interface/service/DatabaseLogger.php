@@ -52,7 +52,12 @@ class DatabaseLogger implements ILogger
 
     public function getLast10(): array
     {
-        // TODO: Implement getLast10() method.
+        $query = 'select * from log order by id desc limit 10;';
+
+        $stmt = self::$conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 
 }

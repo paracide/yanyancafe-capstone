@@ -1,4 +1,10 @@
 <?php
+
+global$logger;
+require __DIR__ . '/../../config/config.php';
+
+$last10 = $logger->getLast10();
+
 ?><!doctype html>
 <html lang="en">
   <head>
@@ -13,25 +19,25 @@
   </head>
 
   <body class="bg-gray-100">
-    <main class="flex h-screen bg-gray-200">
+    <header class="navbar bg-gray-800">
+      <h1 class="text-2xl font-bold text-white"">Dashboard</h1>
+    </header>
 
-      <div class="w-64 bg-gray-800 text-white">
-        <div class="p-4">
-          <h1 class="text-2xl font-bold">Admin Dashboard</h1>
-        </div>
+    <main class="flex">
+      <!--side-->
+      <div class="w-40">
         <ul class="mt-4">
-          <li class="px-4 py-2 hover:bg-gray-700"><a href="#">Dashboard</a>
+          <li class="px-4 py-2 hover:bg-gray-300"><a href="#">Dashboard</a>
           </li>
-          <li class="px-4 py-2 hover:bg-gray-700"><a href="#">Logs</a></li>
-          <li class="px-4 py-2 hover:bg-gray-700"><a href="#">Settings</a>
+          <li class="px-4 py-2 hover:bg-gray-300"><a href="#">Logs</a></li>
           </li>
         </ul>
       </div>
-
+      <!--content-->
       <div class="flex-1 p-6">
         <h2 class="text-2xl font-semibold mb-4">Logs</h2>
         <div class="overflow-x-auto">
-          <table class="table w-full">
+          <table class="table ">
             <thead>
               <tr>
                 <th>Date</th>
@@ -39,16 +45,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="bg-gray-100">
-                <td>2024-06-05</td>
-                <td>abc</td>
-              </tr>
+                <?php
+                foreach ($last10 as $item): ?>
+                  <tr class="bg-gray-100">
+                    <td><?= $item['created_at'] ?></td>
+                    <td><?= $item['event'] ?></td>
+                  </tr>
+                <?php
+                endforeach; ?>
             </tbody>
           </table>
         </div>
       </div>
     </main>
-
-
   </body>
 </html>
