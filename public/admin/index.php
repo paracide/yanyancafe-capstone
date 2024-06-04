@@ -11,19 +11,44 @@
           rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <header>
-      <div class="navbar bg-base-300">
-        <div class="flex-1">
-          <a class="btn btn-ghost text-xl">Yanyan Cafe Admin</a>
+
+  <body class="bg-gray-100">
+    <main class="flex h-screen bg-gray-200">
+
+      <div class="w-64 bg-gray-800 text-white">
+        <div class="p-4">
+          <h1 class="text-2xl font-bold">Admin Dashboard</h1>
         </div>
-        <div class="flex-none">
-          <ul class="menu menu-horizontal px-1">
-            <li><a>Link</a></li>
-          </ul>
+        <ul class="mt-4">
+          <li class="px-4 py-2 hover:bg-gray-700"><a href="#">Dashboard</a>
+          </li>
+          <li class="px-4 py-2 hover:bg-gray-700"><a href="#">Logs</a></li>
+          <li class="px-4 py-2 hover:bg-gray-700"><a href="#">Settings</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex-1 p-6">
+        <h2 class="text-2xl font-semibold mb-4">Logs</h2>
+        <div class="overflow-x-auto">
+          <table class="table w-full">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Event</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-gray-100">
+                <td>2024-06-05</td>
+                <td>abc</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </header>
+    </main>
+
 
   </body>
 </html>

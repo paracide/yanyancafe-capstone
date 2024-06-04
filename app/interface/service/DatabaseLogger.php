@@ -50,4 +50,9 @@ class DatabaseLogger implements ILogger
         return 0;
     }
 
+    public function getLast10(): array
+    {
+        // TODO: Implement getLast10() method.
+    }
+
 }
