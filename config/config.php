@@ -25,8 +25,7 @@ unset($_SESSION[Constant::SESSION_FLASH]);
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/credentials.php';
 
-const SITE_NAME   = 'Yanyan Cafe';
-const LOGGER_TYPE = LoggerType::database;
+const SITE_NAME = 'Yanyan Cafe';
 
 //database config
 $conn = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -35,9 +34,9 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 //logger config
 Repository::init($conn);
-
+const LOGGER_TYPE = LoggerType::file;
 if (LOGGER_TYPE === LoggerType::file) {
-    $resource = fopen(__DIR__ . '/../logs/event.log', 'w');
+    $resource = fopen(__DIR__ . '/../logs/event.log', 'a');
     FileLogger::init($resource);
     $logger = FileLogger::getInstance();
 } elseif (LOGGER_TYPE === LoggerType::database) {

@@ -37,7 +37,7 @@ class FileLogger implements ILogger
     {
         $event = trim($event);
         if ( ! empty($event)) {
-            fwrite(self::$resource, $event);
+            fwrite(self::$resource, $event . PHP_EOL);
         }
     }
 

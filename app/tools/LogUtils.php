@@ -12,20 +12,6 @@ class LogUtils
         return self::getEvent();
     }
 
-    public static function event405(): string
-    {
-        return self::getEvent(HttpStatus::METHOD_NOT_ALLOWED);
-    }
-
-    public static function event403(): string
-    {
-        return self::getEvent(HttpStatus::FORBIDDEN);
-    }
-
-    public static function event500(): string
-    {
-        return self::getEvent(HttpStatus::INTERNAL_SERVER_ERROR);
-    }
 
     public static function getEvent(
       ?HttpStatus $status = HttpStatus::SUCCESS
