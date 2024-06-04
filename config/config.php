@@ -34,7 +34,7 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 //logger config
 Repository::init($conn);
-const LOGGER_TYPE = LoggerType::file;
+const LOGGER_TYPE = LoggerType::database;
 if (LOGGER_TYPE === LoggerType::file) {
     $resource = fopen(__DIR__ . '/../logs/event.log', 'a');
     FileLogger::init($resource);
