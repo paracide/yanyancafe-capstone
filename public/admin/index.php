@@ -40,18 +40,22 @@ $last10 = $logger->getLast10();
           <table class="table ">
             <thead>
               <tr>
+                <th>#</th>
                 <th>Date</th>
                 <th>Event</th>
               </tr>
             </thead>
             <tbody>
                 <?php
+                $index = 1;
                 foreach ($last10 as $item): ?>
                   <tr class="bg-gray-100">
+                    <td><?= $index ?></td>
                     <td><?= $item['created_at'] ?></td>
                     <td><?= $item['event'] ?></td>
                   </tr>
-                <?php
+                    <?php
+                    $index++;
                 endforeach; ?>
             </tbody>
           </table>
