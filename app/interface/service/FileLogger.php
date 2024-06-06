@@ -28,17 +28,33 @@ class FileLogger implements ILogger
         return self::$instance;
     }
 
+    /**
+     * Initiate the resource for file logger
+     *
+     * @param $resource
+     */
     public static function init($resource): void
     {
         self::$resource = $resource;
     }
 
+    /**
+     * Write the event to the file
+     *
+     * @param $event
+     */
     public function write($event): void
     {
         $event = trim($event);
         if ( ! empty($event)) {
             fwrite(self::$resource, $event . PHP_EOL);
         }
+    }
+
+    //todo: implement the method next assignment
+    public function getLast10(): array
+    {
+        return [];
     }
 
 }

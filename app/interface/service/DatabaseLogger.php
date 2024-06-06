@@ -34,6 +34,13 @@ class DatabaseLogger implements ILogger
         return self::$instance;
     }
 
+    /**
+     * Write the event to the database
+     *
+     * @param $event
+     *
+     * @return int
+     */
     public function write($event): int
     {
         $event = trim($event);
@@ -50,6 +57,11 @@ class DatabaseLogger implements ILogger
         return 0;
     }
 
+    /**
+     * Get the last 10 log
+     *
+     * @return array
+     */
     public function getLast10(): array
     {
         $query = 'select * from log order by id desc limit 10;';

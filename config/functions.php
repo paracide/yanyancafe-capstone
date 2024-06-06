@@ -26,7 +26,15 @@ function escHTML(string $str): string
     return htmlentities($str, ENT_NOQUOTES, 'UTF-8');
 }
 
-function logEvent(ILogger $logger, string $event)
+/**
+ * log event ,support both file and database logger
+ *
+ * @param   \App\interface\ILogger  $logger
+ * @param   string                  $event
+ *
+ * @return void
+ */
+function logEvent(ILogger $logger, string $event): void
 {
     if ( ! empty(trim($event))) {
         $logger->write($event);

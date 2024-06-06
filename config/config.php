@@ -32,9 +32,13 @@ $conn = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-//logger config
+//initiate the repositories
 Repository::init($conn);
+
+
+//set the logger type
 const LOGGER_TYPE = LoggerType::database;
+//initiate the logger according to the logger type
 if (LOGGER_TYPE === LoggerType::file) {
     $resource = fopen(__DIR__ . '/../logs/event.log', 'a');
     FileLogger::init($resource);
