@@ -60,6 +60,7 @@
 ![](./images/Conceptual-ERD.webp)
 
 ### Physical
+![](./images/Physical-ERD.webp)
 
 ## Sitemaps
 
