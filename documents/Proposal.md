@@ -57,25 +57,52 @@
 ## Data Models
 
 ### Conceptual
+
 ![](./images/Conceptual-ERD.webp)
 
 ### Physical
+
 ![](./images/Physical-ERD.webp)
 
 ## Sitemaps
+
 ### Frontend
+
 ![](./sitemaps/frontend.jpg)
 
 ### Backend
+
 ![](./sitemaps/Backend.jpg)
 
 ## Security
 
+1. **XSS (Cross-Site Scripting):**
+    - Implement strict input validation to ensure that all user inputs are sanitized.
+    - Escape outputs to prevent malicious scripts from being executed in the browser.
+
+2. **CSRF (Cross-Site Request Forgery):**
+    - Not allowed. Ensure that state-changing operations are protected by other means such as requiring secure tokens or
+      headers.
+
+3. **SQL Injection:**
+    - Use prepared statements and parameterized queries to prevent SQL injection attacks.
+    - Validate and sanitize all inputs that are used in SQL queries.
+
+4. **Infrastructure Security:**
+    - Use AWS (Amazon Web Services) for hosting to leverage its robust security features, including data encryption,
+      secure access controls, and network security.
+    - Employ Cloudflare for web application firewall (WAF) and HTTPS to mitigate external threats and
+      ensure secure communication.
+
 ## Design Comps
 
+### Register Page
 ![](./comps/comp1.png)
+### Login Page
 ![](./comps/comp2.png)
+### Profile Page
 ![](./comps/comp3.png)
+### Admin Log Page
 ![](./comps/comp4.png)
 
 
