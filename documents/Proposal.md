@@ -63,6 +63,8 @@
 ![](./images/Physical-ERD.webp)
 
 ## Sitemaps
+### Frontend
+![](./sitemaps/frontend.jpg)
 
 ## Security
 
