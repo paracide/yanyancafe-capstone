@@ -40,6 +40,20 @@
 
 ## User Types and Usage
 
+1. **Admin:**
+    - Full access to all system features.
+    - Manage users, cats, menu, orders, and settings.
+    - View logs.
+
+2. **Staff:**
+    - View and modify orders.
+    - Update order prices.
+    - Manage menu items.
+
+3. **User:**
+    - Place orders.
+    - View order history.
+
 ## Security
 
 ## Design Comps
