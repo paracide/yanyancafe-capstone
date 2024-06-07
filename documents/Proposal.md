@@ -68,5 +68,10 @@
 
 ## Design Comps
 
+![](./comps/comp1.png)
+![](./comps/comp2.png)
+![](./comps/comp3.png)
+![](./comps/comp4.png)
+
 
 
