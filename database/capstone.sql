@@ -258,7 +258,8 @@ CREATE TABLE `user` (
   `is_del` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_unique` (`email`),
-  KEY `user_file_id_fk` (`avatar_file_id`)
+  KEY `user_file_id_fk` (`avatar_file_id`),
+  CONSTRAINT `user_file_id_fk` FOREIGN KEY (`avatar_file_id`) REFERENCES `file` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -281,4 +282,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-07 14:00:34
+-- Dump completed on 2024-06-07 14:46:01
