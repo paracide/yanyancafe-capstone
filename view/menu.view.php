@@ -26,26 +26,36 @@ function renderSidebar($mainCat, $menuCat): void
     }
 }
 
+$menuSize = count($menus);
+
 ?>
 
 <div class="flex min-h-screen bg-gray-100">
   <!-- Sidebar -->
   <aside class="w-80 bg-white shadow-md">
     <div class="p-4 border-b">
-      <form>
-        <input type="text" placeholder="Search..."
-               class="input input-bordered w-full"/>
-      </form>
+      <input type="text" placeholder="Search..." id="searchKey"
+             value="<?= $paramKey ?? '' ?>"
+             class="input input-bordered w-full"/>
     </div>
     <div class="p-4 space-y-2">
       <div class="menu">
+        <div class="flex flex-col">
+          <a href="/?p=menu" class="font-bold">All</a>
+        </div>
           <?php
           renderSidebar($firstCat, $allCat); ?>
       </div>
     </div>
   </aside>
   <!-- Main Content -->
-  <div class="p-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+  <div class="grow p-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+      <?php
+      if ( ! $menuSize): ?>
+        <p
+          class="text-xl"><?= "Searching $paramKey finds 0 results..." ?></p>
+      <?php
+      endif; ?>
       <?php
       foreach ($menus as $menu) : ?>
         <div
@@ -107,6 +117,17 @@ function renderSidebar($mainCat, $menuCat): void
   </div>
 </div>
 
+<script>
+  $(document).ready(function () {
+    $('#searchKey').on('keypress', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        const searchKey = $('#searchKey').val();
+        window.location.href = `/?p=menu&category=<?= $paramCat ?>&key=` + encodeURIComponent(searchKey);
+      }
+    });
+  });
+</script>
 <?php
 
 require_once __DIR__ . '/components/Footer.php';

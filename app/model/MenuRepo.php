@@ -28,7 +28,7 @@ class MenuRepo extends Repository implements ISingleton
         return self::$instance;
     }
 
-    public function search(?string $key, ?int $category): array
+    public function search(?string $key, ?string $category): array
     {
         $query = "select menu.*, c.name as category, f.file_path
                 from menu
@@ -38,12 +38,12 @@ class MenuRepo extends Repository implements ISingleton
 
         $params = [];
 
-        if ($key) {
+        if (!empty($key)) {
             $query          .= " and menu.name like :key";
             $params[':key'] = '%' . $key . '%';
         }
 
-        if ($category !== null) {
+        if (!empty($category)) {
             $query                 .= " and menu.category_id = :categoryId";
             $params[':categoryId'] = $category;
         }
