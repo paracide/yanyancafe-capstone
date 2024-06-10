@@ -5,10 +5,10 @@ namespace App\model;
 use App\interface\ISingleton;
 use App\tools\Preconditions;
 
-class AddressRepository extends Repository implements ISingleton
+class AddressRepo extends Repository implements ISingleton
 {
 
-    private static ?AddressRepository $instance = null;
+    private static ?AddressRepo $instance = null;
 
     protected string $table = "address";
 
@@ -20,10 +20,10 @@ class AddressRepository extends Repository implements ISingleton
     /**
      * Singleton pattern for make the repository instance globally
      */
-    public static function getInstance(): AddressRepository
+    public static function getInstance(): AddressRepo
     {
         if (self::$instance === null) {
-            self::$instance = new AddressRepository();
+            self::$instance = new AddressRepo();
         }
 
         return self::$instance;

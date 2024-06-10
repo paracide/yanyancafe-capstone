@@ -6,9 +6,9 @@ use App\constant\Constant;
 use App\constant\LoggerType;
 use App\interface\service\DatabaseLogger;
 use App\interface\service\FileLogger;
-use App\model\AddressRepository;
+use App\model\AddressRepo;
 use App\model\Repository;
-use App\model\UserRepository;
+use App\model\UserRepo;
 
 session_start();
 ob_start();
@@ -54,5 +54,5 @@ if (LOGGER_TYPE === LoggerType::file) {
  * due to the config.php will be loaded on every page
  * so make the repositories singleton
  */
-$addressRepository = AddressRepository::getInstance();
-$userRepository    = UserRepository::getInstance();
+$addressRepository = AddressRepo::getInstance();
+$userRepository    = UserRepo::getInstance();

@@ -7,10 +7,10 @@ use App\tools\Preconditions;
 use App\tools\Router;
 use Exception;
 
-class UserRepository extends Repository implements ISingleton
+class UserRepo extends Repository implements ISingleton
 {
 
-    private static ?UserRepository $instance = null;
+    private static ?UserRepo $instance = null;
 
     protected string $table = "user";
 
@@ -22,10 +22,10 @@ class UserRepository extends Repository implements ISingleton
     /**
      * Singleton pattern for make the repository instance globally
      */
-    public static function getInstance(): UserRepository
+    public static function getInstance(): UserRepo
     {
         if (self::$instance === null) {
-            self::$instance = new UserRepository();
+            self::$instance = new UserRepo();
         }
 
         return self::$instance;
