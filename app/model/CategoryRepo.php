@@ -9,7 +9,7 @@ class CategoryRepo extends Repository implements ISingleton
 
     private static ?CategoryRepo $instance = null;
 
-    protected string $table = "menu";
+    protected string $table = "category";
 
     /**
      * For singleton pattern, the constructor is private to avoid new instance
@@ -27,6 +27,7 @@ class CategoryRepo extends Repository implements ISingleton
 
         return self::$instance;
     }
+
 
 }
 

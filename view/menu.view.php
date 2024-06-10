@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/components/Header.php';
+
 ?>
 
 
@@ -14,10 +15,16 @@ require_once __DIR__ . '/components/Header.php';
       </div>
       <div class="p-4 space-y-2">
         <div class="menu">
-          <div class="flex flex-col">
-            <span class="font-bold">Drinks</span>
-            <span class="text-sm text-gray-500 px-4">Hot Drinks</span>
-          </div>
+
+            <?php
+            foreach ($mainCat as $main) : ?>
+              <div class="flex flex-col">
+                <span class="font-bold"><?= esc($main['name']) ?></span>
+              </div>
+            <?php
+            endforeach; ?>
+
+
         </div>
       </div>
     </aside>

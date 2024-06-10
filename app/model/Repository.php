@@ -2,8 +2,6 @@
 
 namespace App\model;
 
-
-use App\interface\ISingleton;
 use App\tools\Preconditions;
 
 class Repository
@@ -30,9 +28,11 @@ class Repository
     /**
      * get all data according to table name
      *
+     * @param   bool|null  $isDel
+     *
      * @return array
      */
-    public function getAll(?bool $isDel): array
+    public function getAll(?bool $isDel = false): array
     {
         $query = "SELECT * FROM {$this->table}";
         if ($isDel !== null) {
@@ -47,12 +47,13 @@ class Repository
     /**
      * get data by id
      *
-     * @param   int  $id
+     * @param   int        $id
+     * @param   bool|null  $isDel
      *
      * @return mixed
      * @throws \Exception when id is empty
      */
-    public function getById(int $id, ?bool $isDel)
+    public function getById(int $id, ?bool $isDel = false): mixed
     {
         Preconditions::checkEmpty($id);
         $query
