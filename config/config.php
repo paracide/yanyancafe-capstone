@@ -7,6 +7,7 @@ use App\constant\LoggerType;
 use App\interface\service\DatabaseLogger;
 use App\interface\service\FileLogger;
 use App\model\AddressRepo;
+use App\model\MenuRepo;
 use App\model\Repository;
 use App\model\UserRepo;
 
@@ -35,7 +36,6 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 //initiate the repositories
 Repository::init($conn);
 
-
 //set the logger type
 const LOGGER_TYPE = LoggerType::database;
 //initiate the logger according to the logger type
@@ -54,5 +54,6 @@ if (LOGGER_TYPE === LoggerType::file) {
  * due to the config.php will be loaded on every page
  * so make the repositories singleton
  */
-$addressRepository = AddressRepo::getInstance();
-$userRepository    = UserRepo::getInstance();
+$addressRepo = AddressRepo::getInstance();
+$userRepo    = UserRepo::getInstance();
+$menuRepo    = MenuRepo::getInstance();

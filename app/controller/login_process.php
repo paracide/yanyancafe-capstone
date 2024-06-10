@@ -1,6 +1,6 @@
 <?php
 
-global $userRepository, $logger;
+global $userRepo, $logger;
 use App\tools\Auth;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;

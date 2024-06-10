@@ -40,12 +40,12 @@ class UserRepo extends Repository implements ISingleton
      */
     public function addUserProfile(array $user): int
     {
-        global $addressRepository;
+        global $addressRepo;
         // Start transaction due to multiple insert
         try {
             parent::$conn->beginTransaction();
             $userId = $this->addUser($user);
-            $addressRepository->addAddress($user, $userId);
+            $addressRepo->addAddress($user, $userId);
             parent::$conn->commit();
 
             return $userId;

@@ -55,8 +55,8 @@ class Auth
      */
     public static function login(string $email, string $password): array
     {
-        global $userRepository;
-        $user = $userRepository->getUserByEmail($email);
+        global $userRepo;
+        $user = $userRepo->getUserByEmail($email);
 
         if (empty($user) || ! password_verify($password, $user['password'])) {
             return [];

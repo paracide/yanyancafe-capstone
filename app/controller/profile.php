@@ -1,6 +1,6 @@
 <?php
 
-global $userRepository;
+global $userRepo;
 
 use App\constant\Constant;
 use App\constant\HttpStatus;
@@ -12,7 +12,7 @@ if (empty($userId)) {
     FlashUtils::error("You need to login firstly or register a new account. ");
     Router::fail(Router::login, HttpStatus::FORBIDDEN);
 }
-$user = $userRepository->getUserProfileById($userId);
+$user = $userRepo->getUserProfileById($userId);
 
 $props = [
   'title' => 'Profile',
