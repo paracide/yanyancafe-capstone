@@ -22,6 +22,7 @@
 /*when click the archer, scroll to the center*/
 html {
   scroll-behavior: smooth;
+  font-size: 1.2rem !important;
 }
 
 body {
@@ -29,7 +30,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem !important;
 }
 
 h1 {

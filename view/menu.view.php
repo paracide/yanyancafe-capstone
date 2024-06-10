@@ -4,122 +4,41 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 
-<div class="page menu" id="coffee">
-  <div class="menu-wrapper1">
-    <div class="menu-wrapper2">
-      <div class="button current-button  flash"><a href="#coffee">Coffee</a>
+<main class="bg-gray-100">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md">
+      <div class="p-4 border-b">
+        <input type="text" placeholder="Search..."
+               class="input input-bordered w-full"/>
       </div>
-      <div class="button  flash"><a href="#snack">Snack</a></div>
-      <div class="button  flash"><a href="#beverage">Beverage</a></div>
-      <div class="menu-group">
-        <h2>Classic Coffees</h2>
-        <hr>
-        <ul>
-          <li>Americano - $3.50</li>
-          <li>Latte - $4.00</li>
-          <li>Cappuccino - $4.50</li>
-        </ul>
+      <div class="p-4 space-y-2">
+        <div class="menu">
+          <div class="flex flex-col">
+            <span class="font-bold">Drinks</span>
+            <span class="text-sm text-gray-500 px-4">Hot Drinks</span>
+          </div>
+        </div>
       </div>
-      <div class="menu-group">
-        <h2>Pour-Over Coffees</h2>
-        <hr>
-        <ul>
-          <li>Colombian Pour-Over - $5.00</li>
-          <li>Kenyan AA Pour-Over - $5.50</li>
-          <li>Indian Mandheling Pour-Over - $6.00</li>
-        </ul>
+    </aside>
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <div class="card card-compact w-96 h-96 bg-base-100 shadow-xl">
+        <figure><img src="images/menu/coffee.webp" alt="coffee"/></figure>
+        <div class="card-body">
+          <h2 class="card-title">Espresso</h2>
+          <p><strong>A rich and bold espresso shot</strong>, perfect for a quick
+            caffeine boost. Enjoy the intense flavor and aroma that coffee
+            lovers crave.</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-second">Add</button>
+          </div>
+        </div>
       </div>
-      <div class="menu-group">
-        <h2>
-          Specialty Lattes
-        </h2>
-        <hr>
-        <ul>
-          <li>Chocolate Latte - $4.50</li>
-          <li>Cinnamon Latte - $5.00</li>
-          <li>Hazelnut Latte - $5.50</li>
-        </ul>
-      </div>
-    </div>
+    </main>
   </div>
-</div>
+</>
 
-<div class="page menu" id="snack">
-  <div class="menu-wrapper1">
-    <div class="menu-wrapper2">
-      <div class="button flash"><a href="#coffee">Coffee</a></div>
-      <div class="button flash current-button"><a href="#snack">Snack</a>
-      </div>
-      <div class="button flash"><a href="#beverage">Beverage</a></div>
-      <div class="menu-group">
-        <h2>Bakery Delights</h2>
-        <hr>
-        <ul>
-          <li>Croissant - $2.50</li>
-          <li>Chocolate Danish - $3.00</li>
-          <li>Blueberry Muffin - $2.75</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>Handheld Snacks</h2>
-        <hr>
-
-        <ul>
-          <li>Turkey Club Sandwich - $7.50</li>
-          <li>Vegetarian Panini - $6.50</li>
-          <li>Chicken Caesar Wrap - $8.00</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>Sweet Treats</h2>
-        <hr>
-        <ul>
-          <li>Chocolate Chip Cookie - $1.50</li>
-          <li>Fruit Parfait - $5.00</li>
-          <li>Caramel Brownie - $3.50</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="page menu" id="beverage">
-  <div class="menu-wrapper1">
-    <div class="menu-wrapper2">
-      <div class="button flash"><a href="#coffee">Coffee</a></div>
-      <div class="button flash"><a href="#snack">Snack</a></div>
-      <div class="button flash current-button"><a
-          href="#beverage">Beverage</a></div>
-      <div class="menu-group">
-        <h2>Tea Selection</h2>
-        <hr>
-        <ul>
-          <li>Black Tea - $2.50</li>
-          <li>Green Tea - $3.00</li>
-          <li>Chai Latte - $4.00</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>Cold Drinks</h2>
-        <hr>
-        <ul>
-          <li>Iced Tea - $3.50</li>
-          <li>Fruit Smoothie - $5.00</li>
-          <li>Lemonade - $3.00</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>Juices</h2>
-        <hr>
-        <ul>
-          <li>Orange Juice - $3.50</li>
-          <li>Apple Juice - $3.00</li>
-          <li>Carrot Ginger Juice - $4.00</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 
 <?php
 require_once __DIR__ . '/components/Footer.php'; ?>

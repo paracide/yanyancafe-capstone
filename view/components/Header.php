@@ -54,7 +54,7 @@ use App\tools\Auth;
           </header>
         <?php
         endif; ?>
-      <nav class="transition shadow px-8">
+      <nav class="transition shadow px-8 h-12">
         <div class="web flex item-center gap-4">
           <img src="images/logo.webp" class="w-8 h-8" alt="logo"/>
           <span class="gradient-anime">Yanyan Cafe</span>
