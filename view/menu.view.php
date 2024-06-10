@@ -5,12 +5,21 @@ require_once __DIR__ . '/components/Header.php';
 function renderSidebar($mainCat, $menuCat): void
 {
     foreach ($mainCat as $main) {
-        echo '<div class="flex flex-col">';
-        echo '<span class="font-bold">' . esc($main['name']) . '</span>';
+        echo
+        <<<HTML
+        <div class="flex flex-col">
+        <span class="font-bold">{$main['name']}</span>
+        HTML;
+
         foreach ($menuCat as $cat) {
             if ($cat['parent_id'] === $main['id']) {
-                echo '<a class="text-sm text-gray-500 p-2">' . esc($cat['name'])
-                     . '</a>';
+                $catName = esc($cat['name']);
+
+                echo <<<HTML
+                      <a id="cat{$cat['id']}" href="/?p=menu&category={$cat['id']}" class="text-sm text-gray-500 p-2">
+                       {$catName}
+                       </a>
+                     HTML;
             }
         }
         echo '</div>';
