@@ -22,7 +22,7 @@ function renderSidebar($mainCat, $menuCat): void
 <main class="bg-gray-100">
   <div class="flex min-h-screen">
     <!-- Sidebar -->
-    <aside class="w-64 bg-white shadow-md">
+    <aside class="w-80 bg-white shadow-md">
       <div class="p-4 border-b">
         <form>
           <input type="text" placeholder="Search..."
@@ -41,13 +41,56 @@ function renderSidebar($mainCat, $menuCat): void
         <?php
         foreach ($menus as $menu) : ?>
           <div
-            class="p-2 bg-gray-200 card card-compact h-96 bg-base-100 shadow-xl">
+            class="bg-gray-200 card card-compact h-96 bg-base-100 shadow-xl">
             <figure><img src="<?= $menu['file_path'] ?>" alt="coffee"/></figure>
             <div class="card-body">
-              <h2 class="card-title"><?= esc($menu['name']) ?></h2>
-              <div class="card-actions justify-end">
-                <button class="btn btn-second">Add</button>
+              <div class="flex justify-between items-center	">
+                <div class="card-title">
+                    <?= esc($menu['name']) ?>
+                </div>
+                <div>
+                    <?php
+                    if ($menu['is_take_away']): ?>
+                      <div class="badge badge-outline badge-info">Take Away
+                      </div>
+                    <?php
+                    endif; ?>
+                  <div class="badge badge-outline badge-success"><?= esc(
+                        $menu['category']
+                      ) ?></div>
+                </div>
               </div>
+
+              <div class="flex justify-between items-center">
+                <div>
+                  <div>
+                    $
+                    <span>
+                      <?php
+                      $discount = $menu['discount'];
+                      $originalPrice = $menu['price'];
+                      $actualPrice = $originalPrice * (100 - $discount) / 100;
+                      if ($discount) {
+                          echo "<del>$originalPrice</del><span class='text-green-500	'> $actualPrice</span>";
+                      } else {
+                          echo "$actualPrice";
+                      }
+                      ?>
+                  </span>
+                    <span>
+                      - <?= esc($menu['size']) ?>
+                  </span>
+                  </div>
+                  <span>
+                    <?= $menu['calorie_count'] ?> Cals
+                  </span>
+                </div>
+
+                <div class="flex card-actions">
+                  <button href="#" class="btn btn-success">Add</button>
+                </div>
+              </div>
+
             </div>
           </div>
 
