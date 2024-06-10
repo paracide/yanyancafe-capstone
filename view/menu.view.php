@@ -20,6 +20,19 @@ require_once __DIR__ . '/components/Header.php';
             foreach ($mainCat as $main) : ?>
               <div class="flex flex-col">
                 <span class="font-bold"><?= esc($main['name']) ?></span>
+
+                  <?php
+                  foreach ($menuCat as $cat) : ?>
+                      <?php
+                      if ($cat['parent_id'] === $main['id']) : ?>
+                        <a class="text-sm text-gray-500 p-2">
+                            <?= esc($cat['name']) ?>
+                        </a>
+
+                      <?php
+                      endif; ?>
+                  <?php
+                  endforeach; ?>
               </div>
             <?php
             endforeach; ?>
