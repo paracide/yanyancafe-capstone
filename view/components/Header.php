@@ -47,19 +47,11 @@ use App\tools\Auth;
   </head>
   <body>
     <div class="wrapper">
-        <?php
-        if (isset($isHomePage) && $isHomePage): ?>
-          <header>
-            <img alt="yanyan cafe" height="" id="logo" src="images/logo.webp">
-          </header>
-        <?php
-        endif; ?>
-      <nav class="transition shadow px-8 h-12">
-        <div class="web flex item-center gap-4">
-          <img src="images/logo.webp" class="w-8 h-8" alt="logo"/>
-          <span class="gradient-anime">Yanyan Cafe</span>
+      <nav class="navbar glass">
+        <div class="navbar-start flex gap-4">
+          <span class="gradient-anime text-3xl">Yanyan Cafe</span>
         </div>
-        <div class="content">
+        <div class="navbar-center hidden lg:flex gap-16">
             <?php
             $links = [
               'index' => 'Home',
@@ -83,8 +75,7 @@ use App\tools\Auth;
             <?php
             endforeach; ?>
         </div>
-
-        <div class="user">
+        <div class="navbar-end gap-4">
             <?php
             if (Auth::isLoggedIn()): ?>
               <form action="/?p=logout_process" method="post" novalidate>
@@ -106,6 +97,14 @@ use App\tools\Auth;
             endif; ?>
         </div>
       </nav>
+
+        <?php
+        if (isset($isHomePage) && $isHomePage): ?>
+          <header>
+            <img alt="yanyan cafe" height="" id="logo" src="images/logo.webp">
+          </header>
+        <?php
+        endif; ?>
       <main>
           <?php
           if (isset($isHomePage) && $isHomePage): ?>

@@ -17,6 +17,7 @@ enum Router
     case club;
     case error;
     case menu;
+    case menu_details;
     case register;
     case login;
     case register_process;
