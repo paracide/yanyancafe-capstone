@@ -9,33 +9,45 @@ The Yanyan Cafe Web Design project aims to create an advanced online platform to
 2. **Order Management**: Develop a robust backend for smooth transactions and accurate order tracking.
 3. **Administrative Control**: Equip administrators with tools for efficient user, order, and menu management.
 
-### Key Features
-- **User Account Management**: Easy registration, login, profile updates, and account management with stored personal details.
-- **Order Placement and Tracking**: Online order placement, order status viewing, and order history access, with detailed order tracking.
-- **Menu Management**: Administrators and staff can update menu items, prices, and availability.
-- **Logging and Monitoring**: Track system events with logs for security monitoring and troubleshooting.
-
 ## Project Scope
+
+### User Account Management
+- **Easy Registration and Login**: Quick sign-up and log-in using email or social media accounts.
+- **Profile Updates**: Users can update personal details and preferences.
+
+### Order Placement and Tracking
+- **Online Order Placement**: Browse the menu, select items, and place orders.
+- **Order Status Viewing**: Real-time order status updates.
+- **Order History Access**: View and reorder past orders.
+
+### Menu Management
+- **Menu Updates**: Add, edit, or remove menu items.
+- **Price Management**: Update prices for menu items.
+- **Availability Management**: Manage item availability.
+
+### Logging and Monitoring
+- **System Event Tracking**: Monitor system events for security and troubleshooting.
+- **Security Monitoring**: Identify and troubleshoot security issues.
 
 ## Technologies
 
-- Backend:
+- **Backend**:
   - PHP, Composer
-- Frontend:
+- **Frontend**:
   - HTML
   - JavaScript, jQuery
   - CSS, SCSS
   - daisUI, Tailwind CSS
-- Database:
+- **Database**:
   - MySQL
-- Hosting:
+- **Hosting**:
   - Amazon Web Services
   - Cloudflare
   - Apache Server
 
 ## Data Collection
 
-- User Information:
+- **User Information**:
 
   - Personal details including email, password, first name, last name, birthdate, and phone number will be collected
     to manage user accounts and provide personalized experiences.
@@ -44,12 +56,12 @@ The Yanyan Cafe Web Design project aims to create an advanced online platform to
   - Timestamps for account creation and updates, along with a flag indicating if the account is deleted, will be
     maintained to ensure accurate record-keeping and account management.
 
-- Orders:
+- **Orders**:
 
   - Order details will include user ID, order date, items ordered, and total amount. This information will help in
     tracking user purchases, managing orders, and providing a smooth transaction experience.
 
-- Log Entries:
+- **Log Entries**:
   - Logs of events,including descriptions and timestamps, will be maintained to monitor the system’s activities and
     ensure security and troubleshooting capabilities.
 
