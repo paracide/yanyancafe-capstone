@@ -20,7 +20,6 @@ require_once __DIR__ . '/components/Header.php';
             foreach ($mainCat as $main) : ?>
               <div class="flex flex-col">
                 <span class="font-bold"><?= esc($main['name']) ?></span>
-
                   <?php
                   foreach ($menuCat as $cat) : ?>
                       <?php
@@ -28,7 +27,6 @@ require_once __DIR__ . '/components/Header.php';
                         <a class="text-sm text-gray-500 p-2">
                             <?= esc($cat['name']) ?>
                         </a>
-
                       <?php
                       endif; ?>
                   <?php
@@ -58,7 +56,6 @@ require_once __DIR__ . '/components/Header.php';
     </main>
   </div>
 </>
-
 
 <?php
 require_once __DIR__ . '/components/Footer.php'; ?>
