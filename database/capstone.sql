@@ -33,7 +33,9 @@ CREATE TABLE `address` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `is_del` bigint NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `address_user_id_fk` (`user_id`),
+  CONSTRAINT `address_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -45,72 +47,6 @@ LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
 INSERT INTO `address` VALUES (1,8,'367 Lipton St','MB','Canada','Winnipeg','R3G 2H2','2024-06-07 16:25:50','2024-06-07 16:25:50',0),(2,9,'367 Lipton St','MB','Canada','Winnipeg','R3G 2H2','2024-06-07 17:56:01','2024-06-07 17:56:01',0),(3,10,'367 Lipton St','MB','Canada','Winnipeg','R3G 2H2','2024-06-07 17:56:16','2024-06-07 17:56:16',0),(4,11,'367 Lipton St','MB','Canada','Winnipeg','R3G 2H2','2024-06-07 17:56:31','2024-06-07 17:56:31',0),(5,12,'367 Lipton St','MB','Canada','Winnipeg','R3G 2H2','2024-06-07 17:56:46','2024-06-07 17:56:46',0);
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `cat`
---
-
-DROP TABLE IF EXISTS `cat`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cat` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `description` text,
-  `img_file_id` bigint DEFAULT NULL,
-  `age` int DEFAULT NULL,
-  `sex` enum('male','female','unknown') DEFAULT 'unknown',
-  `fur_color` varchar(100) DEFAULT NULL,
-  `hobby` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `is_del` bigint NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `img_file_id` (`img_file_id`),
-  CONSTRAINT `cat_ibfk_1` FOREIGN KEY (`img_file_id`) REFERENCES `file` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cat`
---
-
-LOCK TABLES `cat` WRITE;
-/*!40000 ALTER TABLE `cat` DISABLE KEYS */;
-INSERT INTO `cat` VALUES (1,'Xiuxiu','Lazy',NULL,3,'male','tabby','chasing lasers','2024-04-20 18:36:05','2024-04-20 23:25:12',0),(2,'Huabi','Evil',NULL,5,'male','black','cuddling','2024-04-20 18:36:05','2024-04-20 23:24:57',0),(3,'Pipi','Cow',NULL,8,'male','brown','napping','2024-04-20 18:36:05','2024-04-20 23:25:07',0);
-/*!40000 ALTER TABLE `cat` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `cat_gallery`
---
-
-DROP TABLE IF EXISTS `cat_gallery`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cat_gallery` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `cat_id` bigint NOT NULL,
-  `img_file_id` bigint NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `is_del` bigint NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `cat_id` (`cat_id`),
-  KEY `img_file_id` (`img_file_id`),
-  CONSTRAINT `cat_gallery_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `cat` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `cat_gallery_ibfk_2` FOREIGN KEY (`img_file_id`) REFERENCES `file` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cat_gallery`
---
-
-LOCK TABLES `cat_gallery` WRITE;
-/*!40000 ALTER TABLE `cat_gallery` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cat_gallery` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -220,6 +156,8 @@ CREATE TABLE `menu` (
   `is_del` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `img_file_id` (`img_file_id`),
+  KEY `menu_category_id_fk` (`category_id`),
+  CONSTRAINT `menu_category_id_fk` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
   CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`img_file_id`) REFERENCES `file` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -320,7 +258,8 @@ CREATE TABLE `user` (
   `is_del` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_unique` (`email`),
-  KEY `user_file_id_fk` (`avatar_file_id`)
+  KEY `user_file_id_fk` (`avatar_file_id`),
+  CONSTRAINT `user_file_id_fk` FOREIGN KEY (`avatar_file_id`) REFERENCES `file` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -343,4 +282,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-07 12:57:49
+-- Dump completed on 2024-06-07 14:46:01
