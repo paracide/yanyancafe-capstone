@@ -19,6 +19,7 @@ $props = [
   'paramKey'    => $paramKey,
   'paramCat'    => $paramCat,
   'title'       => 'Happy Hour',
+  'menuSize'    => count($menus),
 
 ];
 
