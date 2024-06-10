@@ -42,12 +42,9 @@ function renderSidebar($mainCat, $menuCat): void
         foreach ($menus as $menu) : ?>
           <div
             class="p-2 bg-gray-200 card card-compact h-96 bg-base-100 shadow-xl">
-            <figure><img src="images/menu/coffee.webp" alt="coffee"/></figure>
+            <figure><img src="<?= $menu['file_path'] ?>" alt="coffee"/></figure>
             <div class="card-body">
               <h2 class="card-title"><?= esc($menu['name']) ?></h2>
-              <div>
-                  <?= $menu['description'] ?>
-              </div>
               <div class="card-actions justify-end">
                 <button class="btn btn-second">Add</button>
               </div>

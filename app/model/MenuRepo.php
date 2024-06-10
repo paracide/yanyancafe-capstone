@@ -3,7 +3,6 @@
 namespace App\model;
 
 use App\interface\ISingleton;
-use App\tools\Preconditions;
 
 class MenuRepo extends Repository implements ISingleton
 {
@@ -27,6 +26,33 @@ class MenuRepo extends Repository implements ISingleton
         }
 
         return self::$instance;
+    }
+
+    public function search(?string $key, ?int $category): array
+    {
+        $query = "select menu.*, c.name as category, f.file_path
+                from menu
+                left join capstone.category c on c.id = menu.category_id
+                left join file f on menu.img_file_id = f.id
+                where menu.is_del = 0";
+
+        $params = [];
+
+        if ($key) {
+            $query          .= " and menu.name like :key";
+            $params[':key'] = '%' . $key . '%';
+        }
+
+        if ($category !== null) {
+            $query                 .= " and menu.category_id = :categoryId";
+            $params[':categoryId'] = $category;
+        }
+
+        $stmt = self::$conn->prepare($query);
+
+        $stmt->execute($params);
+
+        return $stmt->fetchAll();
     }
 
 }

@@ -4,7 +4,7 @@ global $categoryRepo, $menuRepo;
 use App\tools\Router;
 
 $allCat   = $categoryRepo->getAll();
-$menus    = $menuRepo->getAll();
+$menus    = $menuRepo->search(null, null);
 $firstCat = array_filter($allCat, function ($v) {
     return $v['parent_id'] === 1;
 });
