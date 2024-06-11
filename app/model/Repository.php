@@ -62,10 +62,8 @@ class Repository
             $query .= $isDel ? " and is_del = 1" : " and is_del = 0";
         }
         $stmt   = self::$conn->prepare($query);
-        $params = [
-          ':id' => $id,
-        ];
-        $stmt->execute($params);
+        $stmt->bindValue(":id",$id,\PDO::PARAM_INT);
+        $stmt->execute();
 
         return $stmt->fetch();
     }

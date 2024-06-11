@@ -24,11 +24,24 @@ $validator->checkNum($cardNo, 'no');
 $validator->checkNum($_POST['cvv'], 'cvv');
 $error = $validator->getError();
 if (count($error)) {
-    $_SESSION['errors'] = $error;
-    $_SESSION['post']   = $_POST;
-    FlashUtils::error("Failed to pay");
-    Router::fail(Router::checkout);
+    checkOutFailed($error);
 }
 
 $orderId = $orderRepo->newOrder($_SESSION[Constant::SESSION_CART], $cardNo);
+if ($orderId) {
+    Router::success(Router::invoice, "&order_id=$orderId");
+} else {
+    checkOutFailed($error);
+}
 
+/**
+ * @param   array  $error
+ *
+ * @return void
+ */
+function checkOutFailed(array $error): void
+{
+    $_SESSION['errors'] = $error;
+    FlashUtils::error("Failed to pay");
+    Router::fail(Router::checkout);
+}

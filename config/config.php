@@ -10,7 +10,7 @@ use App\model\AddressRepo;
 use App\model\CategoryRepo;
 use App\model\MenuRepo;
 use App\model\OrderDetailRepo;
-use App\model\OrderRepo;
+use App\model\OrdersRepo;
 use App\model\Repository;
 use App\model\UserRepo;
 
@@ -62,4 +62,4 @@ $userRepo        = UserRepo::getInstance();
 $menuRepo        = MenuRepo::getInstance();
 $categoryRepo    = CategoryRepo::getInstance();
 $orderDetailRepo = OrderDetailRepo::getInstance();
-$orderRepo       = OrderRepo::getInstance();
+$orderRepo       = OrdersRepo::getInstance();

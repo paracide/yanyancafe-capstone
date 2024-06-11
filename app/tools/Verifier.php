@@ -37,13 +37,6 @@ class Verifier
         return (bool)preg_match($phonePattern, $phone);
     }
 
-    public static function isNum($num): bool
-    {
-        $phonePattern = '/^\d+$/';
-
-        return (bool)preg_match($phonePattern, $$num);
-    }
-
     /**
      * check postal code format
      *

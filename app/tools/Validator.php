@@ -156,7 +156,7 @@ class Validator
 
     public function checkNum(string $v, string $field): void
     {
-        if ( ! Verifier::isNum($v)) {
+        if ( ! is_numeric($v)) {
             $this->error[$field][] = "Should be a number";
         }
     }

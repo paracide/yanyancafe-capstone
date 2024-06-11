@@ -48,5 +48,14 @@ class OrderDetailRepo extends Repository implements ISingleton
         return intval(parent::$conn->lastInsertId());
     }
 
+    public function searchByOrderId(int $orderId): array
+    {
+        $query = 'SELECT * FROM order_detail WHERE order_id = :order_id';
+        $stmt  = parent::$conn->prepare($query);
+        $stmt->execute([':order_id' => $orderId]);
+
+        return $stmt->fetchAll();
+    }
+
 }
 

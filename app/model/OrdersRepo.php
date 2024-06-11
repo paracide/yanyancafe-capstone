@@ -7,12 +7,12 @@ use App\interface\service\CartService;
 use App\tools\Auth;
 use App\tools\Router;
 
-class OrderRepo extends Repository implements ISingleton
+class OrdersRepo extends Repository implements ISingleton
 {
 
-    private static ?OrderRepo $instance = null;
+    private static ?OrdersRepo $instance = null;
 
-    protected string $table = "order";
+    protected string $table = "orders";
 
     /**
      * For singleton pattern, the constructor is private to avoid new instance
@@ -22,10 +22,10 @@ class OrderRepo extends Repository implements ISingleton
     /**
      * Singleton pattern for make the repository instance globally
      */
-    public static function getInstance(): OrderRepo
+    public static function getInstance(): OrdersRepo
     {
         if (self::$instance === null) {
-            self::$instance = new OrderRepo();
+            self::$instance = new OrdersRepo();
         }
 
         return self::$instance;
@@ -33,9 +33,9 @@ class OrderRepo extends Repository implements ISingleton
 
     public function addOrder(int $userId, float $total, string $cardNo): int
     {
-        $query = 'INSERT INTO `order`
-                  (user_id, price, status, is_del)
-                  VALUES (:user_id, :price, :status, :is_del);';
+        $query = 'INSERT INTO orders
+                  (user_id, price, status,credit_card_no, is_del)
+                  VALUES (:user_id, :price, :status,:credit_card_no, :is_del);';
 
         $stmt   = parent::$conn->prepare($query);
         $params = [
@@ -72,7 +72,7 @@ class OrderRepo extends Repository implements ISingleton
                   'order_id'   => $orderId,
                   'menu_id'    => $food['id'],
                   'quantity'   => $food['quantity'],
-                  'unit_price' => $food['actualPrice'],
+                  'unit_price' => $food['price'],
                 ];
                 $orderDetailRepo->addOrderDetail(
                   $params
