@@ -21,17 +21,19 @@ require_once __DIR__ . '/components/Header.php';
         <div
           class="bg-gray-100 card card-compact h-76 md:h-96 shadow-xl">
           <!--img-->
-          <figure><img src="<?= $menu['file_path'] ?>" alt="coffee"/></figure>
+          <figure class="h-32 md:h-64">
+            <img src="<?= $menu['file_path'] ?>" alt="food"/>
+          </figure>
           <!--content body-->
           <div class="card-body ">
-            <div class="flex-col  md:flex justify-between items-center">
+            <div class="flex flex-col md:flex-row justify-between items-center">
               <!--title-->
               <a href="/?p=menu_details&id=<?= $menu['id'] ?>"
                  class="card-title">
                   <?= esc($menu['name']) ?>
               </a>
               <!--category-->
-              <div>
+              <div class="hidden md:flex">
                 <div class="badge bg-orange-600 text-white p-3"><?= esc(
                       $menu['category']
                     ) ?>

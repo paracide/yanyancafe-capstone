@@ -13,7 +13,7 @@ require_once __DIR__ . '/components/Header.php';
     <div class="flex p-8 flex-col md:flex-row justify-center gap-4">
       <!--menu image-->
       <img src="<?= $menu['file_path'] ?>"
-           class="max-w-sm rounded-lg shadow-2xl"/>
+           class="w-full max-w-sm rounded-lg shadow-2xl md:w-auto"/>
 
       <!--menu details-->
       <div class="flex flex-col content-between gap-4">
@@ -66,9 +66,9 @@ require_once __DIR__ . '/components/Header.php';
             $
             <span>
                       <?php
-                      $discount = $menu['discount'];
+                      $discount      = $menu['discount'];
                       $originalPrice = $menu['price'];
-                      $actualPrice = $originalPrice * (100 - $discount) / 100;
+                      $actualPrice   = $originalPrice * (100 - $discount) / 100;
                       if ($discount) {
                           echo "<del>$originalPrice</del><span class='text-green-500	'> $actualPrice</span>";
                       } else {
@@ -88,7 +88,7 @@ require_once __DIR__ . '/components/Header.php';
         <!--button-->
         <div class="flex">
           <button href="#"
-                  class="bg-orange-600 text-white btn-wide btn <?= $menu['availability']
+                  class="bg-orange-600 w-full text-white btn <?= $menu['availability']
                     ? ''
                     : 'btn-disabled' ?>">Add To Cart
           </button>

@@ -35,13 +35,13 @@ function renderSidebar($mainCat, $menuCat): void
 
 ?>
 <!-- Sidebar -->
-<aside class="w-80 bg-white shadow-md">
+<aside class="w-28 md:w-80 bg-white shadow-md">
   <div class="p-2 border-b">
     <input type="text" placeholder="Search..." id="searchKey"
            value="<?= $paramKey ?? '' ?>"
            class="input input-bordered w-full"/>
   </div>
-  <div class="p-4 space-y-2">
+  <div class="p-2">
     <div class="menu">
       <div class="flex flex-col">
         <a href="/?p=menu" class="font-bold">All</a>
