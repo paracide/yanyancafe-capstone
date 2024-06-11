@@ -14,6 +14,7 @@ $quantity    = ($_SESSION[Constant::SESSION_CART][$menuId]['quantity'] ?? 0)
 $actualPrice = $menu['price'] * (100 - $menu['discount']) / 100;
 
 $food = [
+  'id'         => $menu['id'],
   'name'       => $menu['name'],
   'img'        => $menu['file_path'],
   'price'      => $actualPrice,

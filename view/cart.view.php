@@ -13,29 +13,38 @@ require_once __DIR__ . '/components/Header.php';
         <h2 class="text-2xl"><?= count($cart) ?> Items</h2>
       </div>
       <div class="flex mt-10 p-4">
-        <h3 class="w-2/5">
+        <h3 class="w-2/6">
           Product Details</h3>
         <h3
-          class=" w-1/5 ">
+          class=" w-1/6 ">
           Quantity</h3>
         <h3
-          class=" w-1/5 ">
+          class=" w-1/6 ">
           Price</h3>
         <h3
-          class=" w-1/5">
+          class=" w-1/6">
           Total</h3>
+        <h3
+          class=" w-1/6">
+          Action</h3>
       </div>
         <?php
         foreach ($cart as $food) : ?>
           <div class="flex items-center p-4">
-            <div class="flex w-2/5 gap-4 items-center">
+            <div class="flex w-2/6 gap-4 items-center">
               <img class="h-14 w-14 rounded-xl" src="<?= $food['img'] ?>"
                    alt="food">
               <div class="font-bold"><?= esc($food['name']) ?></div>
             </div>
-            <span class="w-1/5"><?= esc($food['quantity']) ?></span>
-            <span class=" w-1/5 ">$<?= esc($food['price']) ?></span>
-            <span class=" w-1/5"><?= esc($food['totalPrice']) ?></span>
+            <span class="w-1/6"><?= esc($food['quantity']) ?></span>
+            <span class=" w-1/6 ">$<?= esc($food['price']) ?></span>
+            <span class=" w-1/6"><?= esc($food['totalPrice']) ?></span>
+            <span class=" w-1/6">
+              <form action="/?p=cart_del_process" method="post">
+                <input name="menuId" value="<?= $food['id'] ?>" hidden/>
+                <button class="btn btn-warning" type="submit">DEL</button>
+              </form>
+            </span>
           </div>
         <?php
         endforeach; ?>
