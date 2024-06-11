@@ -3,7 +3,7 @@
 require_once __DIR__ . '/components/Header.php';
 ?>
 <div class="page  mt-16" id="reg">
-  <div class="card ">
+  <div class="m-card grid">
     <h1 class="action">Login</h1>
     <form action="/?p=login_process" method="post" novalidate>
       <div class="input-section">
@@ -28,8 +28,8 @@ require_once __DIR__ . '/components/Header.php';
         </div>
         <div class="action">
           <div class="button flash"
-                  onclick="window.location.href='/?p=register'"
-                  style="background: deepskyblue">Create an account
+               onclick="window.location.href='/?p=register'"
+               style="background: deepskyblue">Create an account
           </div>
         </div>
       </div>

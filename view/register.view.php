@@ -4,7 +4,7 @@
 require_once __DIR__ . '/components/Header.php';
 ?>
 <div class="p-8 mt-16" id="reg">
-  <div class="card ">
+  <div class="m-card grid">
     <h1 class="text-4xl action">Get Your Membership</h1>
     <form class="grid grid-cols-1 md:grid-cols-2" action="/?p=register_process"
           method="post" novalidate>
