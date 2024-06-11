@@ -60,8 +60,8 @@ require_once __DIR__ . '/components/Header.php';
     </div>
 
     <!--cashier-->
-    <div class="w-1/4 p-4 flex flex-col gap-12 glass rounded-xl">
-      <h2 class="text-4xl border-b p-4">Summary</h2>
+    <div class="w-1/4 flex flex-col  glass rounded-xl gap-4 p-4">
+      <h2 class="text-4xl">Summary</h2>
       <div class="flex justify-between">
         <span class="text-sm ">Subtotal</span>
         <span class="text-sm">$<?= esc($subTotal) ?></span>
@@ -71,7 +71,7 @@ require_once __DIR__ . '/components/Header.php';
         <span class="text-sm">$<?= esc($tax) ?></span>
       </div>
 
-      <div class="border-t flex flex-col gap-8">
+      <div class="border-t py-4 gap-4 flex flex-col">
         <div
           class="flex justify-between">
           <span>Total cost</span>

@@ -150,6 +150,50 @@ main {
   box-shadow: 0 10px 20px 0 rgba(153, 153, 153, 0.25);
 }
 
+form {
+  display: grid;
+  grid-gap: 2rem;
+  /*input*/
+}
+form .input-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+form .button {
+  width: 100%;
+  height: 50px;
+  font-size: 1.3rem;
+  background-color: orangered;
+  color: #fff;
+  border: 0;
+}
+form .input-group {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  place-items: baseline;
+}
+form .input-group .error-msg {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 0.7rem;
+  color: red;
+}
+form .input-label {
+  color: #212121;
+  transition: 0.25s ease;
+}
+form .input-field {
+  width: 80%;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+}
+form .input-field:focus, form .input-field:valid {
+  outline: 0;
+  border-bottom-color: orangered;
+}
+
 @media screen and (max-width: 767px) {
   /*smaller font size for title*/
   h1 {
