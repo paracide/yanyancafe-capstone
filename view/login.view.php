@@ -3,7 +3,7 @@
 require_once __DIR__ . '/components/Header.php';
 ?>
 <div class="page  mt-16" id="reg">
-  <div class="card">
+  <div class="card ">
     <h1 class="action">Login</h1>
     <form action="/?p=login_process" method="post" novalidate>
       <div class="input-section">
