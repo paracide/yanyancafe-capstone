@@ -1,8 +1,9 @@
 <?php
 
+use App\constant\Constant;
 use App\tools\Router;
 
-$cart  = $_SESSION['cart'] ?? [];
+$cart  = $_SESSION[Constant::SESSION_CART] ?? [];
 $props = [
   'title' => 'Cart',
   'cart'  => $cart,

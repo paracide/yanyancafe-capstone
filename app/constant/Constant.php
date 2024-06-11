@@ -12,5 +12,6 @@ class Constant
     public const SESSION_POST = 'post';
 
     public const SESSION_ERRORS = 'errors';
+    public const SESSION_CART = 'cart';
 
 }

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/components/Header.php';
 ?>
-<div class="page  mt-16" id="reg">
+<div class="page mt-16" id="reg">
   <div class="m-card grid">
     <h1 class="action">Login</h1>
     <form action="/?p=login_process" method="post" novalidate>

@@ -1,6 +1,7 @@
 <?php
 
 global $menuRepo;
+use App\constant\Constant;
 use App\tools\Preconditions;
 
 Preconditions::checkPostRequest();
@@ -9,14 +10,14 @@ $menuId = $_POST['menuId'];
 $menu   = $menuRepo->searchById($menuId);
 
 if ( ! isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
+    $_SESSION[Constant::SESSION_CART] = [];
 }
 
-if (isset($_SESSION['cart'][$menuId])) {
-    $_SESSION['cart'][$menuId]['quantity'] += 1;
+if (isset($_SESSION[Constant::SESSION_CART][$menuId])) {
+    $_SESSION[Constant::SESSION_CART][$menuId]['quantity'] += 1;
 } else {
-    $_SESSION['cart'][$menuId]             = $menu;
-    $_SESSION['cart'][$menuId]['quantity'] = 1;
+    $_SESSION[Constant::SESSION_CART][$menuId]             = $menu;
+    $_SESSION[Constant::SESSION_CART][$menuId]['quantity'] = 1;
 }
 
 $response = [
