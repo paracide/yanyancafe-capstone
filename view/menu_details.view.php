@@ -9,8 +9,8 @@ require_once __DIR__ . '/components/Header.php';
     require_once __DIR__ . '/components/MenuSideBar.php';
     ?>
   <!-- Main Content -->
-  <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content flex-col md:flex-row">
+  <div class="bg-base-200 h-5/6	">
+    <div class="flex p-8 flex-col md:flex-row justify-center gap-4">
       <!--menu image-->
       <img src="<?= $menu['file_path'] ?>"
            class="max-w-sm rounded-lg shadow-2xl"/>
@@ -52,7 +52,9 @@ require_once __DIR__ . '/components/Header.php';
 
             <?php
             if ($menu['discount']): ?>
-              <div class="badge bg-green-500 glass"><?= esc($menu['discount']) ?>%off
+              <div class="badge bg-green-500 glass"><?= esc(
+                    $menu['discount']
+                  ) ?>%off
               </div>
             <?php
             endif; ?>
@@ -64,9 +66,9 @@ require_once __DIR__ . '/components/Header.php';
             $
             <span>
                       <?php
-                      $discount      = $menu['discount'];
+                      $discount = $menu['discount'];
                       $originalPrice = $menu['price'];
-                      $actualPrice   = $originalPrice * (100 - $discount) / 100;
+                      $actualPrice = $originalPrice * (100 - $discount) / 100;
                       if ($discount) {
                           echo "<del>$originalPrice</del><span class='text-green-500	'> $actualPrice</span>";
                       } else {
@@ -89,7 +91,8 @@ require_once __DIR__ . '/components/Header.php';
                   class="bg-orange-600 text-white btn-wide btn <?= $menu['availability']
                     ? ''
                     : 'btn-disabled' ?>">Add To Cart
-          </button>        </div>
+          </button>
+        </div>
 
       </div>
     </div>
