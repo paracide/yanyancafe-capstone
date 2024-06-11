@@ -48,6 +48,7 @@ use App\tools\Auth;
   <body>
 
     <div class="wrapper">
+      <<!--desktop-->
       <nav class="navbar h-16 w-full glass fixed top-0 z-50">
         <div class="navbar-start hidden md:flex gap-4">
           <span class="text-3xl">Yanyan Cafe </span>
@@ -97,6 +98,7 @@ use App\tools\Auth;
             <?php
             endif; ?>
         </div>
+
         <!--mobile nav-->
         <div class="navbar flex md:hidden">
           <div class="dropdown">
@@ -107,7 +109,7 @@ use App\tools\Auth;
                       stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
               </svg>
             </div>
-            <span class="text-xl">Yanyan Cafe - <?= esc($title) ?></span>
+            <span class="text-xl"><?= esc($title) ?></span>
             <ul tabindex="0"
                 class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                 <?php
@@ -127,6 +129,40 @@ use App\tools\Auth;
                 endforeach; ?>
 
 
+            </ul>
+          </div>
+        </div>
+
+        <div class="navbar-end flex md:hidden">
+          <div class=" dropdown dropdown-end">
+            <div tabindex="0" role="button"
+                 class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img src="images/avatar.webp" alt="avatar"/>
+              </div>
+            </div>
+            <ul tabindex="0"
+                class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                <?php
+                if (Auth::isLoggedIn()): ?>
+                  <li>
+                    <form action="/?p=logout_process" method="post" novalidate>
+                      <input type="submit" value="Logout"/>
+                    </form>
+                  </li>
+                  <li>
+                    <a href="/?p=profile">Profile</a>
+                  </li>
+                <?php
+                else: ?>
+                  <li>
+                    <a href="/?p=register">Register</a>
+                  </li>
+                  <li>
+                    <a href="/?p=login">Login</a>
+                  </li>
+                <?php
+                endif; ?>
             </ul>
           </div>
         </div>
