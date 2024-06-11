@@ -31,7 +31,7 @@ class OrderRepo extends Repository implements ISingleton
         return self::$instance;
     }
 
-    public function addOrder(int $userId, float $total): int
+    public function addOrder(int $userId, float $total, string $cardNo): int
     {
         $query = 'INSERT INTO `order`
                   (user_id, price, status, is_del)
@@ -39,10 +39,11 @@ class OrderRepo extends Repository implements ISingleton
 
         $stmt   = parent::$conn->prepare($query);
         $params = [
-          ':user_id' => $userId,
-          ':price'   => $total,
-          ':status'  => 'delivered',
-          ':is_del'  => 0,
+          ':user_id'        => $userId,
+          ':price'          => $total,
+          ':status'         => 'delivered',
+          ':credit_card_no' => $cardNo,
+          ':is_del'         => 0,
         ];
 
         $stmt->execute($params);
@@ -50,7 +51,7 @@ class OrderRepo extends Repository implements ISingleton
         return intval(parent::$conn->lastInsertId());
     }
 
-    public function newOrder(array $cart): int
+    public function newOrder(array $cart, string $cardNo): int
     {
         global $orderDetailRepo;
         if (empty($cart)) {
@@ -62,7 +63,8 @@ class OrderRepo extends Repository implements ISingleton
 
             $orderId = $this->addOrder(
               Auth::getUserId(),
-              CartService::getTotal($cart)
+              CartService::getTotal($cart),
+              $cardNo
             );
 
             foreach ($cart as $food) {

@@ -17,6 +17,7 @@ enum Router
     case cart;
     case checkout;
     case invoice;
+    case orders;
     case club;
     case error;
     case menu;

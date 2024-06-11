@@ -18,8 +18,9 @@ $require = [
 ];
 
 $validator = new Validator();
+$cardNo    = $_POST['no'];
 $validator->checkRequired($require, $_POST);
-$validator->checkNum($_POST['no'], 'no');
+$validator->checkNum($cardNo, 'no');
 $validator->checkNum($_POST['cvv'], 'cvv');
 $error = $validator->getError();
 if (count($error)) {
@@ -29,5 +30,5 @@ if (count($error)) {
     Router::fail(Router::checkout);
 }
 
-$orderId = $orderRepo->newOrder($_SESSION[Constant::SESSION_CART]);
+$orderId = $orderRepo->newOrder($_SESSION[Constant::SESSION_CART], $cardNo);
 
