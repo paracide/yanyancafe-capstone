@@ -1,5 +1,7 @@
 <?php
 
+global $orderRepo;
+use App\constant\Constant;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
 use App\tools\Router;
@@ -26,4 +28,6 @@ if (count($error)) {
     FlashUtils::error("Failed to pay");
     Router::fail(Router::checkout);
 }
+
+$orderId = $orderRepo->newOrder($_SESSION[Constant::SESSION_CART]);
 

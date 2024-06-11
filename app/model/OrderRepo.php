@@ -3,6 +3,9 @@
 namespace App\model;
 
 use App\interface\ISingleton;
+use App\interface\service\CartService;
+use App\tools\Auth;
+use App\tools\Router;
 
 class OrderRepo extends Repository implements ISingleton
 {
@@ -28,10 +31,61 @@ class OrderRepo extends Repository implements ISingleton
         return self::$instance;
     }
 
-    public function newOrder(array $cart) {
+    public function addOrder(int $userId, float $total): int
+    {
+        $query = 'INSERT INTO `order`
+                  (user_id, price, status, is_del)
+                  VALUES (:user_id, :price, :status, :is_del);';
 
+        $stmt   = parent::$conn->prepare($query);
+        $params = [
+          ':user_id' => $userId,
+          ':price'   => $total,
+          ':status'  => 'delivered',
+          ':is_del'  => 0,
+        ];
 
+        $stmt->execute($params);
 
+        return intval(parent::$conn->lastInsertId());
+    }
+
+    public function newOrder(array $cart): int
+    {
+        global $orderDetailRepo;
+        if (empty($cart)) {
+            return 0;
+        }
+
+        try {
+            parent::$conn->beginTransaction();
+
+            $orderId = $this->addOrder(
+              Auth::getUserId(),
+              CartService::getTotal($cart)
+            );
+
+            foreach ($cart as $food) {
+                $params = [
+                  'order_id'   => $orderId,
+                  'menu_id'    => $food['id'],
+                  'quantity'   => $food['quantity'],
+                  'unit_price' => $food['actualPrice'],
+                ];
+                $orderDetailRepo->addOrderDetail(
+                  $params
+                );
+            }
+
+            parent::$conn->commit();
+
+            return $orderId;
+        } catch (Exception $e) {
+            parent::$conn->rollBack();
+            Router::errorPage($e);
+        }
+
+        return 0;
     }
 
 }

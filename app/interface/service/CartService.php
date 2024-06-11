@@ -56,4 +56,28 @@ class CartService
         ];
     }
 
+    public static function getTotal($cart): float
+    {
+
+        $subTotal = $cart ? array_reduce($cart, function ($carry, $food) {
+            return $carry + $food['totalPrice'];
+        }) : 0;
+
+        return $subTotal * 1.12;
+    }
+
+    /**
+     * @param   mixed  $cart
+     *
+     * @return int|mixed
+     */
+    public static function getSubTotal(mixed $cart): mixed
+    {
+        $subTotal = $cart ? array_reduce($cart, function ($carry, $food) {
+            return $carry + $food['totalPrice'];
+        }) : 0;
+
+        return $subTotal;
+    }
+
 }
