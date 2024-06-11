@@ -50,7 +50,10 @@ class OrderDetailRepo extends Repository implements ISingleton
 
     public function searchByOrderId(int $orderId): array
     {
-        $query = 'SELECT * FROM order_detail WHERE order_id = :order_id';
+        $query = 'SELECT o.*, m.name menu
+            FROM order_detail o
+         join capstone.menu m on m.id = o.menu_id
+    WHERE order_id = :order_id and m.is_del=0';
         $stmt  = parent::$conn->prepare($query);
         $stmt->execute([':order_id' => $orderId]);
 

@@ -29,6 +29,7 @@ if (count($error)) {
 
 $orderId = $orderRepo->newOrder($_SESSION[Constant::SESSION_CART], $cardNo);
 if ($orderId) {
+    unset($_SESSION[Constant::SESSION_CART]);
     Router::success(Router::invoice, "&order_id=$orderId");
 } else {
     checkOutFailed($error);
