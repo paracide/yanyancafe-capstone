@@ -31,14 +31,15 @@ require_once __DIR__ . '/components/Header.php';
                  class="card-title">
                   <?= esc($menu['name']) ?>
               </a>
-              <!--badge-->
+              <!--category-->
               <div>
                 <div class="badge bg-orange-600 text-white p-3"><?= esc(
                       $menu['category']
-                    ) ?></div>
+                    ) ?>
+                </div>
               </div>
             </div>
-
+            <!--badge-->
             <div>
                 <?php
                 if ($menu['availability']): ?>
@@ -54,6 +55,13 @@ require_once __DIR__ . '/components/Header.php';
                 <?php
                 if ($menu['is_take_away']): ?>
                   <div class="badge badge-outline badge-info">Take Away
+                  </div>
+                <?php
+                endif; ?>
+
+                <?php
+                if ($menu['discount']): ?>
+                  <div class="badge bg-green-500 glass"><?= esc($menu['discount']) ?>%off
                   </div>
                 <?php
                 endif; ?>

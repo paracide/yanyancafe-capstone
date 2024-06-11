@@ -18,10 +18,10 @@ require_once __DIR__ . '/components/Header.php';
       <!--menu details-->
       <div class="flex flex-col content-between gap-4">
         <!--title-->
-        <h2 class="text-5xl font-bold"><?= esc($menu['name']) ?></h2>
+        <p class="text-5xl font-bold"><?= esc($menu['name']) ?></p>
         <!--category-->
         <div>
-          <div class="badge  badge-success"><?= esc(
+          <div class="badge bg-orange-600 text-white p-4"><?= esc(
                 $menu['category']
               ) ?>
           </div>
@@ -30,14 +30,34 @@ require_once __DIR__ . '/components/Header.php';
         <div>
             <?= $menu['description'] ?>
         </div>
-          <?php
-          if ($menu['is_take_away']): ?>
-            <div class="badge badge-outline badge-info">Take Away
-            </div>
-          <?php
-          endif; ?>
+        <!--badge-->
+        <div>
+            <?php
+            if ($menu['availability']): ?>
+              <div class="badge badge-outline badge-success">Available
+              </div>
+            <?php
+            else: ?>
+              <div class="badge badge-outline badge-error">Unavailable
+              </div>
+            <?php
+            endif; ?>
 
+            <?php
+            if ($menu['is_take_away']): ?>
+              <div class="badge badge-outline badge-info">Take Away
+              </div>
+            <?php
+            endif; ?>
 
+            <?php
+            if ($menu['discount']): ?>
+              <div class="badge bg-green-500 glass"><?= esc($menu['discount']) ?>%off
+              </div>
+            <?php
+            endif; ?>
+
+        </div>
         <!--price-->
         <div>
           <div>
@@ -65,8 +85,11 @@ require_once __DIR__ . '/components/Header.php';
 
         <!--button-->
         <div class="flex">
-          <button class="btn btn-primary">Add to Cart</button>
-        </div>
+          <button href="#"
+                  class="bg-orange-600 text-white btn-wide btn <?= $menu['availability']
+                    ? ''
+                    : 'btn-disabled' ?>">Add To Cart
+          </button>        </div>
 
       </div>
     </div>
