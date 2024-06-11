@@ -14,6 +14,7 @@ enum Router
     case index;
     case about;
     case cats;
+    case cart;
     case club;
     case error;
     case menu;

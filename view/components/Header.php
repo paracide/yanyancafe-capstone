@@ -44,6 +44,11 @@ use App\tools\Auth;
               rel="stylesheet">
       <?php
       endif; ?>
+      <?php
+      if (isset($isHomePage) && $isHomePage): ?>
+        <link href="styles/homepage.css" rel="stylesheet">
+      <?php
+      endif; ?>
 
     <script>
 
@@ -93,6 +98,9 @@ use App\tools\Auth;
             endforeach; ?>
         </div>
         <div class="navbar-end hidden md:flex gap-4">
+          <a href="/?p=cart">
+            <img class="h-6" src="images/header/cart.svg" alt="">
+          </a>
             <?php
             if (Auth::isLoggedIn()): ?>
               <form action="/?p=logout_process" method="post" novalidate>
@@ -159,6 +167,11 @@ use App\tools\Auth;
             </div>
             <ul tabindex="0"
                 class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+              <li>
+                <a href="/?p=cart">
+                  Cart
+                </a>
+              </li>
                 <?php
                 if (Auth::isLoggedIn()): ?>
                   <li>
@@ -188,7 +201,7 @@ use App\tools\Auth;
 
         <?php
         if (isset($isHomePage) && $isHomePage): ?>
-          <header>
+          <header class="mt-32 md:mt-16">
             <img alt="yanyan cafe" height="" id="logo" src="images/logo.webp">
           </header>
         <?php
