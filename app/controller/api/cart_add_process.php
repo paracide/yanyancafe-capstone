@@ -9,16 +9,19 @@ Preconditions::checkPostRequest();
 $menuId = $_POST['menuId'];
 $menu   = $menuRepo->searchById($menuId);
 
-if ( ! isset($_SESSION['cart'])) {
-    $_SESSION[Constant::SESSION_CART] = [];
-}
+$quantity    = ($_SESSION[Constant::SESSION_CART][$menuId]['quantity'] ?? 0)
+               + 1;
+$actualPrice = $menu['price'] * (100 - $menu['discount']) / 100;
 
-if (isset($_SESSION[Constant::SESSION_CART][$menuId])) {
-    $_SESSION[Constant::SESSION_CART][$menuId]['quantity'] += 1;
-} else {
-    $_SESSION[Constant::SESSION_CART][$menuId]             = $menu;
-    $_SESSION[Constant::SESSION_CART][$menuId]['quantity'] = 1;
-}
+$food = [
+  'name'       => $menu['name'],
+  'img'        => $menu['file_path'],
+  'price'      => $actualPrice,
+  'quantity'   => $quantity,
+  "totalPrice" => $actualPrice * $quantity,
+];
+
+$_SESSION[Constant::SESSION_CART][$menuId] = $food;
 
 $response = [
   'success' => true,

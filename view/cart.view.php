@@ -7,8 +7,8 @@ require_once __DIR__ . '/components/Header.php';
 <div class="m-card mx-2 mt-16">
   <div class="flex">
     <!--order details-->
-    <div class="w-3/4 p-10">
-      <div class="flex justify-between border-b pb-8">
+    <div class="w-3/4 p-4">
+      <div class="flex justify-between border-b p-4">
         <h1 class="text-4xl">Shopping Cart</h1>
         <h2 class="text-2xl"><?= count($cart) ?> Items</h2>
       </div>
@@ -31,7 +31,7 @@ require_once __DIR__ . '/components/Header.php';
           foreach ($cart as $food) : ?>
             <div class="flex w-2/5">
               <div class="w-20">
-                <img class="h-20 w-20 rounded" src="<?= $food['file_path'] ?>"
+                <img class="h-20 w-20 rounded" src="<?= $food['img'] ?>"
                      alt="product">
               </div>
               <div class="flex flex-col justify-between ml-4 flex-grow">
@@ -42,45 +42,35 @@ require_once __DIR__ . '/components/Header.php';
                 <?= esc($food['quantity']) ?>
             </div>
             <span class="text-center w-1/5 ">$<?= esc($food['price']) ?></span>
-            <span class="text-center w-1/5">$400.00</span>
+            <span class="text-center w-1/5"><?= esc(
+                  $food['totalPrice']
+                ) ?></span>
           <?php
           endforeach; ?>
       </div>
     </div>
 
     <!--cashier-->
-    <div id="summary" class="w-1/4 px-8 py-10">
-      <h1 class="text-2xl border-b pb-8">Order Summary</h1>
-      <div class="flex justify-between mt-10 mb-5">
-        <span class="text-sm uppercase">Items 3</span>
+    <div id="summary" class="w-1/4 p-4 flex flex-col gap-8">
+      <h2 class="text-4xl border-b p-4">Order Summary</h2>
+      <div class="flex justify-between">
+        <span class="text-sm uppercase">Subtotal</span>
         <span class="text-sm">$1200</span>
       </div>
-      <div>
-        <label
-          class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-        <select class="block p-2 text-gray-600 w-full text-sm">
-          <option>Standard shipping - $10.00</option>
-        </select>
+      <div class="flex justify-between">
+        <span class="text-sm uppercase">Tax</span>
+        <span class="text-sm">$1200</span>
       </div>
-      <div class="py-10">
-        <label for="promo"
-               class="inline-block mb-3 text-sm uppercase">Promo
-          Code</label>
-        <input type="text" id="promo" placeholder="Enter your code"
-               class="p-2 text-sm w-full">
-      </div>
-      <button
-        class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">
-        Apply
-      </button>
-      <div class="border-t mt-8">
+
+
+      <div class="border-t">
         <div
-          class="flex justify-between py-6 text-sm uppercase">
+          class="flex justify-between">
           <span>Total cost</span>
           <span>$1210</span>
         </div>
         <button
-          class="bg-indigo-500 hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+          class="bg-orange-600 w-full text-xl text-white btn">
           Checkout
         </button>
       </div>
