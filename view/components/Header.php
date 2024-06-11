@@ -45,8 +45,22 @@ use App\tools\Auth;
       <?php
       endif; ?>
 
+    <script>
+
+    </script>
   </head>
   <body>
+    <!--Toast-->
+    <div hidden id="toast-info" class="toast z-50 toast-start">
+      <div class="alert alert-info">
+        <span>Hi</span>
+      </div>
+    </div>
+    <div hidden id="toast-error" class="toast z-50 toast-start">
+      <div class="alert alert-error">
+        <span>Hi</span>
+      </div>
+    </div>
 
     <div class="wrapper">
       <<!--desktop-->
@@ -124,7 +138,9 @@ use App\tools\Auth;
                           : ''
                       ) ?>"
                       href="/?p=<?= esc($link) ?>"
-                      title="Yanyan Cafe - <?= esc($text) ?>"><?= esc($text) ?>
+                      title="Yanyan Cafe - <?= esc($text) ?>"><?= esc(
+                            $text
+                          ) ?>
                     </a></li>
                 <?php
                 endforeach; ?>
@@ -133,7 +149,6 @@ use App\tools\Auth;
             </ul>
           </div>
         </div>
-
         <div class="navbar-end flex md:hidden">
           <div class=" dropdown dropdown-end">
             <div tabindex="0" role="button"
@@ -147,7 +162,8 @@ use App\tools\Auth;
                 <?php
                 if (Auth::isLoggedIn()): ?>
                   <li>
-                    <form action="/?p=logout_process" method="post" novalidate>
+                    <form action="/?p=logout_process" method="post"
+                          novalidate>
                       <input type="submit" value="Logout"/>
                     </form>
                   </li>
