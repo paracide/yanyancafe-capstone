@@ -11,9 +11,11 @@ require_once __DIR__ . '/components/Header.php';
       <!--header-->
       <div class="flex justify-between border-b p-4">
         <h1 class="text-4xl">Cart</h1>
-        <h2 class="text-2xl">
-          <form>
-
+        <h2 class="text-2xl flex items-center gap-4">
+          <form action="/?p=cart_clear_process" method="post">
+            <button type="submit" class="btn btn-success text-xl text-white">
+              Clear
+            </button>
           </form>
             <?= count($cart) ?> Items
         </h2>

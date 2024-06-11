@@ -26,6 +26,7 @@ enum Router
     case logout_process;
     case cart_add_process;
     case cart_del_process;
+    case cart_clear_process;
     case profile;
 
     /**
