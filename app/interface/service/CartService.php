@@ -39,4 +39,21 @@ class CartService
         unset($_SESSION[Constant::SESSION_CART]);
     }
 
+    public static function cartSummary(): array
+    {
+        $cart = $_SESSION[Constant::SESSION_CART] ?? [];
+
+        $subTotal = $cart ? array_reduce($cart, function ($carry, $food) {
+            return $carry + $food['totalPrice'];
+        }) : 0;
+
+        return [
+          'cart'     => $cart,
+          'subTotal' => $subTotal,
+          'tax'      => number_format($subTotal * 0.12, 2),
+          'total'    => number_format($subTotal * 1.12, 2),
+
+        ];
+    }
+
 }
