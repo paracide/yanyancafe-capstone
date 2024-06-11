@@ -90,7 +90,7 @@ main {
 
 .border {
   border: 0.5px double white;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .shadow {
@@ -110,7 +110,7 @@ main {
   text-decoration: none;
   display: grid;
   place-items: center;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all .3s;
   position: relative;
@@ -164,7 +164,7 @@ main {
 .m-card {
   padding: 2rem;
   background-image: linear-gradient(to right, #fbfbfc, #e5f0ff);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 20px 0 rgba(#999, 0.25);
 }

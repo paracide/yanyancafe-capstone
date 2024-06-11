@@ -72,7 +72,7 @@ p {
 .home-cat-title {
   background: rgba(0, 0, 0, 0.5);
   width: 60%;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 
@@ -104,7 +104,7 @@ p {
 .home-menu-container h3 {
   background: rgba(0, 0, 0, 0.5);
   padding: 0.5rem 1rem;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .home-menu-container .menu-img-container:hover {
@@ -153,7 +153,7 @@ p {
   background: #fff;
   width: 90vw;
   height: 70vh;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 5vw;
 }
 
