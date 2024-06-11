@@ -20,6 +20,13 @@ class Auth
         return ! empty($_SESSION[Constant::SESSION_USER_ID]);
     }
 
+    public static function checkLoggedIn(): void
+    {
+        if ( ! self::isLoggedIn()) {
+            Router::fail(Router::login);
+        }
+    }
+
     /**
      * login user and set user id in session after successful login
      *

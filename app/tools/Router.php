@@ -15,6 +15,8 @@ enum Router
     case about;
     case cats;
     case cart;
+    case checkout;
+    case invoice;
     case club;
     case error;
     case menu;
@@ -27,6 +29,7 @@ enum Router
     case cart_add_process;
     case cart_del_process;
     case cart_clear_process;
+    case checkout_process;
     case profile;
 
     /**
