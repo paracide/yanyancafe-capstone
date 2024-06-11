@@ -67,7 +67,7 @@ require_once __DIR__ . '/components/Header.php';
       <!--credit card-->
       <h2 class="text-4xl ">Credit card</h2>
       <div class="grid  py-4 gap-4">
-        <form action="/?p=login_process" method="post" novalidate>
+        <form action="/?p=checkout_process" method="post" novalidate>
           <div class="input-section">
             <div class="input-group">
               <label class="input-label" for="name">Name:</label>

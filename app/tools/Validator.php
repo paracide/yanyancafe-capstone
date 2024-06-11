@@ -154,4 +154,11 @@ class Validator
         }
     }
 
+    public function checkNum(string $v, string $field): void
+    {
+        if ( ! Verifier::isNum($v)) {
+            $this->error[$field][] = "Should be a number";
+        }
+    }
+
 }
