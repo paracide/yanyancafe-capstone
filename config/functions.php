@@ -11,7 +11,7 @@ use App\interface\ILogger;
  */
 function esc(string $str): string
 {
-    return htmlentities($str, ENT_QUOTES, 'UTF-8');
+    return empty($str) ? '' : htmlentities($str, ENT_QUOTES, 'UTF-8');
 }
 
 /**

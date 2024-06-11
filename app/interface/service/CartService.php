@@ -43,27 +43,21 @@ class CartService
     {
         $cart = $_SESSION[Constant::SESSION_CART] ?? [];
 
-        $subTotal = $cart ? array_reduce($cart, function ($carry, $food) {
-            return $carry + $food['totalPrice'];
-        }) : 0;
+        $subTotal = self::getSubTotalPrice($cart);
 
         return [
           'cart'     => $cart,
           'subTotal' => $subTotal,
           'tax'      => number_format($subTotal * 0.12, 2),
           'total'    => number_format($subTotal * 1.12, 2),
-
         ];
     }
 
-    public static function getTotal($cart): float
+    public static function getSubTotalPrice($cart): float
     {
-
-        $subTotal = $cart ? array_reduce($cart, function ($carry, $food) {
+        return $cart ? array_reduce($cart, function ($carry, $food) {
             return $carry + $food['totalPrice'];
         }) : 0;
-
-        return $subTotal * 1.12;
     }
 
     /**

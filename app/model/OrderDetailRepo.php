@@ -31,15 +31,18 @@ class OrderDetailRepo extends Repository implements ISingleton
     public function addOrderDetail(array $orderDetail): int
     {
         $query = 'INSERT INTO order_detail
-                  (order_id, menu_id, quantity, unit_price, is_del)
-                  VALUES (:order_id, :menu_id, :quantity, :unit_price, :is_del);';
+                  (order_id, menu_id, quantity, unit_price,line_price, is_del)
+                  VALUES (:order_id, :menu_id, :quantity, :unit_price,:line_price, :is_del);';
 
-        $stmt   = parent::$conn->prepare($query);
-        $params = [
+        $stmt      = parent::$conn->prepare($query);
+        $quantity  = $orderDetail['quantity'];
+        $unitPrice = $orderDetail['unit_price'];
+        $params    = [
           ':order_id'   => $orderDetail['order_id'],
           ':menu_id'    => $orderDetail['menu_id'],
-          ':quantity'   => $orderDetail['quantity'],
-          ':unit_price' => $orderDetail['unit_price'],
+          ':quantity'   => $quantity,
+          ':unit_price' => $unitPrice,
+          ':line_price' => number_format($unitPrice * $quantity, 2),
           ':is_del'     => 0,
         ];
 

@@ -31,16 +31,19 @@ class OrdersRepo extends Repository implements ISingleton
         return self::$instance;
     }
 
-    public function addOrder(int $userId, float $total, string $cardNo): int
+    public function addOrder(int $userId, float $price, string $cardNo): int
     {
         $query = 'INSERT INTO orders
-                  (user_id, price, status,credit_card_no, is_del)
-                  VALUES (:user_id, :price, :status,:credit_card_no, :is_del);';
+              (user_id, price, gst, pst, total_price, status, credit_card_no, is_del)
+              VALUES (:user_id, :price, :gst, :pst, :total_price, :status, :credit_card_no, :is_del);';
 
         $stmt   = parent::$conn->prepare($query);
         $params = [
           ':user_id'        => $userId,
-          ':price'          => $total,
+          ':price'          => $price,
+          ':gst'            => number_format($price * 0.05, 2),
+          ':pst'            => number_format($price * 0.07, 2),
+          ':total_price'    => number_format($price * 1.12, 2),
           ':status'         => 'delivered',
           ':credit_card_no' => $cardNo,
           ':is_del'         => 0,
@@ -63,7 +66,7 @@ class OrdersRepo extends Repository implements ISingleton
 
             $orderId = $this->addOrder(
               Auth::getUserId(),
-              CartService::getTotal($cart),
+              CartService::getSubTotalPrice($cart),
               $cardNo
             );
 
