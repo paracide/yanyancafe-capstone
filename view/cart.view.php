@@ -8,10 +8,17 @@ require_once __DIR__ . '/components/Header.php';
   <div class="flex">
     <!--order details-->
     <div class="w-3/4 p-4">
+      <!--header-->
       <div class="flex justify-between border-b p-4">
         <h1 class="text-4xl">Cart</h1>
-        <h2 class="text-2xl"><?= count($cart) ?> Items</h2>
+        <h2 class="text-2xl">
+          <form>
+
+          </form>
+            <?= count($cart) ?> Items
+        </h2>
       </div>
+      <!--content-->
       <div class="flex mt-10 p-4">
         <h3 class="w-2/6">
           Product Details</h3>

@@ -6,9 +6,8 @@ use App\tools\Preconditions;
 use App\tools\Router;
 
 Preconditions::checkPostRequest();
-$menuId = $_POST['menuId'];
-CartService::delFood($menuId);
+CartService::clearFood();
 
-FlashUtils::success("Delete successfully");
+FlashUtils::success("Clear cart successfully");
 Router::success(Router::cart);
 
