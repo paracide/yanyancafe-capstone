@@ -17,6 +17,7 @@ use App\tools\Auth;
           rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/base.js"></script>
     <title><?= esc(SITE_NAME) . ' - ' . esc($title) ?></title>
 
     <!--favicon-->

@@ -3,7 +3,6 @@
 // Front Controller
 
 global $logger, $fileLogger;
-use App\tools\LogUtils;
 use App\tools\Router;
 
 require __DIR__ . '/../config/config.php';
@@ -13,7 +12,11 @@ $page    = $_REQUEST['p'] ?? '';
 if (empty($page)) {
     include __DIR__ . '/../app/controller/index.php';
 } elseif (in_array($page, $allowed, true)) {
-    include __DIR__ . '/../app/controller/' . $page . '.php';
+    if (str_ends_with($page, "process")) {
+        include __DIR__ . '/../app/controller/api/' . $page . '.php';
+    } else {
+        include __DIR__ . '/../app/controller/' . $page . '.php';
+    }
 } else {
     Router::errorPage(null);
 }

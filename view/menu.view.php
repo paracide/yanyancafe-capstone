@@ -98,7 +98,7 @@ require_once __DIR__ . '/components/Header.php';
               </div>
 
               <div class="flex card-actions">
-                <button href="#"
+                <button onclick="addToCart(<?= $menu['id'] ?>)"
                         class="bg-orange-600 text-white  btn <?= $menu['availability']
                           ? ''
                           : 'btn-disabled' ?>">Add
