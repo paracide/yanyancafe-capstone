@@ -50,7 +50,7 @@ use App\tools\Auth;
     <div class="wrapper">
       <nav class="navbar h-16 w-full glass fixed top-0 z-50">
         <div class="navbar-start hidden md:flex gap-4">
-          <span class="text-3xl">Yanyan Cafe</span>
+          <span class="text-3xl">Yanyan Cafe </span>
         </div>
         <div class="navbar-center hidden md:flex gap-16">
             <?php
@@ -98,7 +98,7 @@ use App\tools\Auth;
             endif; ?>
         </div>
         <!--mobile nav-->
-        <div class="navbar-start flex md:hidden">
+        <div class="navbar flex md:hidden">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
@@ -107,7 +107,7 @@ use App\tools\Auth;
                       stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
               </svg>
             </div>
-            <span class="text-xl">Yanyan Cafe</span>
+            <span class="text-xl">Yanyan Cafe - <?= esc($title) ?></span>
             <ul tabindex="0"
                 class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                 <?php
