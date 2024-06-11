@@ -1,5 +1,14 @@
 <?php
 
+global $categoryRepo, $menuRepo;
+
+$allCat   = $categoryRepo->getAll();
+$paramCat = $_GET['category'] ?? null;
+$paramKey = $_GET['key'] ?? null;
+$firstCat = array_filter($allCat, function ($v) {
+    return $v['parent_id'] === 1;
+});
+
 function renderSidebar($mainCat, $menuCat): void
 {
     foreach ($mainCat as $main) {

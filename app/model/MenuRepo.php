@@ -3,6 +3,7 @@
 namespace App\model;
 
 use App\interface\ISingleton;
+use App\tools\Preconditions;
 
 class MenuRepo extends Repository implements ISingleton
 {
@@ -38,12 +39,12 @@ class MenuRepo extends Repository implements ISingleton
 
         $params = [];
 
-        if (!empty($key)) {
+        if ( ! empty($key)) {
             $query          .= " and menu.name like :key";
             $params[':key'] = '%' . $key . '%';
         }
 
-        if (!empty($category)) {
+        if ( ! empty($category)) {
             $query                 .= " and menu.category_id = :categoryId";
             $params[':categoryId'] = $category;
         }
@@ -53,6 +54,24 @@ class MenuRepo extends Repository implements ISingleton
         $stmt->execute($params);
 
         return $stmt->fetchAll();
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function searchById($id): array
+    {
+        Preconditions::checkEmpty($id);
+        $query = "select menu.*, c.name as category, f.file_path
+                from menu
+                left join capstone.category c on c.id = menu.category_id
+                left join file f on menu.img_file_id = f.id
+                where menu.is_del = 0  and menu.id = :id";
+        $stmt  = self::$conn->prepare($query);
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch();
     }
 
 }

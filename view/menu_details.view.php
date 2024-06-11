@@ -1,0 +1,81 @@
+<?php
+
+require_once __DIR__ . '/components/Header.php';
+
+?>
+
+<div class="flex min-h-screen bg-gray-100">
+    <?php
+    require_once __DIR__ . '/components/MenuSideBar.php';
+    ?>
+  <!-- Main Content -->
+  <div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row">
+      <!--menu image-->
+      <img src="<?= $menu['file_path'] ?>"
+           class="max-w-sm rounded-lg shadow-2xl"/>
+
+      <!--menu details-->
+      <div class="flex flex-col content-between gap-4">
+        <!--title-->
+        <h2 class="text-5xl font-bold"><?= esc($menu['name']) ?></h2>
+        <!--category-->
+        <div>
+          <div class="badge  badge-success"><?= esc(
+                $menu['category']
+              ) ?>
+          </div>
+        </div>
+        <!--desc-->
+        <div>
+            <?= $menu['description'] ?>
+        </div>
+          <?php
+          if ($menu['is_take_away']): ?>
+            <div class="badge badge-outline badge-info">Take Away
+            </div>
+          <?php
+          endif; ?>
+
+
+        <!--price-->
+        <div>
+          <div>
+            $
+            <span>
+                      <?php
+                      $discount      = $menu['discount'];
+                      $originalPrice = $menu['price'];
+                      $actualPrice   = $originalPrice * (100 - $discount) / 100;
+                      if ($discount) {
+                          echo "<del>$originalPrice</del><span class='text-green-500	'> $actualPrice</span>";
+                      } else {
+                          echo "$actualPrice";
+                      }
+                      ?>
+                  </span>
+            <span>
+                      - <?= esc($menu['size']) ?>
+                  </span>
+          </div>
+          <span>
+                    <?= $menu['calorie_count'] ?> Cals
+                  </span>
+        </div>
+
+        <!--button-->
+        <div class="flex">
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<?php
+
+require_once __DIR__ . '/components/Footer.php';
+
+?>
