@@ -1,13 +1,11 @@
 h1 {
-  font-size: 4rem !important;
+  font-size: 2rem !important;
   font-family: Oswald, Arial, Helvetica, sans-serif;
 }
 
 .card {
   display: grid;
-  grid-template-rows: 1fr 5fr;
   padding: 2rem;
-  height: 95%;
   width: 100%;
   background-image: linear-gradient(to right, #fbfbfc, #e5f0ff);
   border-radius: 10px;
@@ -17,7 +15,6 @@ h1 {
 }
 .card form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
 }
 .card form .input-section {
@@ -62,14 +59,10 @@ h1 {
 @media screen and (max-width: 767px) {
   /*smaller font size for title*/
   h1 {
-    font-size: 4rem;
+    font-size: 2rem;
   }
   h2 {
     font-size: 1.5rem;
-  }
-  .card {
-    height: 100%;
-    width: 100%;
   }
 }
 
