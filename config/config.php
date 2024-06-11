@@ -9,6 +9,8 @@ use App\interface\service\FileLogger;
 use App\model\AddressRepo;
 use App\model\CategoryRepo;
 use App\model\MenuRepo;
+use App\model\OrderDetailRepo;
+use App\model\OrderRepo;
 use App\model\Repository;
 use App\model\UserRepo;
 
@@ -55,7 +57,9 @@ if (LOGGER_TYPE === LoggerType::file) {
  * due to the config.php will be loaded on every page
  * so make the repositories singleton
  */
-$addressRepo  = AddressRepo::getInstance();
-$userRepo     = UserRepo::getInstance();
-$menuRepo     = MenuRepo::getInstance();
-$categoryRepo = CategoryRepo::getInstance();
+$addressRepo     = AddressRepo::getInstance();
+$userRepo        = UserRepo::getInstance();
+$menuRepo        = MenuRepo::getInstance();
+$categoryRepo    = CategoryRepo::getInstance();
+$orderDetailRepo = OrderDetailRepo::getInstance();
+$orderRepo       = OrderRepo::getInstance();
