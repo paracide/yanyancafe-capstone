@@ -4,13 +4,12 @@ require_once __DIR__ . '/components/Header.php';
 
 ?>
 
-<div class="flex min-h-screen bg-gray-100">
+<div class="flex min-h-screen bg-gray-100 mt-16">
     <?php
     require_once __DIR__ . '/components/MenuSideBar.php';
 
     ?>
-  <!-- Main Content -->
-  <div class="grow p-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+  <div class="grow p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
       <?php
       if ( ! $menuSize): ?>
         <p
@@ -20,12 +19,12 @@ require_once __DIR__ . '/components/Header.php';
       <?php
       foreach ($menus as $menu) : ?>
         <div
-          class="bg-gray-200 card card-compact h-96 bg-base-100 shadow-xl">
+          class="bg-gray-100 card card-compact h-76 md:h-96 shadow-xl">
           <!--img-->
           <figure><img src="<?= $menu['file_path'] ?>" alt="coffee"/></figure>
           <!--content body-->
           <div class="card-body ">
-            <div class="flex justify-between items-center">
+            <div class="flex-col  md:flex justify-between items-center">
               <!--title-->
               <a href="/?p=menu_details&id=<?= $menu['id'] ?>"
                  class="card-title">
@@ -61,7 +60,9 @@ require_once __DIR__ . '/components/Header.php';
 
                 <?php
                 if ($menu['discount']): ?>
-                  <div class="badge bg-green-500 glass"><?= esc($menu['discount']) ?>%off
+                  <div class="badge bg-green-500 glass"><?= esc(
+                        $menu['discount']
+                      ) ?>%off
                   </div>
                 <?php
                 endif; ?>

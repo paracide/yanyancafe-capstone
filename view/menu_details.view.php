@@ -4,13 +4,13 @@ require_once __DIR__ . '/components/Header.php';
 
 ?>
 
-<div class="flex min-h-screen bg-gray-100">
+<div class="flex min-h-screen bg-gray-100 mt-16">
     <?php
     require_once __DIR__ . '/components/MenuSideBar.php';
     ?>
   <!-- Main Content -->
   <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content flex-col lg:flex-row">
+    <div class="hero-content flex-col md:flex-row">
       <!--menu image-->
       <img src="<?= $menu['file_path'] ?>"
            class="max-w-sm rounded-lg shadow-2xl"/>

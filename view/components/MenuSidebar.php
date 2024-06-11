@@ -36,7 +36,7 @@ function renderSidebar($mainCat, $menuCat): void
 ?>
 <!-- Sidebar -->
 <aside class="w-80 bg-white shadow-md">
-  <div class="p-4 border-b">
+  <div class="p-2 border-b">
     <input type="text" placeholder="Search..." id="searchKey"
            value="<?= $paramKey ?? '' ?>"
            class="input input-bordered w-full"/>

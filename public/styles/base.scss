@@ -112,35 +112,7 @@ main {
   display: grid;
   width: 100%;
   grid-template-columns: 1fr;
-}
 
-footer {
-  color: $text-icon-color;
-  background-image: linear-gradient(to bottom, #2c3e50, #3E5151);
-  height: 30vh;
-  width: 100vw;
-  display: grid;
-  padding: 50px;
-  grid-template-columns: 1fr 1fr 1fr;
-
-  .contact-us {
-    display: grid;
-    text-align: right
-  }
-
-  .follow-us {
-    display: grid;
-  }
-
-  .social-media {
-    img {
-      width: 2rem;
-    }
-  }
-
-  .copyright {
-    text-align: center;
-  }
 }
 
 .border {
@@ -215,3 +187,24 @@ footer {
   place-items: center;
 }
 
+
+@media screen and (max-width: 767px) {
+  /*smaller font size for title*/
+  h1 {
+    font-size: 3rem!important;
+  }
+
+  h2 {
+    font-size: 1.5rem!important;
+  }
+
+  .wrapper {
+    background-image: url("../images/m-bg.webp");
+  }
+
+  html {
+    font-size: 1rem!important;
+  }
+
+
+}

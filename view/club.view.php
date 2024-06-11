@@ -4,15 +4,14 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 <div class="page club">
-  <div class="card club-intro transition">
+  <div class="card club-intro transition bg-gray-100">
     <div class="intro-header transition"></div>
     <div class="intro-text">
       <h2>Join Us</h2>
-      <p>Enjoy a range of exclusive benefits
-        and a welcoming community.</p>
+
     </div>
   </div>
-  <div class="card club-intro transition">
+  <div class="card club-intro transition bg-gray-100">
     <div class="intro-text">
       <h2 class="p-4">Benefits</h2>
       <ul class="flex flex-col gap-4 p-4">
@@ -25,13 +24,6 @@ require_once __DIR__ . '/components/Header.php';
         <li><strong>Discounts on purchases</strong>: Receive discounts on all
           food, beverages, and merchandise.
         </li>
-        <li><strong>Priority booking</strong>: Get priority booking for
-          high-demand events and peak times.
-        </li>
-        <li><strong>Guest passes</strong>: Complimentary guest passes to bring
-          friends and family.
-        </li>
-
       </ul>
     </div>
   </div>

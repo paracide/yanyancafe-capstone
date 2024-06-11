@@ -3,7 +3,7 @@
 // view starts
 require_once __DIR__ . '/components/Header.php';
 ?>
-<div class="page" id="reg">
+<div class="page  mt-16" id="reg">
   <div class="card">
     <h1 class="action">Get Your Membership</h1>
 

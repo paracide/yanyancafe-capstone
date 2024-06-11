@@ -36,7 +36,6 @@ use App\tools\Auth;
           sizes="32x32">
 
     <link href="styles/base.css" media="screen" rel="stylesheet">
-    <link href="styles/mobile.css" media="screen" rel="stylesheet">
     <link href="styles/print.css" media="print" rel="stylesheet">
       <?php
       if ( ! empty($cssFileName)): ?>
@@ -47,12 +46,13 @@ use App\tools\Auth;
 
   </head>
   <body>
+
     <div class="wrapper">
-      <nav class="navbar glass">
-        <div class="navbar-start flex gap-4">
-          <span class="gradient-anime text-3xl">Yanyan Cafe</span>
+      <nav class="navbar h-16 w-full glass fixed top-0 z-50">
+        <div class="navbar-start hidden md:flex gap-4">
+          <span class="text-3xl">Yanyan Cafe</span>
         </div>
-        <div class="navbar-center hidden lg:flex gap-16">
+        <div class="navbar-center hidden md:flex gap-16">
             <?php
             $links = [
               'index' => 'Home',
@@ -76,7 +76,7 @@ use App\tools\Auth;
             <?php
             endforeach; ?>
         </div>
-        <div class="navbar-end gap-4">
+        <div class="navbar-end hidden md:flex gap-4">
             <?php
             if (Auth::isLoggedIn()): ?>
               <form action="/?p=logout_process" method="post" novalidate>
@@ -97,6 +97,40 @@ use App\tools\Auth;
             <?php
             endif; ?>
         </div>
+        <!--mobile nav-->
+        <div class="navbar-start flex md:hidden">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                   fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+              </svg>
+            </div>
+            <span class="text-xl">Yanyan Cafe</span>
+            <ul tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <?php
+                foreach ($links as $link => $text): ?>
+                  <li><a
+                      class="<?= esc(
+                        $link == 'index' ? 'home-menu'
+                          : 'second-menu'
+                      ) ?> <?= esc(
+                        $cssFileName == $link ? 'current'
+                          : ''
+                      ) ?>"
+                      href="/?p=<?= esc($link) ?>"
+                      title="Yanyan Cafe - <?= esc($text) ?>"><?= esc($text) ?>
+                    </a></li>
+                <?php
+                endforeach; ?>
+
+
+            </ul>
+          </div>
+        </div>
+
       </nav>
 
         <?php
