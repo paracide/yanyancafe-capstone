@@ -1,6 +1,7 @@
 <?php
 
 global $userRepo, $logger;
+use App\constant\Constant;
 use App\tools\Auth;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
@@ -30,5 +31,12 @@ if (empty($user)) {
 Auth::loginSuccess($user['id']);
 $name = $user['first_name'] . ' ' . $user['last_name'];
 FlashUtils::success("Welcome back! $name");
-Router::success(Router::profile);
+$redirect = $_SESSION[Constant::SESSION_AUTH_REDIRECT_URI];
+if ($redirect) {
+    unset($_SESSION[Constant::SESSION_AUTH_REDIRECT_URI]);
+    header("Location:$redirect");
+    die();
+} else {
+    Router::success(Router::profile);
+}
 

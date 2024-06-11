@@ -3,6 +3,7 @@
 namespace App\tools;
 
 use App\constant\Constant;
+use App\constant\HttpStatus;
 
 /**
  * Auth utils
@@ -23,7 +24,11 @@ class Auth
     public static function checkLoggedIn(): void
     {
         if ( ! self::isLoggedIn()) {
-            Router::fail(Router::login);
+            $_SESSION[Constant::SESSION_AUTH_REDIRECT_URI] = $_SERVER['REQUEST_URI'];
+            Router::fail(
+              Router::login,
+              HttpStatus::FORBIDDEN
+            );
         }
     }
 

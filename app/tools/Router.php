@@ -51,26 +51,29 @@ enum Router
     }
 
     public static function success(
-      Router $router
+      Router $router,
+      ?string $paramsString = ''
     ): void {
-        self::redirect($router);
+        self::redirect($router, HttpStatus::SUCCESS, $paramsString);
     }
 
     public static function fail(
       Router $router,
-      ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR
+      ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR,
+      ?string $paramsString = ''
     ): void {
-        self::redirect($router, $status);
+        self::redirect($router, $status, $paramsString);
     }
 
     private static function redirect(
       Router $router,
-      ?HttpStatus $status = HttpStatus::SUCCESS
+      ?HttpStatus $status = HttpStatus::SUCCESS,
+      ?string $paramsString = ''
     ): void {
         global $logger;
         logEvent($logger, LogUtils::getEvent($status));
         http_response_code($status->value);
-        header("Location:/?p=$router->name");
+        header("Location:/?p=$router->name$paramsString");
         die();
     }
 
