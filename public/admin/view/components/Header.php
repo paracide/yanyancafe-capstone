@@ -46,7 +46,8 @@
             successfully!</span>
     </div>
 
-    <nav class="navbar header flex items-center justify-between p-4 bg-primary text-white">
+    <nav
+      class="navbar header flex items-center justify-between p-4 bg-primary text-white">
       <div class="navbar-start hidden md:flex gap-4">
         <span class="text-3xl">Dashboard</span>
       </div>
@@ -61,16 +62,8 @@
           ]; ?>
           <?php
           foreach ($links as $link => $text): ?>
-            <a
-              class="<?= esc(
-                $link == 'index' ? 'home-menu'
-                  : 'second-menu'
-              ) ?> <?= esc(
-                $cssFileName == $link ? 'current'
-                  : ''
-              ) ?>"
-              href="/?p=<?= esc($link) ?>"
-              title="Yanyan Cafe - <?= esc($text) ?>"><?= esc($text) ?></a>
+            <a href="/?p=<?= esc($link) ?>"
+               title="Yanyan Cafe - <?= esc($text) ?>"><?= esc($text) ?></a>
           <?php
           endforeach; ?>
       </div>

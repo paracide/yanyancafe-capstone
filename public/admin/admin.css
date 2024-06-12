@@ -29,11 +29,6 @@ body {
   border-radius: 8px;
 }
 
-.log-entry {
-  background-color: #a1f4ff;
-  border-radius: 8px;
-}
-
 .button {
   @apply btn;
   @apply btn-primary;

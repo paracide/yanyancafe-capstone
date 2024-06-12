@@ -42,12 +42,6 @@ body {
   border-radius: $border-radius;
 }
 
-// Log Styles
-.log-entry {
-  background-color: lighten($primary-color, 40%);
-  border-radius: $border-radius;
-}
-
 // Button Styles
 .button {
   @apply btn;
