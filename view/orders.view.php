@@ -4,11 +4,16 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 
-<div class="m-card w-full h-full bg-gray-100 mx-2 md:mx-8 mt-16">
+<div class="m-card flex-1 w-full h-full bg-gray-100 mx-2 md:mx-8 mt-16">
   <h1>Orders List</h1>
+
+    <?php
+    if (empty($orders)): ?>
+      <h2 class="text-4xl">Sorry, your order is empty</h2>
+    <?php
+    endif; ?>
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    <!-- PHP to loop through orders and create cards -->
       <?php
       foreach ($orders as $order): ?>
         <div class="card bg-gray-300 shadow-xl rounded-lg overflow-hidden">
