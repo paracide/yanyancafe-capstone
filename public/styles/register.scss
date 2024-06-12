@@ -1,19 +1,2 @@
 @import "color";
 
-h1 {
-  font-size: 2rem !important;
-  font-family: Oswald, Arial, Helvetica, sans-serif;
-}
-
-
-@media screen and (max-width: 767px) {
-  /*smaller font size for title*/
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-}
-

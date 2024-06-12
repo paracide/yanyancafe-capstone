@@ -62,4 +62,4 @@ $userRepo        = UserRepo::getInstance();
 $menuRepo        = MenuRepo::getInstance();
 $categoryRepo    = CategoryRepo::getInstance();
 $orderDetailRepo = OrderDetailRepo::getInstance();
-$orderRepo       = OrdersRepo::getInstance();
+$ordersRepo       = OrdersRepo::getInstance();

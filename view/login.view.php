@@ -4,9 +4,9 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 <div class="page mt-16" id="reg">
   <div class="m-card grid">
-    <h1 class="action">Login</h1>
+    <h1 class="py-4">Login</h1>
     <form action="/?p=login_process" method="post" novalidate>
-      <div class="input-section">
+      <div class="input-section md:min-w-96">
         <div class="input-group">
           <label class="input-label" for="email">Email:</label>
           <input class="input-field" id="email" name="email" type="text"

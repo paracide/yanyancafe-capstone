@@ -20,7 +20,7 @@ $last10 = $logger->getLast10();
 
   <body class="bg-gray-100">
     <header class="navbar bg-gray-100">
-      <h1 class="text-2xl font-bold text-white"">Dashboard</h1>
+      <h1 class="font-bold text-white"">Dashboard</h1>
     </header>
 
     <main class="flex">

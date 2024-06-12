@@ -33,7 +33,7 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 4rem !important;
   margin: 0;
   padding: 0;
 }
@@ -196,7 +196,7 @@ form .input-field:focus, form .input-field:valid {
 @media screen and (max-width: 767px) {
   /*smaller font size for title*/
   h1 {
-    font-size: 3rem;
+    font-size: 2.5rem !important;
   }
   h2 {
     font-size: 1.5rem;
@@ -206,6 +206,16 @@ form .input-field:focus, form .input-field:valid {
   }
   html {
     font-size: 1rem !important;
+  }
+  form .input-group {
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: 1fr;
+    place-items: baseline;
+  }
+  form .input-group .error-msg {
+    font-size: 0.7rem;
+    color: red;
   }
 }
 

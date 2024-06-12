@@ -103,12 +103,13 @@ use App\tools\Auth;
           </a>
             <?php
             if (Auth::isLoggedIn()): ?>
+              <a href="/?p=orders">Orders</a>
+              <a href="/?p=profile">Profile</a>
               <form action="/?p=logout_process" method="post" novalidate>
-                <button class="btn glass text-white	 btn-sm" type="submit">
+                <button class="btn btn-ghost text-xl btn-sm" type="submit">
                   Logout
                 </button>
               </form>
-              <a href="/?p=profile">Profile</a>
               <div class="avatar">
                 <div class="w-8 h-8 rounded-full">
                   <img src="images/avatar.webp" alt="avatar"/>
@@ -171,6 +172,9 @@ use App\tools\Auth;
                 <a href="/?p=cart">
                   Cart
                 </a>
+              </li>
+              <li>
+                <a href="/?p=orders">Orders</a>
               </li>
                 <?php
                 if (Auth::isLoggedIn()): ?>

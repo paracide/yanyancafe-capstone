@@ -10,7 +10,7 @@ require_once __DIR__ . '/components/Header.php';
     <div class="w-3/4 p-4">
       <!--header-->
       <div class="flex justify-between border-b p-4">
-        <h1 class="text-4xl">Orders</h1>
+        <h1 >Orders</h1>
         <h2 class="text-2xl flex items-center gap-4">
             <?= count($cart) ?> Items
         </h2>

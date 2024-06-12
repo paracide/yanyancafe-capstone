@@ -93,5 +93,17 @@ class OrdersRepo extends Repository implements ISingleton
         return 0;
     }
 
+    public function searchById($userId): array
+    {
+        $query = "SELECT * FROM orders WHERE user_id = :user_id AND is_del = 0";
+        $stmt  = parent::$conn->prepare($query);
+        // Bind the user_id parameter
+        $stmt->bindParam(':user_id', $userId, \PDO::PARAM_INT);
+        // Execute the query
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
 }
 

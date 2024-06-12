@@ -42,7 +42,7 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 4rem !important;
   margin: 0;
   padding: 0;
 }
@@ -168,7 +168,7 @@ main {
   box-shadow: 0 10px 20px 0 rgba(#999, 0.25);
 }
 
-form{
+form {
   display: grid;
   grid-gap: 2rem;
 
@@ -222,11 +222,10 @@ form{
 }
 
 
-
 @media screen and (max-width: 767px) {
   /*smaller font size for title*/
   h1 {
-    font-size: 3rem
+    font-size: 2.5rem !important;
   }
 
   h2 {
@@ -239,6 +238,20 @@ form{
 
   html {
     font-size: 1rem !important;
+  }
+
+  form {
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      grid-template-rows: 1fr;
+      place-items: baseline;
+
+      .error-msg {
+        font-size: 0.7rem;
+        color: red;
+      }
+    }
   }
 }
 

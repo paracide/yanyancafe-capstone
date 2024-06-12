@@ -1,6 +1,6 @@
 <?php
 
-global $orderRepo;
+global $ordersRepo;
 use App\constant\Constant;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
@@ -27,7 +27,7 @@ if (count($error)) {
     checkOutFailed($error);
 }
 
-$orderId = $orderRepo->newOrder($_SESSION[Constant::SESSION_CART], $cardNo);
+$orderId = $ordersRepo->newOrder($_SESSION[Constant::SESSION_CART], $cardNo);
 if ($orderId) {
     unset($_SESSION[Constant::SESSION_CART]);
     Router::success(Router::invoice, "&order_id=$orderId");

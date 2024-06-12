@@ -1,13 +1,13 @@
 <?php
 
-global $userRepo, $orderRepo, $orderDetailRepo;
+global $userRepo, $ordersRepo, $orderDetailRepo;
 use App\tools\Auth;
 use App\tools\Preconditions;
 use App\tools\Router;
 
 $userId       = Preconditions::checkEmpty(Auth::getUserId());
 $profile      = $userRepo->getUserProfileById($userId);
-$order        = $orderRepo->getById($_GET['order_id']);
+$order        = $ordersRepo->getById($_GET['order_id']);
 $orderDetails = $orderDetailRepo->searchByOrderId($order['id']);
 
 $props = [
