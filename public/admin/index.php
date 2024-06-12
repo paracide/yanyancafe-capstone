@@ -1,66 +1,34 @@
 <?php
 
-global$logger;
-require __DIR__ . '/../../config/config.php';
+// Front Controller
 
-$last10 = $logger->getLast10();
+global $logger, $fileLogger;
+use App\tools\Auth;
+use App\tools\Router;
 
-?><!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Yanyan Cafe Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
-          rel="stylesheet" type="text/css"/>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+require __DIR__ . '/../../config/adminConfig.php';
 
-  <body class="bg-gray-100">
-    <header class="navbar bg-gray-100">
-      <h1 class="font-bold text-white"">Dashboard</h1>
-    </header>
+$allowed       = array_map(fn($router) => $router->name, Router::cases());
 
-    <main class="flex">
-      <!--side-->
-      <div class="w-40">
-        <ul class="mt-4">
-          <li class="px-4 py-2 hover:bg-gray-100"><a href="#">Dashboard</a>
-          </li>
-          <li class="px-4 py-2 hover:bg-gray-100"><a href="#">Logs</a></li>
-          </li>
-        </ul>
-      </div>
-      <!--content-->
-      <div class="flex-1 p-6">
-        <h2 class="text-2xl font-semibold mb-4">Logs</h2>
-        <div class="overflow-x-auto">
-          <table class="table ">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Date</th>
-                <th>Event</th>
-              </tr>
-            </thead>
-            <tbody>
-                <?php
-                $index = 1;
-                foreach ($last10 as $item): ?>
-                  <tr class="bg-gray-100">
-                    <td><?= $index ?></td>
-                    <td><?= $item['created_at'] ?></td>
-                    <td><?= $item['event'] ?></td>
-                  </tr>
-                    <?php
-                    $index++;
-                endforeach; ?>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </main>
-  </body>
-</html>
+$page = $_REQUEST['p'] ?? '';
+if (empty($page)) {
+    include __DIR__ . '/../app/controller/index.php';
+} elseif (in_array($page, $allowed, true)) {
+    if (in_array($page, $authenticated, true)) {
+        Auth::checkLoggedIn();
+    }
+
+    if (str_ends_with($page, "process")) {
+        include __DIR__ . '/../app/controller/api/' . $page . '.php';
+    } else {
+        include __DIR__ . '/../app/controller/' . $page . '.php';
+    }
+} else {
+    Router::errorPage(null);
+}
+
+
+
+
+
+

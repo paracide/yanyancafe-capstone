@@ -1,4 +1,5 @@
 <?php
+namespace App\controller\api;
 
 use App\tools\Auth;
 use App\tools\FlashUtils;
