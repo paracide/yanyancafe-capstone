@@ -6,6 +6,7 @@ use App\tools\FlashUtils;
 use App\tools\Preconditions;
 use App\tools\Router;
 use App\tools\Validator;
+
 /**
  * This controller is used to process checkout
  * return to invoice page
@@ -36,6 +37,7 @@ if (count($error)) {
 $orderId = $ordersRepo->newOrder($_SESSION[Constant::SESSION_CART], $cardNo);
 if ($orderId) {
     unset($_SESSION[Constant::SESSION_CART]);
+    FlashUtils::success("Order placed successfully, Thank you!");
     Router::success(Router::invoice, "&order_id=$orderId");
 } else {
     checkOutFailed($error);
@@ -43,6 +45,7 @@ if ($orderId) {
 
 /**
  * Redirect to checkout page when checkout failed
+ *
  * @param   array  $error
  *
  * @return void
