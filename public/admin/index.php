@@ -1,30 +1,29 @@
 <?php
 
-// Front Controller
+// Backend Controller
 
 global $logger, $fileLogger;
+use App\tools\AdminRouter;
 use App\tools\Auth;
-use App\tools\Router;
 
 require __DIR__ . '/../../config/adminConfig.php';
 
-$allowed       = array_map(fn($router) => $router->name, Router::cases());
+$allowed = array_map(fn($router) => $router->name, AdminRouter::cases());
 
-$page = $_REQUEST['p'] ?? '';
-if (empty($page)) {
-    include __DIR__ . '/../app/controller/index.php';
-} elseif (in_array($page, $allowed, true)) {
-    if (in_array($page, $authenticated, true)) {
-        Auth::checkLoggedIn();
-    }
+$adminPage = $_REQUEST['p'] ?? '';
+Auth::checkLoggedIn();
+$adminPath = __DIR__ . '/../../app/admin/';
 
-    if (str_ends_with($page, "process")) {
-        include __DIR__ . '/../app/controller/api/' . $page . '.php';
+if (empty($adminPage)) {
+    include $adminPath . 'index.php';
+} elseif (in_array($adminPage, $allowed, true)) {
+    if (str_ends_with($adminPage, "process")) {
+        include "$adminPath/api/$adminPage.php";
     } else {
-        include __DIR__ . '/../app/controller/' . $page . '.php';
+        include "$adminPath/$adminPage.php";
     }
 } else {
-    Router::errorPage(null);
+    AdminRouter::errorPage(null);
 }
 
 
