@@ -1,7 +1,15 @@
+// global.scss
+
+// Import TailwindCSS base styles
 @import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+
+// DaisyUI theme configuration
 @import 'https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css';
+
+// Import Google Material Icons
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+// Define custom colors, fonts, and other variables
 $primary-color: #00bcd4; // Cyan
 $secondary-color: #ff9800; // Orange
 $accent-color: #ffeb3b; // Yellow
@@ -21,9 +29,15 @@ body {
 }
 
 // Header Styles
-.navbar {
+.header {
   background-color: $header-color;
   color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: $border-radius;
 }
 
 // Content Styles
@@ -55,8 +69,42 @@ body {
   background-color: $primary-color;
   border: none;
   border-radius: $border-radius;
-
   &:hover {
     background-color: darken($primary-color, 10%);
+  }
+}
+
+// Utility Classes
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+// Responsive Styles
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+  .card {
+    padding: 2rem;
   }
 }

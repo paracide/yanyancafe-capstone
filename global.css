@@ -10,9 +10,15 @@ body {
   box-sizing: border-box;
 }
 
-.navbar {
+.header {
   background-color: #03a9f4;
   color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 
 .content {
@@ -45,4 +51,37 @@ body {
   background-color: #008fa1;
 }
 
-/*# sourceMappingURL=admin.css.map */
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+  .card {
+    padding: 2rem;
+  }
+}
+
+/*# sourceMappingURL=global.css.map */
