@@ -4,6 +4,9 @@ namespace App\model;
 
 use App\interface\ISingleton;
 
+/**
+ * OrderDetail repository
+ */
 class OrderDetailRepo extends Repository implements ISingleton
 {
 
@@ -28,6 +31,9 @@ class OrderDetailRepo extends Repository implements ISingleton
         return self::$instance;
     }
 
+    /*
+     * Add order detail
+     */
     public function addOrderDetail(array $orderDetail): int
     {
         $query = 'INSERT INTO order_detail
@@ -51,6 +57,9 @@ class OrderDetailRepo extends Repository implements ISingleton
         return intval(parent::$conn->lastInsertId());
     }
 
+    /**
+     * Search all the order details by order id with menu name
+     */
     public function searchByOrderId(int $orderId): array
     {
         $query = 'SELECT o.*, m.name menu

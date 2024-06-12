@@ -6,7 +6,10 @@ use App\tools\FlashUtils;
 use App\tools\Preconditions;
 use App\tools\Router;
 use App\tools\Validator;
-
+/**
+ * This controller is used to process checkout
+ * return to invoice page
+ */
 Preconditions::checkPostRequest();
 
 //validate the form
@@ -27,6 +30,9 @@ if (count($error)) {
     checkOutFailed($error);
 }
 
+/**
+ * Save order, clear cart and redirect to invoice page
+ */
 $orderId = $ordersRepo->newOrder($_SESSION[Constant::SESSION_CART], $cardNo);
 if ($orderId) {
     unset($_SESSION[Constant::SESSION_CART]);
@@ -36,6 +42,7 @@ if ($orderId) {
 }
 
 /**
+ * Redirect to checkout page when checkout failed
  * @param   array  $error
  *
  * @return void

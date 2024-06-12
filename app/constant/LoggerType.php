@@ -2,6 +2,10 @@
 
 namespace App\constant;
 
+/**
+ * HttpStatus enum
+ *
+ */
 enum LoggerType
 {
 

@@ -2,6 +2,10 @@
 
 namespace App\constant;
 
+/**
+ * HttpStatus class
+ *
+ */
 class Constant
 {
 
@@ -15,6 +19,7 @@ class Constant
 
     public const SESSION_CART = 'cart';
 
+    //save the target url for redirect after login
     public const SESSION_AUTH_REDIRECT_URI = 'auth_redirect_uri';
 
 }

@@ -21,11 +21,21 @@ class Auth
         return ! empty($_SESSION[Constant::SESSION_USER_ID]);
     }
 
+    /**
+     * get user id from session
+     *
+     * @return mixed
+     */
     public static function getUserId(): mixed
     {
         return self::isLoggedIn() ? $_SESSION[Constant::SESSION_USER_ID] : null;
     }
 
+    /**
+     * check if user is logged in, if not redirect to login page
+     *
+     * @return void
+     */
     public static function checkLoggedIn(): void
     {
         if ( ! self::isLoggedIn()) {

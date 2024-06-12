@@ -31,7 +31,11 @@ class OrdersRepo extends Repository implements ISingleton
         return self::$instance;
     }
 
-    public function addOrder(int $userId, float $price, string $cardNo): int
+    /*
+     * Add order only, dont contain order detail.
+     * The actual way to add is using newOrder method
+     */
+    private function addOrder(int $userId, float $price, string $cardNo): int
     {
         $query = 'INSERT INTO orders
               (user_id, price, gst, pst, total_price, status, credit_card_no, is_del)
@@ -54,6 +58,14 @@ class OrdersRepo extends Repository implements ISingleton
         return intval(parent::$conn->lastInsertId());
     }
 
+    /**
+     * Add new order and order detail using cart
+     *
+     * @param   array   $cart
+     * @param   string  $cardNo
+     *
+     * @return int
+     */
     public function newOrder(array $cart, string $cardNo): int
     {
         global $orderDetailRepo;
@@ -93,6 +105,9 @@ class OrdersRepo extends Repository implements ISingleton
         return 0;
     }
 
+    /**
+     * Search all the orders by user id
+     */
     public function searchById($userId): array
     {
         $query = "SELECT * FROM orders WHERE user_id = :user_id AND is_del = 0";

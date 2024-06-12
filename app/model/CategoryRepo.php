@@ -4,6 +4,9 @@ namespace App\model;
 
 use App\interface\ISingleton;
 
+/**
+ * Category repository
+ */
 class CategoryRepo extends Repository implements ISingleton
 {
 

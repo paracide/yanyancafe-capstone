@@ -5,6 +5,9 @@ namespace App\model;
 use App\interface\ISingleton;
 use App\tools\Preconditions;
 
+/**
+ * Menu repository
+ */
 class MenuRepo extends Repository implements ISingleton
 {
 
@@ -29,6 +32,10 @@ class MenuRepo extends Repository implements ISingleton
         return self::$instance;
     }
 
+    /**
+     * Search menu by key and category with category name and image path
+     * @throws \Exception
+     */
     public function search(?string $key, ?string $category): array
     {
         $query = "select menu.*, c.name as category, f.file_path
@@ -57,6 +64,7 @@ class MenuRepo extends Repository implements ISingleton
     }
 
     /**
+     * get menu by id with category name and image path
      * @throws \Exception
      */
     public function searchById($id): array

@@ -5,6 +5,10 @@ use App\tools\FlashUtils;
 use App\tools\Preconditions;
 use App\tools\Router;
 
+/**
+ * This controller is used to clear cart
+ * return to Cart page
+ */
 Preconditions::checkPostRequest();
 CartService::clearFood();
 

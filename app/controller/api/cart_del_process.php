@@ -5,6 +5,10 @@ use App\tools\FlashUtils;
 use App\tools\Preconditions;
 use App\tools\Router;
 
+/*
+ * This controller is used to delete food from cart
+ * return to Cart page
+ */
 Preconditions::checkPostRequest();
 $menuId = $_POST['menuId'];
 CartService::delFood($menuId);
