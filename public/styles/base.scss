@@ -39,6 +39,7 @@ body {
   height: 100%;
   margin: 0;
   font-size: 1.2rem !important;
+
 }
 
 h1 {
@@ -72,7 +73,7 @@ a {
   justify-items: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("../images/bg.webp");
   background-attachment: fixed;
   background-size: cover;

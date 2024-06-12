@@ -4,8 +4,8 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 
-<div class="p-4">
-  <h1 class="text-2xl font-bold mb-4">Orders List</h1>
+<div class="m-card w-full h-full bg-gray-100 mx-2 md:mx-8 mt-16">
+  <h1>Orders List</h1>
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     <!-- PHP to loop through orders and create cards -->

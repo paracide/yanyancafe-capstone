@@ -4,7 +4,7 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 
-<div class="m-card w-full h-full mx-2 md:mx-8 mt-16">
+<div class="m-card flex-1 w-full h-full mx-2 md:mx-8 mt-16">
   <div class="flex flex-col md:flex-row">
     <!--order details-->
     <div class="md:w-3/4 w-full p-4">

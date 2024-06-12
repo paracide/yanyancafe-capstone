@@ -4,7 +4,7 @@ require_once __DIR__ . '/components/Header.php';
 
 ?>
 
-<div class="flex min-h-screen bg-gray-100 mt-16">
+<div class="flex w-full h-full rounded-xl bg-gray-100 mt-16">
     <?php
     require_once __DIR__ . '/components/MenuSideBar.php';
 

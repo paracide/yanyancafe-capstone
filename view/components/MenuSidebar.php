@@ -14,7 +14,7 @@ function renderSidebar($mainCat, $menuCat): void
     foreach ($mainCat as $main) {
         echo
         <<<HTML
-        <div class="flex flex-col">
+        <div class="flex flex-col ">
         <span class="font-bold">{$main['name']}</span>
         HTML;
 
@@ -35,7 +35,7 @@ function renderSidebar($mainCat, $menuCat): void
 
 ?>
 <!-- Sidebar -->
-<aside class="w-28 md:w-80 bg-white shadow-md">
+<aside class="w-28 md:w-80 bg-gray-100 rounded-xl">
   <div class="p-2 border-b">
     <input type="text" placeholder="Search..." id="searchKey"
            value="<?= $paramKey ?? '' ?>"
