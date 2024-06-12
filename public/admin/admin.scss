@@ -2,55 +2,13 @@
 @import 'https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-$primary-color: #00bcd4; // Cyan
-$secondary-color: #ff9800; // Orange
-$accent-color: #ffeb3b; // Yellow
-$background-color: #f5f5f5; // Light grey
-$text-color: #212121; // Dark grey
-$header-color: #03a9f4; // Light Blue
-$border-radius: 8px; // Rounded corners
-
 // Global Styles
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: $background-color;
-  color: $text-color;
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-}
-
-// Header Styles
-.navbar {
-  background-color: $header-color;
-  color: white;
 }
 
 // Content Styles
 .content {
   padding: 2rem;
-  background-color: $background-color;
-  border-radius: $border-radius;
-}
-
-// Card Styles
-.card {
-  @apply bg-white;
-  @apply shadow-lg;
-  @apply rounded-lg;
-  @apply p-4;
-  border-radius: $border-radius;
-}
-
-// Button Styles
-.button {
-  @apply btn;
-  @apply btn-primary;
-  background-color: $primary-color;
-  border: none;
-  border-radius: $border-radius;
-
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
 }
