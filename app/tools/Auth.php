@@ -3,6 +3,7 @@
 namespace App\tools;
 
 use App\constant\Constant;
+use App\constant\HttpStatus;
 
 /**
  * Auth utils
@@ -18,6 +19,23 @@ class Auth
     public static function isLoggedIn(): bool
     {
         return ! empty($_SESSION[Constant::SESSION_USER_ID]);
+    }
+
+    public static function getUserId(): mixed
+    {
+        return self::isLoggedIn() ? $_SESSION[Constant::SESSION_USER_ID] : null;
+    }
+
+    public static function checkLoggedIn(): void
+    {
+        if ( ! self::isLoggedIn()) {
+            $_SESSION[Constant::SESSION_AUTH_REDIRECT_URI]
+              = $_SERVER['REQUEST_URI'];
+            Router::fail(
+              Router::login,
+              HttpStatus::FORBIDDEN
+            );
+        }
     }
 
     /**
@@ -55,8 +73,8 @@ class Auth
      */
     public static function login(string $email, string $password): array
     {
-        global $userRepository;
-        $user = $userRepository->getUserByEmail($email);
+        global $userRepo;
+        $user = $userRepo->getUserByEmail($email);
 
         if (empty($user) || ! password_verify($password, $user['password'])) {
             return [];

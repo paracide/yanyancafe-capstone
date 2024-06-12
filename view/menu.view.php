@@ -1,125 +1,122 @@
 <?php
 
 require_once __DIR__ . '/components/Header.php';
+
 ?>
 
+<div class="flex w-full h-full rounded-xl bg-gray-100 mt-16">
+    <?php
+    require_once __DIR__ . '/components/MenuSideBar.php';
 
-<div class="page menu" id="coffee">
-  <div class="menu-wrapper1">
-    <div class="menu-wrapper2">
-      <div class="button current-button  flash"><a href="#coffee">Coffee</a>
-      </div>
-      <div class="button  flash"><a href="#snack">Snack</a></div>
-      <div class="button  flash"><a href="#beverage">Beverage</a></div>
-      <div class="menu-group">
-        <h2>Classic Coffees</h2>
-        <hr>
-        <ul>
-          <li>Americano - $3.50</li>
-          <li>Latte - $4.00</li>
-          <li>Cappuccino - $4.50</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>Pour-Over Coffees</h2>
-        <hr>
-        <ul>
-          <li>Colombian Pour-Over - $5.00</li>
-          <li>Kenyan AA Pour-Over - $5.50</li>
-          <li>Indian Mandheling Pour-Over - $6.00</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>
-          Specialty Lattes
-        </h2>
-        <hr>
-        <ul>
-          <li>Chocolate Latte - $4.50</li>
-          <li>Cinnamon Latte - $5.00</li>
-          <li>Hazelnut Latte - $5.50</li>
-        </ul>
-      </div>
-    </div>
+    ?>
+  <div class="grow p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <?php
+      if ( ! $menuSize): ?>
+        <p
+          class="text-xl"><?= "Searching $paramKey finds 0 results..." ?></p>
+      <?php
+      endif; ?>
+      <?php
+      foreach ($menus as $menu) : ?>
+        <div
+          class="bg-gray-100 card card-compact h-76 md:h-96 shadow-xl">
+          <!--img-->
+          <figure class="h-32 md:h-64">
+            <img src="<?= $menu['file_path'] ?>" alt="food"/>
+          </figure>
+          <!--content body-->
+          <div class="card-body ">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+              <!--title-->
+              <a href="/?p=menu_details&id=<?= $menu['id'] ?>"
+                 class="card-title">
+                  <?= esc($menu['name']) ?>
+              </a>
+              <!--category-->
+              <div class="hidden md:flex">
+                <div class="badge bg-orange-600 text-white p-3"><?= esc(
+                      $menu['category']
+                    ) ?>
+                </div>
+              </div>
+            </div>
+            <!--badge-->
+            <div>
+                <?php
+                if ($menu['availability']): ?>
+                  <div class="badge badge-outline badge-success">Available
+                  </div>
+                <?php
+                else: ?>
+                  <div class="badge badge-outline badge-error">Unavailable
+                  </div>
+                <?php
+                endif; ?>
+
+                <?php
+                if ($menu['is_take_away']): ?>
+                  <div class="badge badge-outline badge-info">Take Away
+                  </div>
+                <?php
+                endif; ?>
+
+                <?php
+                if ($menu['discount']): ?>
+                  <div class="badge bg-green-500 glass"><?= esc(
+                        $menu['discount']
+                      ) ?>%off
+                  </div>
+                <?php
+                endif; ?>
+
+
+            </div>
+            <!--price and button-->
+            <div class="flex justify-between items-center">
+              <div>
+                <div>
+                  $
+                  <span>
+                      <?php
+                      $discount      = $menu['discount'];
+                      $originalPrice = $menu['price'];
+                      $actualPrice   = $originalPrice * (100 - $discount) / 100;
+                      if ($discount) {
+                          echo "<del>$originalPrice</del><span class='text-green-500	'> $actualPrice</span>";
+                      } else {
+                          echo "$actualPrice";
+                      }
+                      ?>
+                  </span>
+                  <span>
+                      - <?= esc($menu['size']) ?>
+                  </span>
+                </div>
+                <span>
+                    <?= $menu['calorie_count'] ?> Cals
+                  </span>
+              </div>
+
+              <div class="flex card-actions">
+                <button onclick="addToCart(<?= $menu['id'] ?>)"
+                        class="bg-orange-600 text-white  btn <?= $menu['availability']
+                          ? ''
+                          : 'btn-disabled' ?>">Add
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <?php
+      endforeach; ?>
   </div>
 </div>
 
-<div class="page menu" id="snack">
-  <div class="menu-wrapper1">
-    <div class="menu-wrapper2">
-      <div class="button flash"><a href="#coffee">Coffee</a></div>
-      <div class="button flash current-button"><a href="#snack">Snack</a>
-      </div>
-      <div class="button flash"><a href="#beverage">Beverage</a></div>
-      <div class="menu-group">
-        <h2>Bakery Delights</h2>
-        <hr>
-        <ul>
-          <li>Croissant - $2.50</li>
-          <li>Chocolate Danish - $3.00</li>
-          <li>Blueberry Muffin - $2.75</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>Handheld Snacks</h2>
-        <hr>
-
-        <ul>
-          <li>Turkey Club Sandwich - $7.50</li>
-          <li>Vegetarian Panini - $6.50</li>
-          <li>Chicken Caesar Wrap - $8.00</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>Sweet Treats</h2>
-        <hr>
-        <ul>
-          <li>Chocolate Chip Cookie - $1.50</li>
-          <li>Fruit Parfait - $5.00</li>
-          <li>Caramel Brownie - $3.50</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="page menu" id="beverage">
-  <div class="menu-wrapper1">
-    <div class="menu-wrapper2">
-      <div class="button flash"><a href="#coffee">Coffee</a></div>
-      <div class="button flash"><a href="#snack">Snack</a></div>
-      <div class="button flash current-button"><a
-          href="#beverage">Beverage</a></div>
-      <div class="menu-group">
-        <h2>Tea Selection</h2>
-        <hr>
-        <ul>
-          <li>Black Tea - $2.50</li>
-          <li>Green Tea - $3.00</li>
-          <li>Chai Latte - $4.00</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>Cold Drinks</h2>
-        <hr>
-        <ul>
-          <li>Iced Tea - $3.50</li>
-          <li>Fruit Smoothie - $5.00</li>
-          <li>Lemonade - $3.00</li>
-        </ul>
-      </div>
-      <div class="menu-group">
-        <h2>Juices</h2>
-        <hr>
-        <ul>
-          <li>Orange Juice - $3.50</li>
-          <li>Apple Juice - $3.00</li>
-          <li>Carrot Ginger Juice - $4.00</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 
 <?php
-require_once __DIR__ . '/components/Footer.php'; ?>
+
+require_once __DIR__ . '/components/Footer.php';
+
+?>

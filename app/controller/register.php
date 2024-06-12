@@ -3,7 +3,6 @@
 use App\tools\Router;
 
 $props = [
-  'cssFileName' => 'register',
   'title'       => 'Join Us',
 ];
 

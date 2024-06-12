@@ -100,9 +100,9 @@ class Validator
      */
     public function checkUniqueEmail(string $email): void
     {
-        global $userRepository;
+        global $userRepo;
         if ($this->checkEmail($email)) {
-            $user = $userRepository->getUserByEmail($email);
+            $user = $userRepo->getUserByEmail($email);
             if (count($user) > 0) {
                 $this->error['email'][] = "This email has registered.";
             }
@@ -151,6 +151,13 @@ class Validator
     {
         if ( ! Verifier::isCaPostalCode($postalCode)) {
             $this->error['postal_code'][] = "Should be in the format: A1A 1A1.";
+        }
+    }
+
+    public function checkNum(string $v, string $field): void
+    {
+        if ( ! is_numeric($v)) {
+            $this->error[$field][] = "Should be a number";
         }
     }
 

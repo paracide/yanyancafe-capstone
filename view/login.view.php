@@ -2,11 +2,11 @@
 
 require_once __DIR__ . '/components/Header.php';
 ?>
-<div class="page" id="reg">
-  <div class="card">
-    <h1 class="action">Login</h1>
+<div class="p-8 mt-16">
+  <div class="m-card grid">
+    <h1 class="py-4">Login</h1>
     <form action="/?p=login_process" method="post" novalidate>
-      <div class="input-section">
+      <div class="input-section md:min-w-96">
         <div class="input-group">
           <label class="input-label" for="email">Email:</label>
           <input class="input-field" id="email" name="email" type="text"
@@ -28,8 +28,8 @@ require_once __DIR__ . '/components/Header.php';
         </div>
         <div class="action">
           <div class="button flash"
-                  onclick="window.location.href='/?p=register'"
-                  style="background: deepskyblue">Create an account
+               onclick="window.location.href='/?p=register'"
+               style="background: deepskyblue">Create an account
           </div>
         </div>
       </div>
@@ -38,4 +38,5 @@ require_once __DIR__ . '/components/Header.php';
 </div>
 
 <?php
-require_once __DIR__ . '/components/Footer.php'; ?>
+require_once __DIR__ . '/components/Footer.php';
+?>

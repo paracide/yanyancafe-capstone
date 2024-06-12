@@ -14,14 +14,23 @@ enum Router
     case index;
     case about;
     case cats;
+    case cart;
+    case checkout;
+    case invoice;
+    case orders;
     case club;
     case error;
     case menu;
+    case menu_details;
     case register;
     case login;
     case register_process;
     case login_process;
     case logout_process;
+    case cart_add_process;
+    case cart_del_process;
+    case cart_clear_process;
+    case checkout_process;
     case profile;
 
     /**
@@ -43,26 +52,29 @@ enum Router
     }
 
     public static function success(
-      Router $router
+      Router $router,
+      ?string $paramsString = ''
     ): void {
-        self::redirect($router);
+        self::redirect($router, HttpStatus::SUCCESS, $paramsString);
     }
 
     public static function fail(
       Router $router,
-      ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR
+      ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR,
+      ?string $paramsString = ''
     ): void {
-        self::redirect($router, $status);
+        self::redirect($router, $status, $paramsString);
     }
 
     private static function redirect(
       Router $router,
-      ?HttpStatus $status = HttpStatus::SUCCESS
+      ?HttpStatus $status = HttpStatus::SUCCESS,
+      ?string $paramsString = ''
     ): void {
         global $logger;
         logEvent($logger, LogUtils::getEvent($status));
         http_response_code($status->value);
-        header("Location:/?p=$router->name");
+        header("Location:/?p=$router->name$paramsString");
         die();
     }
 

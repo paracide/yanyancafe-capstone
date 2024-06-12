@@ -1,6 +1,6 @@
 <?php
 
-global $userRepository;
+global $userRepo;
 use App\tools\Auth;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
@@ -47,7 +47,7 @@ if (count($errors)) {
 
 //register succeed go to profile
 try {
-    $userId = $userRepository->addUserProfile($_POST);
+    $userId = $userRepo->addUserProfile($_POST);
     Auth::loginSuccess($userId);
     FlashUtils::success("You're registered successfully");
     Router::success(Router::profile);

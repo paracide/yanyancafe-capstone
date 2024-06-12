@@ -19,17 +19,17 @@ $last10 = $logger->getLast10();
   </head>
 
   <body class="bg-gray-100">
-    <header class="navbar bg-gray-800">
-      <h1 class="text-2xl font-bold text-white"">Dashboard</h1>
+    <header class="navbar bg-gray-100">
+      <h1 class="font-bold text-white"">Dashboard</h1>
     </header>
 
     <main class="flex">
       <!--side-->
       <div class="w-40">
         <ul class="mt-4">
-          <li class="px-4 py-2 hover:bg-gray-300"><a href="#">Dashboard</a>
+          <li class="px-4 py-2 hover:bg-gray-100"><a href="#">Dashboard</a>
           </li>
-          <li class="px-4 py-2 hover:bg-gray-300"><a href="#">Logs</a></li>
+          <li class="px-4 py-2 hover:bg-gray-100"><a href="#">Logs</a></li>
           </li>
         </ul>
       </div>

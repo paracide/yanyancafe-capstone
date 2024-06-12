@@ -4,18 +4,18 @@
 require_once __DIR__ . '/components/Header.php';
 ?>
 
-<div class="page grid-cols-3">
-  <div class="card w-96 glass h-4/5">
-    <figure><img src="images/avatar.webp" alt="car!"/></figure>
+<div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+  <div class="card hidden md:flex glass ">
+    <figure><img class='w-full' src="images/avatar.webp" alt="car!"/></figure>
     <div class="card-body">
       <div class="card-title ">
         <h2 class="text-7xl gradient-anime">Profile</h2>
       </div>
     </div>
   </div>
-  <div class="card w-96 glass h-4/5">
+  <div class="card  glass ">
     <div class="card-body gap-10">
-      <div class="text-5xl card-title">Personal Info</div>
+      <div class="text-4xl card-title">Personal Info</div>
       <div class="card-actions justify-start flex-col">
           <?php
           if ( ! empty($user['first_name'])): ?>
@@ -45,9 +45,9 @@ require_once __DIR__ . '/components/Header.php';
       </div>
     </div>
   </div>
-  <div class="card w-96 glass h-4/5">
+  <div class="card glass">
     <div class="card-body gap-10">
-      <div class="text-5xl card-title">Addresses</div>
+      <div class="text-4xl card-title">Addresses</div>
       <div class="card-actions justify-start flex-col">
           <?php
           if ( ! empty($user['street'])): ?>

@@ -14,7 +14,7 @@
   .us-intro, .us-img {
     width: 40vw;
     height: 30vw;
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
   .us-intro {
@@ -43,7 +43,7 @@
 .find-us-wrapper {
   width: 90vw;
   height: 90vh;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -55,7 +55,7 @@
     color: black;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     filter: sepia(0.3);
     background: linear-gradient(45deg, #ead7b1, #c8a882); /* 调整角度和颜色 */
@@ -79,7 +79,7 @@
   }
 
   table {
-    border-radius: 10px;
+    border-radius: 12px;
     height: 100%;
     overflow-x: auto; /* make table responsible*/
     display: block;
