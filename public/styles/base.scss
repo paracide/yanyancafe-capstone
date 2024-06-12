@@ -67,8 +67,10 @@ a {
 
 
 .wrapper {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   background-image: url("../images/bg.webp");
@@ -82,9 +84,15 @@ a {
 
 
 main {
-  display: grid;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
   width: 100%;
+  height: auto;
   grid-template-columns: 1fr;
+  padding: 1rem;
 }
 
 .border {

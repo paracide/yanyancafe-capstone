@@ -4,7 +4,7 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 
-<div class=" mx-8 mt-16">
+<div class="w-full h-full mx-8 mt-16">
   <div class="text-sm md:text-lg">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <!--Company info-->
@@ -45,7 +45,7 @@ require_once __DIR__ . '/components/Header.php';
   </div>
 </div>
 
-<div class="m-card m-8 shadow-xl ">
+<div class="m-card w-full h-full m-8 shadow-xl ">
   <div class="text-sm md:text-lg">
     <div class="grid grid-cols-4 justify-between mb-2 pb-2  border-b ">
       <div>
