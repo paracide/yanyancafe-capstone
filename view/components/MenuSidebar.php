@@ -1,7 +1,9 @@
 <?php
 
 global $categoryRepo, $menuRepo;
-
+/**
+ * menu sidebar component for menu page and menu details page
+ */
 $allCat   = $categoryRepo->getAll();
 $paramCat = $_GET['category'] ?? null;
 $paramKey = $_GET['key'] ?? null;

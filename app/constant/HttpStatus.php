@@ -2,6 +2,10 @@
 
 namespace App\constant;
 
+/**
+ * HttpStatus class
+ *
+ */
 enum HttpStatus: int
 {
 
