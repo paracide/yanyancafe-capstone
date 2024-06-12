@@ -56,15 +56,18 @@ use App\tools\Auth;
   </head>
   <body>
     <!--Toast-->
-    <div hidden id="toast-info" class="toast z-50 toast-start">
-      <div class="alert alert-info">
-        <span>Hi</span>
-      </div>
+
+
+    <div id="toast-info" hidden
+         class="fixed bg-green-500 text-white shadow-lg bottom-4 p-2 rounded-xl left-4 z-50">
+       <span class="text-sm font-medium">Your data has been saved
+            successfully!</span>
     </div>
-    <div hidden id="toast-error" class="toast z-50 toast-start">
-      <div class="alert alert-error">
-        <span>Hi</span>
-      </div>
+
+    <div id="toast-error" hidden
+         class="fixed bg-red-500 text-white shadow-lg bottom-4 p-2 rounded-xl left-4 z-50">
+       <span class="text-sm font-medium">Your data has been saved
+            successfully!</span>
     </div>
 
     <div class="wrapper">

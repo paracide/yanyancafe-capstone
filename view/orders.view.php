@@ -13,34 +13,39 @@ require_once __DIR__ . '/components/Header.php';
       foreach ($orders as $order): ?>
         <div class="card bg-gray-300 shadow-xl rounded-lg overflow-hidden">
           <div class="card-body p-4">
-            <h2 class="card-title text-xl font-semibold mb-2">Order ID: <?php
-                echo htmlspecialchars($order['id']); ?></h2>
-            <div class="mb-2">
-              <span class="font-medium">Price:</span> $<?php
-                echo htmlspecialchars($order['price']); ?>
+            <h2 class="card-title text-2xl border-b ">Order No: <?php
+                echo esc($order['id']); ?></h2>
+            <div class="">
+              <span class="">Price:</span> $<?php
+                echo esc($order['price']); ?>
             </div>
-            <div class="mb-2">
-              <span class="font-medium">GST:</span> $<?php
-                echo htmlspecialchars($order['gst']); ?>
+            <div class="">
+              <span class="">GST:</span> $<?php
+                echo esc($order['gst']); ?>
             </div>
-            <div class="mb-2">
-              <span class="font-medium">PST:</span> $<?php
-                echo htmlspecialchars($order['pst']); ?>
+            <div class="">
+              <span class="">PST:</span> $<?php
+                echo esc($order['pst']); ?>
             </div>
-            <div class="mb-2">
-              <span class="font-medium">Total Price:</span> $<?php
-                echo htmlspecialchars($order['total_price']); ?>
+            <div class="">
+              <span class="">Total Price:</span> $<?php
+                echo esc($order['total_price']); ?>
             </div>
-            <div class="mb-2">
-              <span class="font-medium">Status:</span> <span
+            <div class="">
+              <span class="">Status:</span> <span
                 class="badge badge-info"><?php
-                    echo htmlspecialchars($order['status']); ?></span>
+                    echo esc($order['status']); ?></span>
             </div>
-            <div class="mb-2">
+            <div class="">
                 <?php
-                echo htmlspecialchars($order['created_at']); ?>
+                echo esc($order['created_at']); ?>
             </div>
-
+            <div class="card-actions justify-end">
+              <button onclick="window.location='/?p=invoice&order_id=<?php
+              echo esc($order['id']); ?>'" class="btn btn-success">
+                See more
+              </button>
+            </div>
           </div>
         </div>
       <?php
