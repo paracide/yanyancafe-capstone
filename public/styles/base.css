@@ -55,6 +55,32 @@ a:hover {
   color: orangered;
 }
 
+.toast-info {
+  position: fixed;
+  background-color: #38a169;
+  font-size: 1.25rem;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  left: 1rem;
+  z-index: 20;
+}
+
+.toast-error {
+  position: fixed;
+  background-color: red;
+  font-size: 1.25rem;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  left: 1rem;
+  z-index: 50;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;

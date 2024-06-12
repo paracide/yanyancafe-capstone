@@ -28,7 +28,6 @@ unset($_SESSION[Constant::SESSION_FLASH]);
 
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/credentials.php';
-require_once __DIR__.'/../view/components/Flash.php';
 
 const SITE_NAME = 'Yanyan Cafe';
 

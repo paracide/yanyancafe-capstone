@@ -38,4 +38,5 @@ require_once __DIR__ . '/components/Header.php';
 </div>
 
 <?php
-require_once __DIR__ . '/components/Footer.php'; ?>
+require_once __DIR__ . '/components/Footer.php';
+?>
