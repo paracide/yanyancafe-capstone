@@ -4,49 +4,49 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 
-<div class="m-card mx-8 mt-16">
-  <div class="flex">
+<div class="m-card min-h-full mx-2 md:mx-8 mt-16">
+  <div class="flex flex-col md:flex-row">
     <!--order details-->
-    <div class="w-3/4 p-4">
+    <div class="md:w-3/4 w-full p-4">
       <!--header-->
-      <div class="flex justify-between border-b p-4">
+      <div class="flex justify-between border-b md:p-4">
         <h1 >Orders</h1>
         <h2 class="text-2xl flex items-center gap-4">
             <?= count($cart) ?> Items
         </h2>
       </div>
-      <!--content-->
-      <div class="flex mt-10 p-4">
-        <h3 class="w-2/5">
-          Product Details</h3>
+      <div class="flex mt-10 md:p-4">
+        <h3 class="w-2/5 text-sm md:text-xl">
+          Item</h3>
         <h3
-          class=" w-1/5 ">
+          class=" w-1/5 text-sm md:text-xl ">
           Quantity</h3>
         <h3
-          class=" w-1/5 ">
+          class=" w-1/5 text-sm md:text-xl ">
           Price</h3>
         <h3
-          class=" w-1/5">
+          class=" w-1/5 text-sm md:text-xl">
           Total</h3>
+
       </div>
         <?php
         foreach ($cart as $food) : ?>
-          <div class="flex items-center p-4">
+          <div class="flex items-center md:p-4">
             <div class="flex w-2/5 gap-4 items-center">
-              <img class="h-14 w-14 rounded-xl" src="<?= $food['img'] ?>"
+              <img class="hidden md:flex h-14 w-14 rounded-xl" src="<?= $food['img'] ?>"
                    alt="food">
-              <div class="font-bold"><?= esc($food['name']) ?></div>
+              <div class="text-sm md:text-xl"><?= esc($food['name']) ?></div>
             </div>
-            <span class="w-1/5"><?= esc($food['quantity']) ?></span>
-            <span class=" w-1/5 ">$<?= esc($food['price']) ?></span>
-            <span class=" w-1/5"><?= esc($food['totalPrice']) ?></span>
+            <span class="w-1/5 text-sm md:text-xl "><?= esc($food['quantity']) ?></span>
+            <span class=" w-1/5 text-sm md:text-xl ">$<?= esc($food['price']) ?></span>
+            <span class=" w-1/5 text-sm md:text-xl "><?= esc($food['totalPrice']) ?></span>
           </div>
         <?php
         endforeach; ?>
     </div>
 
     <!--cashier-->
-    <div class="w-1/4 flex flex-col p-4 gap-4 glass rounded-xl">
+    <div class="md:w-1/4 w-full flex flex-col rounded-xl gap-4 p-4">
       <h2 class="text-4xl ">Summary</h2>
       <div class="flex justify-between">
         <span class="text-sm ">Subtotal</span>

@@ -142,7 +142,7 @@ main {
 }
 
 .m-card {
-  padding: 2rem;
+  padding: 1rem;
   background-image: linear-gradient(to right, #fbfbfc, #e5f0ff);
   border-radius: 12px;
   overflow: hidden;

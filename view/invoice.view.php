@@ -4,10 +4,10 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 
-<div class=" mx-8 mt-16 ">
-  <div>
-    <!--Company info-->
+<div class=" mx-8 mt-16">
+  <div class="text-sm md:text-lg">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!--Company info-->
       <div class="m-card shadow-xl">
         <h2 class="text-4xl mb-4 pb-4 border-b">Company Info</h2>
         <p>Yanyan Cafe</p>
@@ -31,6 +31,8 @@ require_once __DIR__ . '/components/Header.php';
                   $profile['email']
                 ) ?></a></p>
       </div>
+      <!--Order Info-->
+
       <div class="m-card shadow-xl">
         <h2 class="text-4xl mb-4 pb-4 border-b">Order Info</h2>
         <p>Order No: <?= esc($order['id']) ?></p>
@@ -40,30 +42,25 @@ require_once __DIR__ . '/components/Header.php';
         <p>Total Price: $<?= esc($order['total_price']) ?></p>
       </div>
     </div>
-
-    <!--orders-->
-
   </div>
 </div>
 
 <div class="m-card m-8 shadow-xl ">
-  <div class="mt-4">
+  <div class="text-sm md:text-lg">
     <div class="grid grid-cols-4 justify-between mb-2 pb-2  border-b ">
       <div>
-        <p class="font-bold text-2xl">Item</p>
+        <p class="font-bold ">Item</p>
       </div>
-      <div class="font-bold text-2xl">
+      <div class="font-bold ">
         <p>Unit Price</p>
       </div>
-      <div class="font-bold text-2xl">
+      <div class="font-bold ">
         <p>Quantity</p>
       </div>
-      <div class="font-bold text-2xl">
+      <div class="font-bold ">
         <p>Line Price</p>
       </div>
     </div>
-
-
       <?php
       foreach ($orderDetails as $food) : ?>
         <div class="grid grid-cols-4 justify-between mb-2">
@@ -87,19 +84,19 @@ require_once __DIR__ . '/components/Header.php';
 
     <div class="grid grid-cols-4 md:flex-row justify-between border-t pt-2">
       <div>
-        <p class="font-bold text-2xl">Sub total</p>
+        <p class="font-bold ">Sub total</p>
         <p>$<?= esc($order['price']) ?></p>
       </div>
       <div>
-        <p class="font-bold text-2xl">GST</p>
+        <p class="font-bold ">GST</p>
         <p>$<?= esc($order['gst']) ?></p>
       </div>
       <div>
-        <p class="font-bold text-2xl">PST</p>
+        <p class="font-bold ">PST</p>
         <p>$<?= esc($order['pst']) ?></p>
       </div>
       <div>
-        <p class="font-bold text-2xl">TOTAL</p>
+        <p class="font-bold ">TOTAL</p>
         <p>$<?= esc($order['total_price']) ?></p>
       </div>
     </div>
