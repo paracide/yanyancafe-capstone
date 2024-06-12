@@ -6,7 +6,7 @@ require_once __DIR__ . '/components/Header.php';
 
 <div class="flex w-full h-full rounded-xl bg-gray-100 mt-16">
     <?php
-    require_once __DIR__ . '/components/MenuSideBar.php';
+    require_once __DIR__ . '/components/MenuSidebar.php';
 
     ?>
   <div class="grow p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
