@@ -6,7 +6,7 @@ require_once __DIR__ . '/components/Header.php';
 
 <div class="flex min-h-screen bg-gray-100 mt-16">
     <?php
-    require_once __DIR__ . '/components/MenuSideBar.php';
+    require_once __DIR__ . '/components/MenuSidebar.php';
     ?>
   <!-- Main Content -->
   <div class="bg-base-200 h-5/6	">
