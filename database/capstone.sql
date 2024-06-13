@@ -260,7 +260,7 @@ CREATE TABLE `user` (
   `avatar_file_id` bigint DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `role` int NOT NULL DEFAULT '7' COMMENT '2 is admin, 3 is staff, 5 is club member, 7 is normal user',
+  `role` int NOT NULL DEFAULT '7' COMMENT '2 is view-admin, 3 is staff, 5 is club member, 7 is normal user',
   `subscribe_to_newsletter` tinyint(1) NOT NULL DEFAULT '0',
   `is_del` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),

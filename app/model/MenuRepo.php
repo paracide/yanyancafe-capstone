@@ -82,5 +82,20 @@ class MenuRepo extends Repository implements ISingleton
         return $stmt->fetch();
     }
 
+    /**
+     * @param $id
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function deleteById($id): void
+    {
+        Preconditions::checkEmpty($id);
+        $query = "update menu set is_del = 1 where id = :id";
+        $stmt  = self::$conn->prepare($query);
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
 }
 

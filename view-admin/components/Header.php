@@ -55,7 +55,7 @@
             ]; ?>
             <?php
             foreach ($links as $link => $text): ?>
-              <a href="/admin?p=<?= esc($link) ?>"
+              <a href="/view-admin?p=<?= esc($link) ?>"
                  title="Yanyan Dashboard <?= esc($text) ?>"><?= esc(
                     $text
                   ) ?></a>

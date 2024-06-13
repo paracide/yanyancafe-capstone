@@ -1,5 +1,5 @@
 <?php
-namespace App\controller;
+namespace App\admin;
 
 use App\tools\AdminRouter;
 use App\tools\Router;

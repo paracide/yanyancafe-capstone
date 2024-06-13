@@ -34,7 +34,7 @@ enum AdminRouter
         global $logger;
         extract($data);
         logEvent($logger, LogUtils::event200());
-        require_once __DIR__ . '/../../public/admin/view/' . $view
+        require_once __DIR__ . '/../../view-admin/' . $view
                      . '.view.php';
     }
 
@@ -61,7 +61,7 @@ enum AdminRouter
         global $logger;
         logEvent($logger, LogUtils::getEvent($status));
         http_response_code($status->value);
-        header("Location:/admin?p=$router->name$paramsString");
+        header("Location:/view-admin?p=$router->name$paramsString");
         die();
     }
 

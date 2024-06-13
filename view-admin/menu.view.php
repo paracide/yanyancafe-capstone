@@ -4,7 +4,7 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 <main class="flex flex-col gap-4">
-  <section class="w-full flex justify-between items-center">
+  <section class="w-full flex justify-between items-center px-4">
     <h1 class="text-2xl"><?= esc($title) ?></h1>
     <div class="flex gap-3">
       <input type="text" placeholder="Search..." id="searchKey"
@@ -99,19 +99,22 @@ require_once __DIR__ . '/components/Header.php';
                 <td>
                     <?= $menu['created_at'] ?>
                 </td>
-                <td>
+                <td >
                   <div class="flex gap-3">
-                    <button
-                      onclick="window.location='/admin?p=menu_edit'"
-                      class="flex-1 btn btn-primary">EDIT
-                    </button>
-                    <form action="/admin?p=menu_del_process" method="post"
-                          class="flex flex-1">
-                      <input hidden type="text" name="menu_id"
-                             value="<?= esc($menu['id']) ?>">
-                      <button class="del-menu-button flex-1 btn btn-error">DEL
+                    <div class="flex-1">
+                      <button
+                        onclick="window.location='/admin?p=menu_edit'"
+                        class="btn btn-primary w-full">EDIT
                       </button>
-                    </form>
+                    </div>
+                    <div class="flex-1">
+                      <form action="/view-admin?p=menu_del_process" method="post">
+                        <input hidden type="text" name="menu_id"
+                               value="<?= esc($menu['id']) ?>">
+                        <button class="del-menu-button flex-1 btn btn-error w-full">DEL
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 </td>
               </tr>
