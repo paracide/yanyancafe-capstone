@@ -1,13 +1,12 @@
 <?php
 namespace App\controller;
 
+use App\tools\AdminRouter;
 use App\tools\Router;
 
 $props = [
   'title'       => 'Error',
   'desc'        => 'Some Errors happened',
-  'cssFileName' => 'error',
-  'isHomePage'  => true,
 ];
-Router::view('error', $props);
+AdminRouter::view('error', $props);
 

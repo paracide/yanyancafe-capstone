@@ -1,5 +1,4 @@
 <?php
-
 namespace App\controller\api;
 
 global $menuRepo;

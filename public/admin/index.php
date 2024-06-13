@@ -11,7 +11,9 @@ require __DIR__ . '/../../config/adminConfig.php';
 $allowed = array_map(fn($router) => $router->name, AdminRouter::cases());
 
 $adminPage = $_REQUEST['p'] ?? '';
-Auth::checkLoggedIn();
+if ($adminPage !== 'error') {
+    Auth::checkLoggedIn();
+}
 $adminPath = __DIR__ . '/../../app/admin/';
 
 if (empty($adminPage)) {

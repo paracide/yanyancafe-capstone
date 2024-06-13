@@ -1,5 +1,5 @@
 <?php
-
+namespace App\controller;
 use App\tools\Router;
 
 $props = [

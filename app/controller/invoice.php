@@ -1,4 +1,5 @@
 <?php
+namespace App\controller;
 
 global $userRepo, $ordersRepo, $orderDetailRepo;
 use App\tools\Auth;

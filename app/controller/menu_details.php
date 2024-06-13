@@ -1,4 +1,5 @@
 <?php
+namespace App\controller;
 
 global $categoryRepo, $menuRepo;
 use App\tools\Router;

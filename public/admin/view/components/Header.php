@@ -28,7 +28,7 @@
       rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css"
           rel="stylesheet">
-    <link href="admin/admin.css" rel="stylesheet">
+    <link href="admin/global.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   </head>
@@ -51,15 +51,14 @@
             <?php
             $links = [
               'index' => 'Home',
-              'cats'  => 'Cats',
               'menu'  => 'Menu',
-              'about' => 'About',
-              'club'  => 'Club',
             ]; ?>
             <?php
             foreach ($links as $link => $text): ?>
-              <a href="/?p=<?= esc($link) ?>"
-                 title="Yanyan Cafe - <?= esc($text) ?>"><?= esc($text) ?></a>
+              <a href="/admin?p=<?= esc($link) ?>"
+                 title="Yanyan Dashboard <?= esc($text) ?>"><?= esc(
+                    $text
+                  ) ?></a>
             <?php
             endforeach; ?>
         </div>

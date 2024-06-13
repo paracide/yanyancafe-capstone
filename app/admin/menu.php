@@ -5,6 +5,6 @@ namespace App\admin;
 use App\tools\AdminRouter;
 
 $props = [
-  'title' => 'Home',
+  'title' => 'Menu',
 ];
-AdminRouter::view('index', $props);
+AdminRouter::view('menu', $props);
