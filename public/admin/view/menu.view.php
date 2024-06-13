@@ -12,7 +12,9 @@ require_once __DIR__ . '/components/Header.php';
              class="input input-bordered w-full"/>
         <?php
         if ($key): ?>
-          <button onclick="window.location='/admin?p=menu'" class="btn btn-secondary">All menu</button>
+          <button onclick="window.location='/admin?p=menu'"
+                  class="btn btn-secondary">All menu
+          </button>
         <?php
         endif; ?>
       <button class="btn btn-primary">Add A Menu</button>
@@ -75,7 +77,7 @@ require_once __DIR__ . '/components/Header.php';
                 <td class="flex flex-col gap-3">
                     <?php
                     if ($menu['availability']): ?>
-                      <div class="badge badge-success	">In Stock</div>
+                      <div class="badge badge-outline badge-primary	">In Stock</div>
                     <?php
                     else: ?>
                       <div class="badge badge-error	">Out of Stock</div>
@@ -84,7 +86,7 @@ require_once __DIR__ . '/components/Header.php';
 
                     <?php
                     if ($menu['is_take_away']): ?>
-                      <div class="badge badge-success	">Takeaway</div>
+                      <div class="badge badge-outline badge-primary">Takeaway</div>
                     <?php
                     else: ?>
                       <div class="badge badge-error	">Din-In Only</div>
@@ -95,9 +97,15 @@ require_once __DIR__ . '/components/Header.php';
                     <?= $menu['created_at'] ?>
                 </td>
                 <td>
-
+                  <div>
+                    <button onclick="window.location='/admin?p=menu'"
+                            class="btn btn-primary">EDIT
+                    </button>
+                    <button onclick="window.location='/admin?p=menu'"
+                            class="btn btn-error">DEL
+                    </button>
+                  </div>
                 </td>
-
               </tr>
             <?php
             endforeach; ?>
@@ -106,11 +114,16 @@ require_once __DIR__ . '/components/Header.php';
         <!-- foot -->
         <tfoot>
           <tr>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
-            <th></th>
+            <th>Id</th>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Cals</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Action</th>
           </tr>
+
         </tfoot>
 
       </table>
