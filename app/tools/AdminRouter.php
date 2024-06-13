@@ -12,6 +12,7 @@ enum AdminRouter
 {
 
     case index;
+    case menu;
     case error;
 
     /**

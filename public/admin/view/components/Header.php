@@ -2,7 +2,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en" data-theme="bumblebee">
+<html lang="en" data-theme="forest">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -47,7 +47,7 @@
         <div class="navbar-start">
           <span class="text-3xl">Dashboard</span>
         </div>
-        <div class="navbar-center flex gap-16">
+        <div class="navbar-center flex gap-16 text-xl">
             <?php
             $links = [
               'index' => 'Home',
