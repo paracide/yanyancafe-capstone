@@ -6,10 +6,16 @@ require_once __DIR__ . '/components/Header.php';
 <main class="flex flex-col gap-4">
   <section class="flex justify-between items-center">
     <h1 class="text-2xl"><?= esc($title) ?></h1>
-    <div>
+    <div class="flex gap-3">
       <input type="text" placeholder="Search..." id="searchKey"
-             value="<?= $paramKey ?? '' ?>"
+             value="<?= $key ?? '' ?>"
              class="input input-bordered w-full"/>
+        <?php
+        if ($key): ?>
+          <button onclick="window.location='/admin?p=menu'" class="btn btn-secondary">All menu</button>
+        <?php
+        endif; ?>
+      <button class="btn btn-primary">Add A Menu</button>
     </div>
   </section>
 
@@ -35,7 +41,7 @@ require_once __DIR__ . '/components/Header.php';
             foreach ($menus as $menu) : ?>
               <tr>
                 <td>
-                  <?= esc($menu['id']) ?>
+                    <?= esc($menu['id']) ?>
                 </td>
                 <!--name and cat-->
                 <td>
@@ -56,7 +62,7 @@ require_once __DIR__ . '/components/Header.php';
                   </div>
                 </td>
                 <!--price-->
-                <td >
+                <td>
                   <div>$<?= $menu['price'] ?></div>
                   <div class="text-sm opacity-50"><?= $menu['size'] ?></div>
                 </td>
