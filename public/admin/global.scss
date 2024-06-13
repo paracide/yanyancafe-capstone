@@ -2,14 +2,21 @@
 @import 'https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-// Global Styles
+//make sure the main will always fill the space
 body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
 :root {
   --navbar-padding: 1rem
+}
+
+body, html {
+  height: 100%;
 }
 
 // Content Styles
