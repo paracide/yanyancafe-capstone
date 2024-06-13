@@ -13,6 +13,10 @@ enum AdminRouter
 
     case index;
     case menu;
+    case menu_del_process;
+    case menu_edit;
+    case menu_add;
+    case menu_modify_process;
     case error;
 
     /**
@@ -77,7 +81,7 @@ enum AdminRouter
         if ( ! empty($e)) {
             error_log($e->getMessage());
         }
-        self::success(self::error, $httpStatus);
+        self::fail(self::error, $httpStatus);
     }
 
 }

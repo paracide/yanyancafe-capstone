@@ -4,7 +4,7 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 <main class="flex flex-col gap-4">
-  <section class="flex justify-between items-center">
+  <section class="w-full flex justify-between items-center">
     <h1 class="text-2xl"><?= esc($title) ?></h1>
     <div class="flex gap-3">
       <input type="text" placeholder="Search..." id="searchKey"
@@ -77,7 +77,9 @@ require_once __DIR__ . '/components/Header.php';
                 <td class="flex flex-col gap-3">
                     <?php
                     if ($menu['availability']): ?>
-                      <div class="badge badge-outline badge-primary	">In Stock</div>
+                      <div class="badge badge-outline badge-primary	">In
+                        Stock
+                      </div>
                     <?php
                     else: ?>
                       <div class="badge badge-error	">Out of Stock</div>
@@ -86,7 +88,8 @@ require_once __DIR__ . '/components/Header.php';
 
                     <?php
                     if ($menu['is_take_away']): ?>
-                      <div class="badge badge-outline badge-primary">Takeaway</div>
+                      <div class="badge badge-outline badge-primary">Takeaway
+                      </div>
                     <?php
                     else: ?>
                       <div class="badge badge-error	">Din-In Only</div>
@@ -97,13 +100,18 @@ require_once __DIR__ . '/components/Header.php';
                     <?= $menu['created_at'] ?>
                 </td>
                 <td>
-                  <div>
-                    <button onclick="window.location='/admin?p=menu'"
-                            class="btn btn-primary">EDIT
+                  <div class="flex gap-3">
+                    <button
+                      onclick="window.location='/admin?p=menu_edit'"
+                      class="flex-1 btn btn-primary">EDIT
                     </button>
-                    <button onclick="window.location='/admin?p=menu'"
-                            class="btn btn-error">DEL
-                    </button>
+                    <form action="/admin?p=menu_del_process" method="post"
+                          class="flex flex-1">
+                      <input hidden type="text" name="menu_id"
+                             value="<?= esc($menu['id']) ?>">
+                      <button class="del-menu-button flex-1 btn btn-error">DEL
+                      </button>
+                    </form>
                   </div>
                 </td>
               </tr>
@@ -130,8 +138,10 @@ require_once __DIR__ . '/components/Header.php';
     </div>
   </section>
 </main>
+
+
 <script>
-  $(document).ready(function () {
+  $(() => {
     $('#searchKey').on('keypress', function (event) {
       if (event.key === 'Enter') {
         event.preventDefault();
