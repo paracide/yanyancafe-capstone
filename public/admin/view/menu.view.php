@@ -19,11 +19,12 @@ require_once __DIR__ . '/components/Header.php';
         <!-- head -->
         <thead>
           <tr>
+            <th>Id</th>
             <th>Item</th>
             <th>Price</th>
             <th>Discount</th>
             <th>Cals</th>
-            <th>Available</th>
+            <th>Status</th>
             <th>Created</th>
             <th>Action</th>
           </tr>
@@ -33,6 +34,9 @@ require_once __DIR__ . '/components/Header.php';
             <?php
             foreach ($menus as $menu) : ?>
               <tr>
+                <td>
+                  <?= esc($menu['id']) ?>
+                </td>
                 <!--name and cat-->
                 <td>
                   <div class="flex items-center gap-3">
@@ -52,7 +56,7 @@ require_once __DIR__ . '/components/Header.php';
                   </div>
                 </td>
                 <!--price-->
-                <td class="flex flex-col gap-3">
+                <td >
                   <div>$<?= $menu['price'] ?></div>
                   <div class="text-sm opacity-50"><?= $menu['size'] ?></div>
                 </td>
@@ -107,6 +111,17 @@ require_once __DIR__ . '/components/Header.php';
     </div>
   </section>
 </main>
+<script>
+  $(document).ready(function () {
+    $('#searchKey').on('keypress', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        const searchKey = $('#searchKey').val();
+        window.location.href = `/admin?p=menu&key=` + encodeURIComponent(searchKey);
+      }
+    });
+  });
+</script>
 
 <?php
 require_once __DIR__ . '/components/Footer.php'; ?>
