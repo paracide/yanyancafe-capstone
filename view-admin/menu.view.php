@@ -17,7 +17,7 @@ require_once __DIR__ . '/components/Header.php';
           </button>
         <?php
         endif; ?>
-      <button class="btn btn-primary">Add A Menu</button>
+      <button class="btn btn-primary" onclick="window.location='/admin?p=menu_add'">Add Menu</button>
     </div>
   </section>
 
