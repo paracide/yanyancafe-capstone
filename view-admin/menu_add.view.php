@@ -9,107 +9,93 @@ require_once __DIR__ . '/components/Header.php';
       <div class="flex w-full">
         <h1 class="text-2xl justify-start"><?= esc($title) ?></h1>
       </div>
-      <form id="menu-form" method="POST" class="flex flex-col w-full gap-4" action="/admin?menu_add_process">
-        <div class="grid grid-cols-3 gap-4">
+      <form id="menu-form" method="POST" class="flex flex-col w-full gap-4"
+            action="/admin?menu_add_process">
+        <div class="grid grid-cols-2 gap-4">
           <!-- Name -->
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Name</span>
-              <span id="error-name" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <input type="text" name="name" placeholder="Name" class="input input-bordered w-full" required>
-          </label>
-
-          <!-- Description -->
-          <label class="form-control w-full col-span-2">
-            <div class="label">
-              <span class="label-text">Description</span>
-              <span id="error-description" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <textarea name="description" placeholder="Description" class="textarea textarea-bordered w-full"></textarea>
-          </label>
-
+          <div>
+            <label class="input input-bordered flex items-center gap-2">
+              Name
+              <input type="text" name="name" class="grow"
+                     placeholder="Enter name">
+            </label>
+            <span class="hidden text-sm text-red-600">Error</span>
+          </div>
           <!-- Category ID -->
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Category ID</span>
-              <span id="error-category_id" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <input type="number" name="category_id" placeholder="Category ID" class="input input-bordered w-full" required>
-          </label>
-
+          <div class="w-full">
+            <label class="input input-bordered flex items-center gap-2">
+            <span>Category</span>
+              <select class="w-full appearance-none focus:outline-none">
+                <option disabled selected>Who shot first?</option>
+                <option>Han Solo</option>
+                <option>Greedo</option>
+              </select>
+            </label>
+          </div>
           <!-- Price -->
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Price</span>
-              <span id="error-price" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <input type="number" step="0.01" name="price" placeholder="Price" class="input input-bordered w-full" required>
-          </label>
-
+          <div>
+            <label class="input input-bordered flex items-center gap-2">
+              Price
+              <input type="number" name="price" step="0.01"
+                     placeholder="Enter price">
+            </label>
+            <span class="hidden text-sm text-red-600">Error</span>
+          </div>
           <!-- Size -->
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Size</span>
-              <span id="error-size" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <input type="text" name="size" placeholder="Size" class="input input-bordered w-full">
-          </label>
-
-
+          <div class="w-full">
+            <label class="input input-bordered flex items-center gap-2">
+              <span>Size</span>
+              <select class="w-full appearance-none focus:outline-none">
+                <option disabled selected>Who shot first?</option>
+                <option>Han Solo</option>
+                <option>Greedo</option>
+              </select>
+            </label>
+          </div>
 
           <!-- Discount -->
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Discount</span>
-              <span id="error-discount" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <input type="number" step="0.01" name="discount" placeholder="Discount" class="input input-bordered w-full">
-          </label>
-
-          <!-- Image File ID -->
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Image File ID</span>
-              <span id="error-img_file_id" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <input type="number" name="img_file_id" placeholder="Image File ID" class="input input-bordered w-full">
-          </label>
+          <div>
+            <label class="input input-bordered flex items-center gap-2">
+              Discount
+              <input type="number" name="discount" step="0.01"
+                     placeholder="Enter discount">
+            </label>
+            <span class="hidden text-sm text-red-600">Error</span>
+          </div>
 
           <!-- Calorie Count -->
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Calorie Count</span>
-              <span id="error-calorie_count" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <input type="number" name="calorie_count" placeholder="Calorie Count" class="input input-bordered w-full">
-          </label>
+          <div>
+            <label class="input input-bordered flex items-center gap-2">
+              Calorie Count
+              <input type="number" name="calorie_count"
 
-          <!-- Is Take Away -->
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Is Take Away</span>
-              <span id="error-is_take_away" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <input type="checkbox" name="is_take_away" class="toggle">
-          </label>
+                     placeholder="Enter calorie count">
+            </label>
+            <span class="hidden text-sm text-red-600">Error</span>
+          </div>
 
-          <!-- Availability -->
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Availability</span>
-              <span id="error-availability" class="hidden text-sm text-red-600">Error</span>
-            </div>
-            <input type="checkbox" name="availability" class="toggle">
-          </label>
+          <div class="form-control w-full flex-row justify-between">
+            <label class="cursor-pointer label gap-3">
+              <span class="label-text">Available</span>
+              <input type="checkbox" class="toggle toggle-primary" checked />
+            </label>
+
+            <label class="cursor-pointer label gap-3">
+              <span class="label-text">Takeaway</span>
+              <input type="checkbox" class="toggle toggle-primary" checked />
+            </label>
+
+
+          </div>
         </div>
-
         <!-- Submit Button -->
         <div class="flex w-full gap-4">
-          <button type="submit" class="btn btn-primary flex-1">Add Menu Item</button>
+          <button type="submit" class="btn btn-primary flex-1">Add Menu Item
+          </button>
           <button type="reset" class="btn btn-secondary flex-1">Reset</button>
         </div>
       </form>
+
     </section>
   </div>
 </main>

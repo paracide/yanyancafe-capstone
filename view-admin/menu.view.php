@@ -76,27 +76,29 @@ require_once __DIR__ . '/components/Header.php';
                   <td>
                       <?= $menu['calorie_count'] ?>
                   </td>
-                  <td class="flex flex-col gap-3">
-                      <?php
-                      if ($menu['availability']): ?>
-                        <div class="badge badge-outline badge-primary	">In
-                          Stock
-                        </div>
-                      <?php
-                      else: ?>
-                        <div class="badge badge-error	">Out of Stock</div>
-                      <?php
-                      endif; ?>
+                  <td >
+                     <div class="flex flex-col gap-3">
+                         <?php
+                         if ($menu['availability']): ?>
+                           <div class="badge badge-outline badge-primary	">In
+                             Stock
+                           </div>
+                         <?php
+                         else: ?>
+                           <div class="badge badge-error	">Out of Stock</div>
+                         <?php
+                         endif; ?>
 
-                      <?php
-                      if ($menu['is_take_away']): ?>
-                        <div class="badge badge-outline badge-primary">Takeaway
-                        </div>
-                      <?php
-                      else: ?>
-                        <div class="badge badge-error	">Din-In Only</div>
-                      <?php
-                      endif; ?>
+                         <?php
+                         if ($menu['is_take_away']): ?>
+                           <div class="badge badge-outline badge-primary">Takeaway
+                           </div>
+                         <?php
+                         else: ?>
+                           <div class="badge badge-error	">Din-In Only</div>
+                         <?php
+                         endif; ?>
+                     </div>
                   </td>
                   <td>
                       <?= $menu['created_at'] ?>

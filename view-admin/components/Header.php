@@ -2,7 +2,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
+<html lang="en" data-theme="emerald">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -23,11 +23,8 @@
     <link href="favicon.png" rel="apple-touch-icon"
           sizes="32x32">
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css"
-          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="admin/global.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -35,7 +32,7 @@
   <body>
     <!--Toast-->
     <header>
-      <nav class="navbar h-16 p-16 bg-primary w-full fixed top-0 z-50">
+      <nav class="navbar h-16 w-full fixed top-0 z-50">
         <div class="navbar-start">
           <span class="text-xl">Dashboard</span>
         </div>
