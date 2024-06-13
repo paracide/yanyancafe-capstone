@@ -2,7 +2,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
+<html lang="en" data-theme="halloween">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -37,7 +37,7 @@
     <header>
       <nav class="navbar h-16 p-16 bg-primary w-full fixed top-0 z-50">
         <div class="navbar-start">
-          <span class="text-3xl">Dashboard</span>
+          <span class="text-xl">Dashboard</span>
         </div>
         <div class="navbar-center flex gap-16 text-xl">
             <?php
