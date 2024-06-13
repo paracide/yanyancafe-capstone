@@ -4,7 +4,7 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 <main class="flex flex-col gap-4">
-  <section class="w-full flex justify-between items-center px-4">
+  <section class="w-full flex justify-between items-center">
     <h1 class="text-2xl"><?= esc($title) ?></h1>
     <div class="flex gap-3">
       <input type="text" placeholder="Search..." id="searchKey"
@@ -27,7 +27,7 @@ require_once __DIR__ . '/components/Header.php';
         <!-- head -->
         <thead>
           <tr>
-            <th>Id</th>
+            <th class="text-center"> Id</th>
             <th>Item</th>
             <th>Price</th>
             <th>Discount</th>
@@ -42,7 +42,7 @@ require_once __DIR__ . '/components/Header.php';
             <?php
             foreach ($menus as $menu) : ?>
               <tr>
-                <td>
+                <td class="text-center">
                     <?= esc($menu['id']) ?>
                 </td>
                 <!--name and cat-->
@@ -99,7 +99,7 @@ require_once __DIR__ . '/components/Header.php';
                 <td>
                     <?= $menu['created_at'] ?>
                 </td>
-                <td >
+                <td>
                   <div class="flex gap-3">
                     <div class="flex-1">
                       <button
@@ -108,10 +108,13 @@ require_once __DIR__ . '/components/Header.php';
                       </button>
                     </div>
                     <div class="flex-1">
-                      <form action="/view-admin?p=menu_del_process" method="post">
+                      <form action="/admin?p=menu_del_process"
+                            method="post">
                         <input hidden type="text" name="menu_id"
                                value="<?= esc($menu['id']) ?>">
-                        <button class="del-menu-button flex-1 btn btn-error w-full">DEL
+                        <button
+                          class="del-menu-button flex-1 btn btn-error w-full">
+                          DEL
                         </button>
                       </form>
                     </div>

@@ -61,7 +61,7 @@ enum AdminRouter
         global $logger;
         logEvent($logger, LogUtils::getEvent($status));
         http_response_code($status->value);
-        header("Location:/view-admin?p=$router->name$paramsString");
+        header("Location:/admin?p=$router->name$paramsString");
         die();
     }
 

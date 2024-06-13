@@ -35,14 +35,6 @@
   <body>
     <!--Toast-->
     <header>
-      <div id="toast-info" hidden class="toast-info">
-       <span class="text-sm font-medium">Your data has been saved
-            successfully!</span>
-      </div>
-      <div id="toast-error" hidden class="toast-error">
-       <span class="text-sm font-medium">Your data has been saved
-            successfully!</span>
-      </div>
       <nav class="navbar h-16 p-16 bg-primary w-full fixed top-0 z-50">
         <div class="navbar-start">
           <span class="text-3xl">Dashboard</span>
@@ -55,7 +47,7 @@
             ]; ?>
             <?php
             foreach ($links as $link => $text): ?>
-              <a href="/view-admin?p=<?= esc($link) ?>"
+              <a href="/admin?p=<?= esc($link) ?>"
                  title="Yanyan Dashboard <?= esc($text) ?>"><?= esc(
                     $text
                   ) ?></a>

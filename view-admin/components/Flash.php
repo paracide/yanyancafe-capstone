@@ -18,3 +18,11 @@ if ( ! empty($error)) : ?>
 
 <?php
 endif; ?>
+
+<script>
+  $(() => {
+    setTimeout(() => {
+      $('.toast-info, .toast-error').fadeOut('slow');
+    }, 3000);
+  });
+</script>
