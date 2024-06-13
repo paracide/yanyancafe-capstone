@@ -21,43 +21,76 @@ require_once __DIR__ . '/components/Header.php';
           <tr>
             <th>Item</th>
             <th>Price</th>
-            <th>Description</th>
-            <th>Size</th>
-            <th>Available</th>
             <th>Discount</th>
             <th>Cals</th>
-            <th>Takeaway</th>
+            <th>Available</th>
             <th>Created</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <!-- row 1 -->
-          <tr>
-            <td>
-              <div class="flex items-center gap-3">
-                <div class="avatar">
-                  <div class="mask mask-squircle w-12 h-12">
-                    <img
-                      src="https://img.daisyui.com/tailwind-css-component-profile-2@56w.png"
-                      alt="Avatar Tailwind CSS Component"/>
+            <?php
+            foreach ($menus as $menu) : ?>
+              <tr>
+                <!--name and cat-->
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar">
+                      <div class="mask mask-squircle w-12 h-12">
+                        <img
+                          src="<?= $menu['file_path'] ?>"
+                          alt="file"/>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="font-bold"><?= $menu['name'] ?></div>
+                      <div class="text-sm opacity-50">
+                          <?= $menu['category'] ?>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <div class="font-bold">Hart Hagerty</div>
-                  <div class="text-sm opacity-50">United States</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              Zemlak, Daniel and Leannon
-              <br/>
-              <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
-            </td>
-            <td>Purple</td>
-            <th>
-              <button class="btn btn-ghost btn-xs">details</button>
-            </th>
-          </tr>
+                </td>
+                <!--price-->
+                <td class="flex flex-col gap-3">
+                  <div>$<?= $menu['price'] ?></div>
+                  <div class="text-sm opacity-50"><?= $menu['size'] ?></div>
+                </td>
+                <td>
+                    <?= $menu['discount'] ?>%
+                </td>
+                <td>
+                    <?= $menu['calorie_count'] ?>
+                </td>
+                <td class="flex flex-col gap-3">
+                    <?php
+                    if ($menu['availability']): ?>
+                      <div class="badge badge-success	">In Stock</div>
+                    <?php
+                    else: ?>
+                      <div class="badge badge-error	">Out of Stock</div>
+                    <?php
+                    endif; ?>
+
+                    <?php
+                    if ($menu['is_take_away']): ?>
+                      <div class="badge badge-success	">Takeaway</div>
+                    <?php
+                    else: ?>
+                      <div class="badge badge-error	">Din-In Only</div>
+                    <?php
+                    endif; ?>
+                </td>
+                <td>
+                    <?= $menu['created_at'] ?>
+                </td>
+                <td>
+
+                </td>
+
+              </tr>
+            <?php
+            endforeach; ?>
 
         </tbody>
         <!-- foot -->

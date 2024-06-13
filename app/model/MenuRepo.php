@@ -34,7 +34,6 @@ class MenuRepo extends Repository implements ISingleton
 
     /**
      * Search menu by key and category with category name and image path
-     * @throws \Exception
      */
     public function search(?string $key, ?string $category): array
     {
@@ -65,6 +64,7 @@ class MenuRepo extends Repository implements ISingleton
 
     /**
      * get menu by id with category name and image path
+     *
      * @throws \Exception
      */
     public function searchById($id): array
