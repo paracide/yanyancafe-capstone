@@ -19,6 +19,8 @@ enum AdminRouter
     case menu_add_process;
     case menu_edit_process;
     case error;
+    case user;
+    case orders;
 
     /**
      * redirect to view
