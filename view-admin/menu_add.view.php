@@ -4,13 +4,16 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 <main class="flex flex-col gap-4">
-  <div class="page flex flex-col gap-4">
-    <section class="w-full flex flex-col gap-4 justify-between items-center">
+  <div class="page flex-1 flex flex-col gap-4">
+    <section
+      class="w-full flex flex-1 flex-col h-full gap-4 items-center">
       <div class="flex w-full">
         <h1 class="text-2xl justify-start"><?= esc($title) ?></h1>
       </div>
       <form id="menu-form" method="POST" enctype="multipart/form-data"
-            class="flex flex-col w-full gap-4" action="/admin?menu_add_process">
+            novalidate
+            class="flex flex-col flex-1 w-full gap-4"
+            action="/admin?p=menu_add_process">
         <div class="grid grid-cols-2 gap-4 place-items-center	">
           <!-- Name -->
           <div class="max-w-lg w-full">
@@ -20,8 +23,8 @@ require_once __DIR__ . '/components/Header.php';
                      value="<?= esc($post['name'] ?? '') ?>"
                      placeholder="Enter name">
             </label>
-            <span class="hidden text-sm text-red-600"><?= esc(
-                  $errors['name'][0] ?? ''
+            <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
+                  $errors['name'] ?? ''
                 ) ?></span>
           </div>
 
@@ -45,8 +48,8 @@ require_once __DIR__ . '/components/Header.php';
                   endforeach; ?>
               </select>
             </label>
-            <span class="hidden text-sm text-red-600"><?= esc(
-                  $errors['category_id'][0] ?? ''
+            <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
+                  $errors['category_id'] ?? ''
                 ) ?></span>
           </div>
 
@@ -58,8 +61,8 @@ require_once __DIR__ . '/components/Header.php';
                      value="<?= esc($post['price'] ?? '') ?>"
                      placeholder="Enter price">
             </label>
-            <span class="hidden text-sm text-red-600"><?= esc(
-                  $errors['price'][0] ?? ''
+            <span class=" text-sm text-red-600 inline-block w-full "><?= esc(
+                  $errors['price'] ?? ''
                 ) ?></span>
           </div>
 
@@ -71,8 +74,8 @@ require_once __DIR__ . '/components/Header.php';
                      value="<?= esc($post['size'] ?? '') ?>"
                      placeholder="Enter size">
             </label>
-            <span class="hidden text-sm text-red-600"><?= esc(
-                  $errors['size'][0] ?? ''
+            <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
+                  $errors['size'] ?? ''
                 ) ?></span>
           </div>
 
@@ -84,8 +87,8 @@ require_once __DIR__ . '/components/Header.php';
                      value="<?= esc($post['discount'] ?? '') ?>"
                      placeholder="Enter discount">
             </label>
-            <span class="hidden text-sm text-red-600"><?= esc(
-                  $errors['discount'][0] ?? ''
+            <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
+                  $errors['discount'] ?? ''
                 ) ?></span>
           </div>
 
@@ -97,8 +100,8 @@ require_once __DIR__ . '/components/Header.php';
                      value="<?= esc($post['calorie_count'] ?? '') ?>"
                      placeholder="Enter calorie count">
             </label>
-            <span class="hidden text-sm text-red-600"><?= esc(
-                  $errors['calorie_count'][0] ?? ''
+            <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
+                  $errors['calorie_count'] ?? ''
                 ) ?></span>
           </div>
 
@@ -130,11 +133,11 @@ require_once __DIR__ . '/components/Header.php';
           <div class="max-w-lg w-full">
             <div class="flex gap-3 justify-center">
               <span class="label-text">Picture</span>
-              <input type="file" name="img"
+              <input type="file" name="img" accept="image/*"
                      class="file-input file-input-bordered file-input-secondary flex-1">
             </div>
-            <span class="hidden text-sm text-red-600"><?= esc(
-                  $errors['img'][0] ?? ''
+            <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
+                  $errors['img'] ?? ''
                 ) ?></span>
           </div>
 
@@ -144,8 +147,8 @@ require_once __DIR__ . '/components/Header.php';
                       name="description"
                       placeholder="Description"></textarea>
 
-            <span class="hidden text-sm text-red-600"><?= esc(
-                  $errors['description'][0] ?? ''
+            <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
+                  $errors['description'] ?? ''
                 ) ?></span>
           </div>
 

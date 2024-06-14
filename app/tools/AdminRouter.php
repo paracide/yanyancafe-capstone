@@ -16,7 +16,8 @@ enum AdminRouter
     case menu_del_process;
     case menu_edit;
     case menu_add;
-    case menu_modify_process;
+    case menu_add_process;
+    case menu_edit_process;
     case error;
 
     /**

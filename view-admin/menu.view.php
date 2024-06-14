@@ -32,9 +32,11 @@ require_once __DIR__ . '/components/Header.php';
               <th class="text-center"> Id</th>
               <th>Item</th>
               <th>Price</th>
+              <th>Size</th>
               <th>Discount</th>
               <th>Cals</th>
-              <th>Status</th>
+              <th>Available</th>
+              <th>Takeaway</th>
               <th>Created</th>
               <th>Action</th>
             </tr>
@@ -68,37 +70,40 @@ require_once __DIR__ . '/components/Header.php';
                   <!--price-->
                   <td>
                     <div>$<?= $menu['price'] ?></div>
-                    <div class="text-sm opacity-50"><?= $menu['size'] ?></div>
                   </td>
+                  <td>
+                    <div><?= $menu['size'] ?></div>
+                  </td>
+                  <!--discount-->
                   <td>
                       <?= $menu['discount'] ?>%
                   </td>
+                  <!--cals-->
                   <td>
                       <?= $menu['calorie_count'] ?>
                   </td>
                   <td >
-                     <div class="flex flex-col gap-3">
-                         <?php
-                         if ($menu['availability']): ?>
-                           <div class="badge badge-outline badge-primary	">In
-                             Stock
-                           </div>
-                         <?php
-                         else: ?>
-                           <div class="badge badge-error	">Out of Stock</div>
-                         <?php
-                         endif; ?>
-
-                         <?php
-                         if ($menu['is_take_away']): ?>
-                           <div class="badge badge-outline badge-primary">Takeaway
-                           </div>
-                         <?php
-                         else: ?>
-                           <div class="badge badge-error	">Din-In Only</div>
-                         <?php
-                         endif; ?>
-                     </div>
+                      <?php
+                      if ($menu['availability']): ?>
+                        <div class="badge badge-outline badge-primary	">In
+                          Stock
+                        </div>
+                      <?php
+                      else: ?>
+                        <div class="badge badge-error	">Out of Stock</div>
+                      <?php
+                      endif; ?>
+                  </td>
+                  <td>
+                      <?php
+                      if ($menu['is_take_away']): ?>
+                        <div class="badge badge-outline badge-primary">Takeaway
+                        </div>
+                      <?php
+                      else: ?>
+                        <div class="badge badge-error	">Din-In Only</div>
+                      <?php
+                      endif; ?>
                   </td>
                   <td>
                       <?= $menu['created_at'] ?>
@@ -135,9 +140,11 @@ require_once __DIR__ . '/components/Header.php';
               <th class="text-center">Id</th>
               <th>Item</th>
               <th>Price</th>
+              <th>Size</th>
               <th>Discount</th>
               <th>Cals</th>
-              <th>Status</th>
+              <th>Available</th>
+              <th>Takeaway</th>
               <th>Created</th>
               <th>Action</th>
             </tr>

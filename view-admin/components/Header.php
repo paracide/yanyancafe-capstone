@@ -32,7 +32,7 @@
   <body>
     <!--Toast-->
     <header>
-      <nav class="navbar h-16 w-full fixed top-0 z-50">
+      <nav class="navbar bg-primary h-16 w-full fixed top-0 z-50">
         <div class="navbar-start">
           <span class="text-xl">Dashboard</span>
         </div>
