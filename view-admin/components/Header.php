@@ -23,7 +23,8 @@
     <link href="favicon.png" rel="apple-touch-icon"
           sizes="32x32">
 
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css"
+          rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="admin/global.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -39,8 +40,10 @@
         <div class="navbar-center flex gap-16 text-xl">
             <?php
             $links = [
-              'index' => 'Home',
-              'menu'  => 'Menu',
+              'index'  => 'Home',
+              'menu'   => 'Menu',
+              'user'   => 'User',
+              'orders' => 'Orders',
             ]; ?>
             <?php
             foreach ($links as $link => $text): ?>
