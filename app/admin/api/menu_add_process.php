@@ -2,11 +2,14 @@
 
 namespace App\admin\api;
 
-global $menuRepo;
+global
+$menuRepo;
 use App\tools\AdminRouter;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
 use App\tools\Validator;
+
+const IMG_FILE_NAME = 'picture';
 
 Preconditions::checkPostRequest();
 $require       = [
@@ -24,19 +27,15 @@ $discount      = $_POST['discount'];
 $calorie_count = $_POST['calorie_count'];
 $validator     = new Validator();
 $validator->checkRequired($require, $_POST);
-$path = $_FILES['picture']['tmp_name'];
-$validator->checkEmpty($path, "picture");
 $validator->checkNum($price, "price");
+$validator->checkImg(IMG_FILE_NAME);
 $validator->checkNum($size, "size");
 $validator->checkNum($discount, "discount");
 $validator->checkNum($calorie_count, "$calorie_count");
 
-if(!empty($path)){
-    $imageInfo = getimagesize($path);
-}
-
 //error go back to register
 $errors = $validator->getError();
+
 if (count($errors)) {
     $resultError        = array_map(function ($msg) {
         return implode(" ", $msg);
@@ -45,6 +44,13 @@ if (count($errors)) {
     $_SESSION['post']   = $_POST;
     AdminRouter::fail(AdminRouter::menu_add);
 }
+
+$picture       = $_FILES[IMG_FILE_NAME];
+$fileExtension = pathinfo($picture['name'], PATHINFO_EXTENSION);
+$fileName      = pathinfo($picture['name'], PATHINFO_FILENAME);
+$newFileName   = $fileName . time() . '.' . $fileExtension;
+$targetPath    = __DIR__ . '/../../../public/images/menu/' . $newFileName;
+move_uploaded_file($picture["tmp_name"], $targetPath);
 
 $availability = $_POST['availability'] === 'on';
 $is_take_away = $_POST['is_take_away'] === 'on';

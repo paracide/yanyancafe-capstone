@@ -154,6 +154,16 @@ class Validator
         }
     }
 
+    public function checkImg(string $fileName): array
+    {
+        $imageInfo = Verifier::isImage($fileName);
+        if ( ! $imageInfo) {
+            $this->error[$fileName][] = "Image is required";
+        }
+
+        return $imageInfo;
+    }
+
     public function checkNum(string $v, string $field): void
     {
         if ( ! is_numeric($v)) {

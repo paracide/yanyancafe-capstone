@@ -79,4 +79,15 @@ class Verifier
         return (bool)preg_match($namePattern, $name);
     }
 
+    public static function isImage(string $fileName): array
+    {
+        $picture = $_FILES[$fileName];
+        $path    = $picture['tmp_name'];
+        if (empty($path)) {
+            return [];
+        }
+
+        return getimagesize($path) ?? [];
+    }
+
 }

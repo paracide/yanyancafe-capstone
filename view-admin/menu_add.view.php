@@ -142,7 +142,9 @@ require_once __DIR__ . '/components/Header.php';
           <div class="max-w-lg w-full">
             <textarea class="textarea textarea-bordered w-full max-w-lg"
                       name="description"
-                      placeholder="Description"></textarea>
+                      placeholder="Description">
+              <?= esc($post['description'] ?? '') ?>
+            </textarea>
 
             <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
                   $errors['description'] ?? ''
