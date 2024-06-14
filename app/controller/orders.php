@@ -1,6 +1,6 @@
 <?php
-namespace App\controller;
 
+namespace App\controller;
 
 global $ordersRepo;
 use App\tools\Auth;

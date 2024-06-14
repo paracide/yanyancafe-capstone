@@ -12,7 +12,6 @@ class LogUtils
         return self::getEvent();
     }
 
-
     public static function getEvent(
       ?HttpStatus $status = HttpStatus::SUCCESS
     ): string {

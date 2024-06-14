@@ -10,7 +10,7 @@ use App\tools\Preconditions;
 $menuId  = Preconditions::checkEmpty($_GET['menu_id']);
 $menu    = $menuRepo->searchById($menuId);
 $menuCat = $categoryRepo->searchMenuCat();
-$props = [
+$props   = [
   'title'   => 'Edit menu',
   'menuCat' => $menuCat,
   'menu'    => $menu,

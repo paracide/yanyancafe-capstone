@@ -51,13 +51,6 @@ enum Router
         require_once __DIR__ . '/../../view/' . $view . '.view.php';
     }
 
-    public static function success(
-      Router $router,
-      ?string $paramsString = ''
-    ): void {
-        self::redirect($router, HttpStatus::SUCCESS, $paramsString);
-    }
-
     public static function fail(
       Router $router,
       ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR,
@@ -95,6 +88,13 @@ enum Router
             error_log($e->getMessage());
         }
         self::success(self::error, $httpStatus);
+    }
+
+    public static function success(
+      Router $router,
+      ?string $paramsString = ''
+    ): void {
+        self::redirect($router, HttpStatus::SUCCESS, $paramsString);
     }
 
 }

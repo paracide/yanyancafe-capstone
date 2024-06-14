@@ -101,6 +101,22 @@ class MenuRepo extends ModelRepo implements ISingleton
         $stmt->execute();
     }
 
+    public function newMenu(
+      array $array,
+      array $file,
+    ): void {
+        global $fileRepo;
+        try {
+            parent::$conn->beginTransaction();
+            $array['img_file_id'] = FileService::saveMenuFile($file);
+            $this->add($array);
+            parent::$conn->commit();
+        } catch (\Exception $e) {
+            parent::$conn->rollBack();
+            AdminRouter::errorPage($e);
+        }
+    }
+
     public function add(array $data): int
     {
         $query = 'INSERT INTO menu
@@ -125,22 +141,6 @@ class MenuRepo extends ModelRepo implements ISingleton
         $stmt->execute($params);
 
         return intval(parent::$conn->lastInsertId());
-    }
-
-    public function newMenu(
-      array $array,
-      array $file,
-    ): void {
-        global $fileRepo;
-        try {
-            parent::$conn->beginTransaction();
-            $array['img_file_id'] = FileService::saveMenuFile($file);
-            $this->add($array);
-            parent::$conn->commit();
-        } catch (\Exception $e) {
-            parent::$conn->rollBack();
-            AdminRouter::errorPage($e);
-        }
     }
 
     /**

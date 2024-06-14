@@ -10,7 +10,7 @@ require_once __DIR__ . '/components/Header.php';
     <div class="md:w-3/4 w-full p-4">
       <!--header-->
       <div class="flex justify-between border-b md:p-4">
-        <h1 >Orders</h1>
+        <h1>Orders</h1>
         <h2 class="text-2xl flex items-center gap-4">
             <?= count($cart) ?> Items
         </h2>
@@ -33,13 +33,20 @@ require_once __DIR__ . '/components/Header.php';
         foreach ($cart as $food) : ?>
           <div class="flex items-center md:p-4">
             <div class="flex w-2/5 gap-4 items-center">
-              <img class="hidden md:flex h-14 w-14 rounded-xl" src="<?= $food['img'] ?>"
+              <img class="hidden md:flex h-14 w-14 rounded-xl"
+                   src="<?= $food['img'] ?>"
                    alt="food">
               <div class="text-sm md:text-xl"><?= esc($food['name']) ?></div>
             </div>
-            <span class="w-1/5 text-sm md:text-xl "><?= esc($food['quantity']) ?></span>
-            <span class=" w-1/5 text-sm md:text-xl ">$<?= esc($food['price']) ?></span>
-            <span class=" w-1/5 text-sm md:text-xl "><?= esc($food['totalPrice']) ?></span>
+            <span class="w-1/5 text-sm md:text-xl "><?= esc(
+                  $food['quantity']
+                ) ?></span>
+            <span class=" w-1/5 text-sm md:text-xl ">$<?= esc(
+                  $food['price']
+                ) ?></span>
+            <span class=" w-1/5 text-sm md:text-xl "><?= esc(
+                  $food['totalPrice']
+                ) ?></span>
           </div>
         <?php
         endforeach; ?>

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\controller;
 
 global $categoryRepo, $menuRepo;
@@ -8,8 +9,8 @@ $paramId = $_GET['id'] ?? null;
 $menu    = $menuRepo->searchById($paramId);
 
 $props = [
-  "menu" => $menu,
-  'title'       => 'Menu Details',
+  "menu"  => $menu,
+  'title' => 'Menu Details',
 
 ];
 

@@ -12,26 +12,6 @@ class Auth
 {
 
     /**
-     * check if user is logged in
-     *
-     * @return bool
-     */
-    public static function isLoggedIn(): bool
-    {
-        return ! empty($_SESSION[Constant::SESSION_USER_ID]);
-    }
-
-    /**
-     * get user id from session
-     *
-     * @return mixed
-     */
-    public static function getUserId(): mixed
-    {
-        return self::isLoggedIn() ? $_SESSION[Constant::SESSION_USER_ID] : null;
-    }
-
-    /**
      * check if user is logged in, if not redirect to login page
      *
      * @return void
@@ -50,6 +30,16 @@ class Auth
     }
 
     /**
+     * check if user is logged in
+     *
+     * @return bool
+     */
+    public static function isLoggedIn(): bool
+    {
+        return ! empty($_SESSION[Constant::SESSION_USER_ID]);
+    }
+
+    /**
      * @throws \Exception
      */
     public static function checkAdmin(): void
@@ -65,6 +55,16 @@ class Auth
               HttpStatus::FORBIDDEN
             );
         }
+    }
+
+    /**
+     * get user id from session
+     *
+     * @return mixed
+     */
+    public static function getUserId(): mixed
+    {
+        return self::isLoggedIn() ? $_SESSION[Constant::SESSION_USER_ID] : null;
     }
 
     /**

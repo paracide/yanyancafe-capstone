@@ -30,7 +30,7 @@ require_once __DIR__ . '/components/Header.php';
           ) ?>
       </div>
       <div class="stat-desc text-secondary">
-        <?= esc($user['stat']['created_at']) ?>
+          <?= esc($user['stat']['created_at']) ?>
       </div>
     </div>
 

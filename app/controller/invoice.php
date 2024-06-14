@@ -1,4 +1,5 @@
 <?php
+
 namespace App\controller;
 
 global $userRepo, $ordersRepo, $orderDetailRepo;
@@ -12,7 +13,7 @@ $profile      = $userRepo->getUserProfileById($userId);
 $order        = $ordersRepo->getById($_GET['order_id']);
 $orderDetails = $orderDetailRepo->searchByOrderId($order['id']);
 
-if($order['user_id'] !==$userId){
+if ($order['user_id'] !== $userId) {
     FlashUtils::error("This is not your order");
     Router::fail(Router::orders);
 }

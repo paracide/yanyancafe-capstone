@@ -35,28 +35,6 @@ class OrdersRepo extends ModelRepo implements ISingleton
      * Add order only, dont contain order detail.
      * The actual way to add is using newOrder method
      */
-    private function addOrder(int $userId, float $price, string $cardNo): int
-    {
-        $query = 'INSERT INTO orders
-              (user_id, price, gst, pst, total_price, status, credit_card_no, is_del)
-              VALUES (:user_id, :price, :gst, :pst, :total_price, :status, :credit_card_no, :is_del);';
-
-        $stmt   = parent::$conn->prepare($query);
-        $params = [
-          ':user_id'        => $userId,
-          ':price'          => $price,
-          ':gst'            => number_format($price * 0.05, 2),
-          ':pst'            => number_format($price * 0.07, 2),
-          ':total_price'    => number_format($price * 1.12, 2),
-          ':status'         => 'delivered',
-          ':credit_card_no' => $cardNo,
-          ':is_del'         => 0,
-        ];
-
-        $stmt->execute($params);
-
-        return intval(parent::$conn->lastInsertId());
-    }
 
     /**
      * Add new order and order detail using cart
@@ -103,6 +81,29 @@ class OrdersRepo extends ModelRepo implements ISingleton
         }
 
         return 0;
+    }
+
+    private function addOrder(int $userId, float $price, string $cardNo): int
+    {
+        $query = 'INSERT INTO orders
+              (user_id, price, gst, pst, total_price, status, credit_card_no, is_del)
+              VALUES (:user_id, :price, :gst, :pst, :total_price, :status, :credit_card_no, :is_del);';
+
+        $stmt   = parent::$conn->prepare($query);
+        $params = [
+          ':user_id'        => $userId,
+          ':price'          => $price,
+          ':gst'            => number_format($price * 0.05, 2),
+          ':pst'            => number_format($price * 0.07, 2),
+          ':total_price'    => number_format($price * 1.12, 2),
+          ':status'         => 'delivered',
+          ':credit_card_no' => $cardNo,
+          ':is_del'         => 0,
+        ];
+
+        $stmt->execute($params);
+
+        return intval(parent::$conn->lastInsertId());
     }
 
     /**

@@ -85,6 +85,7 @@ limit 1;
 
         $stmt = parent::$conn->prepare($query);
         $stmt->execute();
+
         return $stmt->fetch();
     }
 

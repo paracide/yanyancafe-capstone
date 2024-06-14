@@ -7,7 +7,7 @@ global $categoryRepo;
 use App\tools\AdminRouter;
 
 $menuCat = $categoryRepo->searchMenuCat();
-$props = [
+$props   = [
   'title'   => 'New menu',
   'menuCat' => $menuCat,
 ];

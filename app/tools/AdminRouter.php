@@ -48,14 +48,6 @@ enum AdminRouter
         self::redirect($router, HttpStatus::SUCCESS, $paramsString);
     }
 
-    public static function fail(
-      AdminRouter $router,
-      ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR,
-      ?string $paramsString = ''
-    ): void {
-        self::redirect($router, $status, $paramsString);
-    }
-
     private static function redirect(
       AdminRouter $router,
       ?HttpStatus $status = HttpStatus::SUCCESS,
@@ -85,6 +77,14 @@ enum AdminRouter
             error_log($e->getMessage());
         }
         self::fail(self::error, $httpStatus);
+    }
+
+    public static function fail(
+      AdminRouter $router,
+      ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR,
+      ?string $paramsString = ''
+    ): void {
+        self::redirect($router, $status, $paramsString);
     }
 
 }

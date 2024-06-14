@@ -12,15 +12,15 @@ class DatabaseLogger implements ILogger
 
     private static ?DatabaseLogger $instance = null;
 
-    public static function init(PDO $conn): void
-    {
-        self::$conn = $conn;
-    }
-
     /**
      * For singleton pattern, the constructor is private to avoid new instance
      */
     private function __construct() {}
+
+    public static function init(PDO $conn): void
+    {
+        self::$conn = $conn;
+    }
 
     /**
      * Singleton pattern for make the service instance globally

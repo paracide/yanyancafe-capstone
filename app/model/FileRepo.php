@@ -32,6 +32,25 @@ class FileRepo extends ModelRepo implements ISingleton
         return self::$instance;
     }
 
+    /**
+     * @throws \Exception
+     */
+    public function addByPath(string $path, string $relativePath): int
+    {
+        Preconditions::checkEmpty($path);
+        $img      = getimagesize($path);
+        $fileSize = filesize($path);
+        $fileInfo = pathinfo($path);
+        $params   = [
+          'file_name' => $fileInfo['basename'],
+          'file_size' => $fileSize,
+          'file_type' => 'image',
+          'file_path' => $relativePath,
+        ];
+
+        return $this->add($params);
+    }
+
     public function add(array $data): int
     {
         $query = 'INSERT INTO file
@@ -50,25 +69,6 @@ class FileRepo extends ModelRepo implements ISingleton
         $stmt->execute($params);
 
         return intval(parent::$conn->lastInsertId());
-    }
-
-    /**
-     * @throws \Exception
-     */
-    public function addByPath(string $path, string $relativePath): int
-    {
-        Preconditions::checkEmpty($path);
-        $img      = getimagesize($path);
-        $fileSize = filesize($path);
-        $fileInfo = pathinfo($path);
-        $params   = [
-          'file_name' => $fileInfo['basename'],
-          'file_size' => $fileSize,
-          'file_type' => 'image',
-          'file_path' => $relativePath,
-        ];
-
-        return $this->add($params);
     }
 
 }

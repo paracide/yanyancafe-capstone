@@ -11,6 +11,6 @@ $menus = $menuRepo->search($key, null);
 $props = [
   'title' => 'Menu Management',
   'menus' => $menus,
-  'key' => $key,
+  'key'   => $key,
 ];
 AdminRouter::view('menu', $props);

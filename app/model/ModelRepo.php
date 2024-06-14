@@ -24,8 +24,8 @@ abstract class ModelRepo extends Repo
         if ($isDel !== null) {
             $query .= $isDel ? " WHERE is_del = 1" : " WHERE is_del = 0";
         }
-        $query.=" order by $this->key desc";
-        $stmt = self::$conn->prepare($query);
+        $query .= " order by $this->key desc";
+        $stmt  = self::$conn->prepare($query);
         $stmt->execute();
 
         return $stmt->fetchAll();
