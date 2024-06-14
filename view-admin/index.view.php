@@ -26,56 +26,29 @@ require_once __DIR__ . '/components/Header.php';
   <section class="log  shadow-lg rounded-lg p-4">
     <h2 class="text-xl font-bold mb-4">Log Entries</h2>
     <div class="log-entries space-y-2">
-      <!-- Loop to display log entries -->
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 1</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
-      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>      <div class="log-entry p-2  rounded">
-        <p class="text-sm">Log entry 2</p>
-      </div>
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Event</th>
+            </tr>
+          </thead>
+          <tbody>
+              <?php
+              $index = 1;
+              foreach ($last10 as $item): ?>
+                <tr class="bg-gray-100">
+                  <td><?= $index ?></td>
+                  <td><?= $item['created_at'] ?></td>
+                  <td><?= $item['event'] ?></td>
+                </tr>
+                  <?php
+                  $index++;
+              endforeach; ?>
+          </tbody>
+        </table>
+
     </div>
   </section>
 
