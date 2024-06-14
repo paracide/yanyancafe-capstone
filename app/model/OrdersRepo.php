@@ -120,5 +120,23 @@ class OrdersRepo extends Repository implements ISingleton
         return $stmt->fetchAll();
     }
 
+    public function searchAll(): array
+    {
+        $query = "SELECT o.*,
+       u.email,
+       u.first_name,
+       u.last_name,
+       u.phone
+            FROM orders o
+         join user u on u.id = o.user_id
+        where o.is_del=0 order by o.id desc";
+        $stmt  = parent::$conn->prepare($query);
+        // Bind the user_id parameter
+        // Execute the query
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
 }
 

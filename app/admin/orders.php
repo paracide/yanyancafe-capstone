@@ -5,7 +5,7 @@ namespace App\admin;
 global $ordersRepo;
 use App\tools\AdminRouter;
 
-$orders = $ordersRepo->getAll();
+$orders = $ordersRepo->searchAll();
 
 $props = [
   'title'  => 'User Management',

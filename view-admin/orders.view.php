@@ -7,155 +7,62 @@ require_once __DIR__ . '/components/Header.php';
   <div class="page flex flex-col gap-4">
     <section class="w-full flex justify-between items-center">
       <h1 class="text-2xl"><?= esc($title) ?></h1>
-      <div class="flex gap-3">
-        <input type="text" placeholder="Search..." id="searchKey"
-               value="<?= $key ?? '' ?>"
-               class="input input-bordered w-full"/>
-          <?php
-          if ($key): ?>
-            <button onclick="window.location='/admin?p=menu'"
-                    class="btn btn-secondary">All menu
-            </button>
-          <?php
-          endif; ?>
-        <button class="btn btn-primary"
-                onclick="window.location='/admin?p=menu_add'">Add Menu
-        </button>
-      </div>
     </section>
     <section class="w-full">
       <div class="overflow-x-auto">
         <table class="table w-full">
-          <!-- head -->
           <thead>
             <tr>
-              <th class="text-center"> Id</th>
-              <th>Item</th>
+              <th class="text-center">Order Id</th>
+              <th>User Email</th>
+              <th>User Name</th>
+              <th>User Phone</th>
               <th>Price</th>
-              <th>Size</th>
-              <th>Discount</th>
-              <th>Cals</th>
-              <th>Available</th>
-              <th>Takeaway</th>
-              <th>Created</th>
-              <th>Action</th>
+              <th>GST</th>
+              <th>PST</th>
+              <th>Total Price</th>
+              <th>Status</th>
+              <th>Created At</th>
             </tr>
           </thead>
           <tbody>
-            <!-- row 1 -->
               <?php
-              foreach ($menus as $menu) : ?>
+              foreach ($orders as $order) : ?>
                 <tr>
-                  <td class="text-center">
-                      <?= esc($menu['id']) ?>
-                  </td>
-                  <!--name and cat-->
-                  <td>
-                    <div class="flex items-center gap-3">
-                      <div class="avatar">
-                        <div class="mask mask-squircle w-12 h-12">
-                          <img
-                            src="<?= $menu['file_path'] ?>"
-                            alt="file"/>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="font-bold"><?= $menu['name'] ?></div>
-                        <div class="text-sm opacity-50">
-                            <?= $menu['category'] ?>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <!--price-->
-                  <td>
-                    <div>$<?= $menu['price'] ?></div>
-                  </td>
-                  <td>
-                    <div><?= $menu['size'] ?></div>
-                  </td>
-                  <!--discount-->
-                  <td>
-                      <?= $menu['discount'] ?>%
-                  </td>
-                  <!--cals-->
-                  <td>
-                      <?= $menu['calorie_count'] ?>
-                  </td>
-                  <td>
-                      <?php
-                      if ($menu['availability']): ?>
-                        <div class="badge badge-outline badge-primary	">In
-                          Stock
-                        </div>
-                      <?php
-                      else: ?>
-                        <div class="badge badge-error	">Out of Stock</div>
-                      <?php
-                      endif; ?>
-                  </td>
-                  <td>
-                      <?php
-                      if ($menu['is_take_away']): ?>
-                        <div class="badge badge-outline badge-primary">Takeaway
-                        </div>
-                      <?php
-                      else: ?>
-                        <div class="badge badge-error	">Din-In Only</div>
-                      <?php
-                      endif; ?>
-                  </td>
-                  <td>
-                      <?= $menu['created_at'] ?>
-                  </td>
-                  <td>
-                    <div class="flex gap-3">
-                      <div class="flex-1">
-                        <button
-                          onclick="window.location='/admin?p=menu_edit&menu_id=<?= esc(
-                            $menu['id']
-                          ) ?>'"
-                          class="btn btn-primary w-full">EDIT
-                        </button>
-                      </div>
-                      <div class="flex-1">
-                        <form action="/admin?p=menu_del_process"
-                              method="post">
-                          <input hidden type="text" name="menu_id"
-                                 value="<?= esc($menu['id']) ?>">
-                          <button
-                            class="del-menu-button flex-1 btn btn-error w-full">
-                            DEL
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </td>
+                  <td class="text-center"><?= esc($order['id']) ?></td>
+                  <td><?= esc($order['email']) ?></td>
+                  <td><?= esc(
+                        $order['first_name'] . ' ' . $order['last_name']
+                      ) ?></td>
+                  <td><?= esc($order['phone']) ?></td>
+                  <td>$<?= esc($order['price']) ?></td>
+                  <td>$<?= esc($order['gst']) ?></td>
+                  <td>$<?= esc($order['pst']) ?></td>
+                  <td>$<?= esc($order['total_price']) ?></td>
+                  <td><?= esc($order['status']) ?></td>
+                  <td><?= esc($order['created_at']) ?></td>
                 </tr>
               <?php
               endforeach; ?>
-
           </tbody>
-          <!-- foot -->
           <tfoot>
             <tr>
-              <th class="text-center">Id</th>
-              <th>Item</th>
+              <th class="text-center">Order Id</th>
+              <th>User Email</th>
+              <th>User Name</th>
+              <th>User Phone</th>
               <th>Price</th>
-              <th>Size</th>
-              <th>Discount</th>
-              <th>Cals</th>
-              <th>Available</th>
-              <th>Takeaway</th>
-              <th>Created</th>
-              <th>Action</th>
+              <th>GST</th>
+              <th>PST</th>
+              <th>Total Price</th>
+              <th>Status</th>
+              <th>Created At</th>
             </tr>
-
           </tfoot>
-
         </table>
       </div>
     </section>
+
   </div>
 </main>
 

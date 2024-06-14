@@ -16,7 +16,7 @@ $roleMap = [
     <section class="w-full flex justify-between items-center">
       <h1 class="text-2xl"><?= esc($title) ?></h1>
     </section>
-    <section class="w-full">
+    <section class="w-full flex-1">
       <div class="overflow-x-auto">
         <table class="table w-full">
           <!-- head -->
