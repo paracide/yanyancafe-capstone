@@ -24,13 +24,20 @@ require_once __DIR__ . '/components/Header.php';
     <div class="stat place-items-center">
       <div class="stat-title">Users</div>
       <div class="stat-value text-secondary"><?= $user['total'] ?></div>
-      <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
+      <div class="stat-desc text-secondary">
+        Latest: <?= esc(
+            $user['stat']['first_name'] . $user['stat']['last_name']
+          ) ?>
+      </div>
+      <div class="stat-desc text-secondary">
+        <?= esc($user['stat']['created_at']) ?>
+      </div>
     </div>
 
     <div class="stat place-items-center">
-      <div class="stat-title">Orders</div>
-      <div class="stat-value"><?= $orders['total'] ?></div>
-      <div class="stat-desc flex gap-4">
+      <div class="stat-title text-accent">Orders</div>
+      <div class="stat-value text-accent"><?= $orders['total'] ?></div>
+      <div class="stat-desc flex gap-4 text-accent">
           <?php
           foreach ($orders['stat'] as $k => $v) : ?>
             <div>
@@ -43,7 +50,7 @@ require_once __DIR__ . '/components/Header.php';
       </div>
     </div>
 
-    <div class="stat place-items-center">
+    <div class="stat place-items-center text-success">
       <div class="stat-title">Files</div>
       <div class="stat-value"><?= $file['total'] ?></div>
       <div class="stat-desc"><?= $file['size'] ?>MB Used</div>

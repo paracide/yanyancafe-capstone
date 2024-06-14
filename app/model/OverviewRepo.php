@@ -75,4 +75,17 @@ from orders
         return $size ? number_format($size['size'] / (1024 * 1024), 0) : 0;
     }
 
+    public function user(): array
+    {
+        $query = "select created_at, first_name, last_name
+from user where is_del=0
+order by id desc 
+limit 1;
+";
+
+        $stmt = parent::$conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
 }

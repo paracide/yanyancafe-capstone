@@ -14,6 +14,7 @@ $menu = [
 
 $user = [
   "total" => $userRepo->count(),
+  "stat"  => $overviewRepo->user(),
 ];
 
 $file = [
