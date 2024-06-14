@@ -110,7 +110,7 @@ class MenuRepo extends ModelRepo implements ISingleton
         $stmt   = parent::$conn->prepare($query);
         $params = [
           ':name'          => $data['name'],
-          ':description'   => $data['description'] ?? null,
+          ':description'   => trim($data['description'] ?? ''),
           ':category_id'   => $data['category_id'],
           ':price'         => number_format($data['price'], 2),
           ':size'          => $data['size'] ?? null,
@@ -155,9 +155,14 @@ class MenuRepo extends ModelRepo implements ISingleton
 
         foreach ($data as $key => $value) {
             if ($key !== 'id') {
-                $fields[]          = "{$key} = :{$key}";
-                $params[":{$key}"] = $key === 'price' ? number_format($value, 2)
-                  : $value;
+                $fields[] = "{$key} = :{$key}";
+                if ($key === 'price') {
+                    $params[":{$key}"] = number_format($value, 2);
+                } elseif ($key === 'description') {
+                    $params[":{$key}"] = trim($value);
+                } else {
+                    $params[":{$key}"] = $value;
+                }
             }
         }
         if (empty($fields)) {

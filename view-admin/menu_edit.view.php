@@ -159,10 +159,6 @@ require_once __DIR__ . '/components/Header.php';
                   class="btn w-full btn-primary flex-1 max-w-lg">Submit
           </button>
 
-          <!-- Reset Button -->
-          <button type="reset"
-                  class="btn w-full btn-secondary flex-1 max-w-lg">Reset
-          </button>
         </div>
       </form>
 

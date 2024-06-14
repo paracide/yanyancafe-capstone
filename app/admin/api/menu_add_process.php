@@ -49,7 +49,7 @@ $available = ($_POST['availability'] ?? '') === 'on' ? 1 : 0;
 $takeaway  = ($_POST['is_take_away'] ?? '') === 'on' ? 1 : 0;
 $arr       = [
   'name'          => $_POST['name'],
-  'description'   => $_POST['description'],
+  'description'   => trim($_POST['description'] ?? ''),
   'category_id'   => $_POST['category_id'],
   'price'         => $price,
   'size'          => $size,
