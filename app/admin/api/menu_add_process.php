@@ -24,12 +24,12 @@ $discount      = $_POST['discount'];
 $calorie_count = $_POST['calorie_count'];
 $validator     = new Validator();
 $validator->checkRequired($require, $_POST);
-$path = $_FILES['img']['tmp_name'];
-$validator->checkEmpty($path, "Image");
-$validator->checkNum($price, "Price");
-$validator->checkNum($size, "Size");
-$validator->checkNum($discount, "Discount");
-$validator->checkNum($calorie_count, "Calorie Count");
+$path = $_FILES['picture']['tmp_name'];
+$validator->checkEmpty($path, "picture");
+$validator->checkNum($price, "price");
+$validator->checkNum($size, "size");
+$validator->checkNum($discount, "discount");
+$validator->checkNum($calorie_count, "$calorie_count");
 
 if(!empty($path)){
     $imageInfo = getimagesize($path);

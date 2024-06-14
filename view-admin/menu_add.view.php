@@ -110,10 +110,9 @@ require_once __DIR__ . '/components/Header.php';
             <label class="cursor-pointer label gap-3">
               <span class="label-text">Available</span>
               <input type="checkbox" name="availability"
-                     class="toggle toggle-primary" <?= isset($post['availability'])
-                                                       && $post['availability']
-                                                          == 0 ? ''
-                : 'checked' ?>/>
+                     class="toggle toggle-primary"
+                <?= 'on' === ($post['availability'] ?? '') ? 'checked' : '' ?>
+              />
             </label>
           </div>
 
@@ -122,10 +121,8 @@ require_once __DIR__ . '/components/Header.php';
             <label class="cursor-pointer label gap-3">
               <span class="label-text">Takeaway</span>
               <input type="checkbox" name="is_take_away"
-                     class="toggle toggle-primary" <?= isset($post['is_take_away'])
-                                                       && $post['is_take_away']
-                                                          == 0 ? ''
-                : 'checked' ?>/>
+                     class="toggle toggle-primary"
+                <?= ($post['is_take_away'] ?? '') === 'on' ? 'checked' : '' ?>/>
             </label>
           </div>
 
@@ -133,11 +130,11 @@ require_once __DIR__ . '/components/Header.php';
           <div class="max-w-lg w-full">
             <div class="flex gap-3 justify-center">
               <span class="label-text">Picture</span>
-              <input type="file" name="img" accept="image/*"
+              <input type="file" name="picture" accept="image/*"
                      class="file-input file-input-bordered file-input-secondary flex-1">
             </div>
             <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
-                  $errors['img'] ?? ''
+                  $errors['picture'] ?? ''
                 ) ?></span>
           </div>
 
