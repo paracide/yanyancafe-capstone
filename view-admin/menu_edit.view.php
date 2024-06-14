@@ -14,6 +14,8 @@ require_once __DIR__ . '/components/Header.php';
             novalidate
             class="flex flex-col flex-1 w-full gap-4"
             action="/admin?p=menu_edit_process">
+        <input type="text" name="id" value="<?= esc($menu['id']) ?>" hidden>
+
         <div class="grid grid-cols-2 gap-4 place-items-center	">
           <!-- Name -->
           <div class="max-w-lg w-full">
@@ -154,7 +156,7 @@ require_once __DIR__ . '/components/Header.php';
 
           <!-- Submit Button -->
           <button type="submit"
-                  class="btn w-full btn-primary flex-1 max-w-lg">Add
+                  class="btn w-full btn-primary flex-1 max-w-lg">Submit
           </button>
 
           <!-- Reset Button -->

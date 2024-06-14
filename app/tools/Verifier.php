@@ -79,9 +79,9 @@ class Verifier
         return (bool)preg_match($namePattern, $name);
     }
 
-    public static function isImage(string $fileName): array
+    public static function isImage(string $fileNameFromRequest): array
     {
-        $picture = $_FILES[$fileName];
+        $picture = $_FILES[$fileNameFromRequest];
         $path    = $picture['tmp_name'];
         if (empty($path)) {
             return [];

@@ -3,6 +3,7 @@
 namespace App\model;
 
 use App\interface\ISingleton;
+use App\interface\service\FileService;
 use App\tools\AdminRouter;
 use App\tools\Preconditions;
 
@@ -128,17 +129,12 @@ class MenuRepo extends Repository implements ISingleton
 
     public function newMenu(
       array $array,
-      string $filePath,
-      string $relativePath
+      array $file,
     ): void {
         global $fileRepo;
         try {
             parent::$conn->beginTransaction();
-            $imgId                = $fileRepo->addByPath(
-              $filePath,
-              $relativePath
-            );
-            $array['img_file_id'] = $imgId;
+            $array['img_file_id'] = FileService::saveMenuFile($file);
             $this->add($array);
             parent::$conn->commit();
         } catch (\Exception $e) {

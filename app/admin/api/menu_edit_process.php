@@ -4,6 +4,8 @@ namespace App\admin\api;
 
 global
 $menuRepo, $fileRepo, $conn;
+use App\constant\HttpStatus;
+use App\interface\service\FileService;
 use App\tools\AdminRouter;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
@@ -12,6 +14,10 @@ use App\tools\Validator;
 const IMG_FILE_NAME = 'picture';
 
 Preconditions::checkPostRequest();
+$menuId = $_POST['id'];
+Preconditions::checkEmpty($menuRepo->getById($menuId));
+
+//validate
 $require       = [
   "name",
   "description",
@@ -28,7 +34,6 @@ $calorie_count = $_POST['calorie_count'];
 $validator     = new Validator();
 $validator->checkRequired($require, $_POST);
 $validator->checkNum($price, "price");
-$validator->checkImg(IMG_FILE_NAME);
 $validator->checkNum($discount, "discount");
 $validator->checkNum($calorie_count, "$calorie_count");
 
@@ -41,13 +46,17 @@ if (count($errors)) {
     }, $errors);
     $_SESSION['errors'] = $resultError;
     $_SESSION['post']   = $_POST;
-    AdminRouter::fail(AdminRouter::menu_add);
+    AdminRouter::fail(
+      AdminRouter::menu_add,
+      HttpStatus::INTERNAL_SERVER_ERROR,
+      "&menu_id="
+    );
 }
-
 //prepare data
 $available = ($_POST['availability'] ?? '') === 'on' ? 1 : 0;
 $takeaway  = ($_POST['is_take_away'] ?? '') === 'on' ? 1 : 0;
-$arr       = [
+$menuData  = [
+  "id"            => $menuId,
   'name'          => $_POST['name'],
   'description'   => $_POST['description'],
   'category_id'   => $_POST['category_id'],
@@ -59,8 +68,20 @@ $arr       = [
   'is_take_away'  => $takeaway,
 ];
 
-$menuRepo->newMenu($arr, $_FILES[IMG_FILE_NAME]);
-FlashUtils::success("Menu added successfully");
+try {
+    $conn->beginTransaction();
+    $img = $_FILES[IMG_FILE_NAME];
+    if ($img['size']) {
+        $menuData['img_file_id'] = FileService::saveMenuFile($img);
+    }
+    $menuRepo->update($menuData);
+    $conn->commit();
+} catch (\Exception $e) {
+    $conn->rollBack();
+    AdminRouter::errorPage($e);
+}
+
+FlashUtils::success("Menu edited successfully");
 AdminRouter::success(AdminRouter::menu);
 
 
