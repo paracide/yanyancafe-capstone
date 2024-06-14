@@ -50,6 +50,7 @@ group by c.name;
 
         return $stmt->fetchAll();
     }
+
     public function order(): array
     {
         $query = "select sum(total_price) revenue, min((total_price)) min, max(total_price) max
@@ -62,5 +63,16 @@ from orders
         return $stmt->fetch();
     }
 
+    public function file(): float
+    {
+        $query = "select sum(file_size) size from file";
+
+        $stmt = parent::$conn->prepare($query);
+        $stmt->execute();
+
+        $size = $stmt->fetch();
+
+        return $size ? number_format($size['size'] / (1024 * 1024), 0) : 0;
+    }
 
 }

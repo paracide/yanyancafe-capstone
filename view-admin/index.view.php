@@ -46,7 +46,7 @@ require_once __DIR__ . '/components/Header.php';
     <div class="stat place-items-center">
       <div class="stat-title">Files</div>
       <div class="stat-value"><?= $file['total'] ?></div>
-      <div class="stat-desc">↘︎ 90 (14%)</div>
+      <div class="stat-desc"><?= $file['size'] ?>MB Used</div>
     </div>
   </section>
   <section class="log  shadow-lg rounded-lg p-4">

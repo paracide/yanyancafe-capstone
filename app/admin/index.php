@@ -18,6 +18,7 @@ $user = [
 
 $file = [
   "total" => $fileRepo->count(),
+  "size"  => $overviewRepo->file(),
 ];
 
 $orders = [
