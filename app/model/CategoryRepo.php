@@ -7,7 +7,7 @@ use App\interface\ISingleton;
 /**
  * Category repository
  */
-class CategoryRepo extends Repository implements ISingleton
+class CategoryRepo extends ModelRepo implements ISingleton
 {
 
     private static ?CategoryRepo $instance = null;

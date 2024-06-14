@@ -7,6 +7,6 @@ interface ILogger
 
     public function write($event);
 
-    public function getLast10(): array;
+    public function getLast(): array;
 
 }

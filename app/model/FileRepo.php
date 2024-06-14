@@ -8,7 +8,7 @@ use App\tools\Preconditions;
 /**
  * Menu repository
  */
-class FileRepo extends Repository implements ISingleton
+class FileRepo extends ModelRepo implements ISingleton
 {
 
     private static ?FileRepo $instance = null;

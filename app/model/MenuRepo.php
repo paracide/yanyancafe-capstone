@@ -10,7 +10,7 @@ use App\tools\Preconditions;
 /**
  * Menu repository
  */
-class MenuRepo extends Repository implements ISingleton
+class MenuRepo extends ModelRepo implements ISingleton
 {
 
     private static ?MenuRepo $instance = null;

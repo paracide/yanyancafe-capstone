@@ -7,7 +7,7 @@ use App\interface\ISingleton;
 /**
  * OrderDetail repository
  */
-class OrderDetailRepo extends Repository implements ISingleton
+class OrderDetailRepo extends ModelRepo implements ISingleton
 {
 
     private static ?OrderDetailRepo $instance = null;

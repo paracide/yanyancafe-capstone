@@ -11,7 +11,7 @@ use App\model\CategoryRepo;
 use App\model\MenuRepo;
 use App\model\OrderDetailRepo;
 use App\model\OrdersRepo;
-use App\model\Repository;
+use App\model\ModelRepo;
 use App\model\UserRepo;
 
 session_start();
@@ -37,7 +37,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 //initiate the repositories
-Repository::init($conn);
+ModelRepo::init($conn);
 //set the logger type
 const LOGGER_TYPE = LoggerType::database;
 //initiate the logger according to the logger type

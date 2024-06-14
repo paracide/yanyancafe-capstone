@@ -52,7 +52,7 @@ class FileLogger implements ILogger
     }
 
     //todo: implement the method next assignment
-    public function getLast10(): array
+    public function getLast(): array
     {
         return [];
     }

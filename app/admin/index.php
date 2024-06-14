@@ -5,7 +5,7 @@ namespace App\admin;
 global $logger;
 use App\tools\AdminRouter;
 
-$log = $logger->getLast10();
+$log = $logger->getLast();
 $props = [
   'title' => 'Home',
   'last10' => $log,

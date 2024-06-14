@@ -55,7 +55,7 @@ class Auth
     public static function checkAdmin(): void
     {
         global $userRepo;
-        $userRepo->getById(self::getUserId());
+        $user = $userRepo->getById(self::getUserId());
         if (empty($user) || $user['role'] !== 2) {
             $_SESSION[Constant::SESSION_AUTH_REDIRECT_URI]
               = $_SERVER['REQUEST_URI'];

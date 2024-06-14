@@ -7,7 +7,7 @@ use App\tools\Preconditions;
 use App\tools\Router;
 use Exception;
 
-class UserRepo extends Repository implements ISingleton
+class UserRepo extends ModelRepo implements ISingleton
 {
 
     private static ?UserRepo $instance = null;

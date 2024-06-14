@@ -4,26 +4,12 @@ namespace App\model;
 
 use App\tools\Preconditions;
 
-class Repository
+abstract class ModelRepo extends Repo
 {
-
-    protected static \PDO $conn;
 
     protected string $table;
 
     protected string $key = 'id';
-
-    /**
-     * init connection globally
-     *
-     * @param   \PDO  $conn
-     *
-     * @return void
-     */
-    public static function init(\PDO $conn): void
-    {
-        self::$conn = $conn;
-    }
 
     /**
      * get all data according to table name
@@ -61,8 +47,8 @@ class Repository
         if ($isDel !== null) {
             $query .= $isDel ? " and is_del = 1" : " and is_del = 0";
         }
-        $stmt   = self::$conn->prepare($query);
-        $stmt->bindValue(":id",$id,\PDO::PARAM_INT);
+        $stmt = self::$conn->prepare($query);
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
 
         return $stmt->fetch();

@@ -7,7 +7,7 @@ use App\interface\service\CartService;
 use App\tools\Auth;
 use App\tools\Router;
 
-class OrdersRepo extends Repository implements ISingleton
+class OrdersRepo extends ModelRepo implements ISingleton
 {
 
     private static ?OrdersRepo $instance = null;

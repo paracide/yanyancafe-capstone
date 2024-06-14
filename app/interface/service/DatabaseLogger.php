@@ -62,9 +62,9 @@ class DatabaseLogger implements ILogger
      *
      * @return array
      */
-    public function getLast10(): array
+    public function getLast(): array
     {
-        $query = 'select * from log order by id desc limit 10;';
+        $query = 'select * from log order by id desc limit 20;';
 
         $stmt = self::$conn->prepare($query);
         $stmt->execute();

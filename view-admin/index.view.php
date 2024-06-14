@@ -4,50 +4,57 @@ require_once __DIR__ . '/components/Header.php';
 ?>
 
 <main class="main">
-  <section
-    class="grid grid-cols-4 gap-4 mb-6">
-    <div class="card p-4  shadow-lg rounded-lg">
-      <h2 class="text-lg font-bold">Aggregate Function 1</h2>
-      <p class="text-xl">Value 1</p>
+  <section class="stats shadow w-full">
+
+    <div class="stat place-items-center">
+      <div class="stat-title">Downloads</div>
+      <div class="stat-value">31K</div>
+      <div class="stat-desc">From January 1st to February 1st</div>
     </div>
-    <div class="card p-4  shadow-lg rounded-lg">
-      <h2 class="text-lg font-bold">Aggregate Function 2</h2>
-      <p class="text-xl">Value 2</p>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">Users</div>
+      <div class="stat-value text-secondary">4,200</div>
+      <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
     </div>
-    <div class="card p-4  shadow-lg rounded-lg">
-      <h2 class="text-lg font-bold">Aggregate Function 3</h2>
-      <p class="text-xl">Value 3</p>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">New Registers</div>
+      <div class="stat-value">1,200</div>
+      <div class="stat-desc">↘︎ 90 (14%)</div>
     </div>
-    <div class="card p-4  shadow-lg rounded-lg">
-      <h2 class="text-lg font-bold">Aggregate Function 4</h2>
-      <p class="text-xl">Value 4</p>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">New Registers</div>
+      <div class="stat-value">1,200</div>
+      <div class="stat-desc">↘︎ 90 (14%)</div>
     </div>
   </section>
   <section class="log  shadow-lg rounded-lg p-4">
-    <h2 class="text-xl font-bold mb-4">Log Entries</h2>
+    <h2 class="text-xl font-bold mb-4">Log</h2>
     <div class="log-entries space-y-2">
-        <table class="table ">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Date</th>
-              <th>Event</th>
-            </tr>
-          </thead>
-          <tbody>
-              <?php
-              $index = 1;
-              foreach ($last10 as $item): ?>
-                <tr class="bg-gray-100">
-                  <td><?= $index ?></td>
-                  <td><?= $item['created_at'] ?></td>
-                  <td><?= $item['event'] ?></td>
-                </tr>
-                  <?php
-                  $index++;
-              endforeach; ?>
-          </tbody>
-        </table>
+      <table class="table ">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Event</th>
+          </tr>
+        </thead>
+        <tbody>
+            <?php
+            $index = 1;
+            foreach ($last10 as $item): ?>
+              <tr class="bg-gray-100">
+                <td><?= $index ?></td>
+                <td><?= $item['created_at'] ?></td>
+                <td><?= $item['event'] ?></td>
+              </tr>
+                <?php
+                $index++;
+            endforeach; ?>
+        </tbody>
+      </table>
 
     </div>
   </section>
