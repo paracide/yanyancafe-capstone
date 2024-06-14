@@ -41,6 +41,25 @@ class Auth
         if ( ! self::isLoggedIn()) {
             $_SESSION[Constant::SESSION_AUTH_REDIRECT_URI]
               = $_SERVER['REQUEST_URI'];
+            FlashUtils::error("You need to log in first");
+            Router::fail(
+              Router::login,
+              HttpStatus::FORBIDDEN
+            );
+        }
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public static function checkAdmin(): void
+    {
+        global $userRepo;
+        $userRepo->getById(self::getUserId());
+        if (empty($user) || $user['role'] !== 2) {
+            $_SESSION[Constant::SESSION_AUTH_REDIRECT_URI]
+              = $_SERVER['REQUEST_URI'];
+            FlashUtils::error("You are not authorized");
             Router::fail(
               Router::login,
               HttpStatus::FORBIDDEN
