@@ -8,7 +8,7 @@ use App\tools\AdminRouter;
 use App\tools\Preconditions;
 
 $menuId  = Preconditions::checkEmpty($_GET['menu_id']);
-$menu    = $menuRepo->getById($menuId);
+$menu    = $menuRepo->searchById($menuId);
 $menuCat = $categoryRepo->searchMenuCat();
 $props = [
   'title'   => 'Edit menu',
