@@ -7,9 +7,17 @@ require_once __DIR__ . '/components/Header.php';
   <section class="stats shadow w-full">
 
     <div class="stat place-items-center">
-      <div class="stat-title">Downloads</div>
-      <div class="stat-value">31K</div>
-      <div class="stat-desc">From January 1st to February 1st</div>
+      <div class="stat-title">Menu</div>
+      <div class="stat-value"><?= $menu['total'] ?></div>
+      <div class="stat-desc flex gap-4">
+        <?php foreach ($menu['menu_cat'] as$cat ) : ?>
+          <div>
+            <span><?= esc($cat['cat_name']) ?></span>
+            <?= esc($cat['menu_count']) ?>
+          </div>
+          <?php endforeach; ?>
+
+      </div>
     </div>
 
     <div class="stat place-items-center">

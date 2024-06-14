@@ -10,9 +10,10 @@ use App\model\AddressRepo;
 use App\model\CategoryRepo;
 use App\model\FileRepo;
 use App\model\MenuRepo;
+use App\model\ModelRepo;
 use App\model\OrderDetailRepo;
 use App\model\OrdersRepo;
-use App\model\ModelRepo;
+use App\model\OverviewRepo;
 use App\model\UserRepo;
 
 session_start();
@@ -64,4 +65,5 @@ $menuRepo        = MenuRepo::getInstance();
 $categoryRepo    = CategoryRepo::getInstance();
 $orderDetailRepo = OrderDetailRepo::getInstance();
 $ordersRepo      = OrdersRepo::getInstance();
-$fileRepo      = FileRepo::getInstance();
+$fileRepo        = FileRepo::getInstance();
+$overviewRepo    = OverviewRepo::getInstance();

@@ -54,4 +54,19 @@ abstract class ModelRepo extends Repo
         return $stmt->fetch();
     }
 
+    public function count(?bool $isDel = false)
+    {
+        $query
+          = "SELECT count(1) count FROM {$this->table} ";
+        if ($isDel !== null) {
+            $query .= $isDel ? " where is_del = 1" : " where is_del = 0";
+        }
+        $stmt = self::$conn->prepare($query);
+        $stmt->execute();
+
+        $result = $stmt->fetch();
+
+        return empty($result) ? 0 : $result['count'];
+    }
+
 }
