@@ -31,6 +31,16 @@ class CategoryRepo extends Repository implements ISingleton
         return self::$instance;
     }
 
+    public function searchMenuCat(): array
+    {
+        $query = "select *
+                    from category
+                    where parent_id in (select id from category where parent_id = 1)";
+        $stmt  = self::$conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 
 }
 

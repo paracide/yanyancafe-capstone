@@ -9,14 +9,15 @@ require_once __DIR__ . '/components/Header.php';
       <div class="flex w-full">
         <h1 class="text-2xl justify-start"><?= esc($title) ?></h1>
       </div>
-      <form id="menu-form" method="POST" class="flex flex-col w-full gap-4"
+      <form id="menu-form" method="POST" enctype="multipart/form-data"
+            class="flex flex-col w-full gap-4"
             action="/admin?menu_add_process">
         <div class="grid grid-cols-2 gap-4">
           <!-- Name -->
           <div class="max-w-lg">
             <label class="input input-bordered flex items-center gap-2">
               Name
-              <input type="text" name="name" class="grow"
+              <input type="text" name="name"
                      placeholder="Enter name">
             </label>
             <span class="hidden text-sm text-red-600">Error</span>
@@ -25,10 +26,16 @@ require_once __DIR__ . '/components/Header.php';
           <div class="max-w-lg">
             <label class="input input-bordered flex items-center gap-2">
               <span>Category</span>
-              <select class="w-full appearance-none focus:outline-none">
-                <option disabled selected>Who shot first?</option>
-                <option>Han Solo</option>
-                <option>Greedo</option>
+              <select name="category_id"
+                      class="w-full appearance-none focus:outline-none">
+                <option disabled selected>Select Category</option>
+                  <?php
+                  foreach ($menuCat as $cat) : ?>
+                    <option value="<?= esc($cat['id']) ?>">
+                        <?= esc($cat['name']) ?>
+                    </option>
+                  <?php
+                  endforeach; ?>
               </select>
             </label>
           </div>
@@ -44,13 +51,11 @@ require_once __DIR__ . '/components/Header.php';
           <!-- Size -->
           <div class="max-w-lg">
             <label class="input input-bordered flex items-center gap-2">
-              <span>Size</span>
-              <select class="w-full appearance-none focus:outline-none">
-                <option disabled selected>Who shot first?</option>
-                <option>Han Solo</option>
-                <option>Greedo</option>
-              </select>
+              Size
+              <input type="text" name="size"
+                     placeholder="Enter size">
             </label>
+            <span class="hidden text-sm text-red-600">Error</span>
           </div>
 
           <!-- Discount -->
@@ -76,7 +81,8 @@ require_once __DIR__ . '/components/Header.php';
           <div class="form-control w-full flex-row justify-between">
             <label class="cursor-pointer label gap-3">
               <span class="label-text">Available</span>
-              <input type="checkbox" class="toggle toggle-primary" checked/>
+              <input type="checkbox" name="availability"
+                     class="toggle toggle-primary" checked/>
             </label>
 
 
@@ -84,14 +90,15 @@ require_once __DIR__ . '/components/Header.php';
           <div class="form-control w-full flex-row justify-between">
             <label class="cursor-pointer label gap-3">
               <span class="label-text">Takeaway</span>
-              <input type="checkbox" class="toggle toggle-primary" checked/>
+              <input type="checkbox" name="is_take_away"
+                     class="toggle toggle-primary" checked/>
             </label>
           </div>
 
-          <input type="file"
+          <input type="file" name="img"
                  class="file-input file-input-bordered file-input-secondary w-full max-w-lg"/>
 
-          <textarea class="textarea textarea-bordered  max-w-lg"
+          <textarea class="textarea textarea-bordered  max-w-lg" name="description"
                     placeholder="Description"></textarea>
 
           <button type="submit" class="btn btn-primary flex-1  max-w-lg">Add
