@@ -82,7 +82,7 @@ require_once __DIR__ . '/components/Header.php';
                   <td>
                       <?= $menu['calorie_count'] ?>
                   </td>
-                  <td >
+                  <td>
                       <?php
                       if ($menu['availability']): ?>
                         <div class="badge badge-outline badge-primary	">In
@@ -112,7 +112,9 @@ require_once __DIR__ . '/components/Header.php';
                     <div class="flex gap-3">
                       <div class="flex-1">
                         <button
-                          onclick="window.location='/admin?p=menu_edit'"
+                          onclick="window.location='/admin?p=menu_edit&menu_id=<?= esc(
+                            $menu['id']
+                          ) ?>'"
                           class="btn btn-primary w-full">EDIT
                         </button>
                       </div>
