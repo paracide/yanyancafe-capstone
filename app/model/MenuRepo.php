@@ -97,5 +97,31 @@ class MenuRepo extends Repository implements ISingleton
         $stmt->execute();
     }
 
+    private function add(array $data): int
+    {
+        $query = 'INSERT INTO menu
+              (name, description, category_id, price, size, availability, discount, img_file_id, calorie_count, is_take_away, is_del)
+              VALUES (:name, :description, :category_id, :price, :size, :availability, :discount, :img_file_id, :calorie_count, :is_take_away, :is_del);';
+
+        $stmt   = parent::$conn->prepare($query);
+        $params = [
+          ':name'          => $data['name'],
+          ':description'   => $data['description'] ?? null,
+          ':category_id'   => $data['category_id'],
+          ':price'         => number_format($data['price'], 2),
+          ':size'          => $data['size'] ?? null,
+          ':availability'  => $data['availability'] ?? 1,
+          ':discount'      => $data['discount'] ?? 0,
+          ':img_file_id'   => $data['img_file_id'] ?? null,
+          ':calorie_count' => $data['calorie_count'] ?? null,
+          ':is_take_away'  => $data['is_take_away'] ?? 0,
+          ':is_del'        => 0,
+        ];
+
+        $stmt->execute($params);
+
+        return intval(parent::$conn->lastInsertId());
+    }
+
 }
 
