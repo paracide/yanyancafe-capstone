@@ -50,5 +50,17 @@ group by c.name;
 
         return $stmt->fetchAll();
     }
+    public function order(): array
+    {
+        $query = "select sum(total_price) revenue, min((total_price)) min, max(total_price) max
+from orders
+    ";
+
+        $stmt = parent::$conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
 
 }

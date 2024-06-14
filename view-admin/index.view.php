@@ -10,31 +10,42 @@ require_once __DIR__ . '/components/Header.php';
       <div class="stat-title">Menu</div>
       <div class="stat-value"><?= $menu['total'] ?></div>
       <div class="stat-desc flex gap-4">
-        <?php foreach ($menu['menu_cat'] as$cat ) : ?>
-          <div>
-            <span><?= esc($cat['cat_name']) ?></span>
-            <?= esc($cat['menu_count']) ?>
-          </div>
-          <?php endforeach; ?>
-
+          <?php
+          foreach ($menu['menu_cat'] as $cat) : ?>
+            <div>
+              <span><?= esc($cat['cat_name']) ?>:</span>
+                <?= esc($cat['menu_count']) ?>
+            </div>
+          <?php
+          endforeach; ?>
       </div>
     </div>
 
     <div class="stat place-items-center">
       <div class="stat-title">Users</div>
-      <div class="stat-value text-secondary">4,200</div>
+      <div class="stat-value text-secondary"><?= $user['total'] ?></div>
       <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
     </div>
 
     <div class="stat place-items-center">
-      <div class="stat-title">New Registers</div>
-      <div class="stat-value">1,200</div>
-      <div class="stat-desc">↘︎ 90 (14%)</div>
+      <div class="stat-title">Orders</div>
+      <div class="stat-value"><?= $orders['total'] ?></div>
+      <div class="stat-desc flex gap-4">
+          <?php
+          foreach ($orders['stat'] as $k => $v) : ?>
+            <div>
+              <span><?= ucfirst(esc($k)) ?>:</span>
+              $<?= esc($v) ?>
+            </div>
+          <?php
+          endforeach; ?>
+
+      </div>
     </div>
 
     <div class="stat place-items-center">
-      <div class="stat-title">New Registers</div>
-      <div class="stat-value">1,200</div>
+      <div class="stat-title">Files</div>
+      <div class="stat-value"><?= $file['total'] ?></div>
       <div class="stat-desc">↘︎ 90 (14%)</div>
     </div>
   </section>
@@ -51,7 +62,8 @@ require_once __DIR__ . '/components/Header.php';
         </thead>
         <tbody>
             <?php
-            $index = 1;
+            $index
+              = 1;
             foreach ($last10 as $item): ?>
               <tr class="bg-gray-100">
                 <td><?= $index ?></td>
