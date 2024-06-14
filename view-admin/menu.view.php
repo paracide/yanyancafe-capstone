@@ -168,6 +168,14 @@ require_once __DIR__ . '/components/Header.php';
         window.location.href = `/admin?p=menu&key=` + encodeURIComponent(searchKey);
       }
     });
+
+    $('.del-menu-button').on('click', function (event) {
+      let confirmDelete = confirm('Are you sure you want to delete this menu?');
+      if (!confirmDelete) {
+        event.preventDefault();
+      }
+    });
+
   });
 </script>
 
