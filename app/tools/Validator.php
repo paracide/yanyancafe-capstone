@@ -164,10 +164,18 @@ class Validator
         return $imageInfo;
     }
 
-    public function checkNum(string $v, string $field): void
-    {
+    public function checkNum(
+      string $v,
+      string $field,
+      ?float $min = null,
+      ?float $max = null
+    ): void {
         if ( ! is_numeric($v)) {
             $this->error[$field][] = "Should be a number";
+        } elseif (isset($min) && $v < $min) {
+            $this->error[$field][] = "Should bigger than $min";
+        } elseif (isset($max) && $v > $max) {
+            $this->error[$field][] = "Should less than $max";
         }
     }
 

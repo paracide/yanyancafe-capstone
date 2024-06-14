@@ -27,10 +27,10 @@ $discount      = $_POST['discount'];
 $calorie_count = $_POST['calorie_count'];
 $validator     = new Validator();
 $validator->checkRequired($require, $_POST);
-$validator->checkNum($price, "price");
+$validator->checkNum($price, "price", 1, 999);
 $validator->checkImg(IMG_FILE_NAME);
-$validator->checkNum($discount, "discount");
-$validator->checkNum($calorie_count, "$calorie_count");
+$validator->checkNum($discount, "discount", 0, 99);
+$validator->checkNum($calorie_count, "$calorie_count", 0, 9999);
 
 //error go back to register
 $errors = $validator->getError();
