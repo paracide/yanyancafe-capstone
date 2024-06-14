@@ -3,6 +3,7 @@
 namespace App\model;
 
 use App\interface\ISingleton;
+use App\tools\AdminRouter;
 use App\tools\Preconditions;
 
 /**
@@ -55,6 +56,8 @@ class MenuRepo extends Repository implements ISingleton
             $params[':categoryId'] = $category;
         }
 
+        $query .= " order by id desc";
+
         $stmt = self::$conn->prepare($query);
 
         $stmt->execute($params);
@@ -97,7 +100,7 @@ class MenuRepo extends Repository implements ISingleton
         $stmt->execute();
     }
 
-    private function add(array $data): int
+    public function add(array $data): int
     {
         $query = 'INSERT INTO menu
               (name, description, category_id, price, size, availability, discount, img_file_id, calorie_count, is_take_away, is_del)
@@ -110,17 +113,68 @@ class MenuRepo extends Repository implements ISingleton
           ':category_id'   => $data['category_id'],
           ':price'         => number_format($data['price'], 2),
           ':size'          => $data['size'] ?? null,
-          ':availability'  => $data['availability'] ?? 1,
+          ':availability'  => $data['availability'] ? 1 : 0,
           ':discount'      => $data['discount'] ?? 0,
           ':img_file_id'   => $data['img_file_id'] ?? null,
           ':calorie_count' => $data['calorie_count'] ?? null,
-          ':is_take_away'  => $data['is_take_away'] ?? 0,
+          ':is_take_away'  => $data['is_take_away'] ? 1 : 0,
           ':is_del'        => 0,
         ];
 
         $stmt->execute($params);
 
         return intval(parent::$conn->lastInsertId());
+    }
+
+    public function newMenu(
+      array $array,
+      string $filePath,
+      string $relativePath
+    ): void {
+        global $fileRepo;
+        try {
+            parent::$conn->beginTransaction();
+            $imgId                = $fileRepo->addByPath(
+              $filePath,
+              $relativePath
+            );
+            $array['img_file_id'] = $imgId;
+            $this->add($array);
+            parent::$conn->commit();
+        } catch (\Exception $e) {
+            parent::$conn->rollBack();
+            AdminRouter::errorPage($e);
+        }
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function update(array $data): bool
+    {
+        Preconditions::checkEmpty($data['id']);
+        $query  = 'UPDATE menu SET ';
+        $params = [];
+        $fields = [];
+
+        foreach ($data as $key => $value) {
+            if ($key !== 'id') {
+                $fields[]          = "{$key} = :{$key}";
+                $params[":{$key}"] = $key === 'price' ? number_format($value, 2)
+                  : $value;
+            }
+        }
+        if (empty($fields)) {
+            return false;
+        }
+
+        $query         .= implode(', ', $fields);
+        $query         .= ' WHERE id = :id';
+        $params[':id'] = $data['id'];
+
+        $stmt = parent::$conn->prepare($query);
+
+        return $stmt->execute($params);
     }
 
 }

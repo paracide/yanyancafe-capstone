@@ -32,7 +32,7 @@ class FileRepo extends Repository implements ISingleton
         return self::$instance;
     }
 
-    private function add(array $data): int
+    public function add(array $data): int
     {
         $query = 'INSERT INTO file
               (file_name, file_size, file_type, file_path, is_del)
@@ -55,31 +55,20 @@ class FileRepo extends Repository implements ISingleton
     /**
      * @throws \Exception
      */
-    private function updateMenuItem(array $data): bool
+    public function addByPath(string $path, string $relativePath): int
     {
-        Preconditions::checkEmpty($data['id']);
-        $query  = 'UPDATE menu SET ';
-        $params = [];
-        $fields = [];
+        Preconditions::checkEmpty($path);
+        $img      = getimagesize($path);
+        $fileSize = filesize($path);
+        $fileInfo = pathinfo($path);
+        $params   = [
+          'file_name' => $fileInfo['basename'],
+          'file_size' => $fileSize,
+          'file_type' => 'image',
+          'file_path' => $relativePath,
+        ];
 
-        foreach ($data as $key => $value) {
-            if ($key !== 'id') {
-                $fields[]          = "{$key} = :{$key}";
-                $params[":{$key}"] = $key === 'price' ? number_format($value, 2)
-                  : $value;
-            }
-        }
-        if (empty($fields)) {
-            return false;
-        }
-
-        $query         .= implode(', ', $fields);
-        $query         .= ' WHERE id = :id';
-        $params[':id'] = $data['id'];
-
-        $stmt = parent::$conn->prepare($query);
-
-        return $stmt->execute($params);
+        return $this->add($params);
     }
 
 }
