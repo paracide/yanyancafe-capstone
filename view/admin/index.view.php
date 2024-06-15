@@ -3,63 +3,67 @@
 require_once __DIR__ . '/components/Header.php';
 ?>
 
-<main class="main">
-  <section class="stats shadow w-full">
+<main>
+  <section class="w-full">
+    <h1 class="text-4xl"><?= esc($title) ?></h1>
+    <div class="stats w-full">
+      <!--menu-->
 
-    <div class="stat place-items-center">
-      <div class="stat-title">Menu</div>
-      <div class="stat-value"><?= $menu['total'] ?></div>
-      <div class="stat-desc flex gap-4">
-          <?php
-          foreach ($menu['menu_cat'] as $cat) : ?>
-            <div>
-              <span><?= esc($cat['cat_name']) ?>:</span>
-                <?= esc($cat['menu_count']) ?>
-            </div>
-          <?php
-          endforeach; ?>
+      <div class="stat place-items-center">
+        <div class="stat-title">Menu</div>
+        <div class="stat-value"><?= $menu['total'] ?></div>
+        <div class="stat-desc flex gap-4">
+            <?php
+            foreach ($menu['menu_cat'] as $cat) : ?>
+              <div>
+                <span><?= esc($cat['cat_name']) ?>:</span>
+                  <?= esc($cat['menu_count']) ?>
+              </div>
+            <?php
+            endforeach; ?>
+        </div>
       </div>
-    </div>
-
-    <div class="stat place-items-center">
-      <div class="stat-title">Users</div>
-      <div class="stat-value text-secondary"><?= $user['total'] ?></div>
-      <div class="stat-desc text-secondary">
-        Latest: <?= esc(
-            $user['stat']['first_name'] . $user['stat']['last_name']
-          ) ?>
+      <!--user-->
+      <div class="stat place-items-center ">
+        <div class="stat-title text-secondary">Users</div>
+        <div class="stat-value text-secondary"><?= $user['total'] ?></div>
+        <div class="stat-desc text-secondary">
+          Latest: <?= esc(
+              $user['stat']['first_name'] . $user['stat']['last_name']
+            ) ?>
+        </div>
+        <div class="stat-desc text-secondary">
+            <?= esc($user['stat']['created_at']) ?>
+        </div>
       </div>
-      <div class="stat-desc text-secondary">
-          <?= esc($user['stat']['created_at']) ?>
+      <!--Order-->
+      <div class="stat place-items-center ">
+        <div class="stat-title text-accent">Orders</div>
+        <div class="stat-value text-accent"><?= $orders['total'] ?></div>
+        <div class="stat-desc flex gap-4 text-accent">
+            <?php
+            foreach ($orders['stat'] as $k => $v) : ?>
+              <div>
+                <span><?= ucfirst(esc($k)) ?>:</span>
+                $<?= esc($v) ?>
+              </div>
+            <?php
+            endforeach; ?>
+
+        </div>
       </div>
-    </div>
-
-    <div class="stat place-items-center">
-      <div class="stat-title text-accent">Orders</div>
-      <div class="stat-value text-accent"><?= $orders['total'] ?></div>
-      <div class="stat-desc flex gap-4 text-accent">
-          <?php
-          foreach ($orders['stat'] as $k => $v) : ?>
-            <div>
-              <span><?= ucfirst(esc($k)) ?>:</span>
-              $<?= esc($v) ?>
-            </div>
-          <?php
-          endforeach; ?>
-
+      <!---Files-->
+      <div class="stat place-items-center">
+        <div class="stat-title text-success">Files</div>
+        <div class="stat-value text-success"><?= $file['total'] ?></div>
+        <div class="stat-desc text-success"><?= $file['size'] ?>MB Used</div>
       </div>
-    </div>
-
-    <div class="stat place-items-center text-success">
-      <div class="stat-title">Files</div>
-      <div class="stat-value"><?= $file['total'] ?></div>
-      <div class="stat-desc"><?= $file['size'] ?>MB Used</div>
     </div>
   </section>
-  <section class="log  shadow-lg rounded-lg p-4">
-    <h2 class="text-xl font-bold mb-4">Log</h2>
-    <div class="log-entries space-y-2">
-      <table class="table ">
+  <section class="w-full">
+    <h2 class="text-3xl font-bold mb-4">Recent 20 Logs</h2>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
         <thead>
           <tr>
             <th>#</th>
@@ -72,7 +76,7 @@ require_once __DIR__ . '/components/Header.php';
             $index
               = 1;
             foreach ($last10 as $item): ?>
-              <tr class="bg-gray-100">
+              <tr>
                 <td><?= $index ?></td>
                 <td><?= $item['created_at'] ?></td>
                 <td><?= $item['event'] ?></td>

@@ -33,14 +33,17 @@
   <body>
     <!--Toast-->
     <header>
-      <nav class="navbar bg-primary h-16 w-full fixed top-0 z-50">
+      <nav
+        class="navbar bg-primary h-16 w-full fixed top-0 z-50">
         <div class="navbar-start">
-          <span class="text-xl">Dashboard</span>
+          <a class="text-xl" href="/admin"><?= esc(
+                SITE_NAME
+              ) ?></a>
         </div>
         <div class="navbar-center flex gap-16 text-xl">
             <?php
             $links = [
-              'index'  => 'Home',
+              'index'  => 'Dashboard',
               'menu'   => 'Menu',
               'user'   => 'User',
               'orders' => 'Orders',

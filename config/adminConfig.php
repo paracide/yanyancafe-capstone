@@ -31,7 +31,7 @@ unset($_SESSION[Constant::SESSION_FLASH]);
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/credentials.php';
 
-const SITE_NAME = 'Yanyan Dashboard';
+const SITE_NAME = 'Yanyan Cafe Admin';
 
 //database config
 $conn = new PDO(DB_DSN, DB_USER, DB_PASSWORD);

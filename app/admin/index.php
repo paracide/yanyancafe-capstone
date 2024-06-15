@@ -28,7 +28,7 @@ $orders = [
 ];
 
 $props = [
-  'title'  => 'Home',
+  'title'  => 'Yanyan Cafe Dashboard',
   'last10' => $log,
   'menu'   => $menu,
   'user'   => $user,
