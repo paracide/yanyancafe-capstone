@@ -22,4 +22,6 @@ class Constant
     //save the target url for redirect after login
     public const SESSION_AUTH_REDIRECT_URI = 'auth_redirect_uri';
 
+    public const MENU_FORM_FILE = 'picture';
+
 }

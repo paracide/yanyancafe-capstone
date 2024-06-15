@@ -17,9 +17,6 @@ $roleMap = [
       <h1 class="text-2xl">
           <?= esc($title) ?>
       </h1>
-      <span class="text-sm opacity-50">
-          We're sorry, this page is currently under construction. Please check back later!
-        </span>
     </section>
     <section class="w-full flex-1">
       <div class="overflow-x-auto">

@@ -4,6 +4,7 @@ namespace App\admin\api;
 
 global
 $menuRepo, $fileRepo, $conn;
+use App\constant\Constant;
 use App\constant\HttpStatus;
 use App\service\impl\FileSvr;
 use App\tools\AdminRouter;
@@ -70,7 +71,7 @@ $menuData  = [
 
 try {
     $conn->beginTransaction();
-    $img = $_FILES[IMG_FILE_NAME];
+    $img = $_FILES[Constant::MENU_FORM_FILE];
     if ($img['size']) {
         $menuData['img_file_id'] = FileSvr::saveMenuFile($img);
     }
