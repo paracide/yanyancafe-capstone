@@ -5,10 +5,9 @@ require_once __DIR__ . '/components/Header.php';
 
 <main>
   <section class="w-full">
-    <h1 class="text-4xl"><?= esc($title) ?></h1>
+    <h1 class="text-2xl"><?= esc($title) ?></h1>
     <div class="stats w-full">
       <!--menu-->
-
       <div class="stat place-items-center">
         <div class="stat-title">Menu</div>
         <div class="stat-value"><?= $menu['total'] ?></div>
@@ -63,7 +62,7 @@ require_once __DIR__ . '/components/Header.php';
   <section class="w-full">
     <h2 class="text-3xl font-bold mb-4">Recent 20 Logs</h2>
     <div class="overflow-x-auto">
-      <table class="table w-full">
+      <table class="table w-full table-zebra">
         <thead>
           <tr>
             <th>#</th>
@@ -85,6 +84,13 @@ require_once __DIR__ . '/components/Header.php';
                 $index++;
             endforeach; ?>
         </tbody>
+        <tfoot>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Event</th>
+          </tr>
+        </tfoot>
       </table>
 
     </div>

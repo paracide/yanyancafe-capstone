@@ -14,11 +14,16 @@ $roleMap = [
 <main class="flex flex-col gap-4">
   <div class="page flex flex-col gap-4">
     <section class="w-full flex justify-between items-center">
-      <h1 class="text-2xl"><?= esc($title) ?></h1>
+      <h1 class="text-2xl">
+          <?= esc($title) ?>
+      </h1>
+      <span class="text-sm opacity-50">
+          We're sorry, this page is currently under construction. Please check back later!
+        </span>
     </section>
     <section class="w-full flex-1">
       <div class="overflow-x-auto">
-        <table class="table w-full">
+        <table class="table w-full table-zebra">
           <!-- head -->
           <thead>
             <tr>

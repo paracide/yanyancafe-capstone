@@ -8,7 +8,7 @@ use App\tools\AdminRouter;
 $orders = $ordersRepo->searchAll();
 
 $props = [
-  'title'  => 'User Management',
+  'title'  => 'Order Management',
   'orders' => $orders,
 ];
 AdminRouter::view('orders', $props);

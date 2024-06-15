@@ -5,6 +5,7 @@ require_once __DIR__ . '/components/Header.php';
 
 <main class="flex flex-col gap-4">
   <div class="page flex flex-col gap-4">
+    <!--header-->
     <section class="w-full flex justify-between items-center">
       <h1 class="text-2xl"><?= esc($title) ?></h1>
       <div class="flex gap-3">
@@ -14,18 +15,18 @@ require_once __DIR__ . '/components/Header.php';
           <?php
           if ($key): ?>
             <button onclick="window.location='/admin?p=menu'"
-                    class="btn btn-secondary">All menu
+                    class="btn btn-secondary">All Menus
             </button>
           <?php
           endif; ?>
-        <button class="btn btn-primary"
-                onclick="window.location='/admin?p=menu_add'">Add Menu
+        <button class="btn btn-accent"
+                onclick="window.location='/admin?p=menu_add'">New
         </button>
       </div>
     </section>
     <section class="w-full">
       <div class="overflow-x-auto">
-        <table class="table w-full">
+        <table class="table w-full table-zebra">
           <!-- head -->
           <thead>
             <tr>
@@ -85,23 +86,23 @@ require_once __DIR__ . '/components/Header.php';
                   <td>
                       <?php
                       if ($menu['availability']): ?>
-                        <div class="badge badge-outline badge-primary	">In
+                        <div class="badge badge-outline badge-info	">In
                           Stock
                         </div>
                       <?php
                       else: ?>
-                        <div class="badge badge-error	">Out of Stock</div>
+                        <div class="badge badge-outline badge-error	">Out of Stock</div>
                       <?php
                       endif; ?>
                   </td>
                   <td>
                       <?php
                       if ($menu['is_take_away']): ?>
-                        <div class="badge badge-outline badge-primary">Takeaway
+                        <div class="badge badge-outline badge-info">Takeaway
                         </div>
                       <?php
                       else: ?>
-                        <div class="badge badge-error	">Din-In Only</div>
+                        <div class="badge badge-outline badge-error	">Din-In Only</div>
                       <?php
                       endif; ?>
                   </td>
@@ -124,7 +125,7 @@ require_once __DIR__ . '/components/Header.php';
                           <input hidden type="text" name="menu_id"
                                  value="<?= esc($menu['id']) ?>">
                           <button
-                            class="del-menu-button flex-1 btn btn-error w-full">
+                            class="del-menu-button flex-1 btn btn-warning w-full">
                             DEL
                           </button>
                         </form>
