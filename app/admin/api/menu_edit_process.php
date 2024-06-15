@@ -5,7 +5,7 @@ namespace App\admin\api;
 global
 $menuRepo, $fileRepo, $conn;
 use App\constant\HttpStatus;
-use App\interface\service\FileService;
+use App\service\impl\FileSvr;
 use App\tools\AdminRouter;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
@@ -72,7 +72,7 @@ try {
     $conn->beginTransaction();
     $img = $_FILES[IMG_FILE_NAME];
     if ($img['size']) {
-        $menuData['img_file_id'] = FileService::saveMenuFile($img);
+        $menuData['img_file_id'] = FileSvr::saveMenuFile($img);
     }
     $menuRepo->update($menuData);
     $conn->commit();

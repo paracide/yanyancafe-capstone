@@ -1,8 +1,8 @@
 <?php
 
-namespace App\interface\service;
+namespace App\service\impl;
 
-class FileService
+class FileSvr
 {
 
     /**

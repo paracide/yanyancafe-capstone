@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 use App\constant\Constant;
 use App\constant\LoggerType;
-use App\interface\service\DatabaseLogger;
-use App\interface\service\FileLogger;
-use App\model\AddressRepo;
-use App\model\CategoryRepo;
-use App\model\FileRepo;
-use App\model\MenuRepo;
-use App\model\ModelRepo;
-use App\model\OrderDetailRepo;
-use App\model\OrdersRepo;
-use App\model\OverviewRepo;
-use App\model\UserRepo;
+use App\service\impl\DbLogSvr;
+use App\service\impl\FileLogSvr;
+use App\repo\AddressRepo;
+use App\repo\CategoryRepo;
+use App\repo\FileRepo;
+use App\repo\MenuRepo;
+use App\repo\ModelRepo;
+use App\repo\OrderDetailRepo;
+use App\repo\OrdersRepo;
+use App\repo\OverviewRepo;
+use App\repo\UserRepo;
 
 session_start();
 ob_start();
@@ -46,11 +46,11 @@ const LOGGER_TYPE = LoggerType::database;
 //initiate the logger according to the logger type
 if (LOGGER_TYPE === LoggerType::file) {
     $resource = fopen(__DIR__ . '/../logs/event.log', 'a');
-    FileLogger::init($resource);
-    $logger = FileLogger::getInstance();
+    FileLogSvr::init($resource);
+    $logger = FileLogSvr::getInstance();
 } elseif (LOGGER_TYPE === LoggerType::database) {
-    DatabaseLogger::init($conn);
-    $logger = DatabaseLogger::getInstance();
+    DbLogSvr::init($conn);
+    $logger = DbLogSvr::getInstance();
 }
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\model;
+namespace App\repo;
 
 use App\tools\Preconditions;
 

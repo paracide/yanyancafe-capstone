@@ -1,15 +1,15 @@
 <?php
 
-namespace App\interface\service;
+namespace App\service\impl;
 
-use App\interface\ILogger;
+use App\service\ILogger;
 
-class FileLogger implements ILogger
+class FileLogSvr implements ILogger
 {
 
     private static $resource;
 
-    private static ?FileLogger $instance = null;
+    private static ?FileLogSvr $instance = null;
 
     /**
      * For singleton pattern, the constructor is private to avoid new instance
@@ -19,10 +19,10 @@ class FileLogger implements ILogger
     /**
      * Singleton pattern for make the service instance globally
      */
-    public static function getInstance(): FileLogger
+    public static function getInstance(): FileLogSvr
     {
         if (self::$instance === null) {
-            self::$instance = new FileLogger();
+            self::$instance = new FileLogSvr();
         }
 
         return self::$instance;

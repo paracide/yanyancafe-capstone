@@ -1,9 +1,9 @@
 <?php
 
-namespace App\model;
+namespace App\repo;
 
-use App\interface\ISingleton;
-use App\interface\service\FileService;
+use App\service\ISingleton;
+use App\service\impl\FileSvr;
 use App\tools\AdminRouter;
 use App\tools\Preconditions;
 
@@ -108,7 +108,7 @@ class MenuRepo extends ModelRepo implements ISingleton
         global $fileRepo;
         try {
             parent::$conn->beginTransaction();
-            $array['img_file_id'] = FileService::saveMenuFile($file);
+            $array['img_file_id'] = FileSvr::saveMenuFile($file);
             $this->add($array);
             parent::$conn->commit();
         } catch (\Exception $e) {

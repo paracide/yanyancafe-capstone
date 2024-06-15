@@ -1,8 +1,8 @@
 <?php
 
-namespace App\model;
+namespace App\repo;
 
-use App\interface\ISingleton;
+use App\service\ISingleton;
 use App\tools\Preconditions;
 
 /**

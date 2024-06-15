@@ -1,9 +1,9 @@
 <?php
 
-namespace App\model;
+namespace App\repo;
 
-use App\interface\ISingleton;
-use App\interface\service\CartService;
+use App\service\ISingleton;
+use App\service\impl\CartSvr;
 use App\tools\Auth;
 use App\tools\Router;
 
@@ -56,7 +56,7 @@ class OrdersRepo extends ModelRepo implements ISingleton
 
             $orderId = $this->addOrder(
               Auth::getUserId(),
-              CartService::getSubTotalPrice($cart),
+              CartSvr::getSubTotalPrice($cart),
               $cardNo
             );
 

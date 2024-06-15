@@ -2,7 +2,7 @@
 
 namespace App\controller\api;
 
-use App\interface\service\CartService;
+use App\service\impl\CartSvr;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
 use App\tools\Router;
@@ -13,7 +13,7 @@ use App\tools\Router;
  */
 Preconditions::checkPostRequest();
 $menuId = $_POST['menuId'];
-CartService::delFood($menuId);
+CartSvr::delFood($menuId);
 
 FlashUtils::success("Delete successfully");
 Router::success(Router::cart);

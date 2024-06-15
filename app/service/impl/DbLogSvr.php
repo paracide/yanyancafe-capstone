@@ -1,16 +1,16 @@
 <?php
 
-namespace App\interface\service;
+namespace App\service\impl;
 
-use App\interface\ILogger;
+use App\service\ILogger;
 use PDO;
 
-class DatabaseLogger implements ILogger
+class DbLogSvr implements ILogger
 {
 
     private static PDO $conn;
 
-    private static ?DatabaseLogger $instance = null;
+    private static ?DbLogSvr $instance = null;
 
     /**
      * For singleton pattern, the constructor is private to avoid new instance
@@ -25,10 +25,10 @@ class DatabaseLogger implements ILogger
     /**
      * Singleton pattern for make the service instance globally
      */
-    public static function getInstance(): DatabaseLogger
+    public static function getInstance(): DbLogSvr
     {
         if (self::$instance === null) {
-            self::$instance = new DatabaseLogger();
+            self::$instance = new DbLogSvr();
         }
 
         return self::$instance;
