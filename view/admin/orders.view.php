@@ -17,7 +17,7 @@ require_once __DIR__ . '/components/Header.php';
       <div class="overflow-x-auto">
         <table class="table w-full table-zebra">
           <thead>
-            <tr>
+            <tr class="text-primary">
               <th class="text-center">Order Id</th>
               <th>User Email</th>
               <th>User Name</th>
@@ -51,7 +51,7 @@ require_once __DIR__ . '/components/Header.php';
               endforeach; ?>
           </tbody>
           <tfoot>
-            <tr>
+            <tr class="text-primary">
               <th class="text-center">Order Id</th>
               <th>User Email</th>
               <th>User Name</th>

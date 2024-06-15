@@ -29,7 +29,7 @@ require_once __DIR__ . '/components/Header.php';
         <table class="table w-full table-zebra">
           <!-- head -->
           <thead>
-            <tr>
+            <tr class="text-primary">
               <th class="text-center"> Id</th>
               <th>Item</th>
               <th>Price</th>
@@ -139,7 +139,7 @@ require_once __DIR__ . '/components/Header.php';
           </tbody>
           <!-- foot -->
           <tfoot>
-            <tr>
+            <tr class="text-primary">
               <th class="text-center">Id</th>
               <th>Item</th>
               <th>Price</th>

@@ -26,7 +26,7 @@ $roleMap = [
         <table class="table w-full table-zebra">
           <!-- head -->
           <thead>
-            <tr>
+            <tr class="text-primary">
               <th class="text-center">Id</th>
               <th>Email</th>
               <th>First Name</th>
@@ -56,7 +56,7 @@ $roleMap = [
           </tbody>
           <!-- foot -->
           <tfoot>
-            <tr>
+            <tr class="text-primary">
               <th class="text-center">Id</th>
               <th>Email</th>
               <th>First Name</th>
