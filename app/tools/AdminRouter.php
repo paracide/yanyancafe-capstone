@@ -37,7 +37,7 @@ enum AdminRouter
         global $logger;
         extract($data);
         logEvent($logger, LogUtils::event200());
-        require_once __DIR__ . '/../../view-admin/' . $view
+        require_once __DIR__ . '/../../view/admin/' . $view
                      . '.view.php';
     }
 
