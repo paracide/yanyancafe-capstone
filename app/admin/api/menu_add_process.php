@@ -12,26 +12,14 @@ use App\tools\Preconditions;
 
 Preconditions::checkPostRequest();
 AdminRouter::checkFormError(
-  MenuSvr::validateModifyForm(),
+  MenuSvr::validateModifyForm(true),
   AdminRouter::menu_add
 );
 
 //prepare data
-$available = ($_POST['availability'] ?? '') === 'on' ? 1 : 0;
-$takeaway  = ($_POST['is_take_away'] ?? '') === 'on' ? 1 : 0;
-$arr       = [
-  'name'          => $_POST['name'],
-  'description'   => trim($_POST['description'] ?? ''),
-  'category_id'   => $_POST['category_id'],
-  'price'         => $_POST['price'],
-  'size'          => $_POST['size'],
-  'discount'      => $_POST['discount'],
-  'calorie_count' => $_POST['calorie_count'],
-  'availability'  => $available,
-  'is_take_away'  => $takeaway,
-];
+$data = MenuSvr::prepareData();
 
-$menuRepo->newMenu($arr, $_FILES[Constant::MENU_FORM_FILE]);
+$menuRepo->newMenu($data, $_FILES[Constant::MENU_FORM_FILE]);
 FlashUtils::success("Menu added successfully");
 AdminRouter::success(AdminRouter::menu);
 

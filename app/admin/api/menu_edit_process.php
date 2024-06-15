@@ -5,69 +5,23 @@ namespace App\admin\api;
 global
 $menuRepo, $fileRepo, $conn;
 use App\constant\Constant;
-use App\constant\HttpStatus;
 use App\service\impl\FileSvr;
+use App\service\impl\MenuSvr;
 use App\tools\AdminRouter;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
-use App\tools\Validator;
 
 const IMG_FILE_NAME = 'picture';
 
 Preconditions::checkPostRequest();
 $menuId = $_POST['id'];
 Preconditions::checkEmpty($menuRepo->getById($menuId));
-
-//validate
-$require       = [
-  "name",
-  "description",
-  "category_id",
-  "price",
-  "size",
-  "discount",
-  "calorie_count",
-];
-$price         = $_POST['price'];
-$size          = $_POST['size'];
-$discount      = $_POST['discount'];
-$calorie_count = $_POST['calorie_count'];
-$validator     = new Validator();
-$validator->checkRequired($require, $_POST);
-$validator->checkNum($price, "price", 1, 9999);
-$validator->checkNum($discount, "discount", 0, 99);
-$validator->checkNum($calorie_count, "$calorie_count", 0, 99999);
-
-//error go back to register
-$errors = $validator->getError();
-
-if (count($errors)) {
-    $resultError        = array_map(function ($msg) {
-        return implode(" ", $msg);
-    }, $errors);
-    $_SESSION['errors'] = $resultError;
-    $_SESSION['post']   = $_POST;
-    AdminRouter::fail(
-      AdminRouter::menu_add,
-      HttpStatus::INTERNAL_SERVER_ERROR,
-      "&menu_id=$menuId"
-    );
-}
-//prepare data
-$available = ($_POST['availability'] ?? '') === 'on' ? 1 : 0;
-$takeaway  = ($_POST['is_take_away'] ?? '') === 'on' ? 1 : 0;
-$menuData  = [
-  "id"            => $menuId,
-  'name'          => $_POST['name'],
-  'description'   => $_POST['description'],
-  'category_id'   => $_POST['category_id'],
-  'price'         => $price,
-  'size'          => $size,
-  'discount'      => $discount,
-  'calorie_count' => $calorie_count,
-  'availability'  => $available,
-  'is_take_away'  => $takeaway,
-];
+AdminRouter::checkFormError(
+  MenuSvr::validateModifyForm(),
+  AdminRouter::menu_add,
+  "&menu_id=$menuId"
+);
+$menuData = MenuSvr::prepareData();
 
 try {
     $conn->beginTransaction();

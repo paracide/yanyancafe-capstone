@@ -87,15 +87,18 @@ enum AdminRouter
         self::redirect($router, $status, $paramsString);
     }
 
-    public static function checkFormError(array $errors, AdminRouter $router)
-    {
+    public static function checkFormError(
+      array $errors,
+      AdminRouter $router,
+      ?string $param = null
+    ): void {
         if (count($errors)) {
             $resultError        = array_map(function ($msg) {
                 return implode(" ", $msg);
             }, $errors);
             $_SESSION['errors'] = $resultError;
             $_SESSION['post']   = $_POST;
-            AdminRouter::fail($router);
+            AdminRouter::fail($router, $param);
         }
     }
 
