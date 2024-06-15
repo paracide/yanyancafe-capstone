@@ -93,21 +93,21 @@ administrative operations, including user interactions, order processing, and ad
 
 ### Conceptual
 
-![](./images/Conceptual-ERD.webp)
+![](images/Conceptual-ERD.webp)
 
 ### Physical
 
-![](./images/Physical-ERD.webp)
+![](images/Physical-ERD.webp)
 
 ## Sitemaps
 
 ### Frontend
 
-![](./sitemaps/frontend.jpg)
+![](sitemaps/frontend.jpg)
 
 ### Backend
 
-![](./sitemaps/Backend.jpg)
+![](sitemaps/Backend.jpg)
 
 ## Security
 
@@ -136,16 +136,16 @@ administrative operations, including user interactions, order processing, and ad
 
 ### Register Page
 
-![](./comps/comp1.png)
+![](comps/comp1.png)
 
 ### Login Page
 
-![](./comps/comp2.png)
+![](comps/comp2.png)
 
 ### Profile Page
 
-![](./comps/comp3.png)
+![](comps/comp3.png)
 
 ### Admin Log Page
 
-![](./comps/comp4.png)
+![](comps/comp4.png)
