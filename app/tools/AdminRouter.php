@@ -90,7 +90,10 @@ enum AdminRouter
       ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR,
       ?string $paramsString = ''
     ): void {
-        dd($_SERVER);
+        var_dump($_SERVER);
+        var_dump($_REQUEST);
+        var_dump($_POST);
+        var_dump($_GET);
         self::redirect($router, $status, $paramsString);
     }
 
