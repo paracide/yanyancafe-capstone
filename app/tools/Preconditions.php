@@ -41,8 +41,8 @@ class Preconditions
 
     public static function checkAdminPostRequest(): void
     {
+
         if ('POST' !== $_SERVER['REQUEST_METHOD']) {
-            var_dump($_SERVER);
             AdminRouter::errorPage();
         }
     }
