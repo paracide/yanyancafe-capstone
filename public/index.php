@@ -31,7 +31,7 @@ if (empty($page)) {
         include __DIR__ . '/../app/controller/' . $page . '.php';
     }
 } else {
-    Router::errorPage(null);
+    Router::errorPage();
 }
 
 

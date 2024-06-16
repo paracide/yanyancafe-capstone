@@ -2,7 +2,6 @@
 
 namespace App\controller\api;
 
-global $menuRepo;
 use App\service\impl\CartSvr;
 use App\tools\Preconditions;
 

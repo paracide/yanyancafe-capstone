@@ -87,7 +87,7 @@ class OverviewRepo extends Repo implements ISingleton
 
         $size = $stmt->fetch();
 
-        return $size ? number_format($size['size'] / (1024 * 1024), 0) : 0;
+        return $size ? number_format($size['size'] / (1024 * 1024)) : 0;
     }
 
     /**

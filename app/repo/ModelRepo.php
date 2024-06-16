@@ -3,6 +3,7 @@
 namespace App\repo;
 
 use App\tools\Preconditions;
+use PDO;
 
 /**
  * Model repository which need get all data, get data by id, and count data
@@ -23,7 +24,7 @@ abstract class ModelRepo extends Repo
      */
     public function getAll(?bool $isDel = false): array
     {
-        $query = "SELECT * FROM {$this->table}";
+        $query = "SELECT * FROM $this->table";
         if ($isDel !== null) {
             $query .= $isDel ? " WHERE is_del = 1" : " WHERE is_del = 0";
         }
@@ -47,12 +48,12 @@ abstract class ModelRepo extends Repo
     {
         Preconditions::checkEmpty($id);
         $query
-          = "SELECT * FROM {$this->table} WHERE {$this->key} = :id";
+          = "SELECT * FROM $this->table WHERE $this->key = :id";
         if ($isDel !== null) {
             $query .= $isDel ? " and is_del = 1" : " and is_del = 0";
         }
         $stmt = self::$conn->prepare($query);
-        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
 
         return $stmt->fetch();
@@ -61,7 +62,7 @@ abstract class ModelRepo extends Repo
     public function count(?bool $isDel = false)
     {
         $query
-          = "SELECT count(1) count FROM {$this->table} ";
+          = "SELECT count(1) count FROM $this->table ";
         if ($isDel !== null) {
             $query .= $isDel ? " where is_del = 1" : " where is_del = 0";
         }

@@ -12,7 +12,6 @@ $allowed = array_map(fn($router) => $router->name, AdminRouter::cases());
 
 $adminPage = $_REQUEST['p'] ?? '';
 Auth::checkLoggedIn();
-
 Auth::checkAdmin();
 $adminPath = __DIR__ . '/../../app/admin/';
 
@@ -25,7 +24,7 @@ if (empty($adminPage)) {
         include "$adminPath/$adminPage.php";
     }
 } else {
-    AdminRouter::errorPage(null);
+    AdminRouter::errorPage();
 }
 
 

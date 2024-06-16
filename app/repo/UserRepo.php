@@ -129,7 +129,7 @@ class UserRepo extends ModelRepo implements ISingleton
         $stmt->execute($param);
         $result = $stmt->fetch();
 
-        return $result ? $result : [];
+        return $result ?? [];
     }
 
     /**
@@ -155,7 +155,7 @@ class UserRepo extends ModelRepo implements ISingleton
         $stmt->execute($param);
         $result = $stmt->fetch();
 
-        return $result ? $result : [];
+        return $result ?? [];
     }
 
 }

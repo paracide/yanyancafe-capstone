@@ -14,13 +14,13 @@ require_once __DIR__ . '/components/Header.php';
                class="input input-bordered w-full"/>
           <?php
           if ($key): ?>
-            <button onclick="window.location='/admin?p=menu'"
+            <button onclick="window.location='/admin/?p=menu'"
                     class="btn btn-secondary">All Menus
             </button>
           <?php
           endif; ?>
         <button class="btn btn-accent"
-                onclick="window.location='/admin?p=menu_add'">New
+                onclick="window.location='/admin/?p=menu_add'">New
         </button>
       </div>
     </section>
@@ -113,14 +113,14 @@ require_once __DIR__ . '/components/Header.php';
                     <div class="flex gap-3">
                       <div class="flex-1">
                         <button
-                          onclick="window.location='/admin?p=menu_edit&menu_id=<?= esc(
+                          onclick="window.location='/admin/?p=menu_edit&menu_id=<?= esc(
                             $menu['id']
                           ) ?>'"
                           class="btn btn-primary w-full">EDIT
                         </button>
                       </div>
                       <div class="flex-1">
-                        <form action="/admin?p=menu_del_process"
+                        <form action="/admin/?p=menu_del_process"
                               method="post">
                           <input hidden type="text" name="menu_id"
                                  value="<?= esc($menu['id']) ?>">
@@ -166,7 +166,7 @@ require_once __DIR__ . '/components/Header.php';
       if (event.key === 'Enter') {
         event.preventDefault();
         const searchKey = $('#searchKey').val();
-        window.location.href = `/admin?p=menu&key=` + encodeURIComponent(searchKey);
+        window.location.href = `/admin/?p=menu&key=` + encodeURIComponent(searchKey);
       }
     });
 

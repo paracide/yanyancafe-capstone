@@ -13,7 +13,7 @@ require_once __DIR__ . '/components/Header.php';
       <form id="menu-form" method="POST" enctype="multipart/form-data"
             novalidate
             class="flex flex-col flex-1 w-full gap-4"
-            action="/admin?p=menu_add_process">
+            action="/admin/?p=menu_add_process">
         <div class="grid grid-cols-2 gap-4 place-items-center	">
           <!-- Name -->
           <div class="max-w-lg w-full">
@@ -145,7 +145,7 @@ require_once __DIR__ . '/components/Header.php';
               <textarea class="textarea textarea-bordered w-full flex-1"
                         name="description"
                         placeholder="Description"><?= esc(
-                    $menu['description'] ?? ''
+                    $post['description'] ?? ''
                   ) ?></textarea>
             </div>
             <span class=" text-sm text-red-600 inline-block w-full"><?= esc(

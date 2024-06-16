@@ -80,14 +80,14 @@ enum Router
      * @return void
      */
     public static function errorPage(
-      ?Exception $e,
+      ?Exception $e = null,
       ?HttpStatus $httpStatus = HttpStatus::INTERNAL_SERVER_ERROR
     ): void {
         global $logger;
         if ( ! empty($e)) {
             error_log($e->getMessage());
         }
-        self::success(self::error, $httpStatus);
+        self::fail(self::error, $httpStatus);
     }
 
     public static function success(

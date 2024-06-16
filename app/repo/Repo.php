@@ -2,10 +2,12 @@
 
 namespace App\repo;
 
+use PDO;
+
 abstract class Repo
 {
 
-    protected static \PDO $conn;
+    protected static PDO $conn;
 
     /**
      * init connection globally
@@ -14,7 +16,7 @@ abstract class Repo
      *
      * @return void
      */
-    public static function init(\PDO $conn): void
+    public static function init(PDO $conn): void
     {
         self::$conn = $conn;
     }

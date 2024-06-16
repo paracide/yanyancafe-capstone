@@ -6,13 +6,14 @@ global $menuRepo;
 use App\tools\AdminRouter;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
+use Exception;
 
-Preconditions::checkPostRequest();
+Preconditions::checkAdminPostRequest();
 
 $menuId = $_POST['menu_id'];
 try {
     $menuRepo->deleteById($menuId);
-} catch (\Exception $e) {
+} catch (Exception $e) {
     FlashUtils::error("Failed to Delete Menu");
     AdminRouter::errorPage($e);
 }

@@ -32,8 +32,6 @@ enum AdminRouter
      */
     public static function view(string $view, array $data): void
     {
-        global $post;
-        global $errors;
         global $logger;
         extract($data);
         logEvent($logger, LogUtils::getSuccessLog());
@@ -56,7 +54,7 @@ enum AdminRouter
         global $logger;
         logEvent($logger, LogUtils::getLog($status));
         http_response_code($status->value);
-        header("Location:/admin?p=$router->name$paramsString");
+        header("Location:/admin/?p=$router->name$paramsString");
         die();
     }
 
@@ -69,10 +67,9 @@ enum AdminRouter
      * @return void
      */
     public static function errorPage(
-      ?Exception $e,
+      ?Exception $e = null,
       ?HttpStatus $httpStatus = HttpStatus::INTERNAL_SERVER_ERROR
     ): void {
-        global $logger;
         if ( ! empty($e)) {
             error_log($e->getMessage());
         }
