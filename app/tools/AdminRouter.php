@@ -54,7 +54,7 @@ enum AdminRouter
         global $logger;
         logEvent($logger, LogUtils::getLog($status));
         http_response_code($status->value);
-        header("Location:/admin?p=$router->name$paramsString");
+        header("Location:/admin/?p=$router->name$paramsString");
         die();
     }
 
@@ -90,11 +90,6 @@ enum AdminRouter
       ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR,
       ?string $paramsString = ''
     ): void {
-        var_dump($_SERVER);
-        var_dump($_REQUEST);
-        var_dump($_POST);
-        var_dump($_GET);
-        die();
         self::redirect($router, $status, $paramsString);
     }
 
