@@ -47,15 +47,8 @@ enum Router
         global $errors;
         global $logger;
         extract($data);
-        logEvent($logger, LogUtils::event200());
+        logEvent($logger, LogUtils::getSuccessLog());
         require_once __DIR__ . '/../../view/' . $view . '.view.php';
-    }
-
-    public static function success(
-      Router $router,
-      ?string $paramsString = ''
-    ): void {
-        self::redirect($router, HttpStatus::SUCCESS, $paramsString);
     }
 
     public static function fail(
@@ -72,7 +65,7 @@ enum Router
       ?string $paramsString = ''
     ): void {
         global $logger;
-        logEvent($logger, LogUtils::getEvent($status));
+        logEvent($logger, LogUtils::getLog($status));
         http_response_code($status->value);
         header("Location:/?p=$router->name$paramsString");
         die();
@@ -95,6 +88,13 @@ enum Router
             error_log($e->getMessage());
         }
         self::success(self::error, $httpStatus);
+    }
+
+    public static function success(
+      Router $router,
+      ?string $paramsString = ''
+    ): void {
+        self::redirect($router, HttpStatus::SUCCESS, $paramsString);
     }
 
 }

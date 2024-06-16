@@ -13,7 +13,7 @@ $authenticated = [
   Router::checkout_process,
   Router::checkout,
   Router::orders,
-  Router::invoice
+  Router::invoice,
 ];
 $authenticated = array_map(fn($item) => $item->name, $authenticated);
 

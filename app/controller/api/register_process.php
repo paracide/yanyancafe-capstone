@@ -1,5 +1,7 @@
 <?php
 
+namespace App\controller\api;
+
 global $userRepo;
 use App\tools\Auth;
 use App\tools\FlashUtils;

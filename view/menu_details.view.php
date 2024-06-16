@@ -4,7 +4,7 @@ require_once __DIR__ . '/components/Header.php';
 
 ?>
 
-<div class="flex min-h-screen bg-gray-100 mt-16">
+<div class="flex flex-1 w-full rounded-xl bg-gray-100 mt-16">
     <?php
     require_once __DIR__ . '/components/MenuSidebar.php';
     ?>
@@ -34,18 +34,19 @@ require_once __DIR__ . '/components/Header.php';
         <div>
             <?php
             if ($menu['availability']): ?>
-              <div class="badge badge-outline badge-success">Available
+              <div class="badge badge-outline badge-success">In Stock
+
               </div>
             <?php
             else: ?>
-              <div class="badge badge-outline badge-error">Unavailable
+              <div class="badge badge-outline badge-error">Out of Stock
               </div>
             <?php
             endif; ?>
 
             <?php
             if ($menu['is_take_away']): ?>
-              <div class="badge badge-outline badge-info">Take Away
+              <div class="badge badge-outline badge-info">Takeaway
               </div>
             <?php
             endif; ?>

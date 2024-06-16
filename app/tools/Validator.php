@@ -154,10 +154,45 @@ class Validator
         }
     }
 
-    public function checkNum(string $v, string $field): void
+    /**
+     * check image, image should be in the format
+     *
+     * @param   string  $fileName  the file name in $_FILES, in other words,
+     *                             the file name form the form
+     *
+     * @return array image info
+     */
+    public function checkImg(string $fileName): array
     {
+        $imageInfo = Verifier::isImage($fileName);
+        if ( ! $imageInfo) {
+            $this->error[$fileName][] = "Image is required";
+        }
+
+        return $imageInfo;
+    }
+
+    /**
+     * check number, optional with min and max
+     * @param   string      $v
+     * @param   string      $field
+     * @param   float|null  $min
+     * @param   float|null  $max
+     *
+     * @return void
+     */
+    public function checkNum(
+      string $v,
+      string $field,
+      ?float $min = null,
+      ?float $max = null
+    ): void {
         if ( ! is_numeric($v)) {
             $this->error[$field][] = "Should be a number";
+        } elseif (isset($min) && $v < $min) {
+            $this->error[$field][] = "Should bigger than $min";
+        } elseif (isset($max) && $v > $max) {
+            $this->error[$field][] = "Should less than $max";
         }
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace App\controller\api;
+
 global $userRepo, $logger;
 use App\constant\Constant;
 use App\tools\Auth;

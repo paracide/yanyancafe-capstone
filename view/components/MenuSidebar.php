@@ -55,7 +55,7 @@ function renderSidebar($mainCat, $menuCat): void
 </aside>
 
 <script>
-  $(document).ready(function () {
+  $(() => {
     $('#searchKey').on('keypress', function (event) {
       if (event.key === 'Enter') {
         event.preventDefault();

@@ -1,15 +1,27 @@
+/**
+ * Show successful toast message and hide it after 2 seconds
+ * @param message
+ */
 function toastSuccess(message) {
   const toast = $('#toast-info');
   toast.find('span').text(message);
   toast.show().delay(2000).fadeOut();
 }
 
+/**
+ * Show failure toast message and hide it after 2 seconds
+ * @param message
+ */
 function toastFailure(message) {
   const toast = $('#toast-error');
   toast.find('span').text(message);
   toast.show().delay(2000).fadeOut();
 }
 
+/**
+ * send ajax request to add food to cart
+ * @param menuId
+ */
 function addToCart(menuId) {
   $.ajax({
     url: '/?p=cart_add_process',

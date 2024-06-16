@@ -1,6 +1,6 @@
 <?php
 
-use App\interface\ILogger;
+use App\service\ILogger;
 
 /**
  * esc all string data for output
@@ -29,8 +29,8 @@ function escHTML(string $str): string
 /**
  * log event ,support both file and database logger
  *
- * @param   \App\interface\ILogger  $logger
- * @param   string                  $event
+ * @param   \App\service\ILogger  $logger
+ * @param   string                $event
  *
  * @return void
  */

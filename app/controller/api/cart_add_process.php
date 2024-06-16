@@ -1,8 +1,9 @@
 <?php
 
+namespace App\controller\api;
 
 global $menuRepo;
-use App\interface\service\CartService;
+use App\service\impl\CartSvr;
 use App\tools\Preconditions;
 
 /**
@@ -15,7 +16,7 @@ Preconditions::checkPostRequest();
  * Add food to cart
  */
 $menuId = $_POST['menuId'];
-CartService::addFood($menuId);
+CartSvr::addFood($menuId);
 $response = [
   'success' => true,
 ];

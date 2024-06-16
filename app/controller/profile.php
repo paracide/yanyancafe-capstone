@@ -1,5 +1,7 @@
 <?php
 
+namespace App\controller;
+
 global $userRepo;
 
 use App\constant\Constant;

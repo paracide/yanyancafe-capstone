@@ -13,8 +13,7 @@ use App\tools\Auth;
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
-          rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/base.js"></script>
