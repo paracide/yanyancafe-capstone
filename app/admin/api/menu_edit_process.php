@@ -10,10 +10,11 @@ use App\service\impl\MenuSvr;
 use App\tools\AdminRouter;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
+use Exception;
 
 const IMG_FILE_NAME = 'picture';
 
-Preconditions::checkPostRequest();
+Preconditions::checkAdminPostRequest();
 $menuId = $_POST['id'];
 //check form error
 Preconditions::checkEmpty($menuRepo->getById($menuId));
@@ -35,7 +36,7 @@ try {
     }
     $menuRepo->update($menuData);
     $conn->commit();
-} catch (\Exception $e) {
+} catch (Exception $e) {
     $conn->rollBack();
     AdminRouter::errorPage($e);
 }

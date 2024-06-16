@@ -6,6 +6,7 @@ use App\service\impl\CartSvr;
 use App\service\ISingleton;
 use App\tools\Auth;
 use App\tools\Router;
+use PDO;
 
 class OrdersRepo extends ModelRepo implements ISingleton
 {
@@ -124,7 +125,7 @@ class OrdersRepo extends ModelRepo implements ISingleton
         $query = "SELECT * FROM orders WHERE user_id = :user_id AND is_del = 0";
         $stmt  = parent::$conn->prepare($query);
         // Bind the user_id parameter
-        $stmt->bindParam(':user_id', $userId, \PDO::PARAM_INT);
+        $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
         // Execute the query
         $stmt->execute();
 

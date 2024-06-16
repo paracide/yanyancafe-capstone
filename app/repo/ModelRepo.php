@@ -3,6 +3,7 @@
 namespace App\repo;
 
 use App\tools\Preconditions;
+use PDO;
 
 /**
  * Model repository which need get all data, get data by id, and count data
@@ -52,7 +53,7 @@ abstract class ModelRepo extends Repo
             $query .= $isDel ? " and is_del = 1" : " and is_del = 0";
         }
         $stmt = self::$conn->prepare($query);
-        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
 
         return $stmt->fetch();

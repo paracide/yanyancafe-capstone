@@ -10,7 +10,7 @@ use App\tools\AdminRouter;
 use App\tools\FlashUtils;
 use App\tools\Preconditions;
 
-Preconditions::checkPostRequest();
+Preconditions::checkAdminPostRequest();
 //check form error
 AdminRouter::checkFormError(
   MenuSvr::validateModifyForm(true),

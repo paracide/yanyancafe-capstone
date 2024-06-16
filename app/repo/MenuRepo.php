@@ -6,6 +6,8 @@ use App\service\impl\FileSvr;
 use App\service\ISingleton;
 use App\tools\AdminRouter;
 use App\tools\Preconditions;
+use Exception;
+use PDO;
 
 /**
  * Menu repository
@@ -80,7 +82,7 @@ class MenuRepo extends ModelRepo implements ISingleton
                 left join file f on menu.img_file_id = f.id
                 where menu.is_del = 0  and menu.id = :id";
         $stmt  = self::$conn->prepare($query);
-        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
 
         return $stmt->fetch();
@@ -99,7 +101,7 @@ class MenuRepo extends ModelRepo implements ISingleton
         Preconditions::checkEmpty($id);
         $query = "update menu set is_del = 1 where id = :id";
         $stmt  = self::$conn->prepare($query);
-        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
     }
 
@@ -122,7 +124,7 @@ class MenuRepo extends ModelRepo implements ISingleton
             $array['img_file_id'] = FileSvr::saveMenuFile($file);
             $this->add($array);
             parent::$conn->commit();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             parent::$conn->rollBack();
             AdminRouter::errorPage($e);
         }
