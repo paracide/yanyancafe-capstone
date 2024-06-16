@@ -13,7 +13,7 @@ require_once __DIR__ . '/components/Header.php';
       <form id="menu-form" method="POST" enctype="multipart/form-data"
             novalidate
             class="flex flex-col flex-1 w-full gap-4"
-            action="/admin?/p=menu_edit_process">
+            action="/admin/?p=menu_edit_process">
         <input type="text" name="id" value="<?= esc($menu['id']) ?>" hidden>
 
         <div class="grid grid-cols-2 gap-4 place-items-center	">

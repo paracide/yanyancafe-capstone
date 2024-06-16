@@ -50,7 +50,7 @@
             ]; ?>
             <?php
             foreach ($links as $link => $text): ?>
-              <a href="/admin?/p=<?= esc($link) ?>"
+              <a href="/admin/?p=<?= esc($link) ?>"
                  class="<?= ($link === ($_GET['p'] ?? '')) ? 'text-primary'
                    : '' ?>"
                  title="Yanyan Dashboard <?= esc($text) ?>"><?= esc(

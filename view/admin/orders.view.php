@@ -77,7 +77,7 @@ require_once __DIR__ . '/components/Header.php';
       if (event.key === 'Enter') {
         event.preventDefault();
         const searchKey = $('#searchKey').val();
-        window.location.href = `/admin?/p=menu&key=` + encodeURIComponent(searchKey);
+        window.location.href = `/admin/?p=menu&key=` + encodeURIComponent(searchKey);
       }
     });
   });
