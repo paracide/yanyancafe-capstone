@@ -214,7 +214,7 @@ use App\tools\Auth;
           if (isset($isHomePage) && $isHomePage): ?>
             <div class="intro">
               <h1 class="gradient-anime"><?= esc($title) ?></h1>
-              <p></p><?= esc($desc) ?></p>
+              <p><?= esc($desc) ?></p>
             </div>
           <?php
           endif; ?>

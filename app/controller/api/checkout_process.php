@@ -46,7 +46,7 @@ if ($orderId) {
 }
 
 /**
- * Redirect to checkout page when checkout failed
+ * Redirect to check out page when checkout failed
  *
  * @param   array  $error
  *

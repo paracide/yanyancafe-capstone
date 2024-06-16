@@ -175,13 +175,13 @@ class MenuRepo extends ModelRepo implements ISingleton
         // build query, only update the fields that are not empty
         foreach ($data as $key => $value) {
             if ($key !== 'id') {
-                $fields[] = "{$key} = :{$key}";
+                $fields[] = "$key = :$key";
                 if ($key === 'price') {
-                    $params[":{$key}"] = number_format($value, 2);
+                    $params[":$key"] = number_format($value, 2);
                 } elseif ($key === 'description') {
-                    $params[":{$key}"] = trim($value);
+                    $params[":$key"] = trim($value);
                 } else {
-                    $params[":{$key}"] = $value;
+                    $params[":$key"] = $value;
                 }
             }
         }

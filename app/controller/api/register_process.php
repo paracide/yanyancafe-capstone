@@ -8,6 +8,7 @@ use App\tools\FlashUtils;
 use App\tools\Preconditions;
 use App\tools\Router;
 use App\tools\Validator;
+use Exception;
 
 Preconditions::checkPostRequest();
 

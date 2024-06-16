@@ -39,7 +39,6 @@ class FileRepo extends ModelRepo implements ISingleton
     public function addByPath(string $path, string $relativePath): int
     {
         Preconditions::checkEmpty($path);
-        $img      = getimagesize($path);
         $fileSize = filesize($path);
         $fileInfo = pathinfo($path);
         $params   = [

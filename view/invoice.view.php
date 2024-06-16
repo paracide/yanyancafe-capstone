@@ -16,7 +16,6 @@ require_once __DIR__ . '/components/Header.php';
         <p>R3G 1H1</p>
         <p>1-800-434-9900</p>
         <p><a href="paracidex@gmail.com">paracidex@gmail.com</a></p>
-        </p>
       </div>
       <!--User Info-->
       <div class="m-card shadow-xl">

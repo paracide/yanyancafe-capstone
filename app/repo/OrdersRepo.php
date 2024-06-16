@@ -6,6 +6,7 @@ use App\service\impl\CartSvr;
 use App\service\ISingleton;
 use App\tools\Auth;
 use App\tools\Router;
+use Exception;
 use PDO;
 
 class OrdersRepo extends ModelRepo implements ISingleton

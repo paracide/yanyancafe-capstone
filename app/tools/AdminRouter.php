@@ -32,8 +32,6 @@ enum AdminRouter
      */
     public static function view(string $view, array $data): void
     {
-        global $post;
-        global $errors;
         global $logger;
         extract($data);
         logEvent($logger, LogUtils::getSuccessLog());
@@ -72,7 +70,6 @@ enum AdminRouter
       ?Exception $e = null,
       ?HttpStatus $httpStatus = HttpStatus::INTERNAL_SERVER_ERROR
     ): void {
-        global $logger;
         if ( ! empty($e)) {
             error_log($e->getMessage());
         }

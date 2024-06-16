@@ -12,7 +12,6 @@ use App\tools\FlashUtils;
 use App\tools\Preconditions;
 use Exception;
 
-const IMG_FILE_NAME = 'picture';
 
 Preconditions::checkAdminPostRequest();
 $menuId = $_POST['id'];

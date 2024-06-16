@@ -24,7 +24,7 @@ if (empty($adminPage)) {
         include "$adminPath/$adminPage.php";
     }
 } else {
-    AdminRouter::errorPage(null);
+    AdminRouter::errorPage();
 }
 
 
