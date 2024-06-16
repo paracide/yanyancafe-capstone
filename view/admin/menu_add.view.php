@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/components/Header.php';
+
 ?>
 
 <main class="flex flex-col gap-4">
