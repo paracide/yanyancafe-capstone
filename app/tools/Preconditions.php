@@ -35,7 +35,14 @@ class Preconditions
     public static function checkPostRequest(): void
     {
         if ('POST' !== $_SERVER['REQUEST_METHOD']) {
-            Router::error405();
+            Router::errorPage();
+        }
+    }
+
+    public static function checkAdminPostRequest(): void
+    {
+        if ('POST' !== $_SERVER['REQUEST_METHOD']) {
+            AdminRouter::errorPage();
         }
     }
 

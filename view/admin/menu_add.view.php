@@ -145,7 +145,7 @@ require_once __DIR__ . '/components/Header.php';
               <textarea class="textarea textarea-bordered w-full flex-1"
                         name="description"
                         placeholder="Description"><?= esc(
-                    $menu['description'] ?? ''
+                    $post['description'] ?? ''
                   ) ?></textarea>
             </div>
             <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
