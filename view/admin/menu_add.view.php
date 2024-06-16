@@ -33,7 +33,7 @@ require_once __DIR__ . '/components/Header.php';
             <label class="input input-bordered flex items-center gap-2">
               <span>Category</span>
               <select name="category_id"
-                      class="w-full appearance-none focus:outline-none">
+                      class="w-full bg-transparent appearance-none focus:outline-none">
                 <option disabled selected>Select Category</option>
                   <?php
                   foreach ($menuCat as $cat) : ?>
@@ -128,7 +128,7 @@ require_once __DIR__ . '/components/Header.php';
 
           <!-- File Upload -->
           <div class="max-w-lg w-full">
-            <div class="flex gap-3 justify-center">
+            <div class="flex gap-3 justify-center items-center">
               <span class="label-text">Picture</span>
               <input type="file" name="picture" accept="image/*"
                      class="file-input file-input-bordered file-input-secondary flex-1">
@@ -140,12 +140,14 @@ require_once __DIR__ . '/components/Header.php';
 
           <!-- Description -->
           <div class="max-w-lg w-full">
-            <textarea class="textarea textarea-bordered w-full max-w-lg"
-                      name="description"
-                      placeholder="Description">
-              <?= esc($post['description'] ?? '') ?>
-            </textarea>
-
+            <div class="flex gap-3 justify-center items-center">
+              <span class="label-text">Description</span>
+              <textarea class="textarea textarea-bordered w-full flex-1"
+                        name="description"
+                        placeholder="Description"><?= esc(
+                    $menu['description'] ?? ''
+                  ) ?></textarea>
+            </div>
             <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
                   $errors['description'] ?? ''
                 ) ?></span>
