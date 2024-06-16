@@ -94,6 +94,7 @@ enum AdminRouter
         var_dump($_REQUEST);
         var_dump($_POST);
         var_dump($_GET);
+        die();
         self::redirect($router, $status, $paramsString);
     }
 
