@@ -35,7 +35,7 @@ require_once __DIR__ . '/components/Header.php';
             <label class="input input-bordered flex items-center gap-2">
               <span>Category</span>
               <select name="category_id"
-                      class="w-full appearance-none focus:outline-none">
+                      class="w-full bg-transparent appearance-none focus:outline-none">
                 <option disabled selected>Select Category</option>
                   <?php
                   foreach ($menuCat as $cat) : ?>
@@ -154,9 +154,9 @@ require_once __DIR__ . '/components/Header.php';
               <span class="label-text">Description</span>
               <textarea class="textarea textarea-bordered w-full flex-1"
                         name="description"
-                        placeholder="Description">
-              <?= esc($menu['description'] ?? '') ?>
-            </textarea>
+                        placeholder="Description"><?= esc(
+                    $menu['description'] ?? ''
+                  ) ?></textarea>
             </div>
 
             <span class=" text-sm text-red-600 inline-block w-full"><?= esc(
