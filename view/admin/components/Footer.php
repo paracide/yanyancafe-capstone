@@ -1,5 +1,5 @@
 <footer
-  class="navbar flex items-center p-4 bottom-0">
+  class="navbar flex glass items-center p-4 bottom-0">
   <p class="text-xl">Copyright © 2024 - nightfae.com</p>
 </footer>
 

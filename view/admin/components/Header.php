@@ -26,7 +26,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css"
           rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="admin/global.css" rel="stylesheet">
+    <link href="/admin/global.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   </head>
@@ -34,7 +34,7 @@
     <!--Toast-->
     <header>
       <nav
-        class="navbar h-16 w-full fixed top-0 z-50">
+        class="navbar h-16 w-full glass fixed top-0 z-50">
         <div class="navbar-start">
           <a class="text-xl" href="/admin"><?= esc(
                 SITE_NAME
@@ -51,7 +51,8 @@
             <?php
             foreach ($links as $link => $text): ?>
               <a href="/admin?p=<?= esc($link) ?>"
-                 class="<?= ($link ===( $_GET['p']??'')) ? 'text-primary' : '' ?>"
+                 class="<?= ($link === ($_GET['p'] ?? '')) ? 'text-primary'
+                   : '' ?>"
                  title="Yanyan Dashboard <?= esc($text) ?>"><?= esc(
                     $text
                   ) ?></a>
