@@ -32,6 +32,9 @@ enum AdminRouter
      */
     public static function view(string $view, array $data): void
     {
+        //move remove these, otherwise the page can not touch these global array
+        global $post;
+        global $errors;
         global $logger;
         extract($data);
         logEvent($logger, LogUtils::getSuccessLog());
@@ -113,7 +116,11 @@ enum AdminRouter
             }, $errors);
             $_SESSION['errors'] = $resultError;
             $_SESSION['post']   = $_POST;
-            AdminRouter::fail($router, $param);
+            AdminRouter::fail(
+              $router,
+              HttpStatus::INTERNAL_SERVER_ERROR,
+              $param
+            );
         }
     }
 
