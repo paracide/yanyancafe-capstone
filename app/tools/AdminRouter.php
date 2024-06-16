@@ -6,7 +6,7 @@ use App\constant\HttpStatus;
 use Exception;
 
 /**
- * Router Utils, redirect to view or page using specific enum router
+ * Admin Router Utils, redirect to view or page using specific enum router
  */
 enum AdminRouter
 {
@@ -36,7 +36,7 @@ enum AdminRouter
         global $errors;
         global $logger;
         extract($data);
-        logEvent($logger, LogUtils::event200());
+        logEvent($logger, LogUtils::getSuccessLog());
         require_once __DIR__ . '/../../view/admin/' . $view
                      . '.view.php';
     }
@@ -54,7 +54,7 @@ enum AdminRouter
       ?string $paramsString = ''
     ): void {
         global $logger;
-        logEvent($logger, LogUtils::getEvent($status));
+        logEvent($logger, LogUtils::getLog($status));
         http_response_code($status->value);
         header("Location:/admin?p=$router->name$paramsString");
         die();
@@ -79,6 +79,15 @@ enum AdminRouter
         self::fail(self::error, $httpStatus);
     }
 
+    /**
+     * redirect to page with error status
+     *
+     * @param   \App\tools\AdminRouter         $router
+     * @param   \App\constant\HttpStatus|null  $status
+     * @param   string|null                    $paramsString
+     *
+     * @return void
+     */
     public static function fail(
       AdminRouter $router,
       ?HttpStatus $status = HttpStatus::INTERNAL_SERVER_ERROR,
@@ -87,6 +96,15 @@ enum AdminRouter
         self::redirect($router, $status, $paramsString);
     }
 
+    /**
+     * redirect to page with error status, mostly used for form submit
+     *
+     * @param   array                   $errors
+     * @param   \App\tools\AdminRouter  $router
+     * @param   string|null             $param
+     *
+     * @return void
+     */
     public static function checkFormError(
       array $errors,
       AdminRouter $router,

@@ -2,8 +2,8 @@
 
 namespace App\repo;
 
-use App\service\ISingleton;
 use App\service\impl\CartSvr;
+use App\service\ISingleton;
 use App\tools\Auth;
 use App\tools\Router;
 
@@ -51,6 +51,7 @@ class OrdersRepo extends ModelRepo implements ISingleton
             return 0;
         }
 
+        // Start transaction, add order and order detail
         try {
             parent::$conn->beginTransaction();
 
@@ -83,6 +84,15 @@ class OrdersRepo extends ModelRepo implements ISingleton
         return 0;
     }
 
+    /**
+     * Add order only, dont contain order detail.
+     *
+     * @param   int     $userId
+     * @param   float   $price
+     * @param   string  $cardNo
+     *
+     * @return int
+     */
     private function addOrder(int $userId, float $price, string $cardNo): int
     {
         $query = 'INSERT INTO orders
@@ -121,6 +131,11 @@ class OrdersRepo extends ModelRepo implements ISingleton
         return $stmt->fetchAll();
     }
 
+    /**
+     * Search all the orders
+     *
+     * @return array
+     */
     public function searchAll(): array
     {
         $query = "SELECT o.*,

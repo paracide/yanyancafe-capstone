@@ -33,6 +33,7 @@ class FileRepo extends ModelRepo implements ISingleton
     }
 
     /**
+     * save file according to the file path
      * @throws \Exception
      */
     public function addByPath(string $path, string $relativePath): int
@@ -51,6 +52,10 @@ class FileRepo extends ModelRepo implements ISingleton
         return $this->add($params);
     }
 
+    /**
+     * save the file
+     * @throws \Exception
+     */
     public function add(array $data): int
     {
         $query = 'INSERT INTO file

@@ -4,6 +4,9 @@ namespace App\repo;
 
 use App\tools\Preconditions;
 
+/**
+ * Model repository which need get all data, get data by id, and count data
+ */
 abstract class ModelRepo extends Repo
 {
 

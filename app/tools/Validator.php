@@ -154,6 +154,14 @@ class Validator
         }
     }
 
+    /**
+     * check image, image should be in the format
+     *
+     * @param   string  $fileName  the file name in $_FILES, in other words,
+     *                             the file name form the form
+     *
+     * @return array image info
+     */
     public function checkImg(string $fileName): array
     {
         $imageInfo = Verifier::isImage($fileName);
@@ -164,6 +172,15 @@ class Validator
         return $imageInfo;
     }
 
+    /**
+     * check number, optional with min and max
+     * @param   string      $v
+     * @param   string      $field
+     * @param   float|null  $min
+     * @param   float|null  $max
+     *
+     * @return void
+     */
     public function checkNum(
       string $v,
       string $field,

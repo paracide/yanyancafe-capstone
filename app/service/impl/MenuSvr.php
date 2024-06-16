@@ -5,9 +5,19 @@ namespace App\service\impl;
 use App\constant\Constant;
 use App\tools\Validator;
 
+/**
+ * MenuSvr
+ */
 class MenuSvr
 {
 
+    /**
+     * Validate menu form for add or update
+     *
+     * @param bool|null $isAdd
+     *
+     * @return array errors
+     */
     public static function validateModifyForm(?bool $isAdd = false): array
     {
         $require       = [
@@ -36,6 +46,11 @@ class MenuSvr
         return $validator->getError();
     }
 
+    /**
+     * Prepare data for menu add or update
+     *
+     * @return array
+     */
     public static function prepareData(): array
     {
         $available = ($_POST['availability'] ?? '') === 'on' ? 1 : 0;

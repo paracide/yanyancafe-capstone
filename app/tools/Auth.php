@@ -40,6 +40,8 @@ class Auth
     }
 
     /**
+     * check if user is admin
+     * if not redirect to login page
      * @throws \Exception
      */
     public static function checkAdmin(): void
@@ -112,6 +114,13 @@ class Auth
         return $user;
     }
 
+    /**
+     * redirect to login page with error message when login failed
+     * @param   array   $error
+     * @param   string  $msg
+     *
+     * @return void
+     */
     public static function loginFail(array $error, string $msg): void
     {
         $_SESSION['errors'] = $error;

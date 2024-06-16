@@ -11,6 +11,7 @@ use App\tools\FlashUtils;
 use App\tools\Preconditions;
 
 Preconditions::checkPostRequest();
+//check form error
 AdminRouter::checkFormError(
   MenuSvr::validateModifyForm(true),
   AdminRouter::menu_add
@@ -19,6 +20,7 @@ AdminRouter::checkFormError(
 //prepare data
 $data = MenuSvr::prepareData();
 
+//save menu
 $menuRepo->newMenu($data, $_FILES[Constant::MENU_FORM_FILE]);
 FlashUtils::success("Menu added successfully");
 AdminRouter::success(AdminRouter::menu);

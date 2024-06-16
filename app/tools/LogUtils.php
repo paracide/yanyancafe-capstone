@@ -7,12 +7,24 @@ use App\constant\HttpStatus;
 class LogUtils
 {
 
-    public static function event200(): string
+    /**
+     * get success event log string
+     *
+     * @return string
+     */
+    public static function getSuccessLog(): string
     {
-        return self::getEvent();
+        return self::getLog();
     }
 
-    public static function getEvent(
+    /**
+     * get event log string
+     *
+     * @param   \App\constant\HttpStatus|null  $status
+     *
+     * @return string
+     */
+    public static function getLog(
       ?HttpStatus $status = HttpStatus::SUCCESS
     ): string {
         date_default_timezone_set('America/Winnipeg');

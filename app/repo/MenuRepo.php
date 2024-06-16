@@ -2,8 +2,8 @@
 
 namespace App\repo;
 
-use App\service\ISingleton;
 use App\service\impl\FileSvr;
+use App\service\ISingleton;
 use App\tools\AdminRouter;
 use App\tools\Preconditions;
 
@@ -87,6 +87,8 @@ class MenuRepo extends ModelRepo implements ISingleton
     }
 
     /**
+     * delete menu by id
+     *
      * @param $id
      *
      * @return void
@@ -101,6 +103,15 @@ class MenuRepo extends ModelRepo implements ISingleton
         $stmt->execute();
     }
 
+    /**
+     * add new menu with transaction
+     *
+     * @param   array  $array
+     * @param   array  $file
+     *
+     * @return void
+     * @throws \Exception
+     */
     public function newMenu(
       array $array,
       array $file,
@@ -117,6 +128,11 @@ class MenuRepo extends ModelRepo implements ISingleton
         }
     }
 
+    /**
+     * save the menu
+     *
+     * @throws \Exception
+     */
     public function add(array $data): int
     {
         $query = 'INSERT INTO menu
@@ -144,6 +160,7 @@ class MenuRepo extends ModelRepo implements ISingleton
     }
 
     /**
+     * update the menu
      * @throws \Exception
      */
     public function update(array $data): bool
@@ -153,6 +170,7 @@ class MenuRepo extends ModelRepo implements ISingleton
         $params = [];
         $fields = [];
 
+        // build query, only update the fields that are not empty
         foreach ($data as $key => $value) {
             if ($key !== 'id') {
                 $fields[] = "{$key} = :{$key}";

@@ -79,6 +79,12 @@ class Verifier
         return (bool)preg_match($namePattern, $name);
     }
 
+    /**
+     * check image file and return image info
+     * @param   string  $fileNameFromRequest the file name in $_FILES
+     *
+     * @return array
+     */
     public static function isImage(string $fileNameFromRequest): array
     {
         $picture = $_FILES[$fileNameFromRequest];

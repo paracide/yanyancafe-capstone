@@ -31,6 +31,10 @@ class CategoryRepo extends ModelRepo implements ISingleton
         return self::$instance;
     }
 
+    /**
+     * Get all category of menu
+     * @return array
+     */
     public function searchMenuCat(): array
     {
         $query = "select *

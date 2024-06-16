@@ -15,16 +15,20 @@ const IMG_FILE_NAME = 'picture';
 
 Preconditions::checkPostRequest();
 $menuId = $_POST['id'];
+//check form error
 Preconditions::checkEmpty($menuRepo->getById($menuId));
 AdminRouter::checkFormError(
   MenuSvr::validateModifyForm(),
   AdminRouter::menu_add,
   "&menu_id=$menuId"
 );
+//prepare data
 $menuData = MenuSvr::prepareData();
 
+//edit menu with transaction
 try {
     $conn->beginTransaction();
+    //save new file if exist
     $img = $_FILES[Constant::MENU_FORM_FILE];
     if ($img['size']) {
         $menuData['img_file_id'] = FileSvr::saveMenuFile($img);
